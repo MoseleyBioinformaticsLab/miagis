@@ -1,0 +1,13 @@
+*.pyc
+docs/_build
+venv/*
+data/*
+.DS_Store
+.ipynb_checkpoints
+.idea
+*.egg-info
+.pytest_cache
+build/
+dist/
+coverage.xml
+.coverage
