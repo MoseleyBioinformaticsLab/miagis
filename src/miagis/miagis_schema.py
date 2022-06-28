@@ -30,6 +30,33 @@ geojson_schema = {
                 "geometry":{"type":["null", "object"]}},
             "required":["type", "properties", "geometry"]}}}
 
+geojson_feature_schema = {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    
+    "type":"object",
+    "properties":{
+        "type":{"type":"string", "enum":["Feature"]},
+        "properties":{"type":["object", "null"]},
+        "geometry":{"type":["null", "object"]}},
+    "required":["type", "properties", "geometry"]
+    }
+
+geojson_collection_schema = {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    
+    "type":"object",
+    "properties":{
+        "type":{"type":"string", "enum":["FeatureCollection"]},
+        "features":{"type":"array", 
+                    "items":{"type":"object",
+                             "properties":{
+                                 "type":{"type":"string", "enum":["Feature"]},
+                                 "properties":{"type":["object", "null"]},
+                                 "geometry":{"type":["null", "object"]}},
+                             "required":["type", "properties", "geometry"]}}},
+    "required":["type", "features"],
+    }
+
 ## This is an abbreviated schema that should be enough to check if the JSON is the format we are looking for.
 arcgis_schema = {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
@@ -159,7 +186,34 @@ for base_key in base_metadata_dict:
 
 
 
-
+schema_list_schema = {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "JSON Schemas List",
+    
+    "type":"array",
+    "items":{"type":"object",
+             "properties":{
+                 "style":{"type":"string", "enum":["testing", "mapping"]},
+                 "schema":{"type":"object"},
+                 "schema_URL":{"type":"string", "minLength":1},
+                 
+                 "field_path":{"type":"string", "minLength":1},
+                 "name_key":{"type":"string", "minLength":1},
+                 "type_key":{"type":"string", "minLength":1},
+                 "type_map":{"type":"object", "minProperties":1},
+                 
+                 "features_path":{"type":"string"},
+                 "properties_key":{"type":"string", "minLength":1}},
+             "required":["schema", "style"],
+             "allOF":[
+                 {"if":{"properties":{"style":{"const":"mapping"}}},
+                 "then":{"required":["field_path", "name_key", "type_key", "type_map"]},},
+                 {"if":{"properties":{"style":{"const":"testing"}}},
+                 "then":{"required":["features_path", "properties_key"]}}
+                 ]
+             }
+    
+    }
 
 
 

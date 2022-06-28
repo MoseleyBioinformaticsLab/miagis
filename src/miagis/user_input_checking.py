@@ -40,6 +40,19 @@ def load_json(filepath):
 
 
 def read_in_file_properties(file_properties_path, exact_matching):
+    """Read in file_properties and put it in expected dict form.
+    
+    file_properties can be csv, xlsx, or JSON, so if it is one of the tabular 
+    forms some of the fields have to be read in special.
+    
+    Args:
+        file_properties_path (str): filepath to the file_properties file.
+        exact_matching (bool): if True file names will not be modified. 
+                               if False file names are stripped, lowered, and spaces replaced with underscores.
+    
+    Returns:
+        file_properties (dict): the final dictionary of file_properties.
+    """
     
     if file_properties_path == None:
         return {}
@@ -54,7 +67,10 @@ def read_in_file_properties(file_properties_path, exact_matching):
     elif extension == "xlsx":
         file_properties_df = pandas.read_excel(file_properties_path, dtype=str)
     elif extension == "json":
-        return load_json(file_properties_path)
+        file_properties = load_json(file_properties_path)
+        if not exact_matching:
+            file_properties = {key.strip().lower().replace(" ", "_"):value for key, value in file_properties.items()}
+        return file_properties
     else:
         print("Error: Unknown file type for --file_properties.")
         sys.exit()
@@ -98,6 +114,18 @@ def read_in_file_properties(file_properties_path, exact_matching):
 
 
 def validate_arbitrary_schema(dict_to_validate, schema):
+    """Validate any arbitrary JSON Schema.
+    
+    Wraps around jsonschema.validate() to give more human readable errors 
+    for most validation errors.
+    
+    Args:
+        dict_to_validate (dict): instance to validate.
+        schema (dict): JSON Schema to validate the instance with.
+        
+    Raises:
+        jsonschema.ValidationError: any validation errors that aren't handled reraise the original.
+    """
         
     try:
         jsonschema.validate(dict_to_validate, schema)
@@ -106,7 +134,9 @@ def validate_arbitrary_schema(dict_to_validate, schema):
         message = "ValidationError: An error was found in the " + schema["title"] + ".\n"
         custom_message = ""
         
-        if e.validator == "minLength":
+        if e.validator == "minProperties":
+            message += "The entry " + "[%s]" % "][".join(repr(index) for index in e.relative_path) + " cannot be empty."
+        elif e.validator == "minLength":
             custom_message = " cannot be an empty string."
         elif e.validator == "maxLength":
             custom_message = " is too long."
@@ -140,7 +170,16 @@ def validate_arbitrary_schema(dict_to_validate, schema):
 
 
 def additional_args_checks(args):
-    file_path_properties = ["--file_properties", "--base_metadata", "<metadata_json>"]
+    """Run some checks on args that jsonschema can't do.
+    
+    This assumes that args has been validated with a JSON schema and does some 
+    further checking to make sure the values entered by the user make sense. 
+    Prints a message and exits the program if problems are found.
+    
+    Args:
+        args (dict): the arguments entered into the program by the user.
+    """
+    file_path_properties = ["--file_properties", "--base_metadata", "--json_schemas", "<metadata_json>"]
     for path in file_path_properties:
         if args[path] and not pathlib.Path(args[path]).exists():
             print("Error: The value entered for " + path + " is not a valid file path or does not exist.")
@@ -156,3 +195,26 @@ def additional_args_checks(args):
     if entry_version < 1:
         print("Error: The value entered for --entry_version is less than 1.")
         sys.exit()
+        
+
+def additional_json_schemas_checks(schema_list):
+    """Check that all input schemas are valid JSON Schema.
+    
+    If any schema are not valid JSON Schema then print a message and exit.
+    
+    Args:
+        schema_list (list): list of dictionaries of properties for JSON schemas.
+    """
+    
+    ## Check that each schema is valid jsonschema.
+    for i, format_properties in enumerate(schema_list):
+        schema = format_properties["schema"]
+        validator = jsonschema.validators.validator_for(schema)
+        try:
+            validator.check_schema(schema)
+        except jsonschema.ValidationError:
+            print("Error: The schema for index " + str(i) + " in the input JSON schema list is not valid JSON Schema.")
+            sys.exit()
+    
+    
+    

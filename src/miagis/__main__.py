@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 """
- miagis.py
     For the current directory go through all files and folders and build a GIS metadata file.
     The output is saved as GIS_METADATA.json in the current directory and will overwrite without warning.
     
@@ -24,12 +23,12 @@
     to metadata[products][layers]. The same for maps in "map_data". 
     
     The standard example run:
-        miagis.py build --remove_optional_fields --file_properties <filepath> --base_metadata <filepath>
+        miagis build --remove_optional_fields --file_properties <filepath> --base_metadata <filepath>
     
  
  Usage:
-    miagis.py build [options]
-    miagis.py validate <metadata_json>
+    miagis build [options]
+    miagis validate <metadata_json>
 
     <metadata_json> - metadata file to validate.
 
@@ -42,6 +41,7 @@
     --entry_id=<id>                     Set the entry_id field for the metadata.
     --description=<description>         Set the description field for the metadata
     --base_metadata=<file_path>         Filepath to a JSON file with the base metadata fields to use.
+    --json_schemas=<file_path>          Filepath to a JSON file with schemas for different JSON formats.
 """
 
 ## TODO generalize to accept other JSON schemas.
@@ -69,6 +69,14 @@ def main():
     base_metadata_dict = miagis_schema.base_metadata_dict
     
     if args["build"]:
+        
+        if args["--json_schemas"]:
+            schema_list = user_input_checking.load_json(args["--json_schemas"])
+            user_input_checking.validate_arbitrary_schema(schema_list, miagis_schema.schema_list_schema)
+            user_input_checking.additional_json_schemas_checks(schema_list)
+        else:
+            schema_list = []
+        
         if args["--base_metadata"]:
             base_metadata = user_input_checking.load_json(args["--base_metadata"])
             user_input_checking.validate_arbitrary_schema(base_metadata, miagis_schema.base_schema)
@@ -83,7 +91,7 @@ def main():
         
         build.build(args["--file_properties"], args["--exact_name_match"], args["--remove_optional_fields"], 
               int(base_metadata_dict["entry_version"]), base_metadata_dict["entry_id"], 
-              base_metadata_dict["description"], base_metadata_dict["products"])
+              base_metadata_dict["description"], base_metadata_dict["products"], schema_list)
     elif args["validate"]:
         validate.validate(user_input_checking.load_json(args["<metadata_json>"]))
     else:

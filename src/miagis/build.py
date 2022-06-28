@@ -17,12 +17,39 @@ from . import miagis_schema
 from . import user_input_checking
 
 
-def build(file_properties_path, exact_matching, remove_optional_fields, entry_version, entry_id, base_description, products):
+def build(file_properties_path, exact_matching, remove_optional_fields, entry_version, entry_id, base_description, products, schema_list = []):
+    """Build a metadata file from the input settings in the current directory.
+    
+    Loop over files in the folders of the current directory, ignoring files in 
+    the top level of the current directory, and fill in what information can be 
+    about the file in the metadata. If file_properties are provided then files 
+    are matched to those in file_properties and more information is able to be 
+    automatically put into the metadata. 
+    
+    Args:
+        file_properties_path (str): filepath to a file containing file properties.
+        exact_matching (bool): if True file names are matched exactly. if False names are modified and matched fuzzy.
+        remove_optional_fields (bool): if True optional metadata fields that are empty or null are removed.
+        entry_version (int): version number of the metadata.
+        entry_id (str): unique id for the metadata.
+        base_description (str): description of the metadata.
+        products (dict): a dictionary of "maps", "layers", and "others" that indicates which files belong in these categories.
+        schema_list (list): a list of dicitonaries with information about how to detect if a JSON file is using that schema, and how to decode that schema to fill in the metadata.
+    """
     directory = pathlib.Path.cwd()
     
     arcgis_type_map = {"esriFieldTypeOID":"int", "esriFieldTypeString":"str", "esriFieldTypeInteger":"int", 
                        "esriFieldTypeSmallInteger":"int", "esriFieldTypeSingle":"float", "esriFieldTypeDouble":"float",
                        "esriFieldTypeSmallInteger":"int", "esriFieldTypeDate":"int", "typeIdField":"string"}
+    
+    ## Add gejson and acrgis json to schema's to look for.
+    schema_list.append({"style":"mapping", "schema":miagis_schema.arcgis_schema, 
+                    "field_path":'["layers"][0]["layerDefinition"]["fields"]', 
+                    "name_key":"name", "type_key":"type", "type_map":arcgis_type_map})
+    schema_list.append({"style":"testing", "schema":miagis_schema.geojson_feature_schema, 
+                        "features_path":"", "properties_key":"properties", "schema_URL":"https://datatracker.ietf.org/doc/html/rfc7946"})
+    schema_list.append({"style":"testing", "schema":miagis_schema.geojson_collection_schema, 
+                        "features_path":'["features"]', "properties_key":"properties", "schema_URL":"https://datatracker.ietf.org/doc/html/rfc7946"})
     
     metadata = {
       "format_version" : "DRAFT_MIAGIS_VERSION_0.1", 
@@ -118,82 +145,12 @@ def build(file_properties_path, exact_matching, remove_optional_fields, entry_ve
                 else:
                     input_json = user_input_checking.load_json(path_to_read_file)
                     
-                    ## If it isn't geojson or esrijson continue.
-                    json_type = ""
-                    try:
-                        jsonschema.validate(input_json, miagis_schema.geojson_schema)
-                        json_type = "geojson"
-                    except jsonschema.ValidationError:                
-                        try:
-                            jsonschema.validate(input_json, miagis_schema.arcgis_schema)
-                            json_type = "esrijson"
-                        except jsonschema.ValidationError:
-                            continue
+                    json_fields, schema = determine_json_fields(schema_list, input_json, path_to_read_file)
                     
-                    if json_type == "geojson":
-                        metadata["files"][relative_location]["schema"] = "https://datatracker.ietf.org/doc/html/rfc7946"
+                    if schema:
+                        metadata["files"][relative_location]["schema"] = schema
                         
-                        json_fields = {}
-                        if input_json["type"] == "Feature":
-                            if input_json["properties"]:
-                                for key, value in input_json["properties"].items():
-                                    value_type = type(value)
-                                    if value_type == int:
-                                        str_type = "int"
-                                    elif value_type == float:
-                                        str_type = "float"
-                                    elif value_type == str:
-                                        str_type = "str"
-                                    elif value is None:
-                                        str_type = "None"
-                                    else:
-                                        str_type = str(value_type)
-                                    
-                                    json_fields[key] = {"name":key, "type":str_type}
-                        
-                        elif input_json["type"] == "FeatureCollection":
-                            for feature in input_json["features"]:
-                                if feature["properties"]:
-                                    for key, value in feature["properties"].items():
-                                        value_type = type(value)
-                                        if value_type == int:
-                                            str_type = "int"
-                                        elif value_type == float:
-                                            str_type = "float"
-                                        elif value_type == str:
-                                            str_type = "str"
-                                        elif value is None:
-                                            str_type = "None"
-                                        else:
-                                            str_type = str(value_type)
-                                            
-                                        if key in json_fields and json_fields[key]["type"] != "None":
-                                            continue
-                                        else:
-                                            json_fields[key] = {"name":key, "type":str_type}
-                        
-                        ## Remove any fields without a type.
-                        fields_to_delete = []
-                        for field_name, field_properties in json_fields.items():
-                            if field_properties["type"] == "None":
-                                fields_to_delete.append(field_name)
-                                
-                        for field_name in fields_to_delete:
-                            del json_fields[field_name]
-                            
-                                            
-                        metadata["files"][relative_location]["fields"] = json_fields
-                    
-                    elif json_type == "esrijson":
-                        json_fields = {}
-                        fields = input_json["layers"][0]["layerDefinition"]["fields"]
-                        for field in fields:
-                            if field["type"] in arcgis_type_map:
-                                json_fields[field["name"]] = {"name":field["name"], "type":arcgis_type_map[field["type"]]}
-                            else:
-                                json_fields[field["name"]] = {"name":field["name"], "type":"UNKNOWN"}
-                                
-                        metadata["files"][relative_location]["fields"] = json_fields
+                    metadata["files"][relative_location]["fields"] = json_fields
             
             else:
                 continue
@@ -254,7 +211,25 @@ def build(file_properties_path, exact_matching, remove_optional_fields, entry_ve
 
 def find_file_properties(file_properties, file_properties_keys, exact_matching, 
                          filename_minus_extension, relative_location):
-    """"""
+    """Match filename to an entry in file_properties and pull out properties.
+    
+    The point of this function is to find the match in file_prperties and format 
+    all of the information so it can be easily added to metadata without more logic 
+    after returning from this function.
+    
+    Args:
+        file_properties (dict): dictionary where the keys are filenames and values are properties of the file to go in the metadata.
+        file_properties_keys (list): list of the file_properties_keys, it is given as an input so the list isn't created every time the function runs.
+        exact_matching (bool): if True filename is matched as is, if False the filename is stripped, lowered, and spaces replaced with underscores before matching
+        filename_mins_extension (str): the filename to match with the extension removed.
+        relative_location (str): location of the file relative to the current directory, input here so it can be added to alternate_locations.
+        
+    Returns:
+        current_file_properties (dict): the properties of the matched filename from file_properties.
+        geographical_area (str): if geographical_area is in file_properties return it, else return ""
+        alternate_locations (list): if alternate_locations is in file_properties return it, else return an empty list, but always add the relative_location to the list
+        matched_filename (str): the filename in file_proeprties that was matched to filename_minus_extension.
+    """
     
     current_file_properties = {}
     matched_filename = ""
@@ -294,7 +269,15 @@ def find_file_properties(file_properties, file_properties_keys, exact_matching,
 
 
 def determine_table_fields(extension, path_to_read_file):
-    """"""
+    """Read in the tabular file and determine the names and types of the columns.
+    
+    Args:
+        extension (str): the extension of the file without the period, used to read in the file correctly.
+        path_to_read_file (pathlib.Path): filepath to read in the file from.
+        
+    Returns:
+        fields (dict): keys are the field name or column number and values are the name, type, and column number for each field. Ex: field_name : {"name":field_name, "type":field_type, "identifier":column_number+1, "identifier%type":"column"}
+    """
     
     if extension == "csv":
         df = pandas.read_csv(path_to_read_file, encoding_errors="ignore")
@@ -342,7 +325,42 @@ def determine_table_fields(extension, path_to_read_file):
 
 
 def determine_json_fields(schema_list, input_json, file_path):
-    """"""
+    """Determine the types of the feature properties in the JSON file.
+    
+    Based on the ESRIJSON and GEOJSON formats there are 2 types of schema styles, 
+    mapping and testing. The mapping style has types already identified with the 
+    properties in the JSON, but the types are not the same as those defined in the 
+    MIAGIS schema, so a mapping between the types is necessary. This style's dict 
+    entry looks like:
+        {"style":"mapping", "schema":valid_jsonschema, "field_path":path_to_fields, 
+         "name_key":key_to_name, "type_key":key_to_type, "type_map":type_mapping}
+    
+    Actual ESRIJSON example:
+        {"style":"mapping", "schema":miagis_schema.arcgis_schema, 
+         "field_path":'["layers"][0]["layerDefinition"]["fields"]', 
+         "name_key":"name", "type_key":"type", "type_map":arcgis_type_map}
+    
+    The testing style doesn't have types listed directly in the JSON so each field's 
+    type must be tested. This style's dict entry looks like:
+        {"style":"testing", "schema":valid_jsonschema, 
+         "features_path":path_to_features, "properties_key":key_to_properties}
+        
+    Actual GEOJSON example:
+        {"style":"testing", "schema":miagis_schema.geojson_feature_schema, 
+         "features_path":"", "properties_key":"properties", "schema_URL":"https://datatracker.ietf.org/doc/html/rfc7946"}
+        
+    Note that the features_path is assumed to lead to a dict or list, and will 
+    print a warning if does is not.
+        
+    Args:
+        schema_list (list): list of dictionaries where each dictionary describes a schema to look for and how to determine field types.
+        input_json (dict): the JSON to determine field types for.
+        file_path (str): path to the JSON file, used for printing error messages.
+        
+    Returns:
+        json_fields (dict): a dictionary of the fields and their types. Ex field_name : {"name":field_name, "type":field_type}
+        schema (dict or str): if "schema_URL" is in the schema dictionary then this is returned, otherwise return the jsonschema.
+    """
     
     schema_properties = {}
     schema_index = 0
@@ -417,6 +435,16 @@ def determine_json_fields(schema_list, input_json, file_path):
                   str(schema_index) + " does not work for file " + file_path 
                   + ". It will have empty \"fields\" in the output.")
             return {}, schema
+        
+        if type(features) != list or type(features) != dict:
+            print("Warning: The \"features_path\" for the json format schema at index " + 
+                  str(schema_index) + " does not lead to the appropriate type (list or dict) for file " + file_path 
+                  + ". It will have empty \"fields\" in the output.")
+            return {}, schema
+        
+        ## In the case where there is only a single feature we make the dictionary become a list with that dictionary inside it.
+        if type(features) == dict:
+            features = [features]
         
         properties_key = schema_properties["properties_key"]
         

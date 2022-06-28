@@ -10,6 +10,17 @@ import jsonschema
 from . import miagis_schema
 
 def validate(metadata):
+    """Validate input metadata against the MIAGIS schema.
+    
+    Use jsonschema to validate input metadata, and then do some additional checking 
+    that jsonschema alone cannot, such as checking that all layers for each map 
+    exist in the layers section.
+    
+    The specific JSON schema used is the metadata_schema in the miagis_schema module.
+    
+    Args:
+        metadata (dict): input dictionary of metadata.
+    """
     validator = jsonschema.Draft202012Validator(miagis_schema.metadata_schema)
     errors_generator = validator.iter_errors(metadata)
     

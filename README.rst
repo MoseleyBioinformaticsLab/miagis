@@ -92,30 +92,27 @@ Upgrade on Windows
 
 Quickstart
 ~~~~~~~~~~
-Academic Tracker has several commands and options. The simplest most common use 
-case is simply:
+First create a directory with directories for "layer_data" and "map_data" as necessary. 
+Then run the "build" command.
+
+MIAGIS has many options. The simplest use case is simply:
 
 .. code:: bash
     
-    academic_tracker author_search config_file.json
+    miagis build
 
-Academic Tracker's behavior can be quite complex though, so it is highly encouraged 
-to read the `guide <https://moseleybioinformaticslab.github.io/academic_tracker/guide.html>`_ 
-and `tutorial <https://moseleybioinformaticslab.github.io/academic_tracker/tutorial.html>`_.
+Although this will run and generate a metadata file MIAGIS can do a lot more by 
+using some of the simplest options. A more common use case is:
+
+.. code:: bash
+    
+    miagis build --remove_optional_fields --file_properties <filepath> --base_metadata <filepath>
+    
 
 
-Creating The Configuration JSON
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-A configuration JSON file is required to run Academic Tracker, but initially creating 
-it the first time can be burdensome. Unfortunately, there is no easy solution for 
-this. It is encouraged to read the configuration JSON section in `jsonschema <https://moseleybioinformaticslab.github.io/academic_tracker/jsonschema.html>`_ 
-and use the example there to create it initially. The add_authors command can help 
-with building the Authors section if you already have a csv file with author 
-information. A good tool to help track down pesky JSON syntax errors is `here <https://csvjson.com/json_validator>`__. 
-There are also examples in the `example_configs <https://github.com/MoseleyBioinformaticsLab/academic_tracker/tree/main/example_configs>`__ 
-directory of the GitHub repo. There are also more example in the supplemental 
-material of the paper https://doi.org/10.6084/m9.figshare.19412165.
-
+MIAGIS's behavior can be quite complex though, so it is highly encouraged 
+to read the `guide <https://moseleybioinformaticslab.github.io/miagis/guide.html>`_ 
+and `tutorial <https://moseleybioinformaticslab.github.io/miagis/tutorial.html>`_.
 
 
           
