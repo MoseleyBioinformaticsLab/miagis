@@ -39,76 +39,76 @@ def load_json(filepath):
 
 
 
-def read_in_file_properties(file_properties_path, exact_matching):
-    """Read in file_properties and put it in expected dict form.
+def read_in_resource_properties(resource_properties_path, exact_matching):
+    """Read in resource_properties and put it in expected dict form.
     
-    file_properties can be csv, xlsx, or JSON, so if it is one of the tabular 
+    resource_properties can be csv, xlsx, or JSON, so if it is one of the tabular 
     forms some of the fields have to be read in special.
     
     Args:
-        file_properties_path (str): filepath to the file_properties file.
+        resource_properties_path (str): filepath to the resource_properties file.
         exact_matching (bool): if True file names will not be modified. 
                                if False file names are stripped, lowered, and spaces replaced with underscores.
     
     Returns:
-        file_properties (dict): the final dictionary of file_properties.
+        resource_properties (dict): the final dictionary of resource_properties.
     """
     
-    if file_properties_path == None:
+    if resource_properties_path == None:
         return {}
     
-    if not pathlib.Path(file_properties_path).exists():
-        print("No such file: " + file_properties_path)
+    if not pathlib.Path(resource_properties_path).exists():
+        print("No such file: " + resource_properties_path)
         sys.exit()
     
-    extension = pathlib.Path(file_properties_path).suffix[1:].lower()
+    extension = pathlib.Path(resource_properties_path).suffix[1:].lower()
     if extension == "csv":
-        file_properties_df = pandas.read_csv(file_properties_path, dtype=str)
+        resource_properties_df = pandas.read_csv(resource_properties_path, dtype=str)
     elif extension == "xlsx":
-        file_properties_df = pandas.read_excel(file_properties_path, dtype=str)
+        resource_properties_df = pandas.read_excel(resource_properties_path, dtype=str)
     elif extension == "json":
-        file_properties = load_json(file_properties_path)
+        resource_properties = load_json(resource_properties_path)
         if not exact_matching:
-            file_properties = {key.strip().lower().replace(" ", "_"):value for key, value in file_properties.items()}
-        return file_properties
+            resource_properties = {key.strip().lower().replace(" ", "_"):value for key, value in resource_properties.items()}
+        return resource_properties
     else:
-        print("Error: Unknown file type for --file_properties.")
+        print("Error: Unknown file type for --resource_properties.")
         sys.exit()
     
-    if not "file_name" in file_properties_df.columns:
-        print("Error: The file input for --file_properties does not have a file_name column.")
+    if not "file_name" in resource_properties_df.columns:
+        print("Error: The file input for --resource_properties does not have a file_name column.")
         sys.exit()
     
-    file_properties_df = file_properties_df.fillna("")
+    resource_properties_df = resource_properties_df.fillna("")
     
     if not exact_matching:
-        file_properties_df.loc[:, "file_name"] = file_properties_df.loc[:, "file_name"].str.strip()
-        file_properties_df.loc[:, "file_name"] = file_properties_df.loc[:, "file_name"].str.lower()
-        file_properties_df.loc[:, "file_name"] = file_properties_df.loc[:, "file_name"].str.replace(" ", "_")
+        resource_properties_df.loc[:, "file_name"] = resource_properties_df.loc[:, "file_name"].str.strip()
+        resource_properties_df.loc[:, "file_name"] = resource_properties_df.loc[:, "file_name"].str.lower()
+        resource_properties_df.loc[:, "file_name"] = resource_properties_df.loc[:, "file_name"].str.replace(" ", "_")
     
-    if "alternate_locations" in file_properties_df:
-        file_properties_df.loc[:, "alternate_locations"] = file_properties_df.loc[:, "alternate_locations"].str.strip()
+    if "alternate_locations" in resource_properties_df:
+        resource_properties_df.loc[:, "alternate_locations"] = resource_properties_df.loc[:, "alternate_locations"].str.strip()
     
-    file_properties_df = file_properties_df.drop_duplicates()
-    file_properties_df = file_properties_df.set_index("file_name", drop=True)
+    resource_properties_df = resource_properties_df.drop_duplicates()
+    resource_properties_df = resource_properties_df.set_index("file_name", drop=True)
     
-    file_properties = file_properties_df.to_dict(orient="index")
-    for file_name, properties in file_properties.items():
-        if "alternate_locations" in file_properties_df.columns:
-            file_properties[file_name]["alternate_locations"] = [location.strip() for location in properties["alternate_locations"].split(",") if location.strip()]
+    resource_properties = resource_properties_df.to_dict(orient="index")
+    for file_name, properties in resource_properties.items():
+        if "alternate_locations" in resource_properties_df.columns:
+            resource_properties[file_name]["alternate_locations"] = [location.strip() for location in properties["alternate_locations"].split(",") if location.strip()]
             
-        if "sources" in file_properties_df.columns and "source_types" in file_properties_df.columns:
+        if "sources" in resource_properties_df.columns and "source_types" in resource_properties_df.columns:
             sources = [source.strip() for source in properties["sources"].split(",")]
             source_types = [source_type.strip() for source_type in properties["source_types"].split(",")]
             if len(sources) == len(source_types):
-                file_properties[file_name]["sources"] = [{"source":sources[i], "type":source_types[i]} for i in range(len(sources))]
+                resource_properties[file_name]["sources"] = [{"source":sources[i], "type":source_types[i]} for i in range(len(sources))]
             else:
-                print("Warning: Not every source in \"sources\" has a \"source_types\" for " + file_name + " in the --file_properties file.")
+                print("Warning: Not every source in \"sources\" has a \"source_types\" for " + file_name + " in the --resource_properties file.")
             
-            del[file_properties[file_name]["source_types"]]
+            del[resource_properties[file_name]["source_types"]]
     
     
-    return file_properties
+    return resource_properties
 
 
 
@@ -179,7 +179,7 @@ def additional_args_checks(args):
     Args:
         args (dict): the arguments entered into the program by the user.
     """
-    file_path_properties = ["--file_properties", "--base_metadata", "--json_schemas", "<metadata_json>"]
+    file_path_properties = ["--resource_properties", "--base_metadata", "--json_schemas", "<metadata_json>"]
     for path in file_path_properties:
         if args[path] and not pathlib.Path(args[path]).exists():
             print("Error: The value entered for " + path + " is not a valid file path or does not exist.")

@@ -162,7 +162,7 @@ args_schema = {
  
  "type":"object",
  "properties":{
-     "--file_properties":{"type":["string", "null"], "minLength":1},
+     "--resource_properties":{"type":["string", "null"], "minLength":1},
      "--entry_id":{"type":["string", "null"], "minLength":1},
      "--description":{"type":["string", "null"], "minLength":1},
      "--base_metadata":{"type":["string", "null"], "minLength":1},

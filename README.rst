@@ -108,11 +108,10 @@ using some of the simplest options. A more common use case is:
     
     miagis build --remove_optional_fields --file_properties <filepath> --base_metadata <filepath>
     
+Detailed descriptions of the options and input files are in the `tutorial <https://moseleybioinformaticslab.github.io/miagis/tutorial.html>`_.
 
-
-MIAGIS's behavior can be quite complex though, so it is highly encouraged 
-to read the `guide <https://moseleybioinformaticslab.github.io/miagis/guide.html>`_ 
-and `tutorial <https://moseleybioinformaticslab.github.io/miagis/tutorial.html>`_.
+MIAGIS's behavior can be quite complex, so it is highly encouraged to read the 
+`guide <https://moseleybioinformaticslab.github.io/miagis/guide.html>`_ and `tutorial <https://moseleybioinformaticslab.github.io/miagis/tutorial.html>`_.
 
 
           

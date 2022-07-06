@@ -8,7 +8,7 @@
     after the initial build a user will double check and correct by hand, and then use 
     the validate command to validate their metadata before submission.
     
-    The file_properties option file is expected to have a header row on the first row for tabular 
+    The resource_properties option file is expected to have a header row on the first row for tabular 
     files with "file_name" being the only required row to use as a key. Other headers should 
     match field names to go into the metadata[files] properties. Extra property names beyond 
     those in the metadata specification are allowed and simply added as is to any items.
@@ -23,28 +23,32 @@
     to metadata[products][layers]. The same for maps in "map_data". 
     
     The standard example run:
-        miagis build --remove_optional_fields --file_properties <filepath> --base_metadata <filepath>
+        miagis build --remove_optional_fields --resource_properties <filepath> --base_metadata <filepath>
     
  
  Usage:
     miagis build [options]
     miagis validate <metadata_json>
 
-    <metadata_json> - metadata file to validate.
-
  Options:
     --help                              Show this help documentation.
-    --file_properties=<file_path>       Filepath to a csv, xlsx, or JSON file with file properties.
+    --resource_properties=<file_path>       Filepath to a csv, xlsx, or JSON file with file properties.
+    --json_schemas=<file_path>          Filepath to a JSON file with schemas for different JSON formats.
     --exact_name_match                  If used then file name matching will be done exactly instead of fuzzy.
     --remove_optional_fields            If used then delete optional metadata fields that are empty from files.
+
+ Base Metadata Options:
     --entry_version=<integer>           Set the entry_version field for the metadata. Should be an integer starting from 1. [default: 1]
     --entry_id=<id>                     Set the entry_id field for the metadata.
     --description=<description>         Set the description field for the metadata
     --base_metadata=<file_path>         Filepath to a JSON file with the base metadata fields to use.
-    --json_schemas=<file_path>          Filepath to a JSON file with schemas for different JSON formats.
 """
 
-## TODO generalize to accept other JSON schemas.
+## TODO should products only be newly created things?
+## Possibly add an option to add other data files to others section.
+## TODO change it so that base metadata is handled better and just copied into metadata.
+## Make sure "location" is not in "alternate_locations"
+## Add option to match resource name to names in resource_properties, or not.
 
 import warnings
 
@@ -84,12 +88,12 @@ def main():
         for base_key in base_metadata_dict:
             if args["--base_metadata"] and base_key in base_metadata:
                 base_metadata_dict[base_key] = base_metadata[base_key]
-            else: 
-                args_key = "--" + base_key
-                if args[args_key]:
-                    base_metadata_dict[base_key] = args[args_key]
+                
+            args_key = "--" + base_key
+            if args[args_key]:
+                base_metadata_dict[base_key] = args[args_key]
         
-        build.build(args["--file_properties"], args["--exact_name_match"], args["--remove_optional_fields"], 
+        build.build(args["--resource_properties"], args["--exact_name_match"], args["--remove_optional_fields"], 
               int(base_metadata_dict["entry_version"]), base_metadata_dict["entry_id"], 
               base_metadata_dict["description"], base_metadata_dict["products"], schema_list)
     elif args["validate"]:

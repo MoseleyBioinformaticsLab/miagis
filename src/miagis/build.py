@@ -17,17 +17,17 @@ from . import miagis_schema
 from . import user_input_checking
 
 
-def build(file_properties_path, exact_matching, remove_optional_fields, entry_version, entry_id, base_description, products, schema_list = []):
+def build(resource_properties_path, exact_matching, remove_optional_fields, entry_version, entry_id, base_description, products, schema_list = []):
     """Build a metadata file from the input settings in the current directory.
     
     Loop over files in the folders of the current directory, ignoring files in 
     the top level of the current directory, and fill in what information can be 
-    about the file in the metadata. If file_properties are provided then files 
-    are matched to those in file_properties and more information is able to be 
+    about the file in the metadata. If resource_properties are provided then resources 
+    are matched to those in resource_properties and more information is able to be 
     automatically put into the metadata. 
     
     Args:
-        file_properties_path (str): filepath to a file containing file properties.
+        resource_properties_path (str): filepath to a file containing file properties.
         exact_matching (bool): if True file names are matched exactly. if False names are modified and matched fuzzy.
         remove_optional_fields (bool): if True optional metadata fields that are empty or null are removed.
         entry_version (int): version number of the metadata.
@@ -64,9 +64,9 @@ def build(file_properties_path, exact_matching, remove_optional_fields, entry_ve
     required_fields = miagis_schema.metadata_schema["properties"]["files"]["additionalProperties"]["then"]["required"]
     
     
-    ## If --file_properties was given read in the data.
-    file_properties = user_input_checking.read_in_file_properties(file_properties_path, exact_matching)
-    file_properties_keys = list(file_properties.keys())
+    ## If --resource_properties was given read in the data.
+    resource_properties = user_input_checking.read_in_resource_properties(resource_properties_path, exact_matching)
+    resource_properties_keys = list(resource_properties.keys())
     file_matches_found =[]
         
     
@@ -104,9 +104,10 @@ def build(file_properties_path, exact_matching, remove_optional_fields, entry_ve
                                                     "sources":[{"source":"", "type":""}]}
             
             ## Try to find properties for the file.
-            current_file_properties, geographical_area, alternate_locations, matched_filename = find_file_properties(file_properties, file_properties_keys, exact_matching, 
+            ## TODO look to see if matched_resource has location and add to alternate_locations for file.
+            current_resource_properties, geographical_area, alternate_locations, matched_filename = find_resource_properties(resource_properties, resource_properties_keys, exact_matching, 
                                                                                                                      filename_minus_extension, relative_location)
-            metadata["files"][relative_location].update(current_file_properties)
+            metadata["files"][relative_location].update(current_resource_properties)
             if matched_filename:
                 file_matches_found.append(matched_filename)
             
@@ -156,38 +157,9 @@ def build(file_properties_path, exact_matching, remove_optional_fields, entry_ve
                 continue
             
             
-    ## If --file_properties was given then look for any unmatched and assume they are online only and add to files and layers.
-    for file_name in file_properties:
-        if not file_name in file_matches_found:
-            
-            if "alternate_locations" in file_properties[file_name]:
-                locations = copy.copy(file_properties[file_name]["alternate_locations"])
-            else:
-                locations = []
-            
-            ## Add to layers
-            if "geographical_area" in file_properties[file_name] and file_properties[file_name]["geographical_area"]:
-                metadata["products"]["layers"][file_name] = {"id":file_name, 
-                                                             "locations":locations, 
-                                                             "geographical_area":file_properties[file_name]["geographical_area"]}
-            else:
-                metadata["products"]["layers"][file_name] = {"id":file_name, 
-                                                             "locations":locations}
-            
-            ## Add to files
-            if "alternate_locations" in file_properties[file_name] \
-                and file_properties[file_name]["alternate_locations"] \
-                and not file_properties[file_name]["alternate_locations"][0] in metadata["files"]:
-                
-                location = file_properties[file_name]["alternate_locations"][0]
-                metadata["files"][location] = {"location":location,
-                                               "type":"GIS",
-                                               "description":"",
-                                               "fairness":"Fir",
-                                               "format":"web",
-                                               "sources":[{"source":"", "type":""}]}
-                del file_properties[file_name]["alternate_locations"][0]
-                metadata["files"][location].update(file_properties[file_name])
+    ## Add all resources to the metadata.
+    for resource_name in resource_properties:
+        metadata["resources"][resource_name] = resource_properties[resource_name]
                     
                     
     ## Remove empty optional fields if the option was used.
@@ -209,62 +181,62 @@ def build(file_properties_path, exact_matching, remove_optional_fields, entry_ve
 
 
 
-def find_file_properties(file_properties, file_properties_keys, exact_matching, 
+def find_resource_properties(resource_properties, resource_properties_keys, exact_matching, 
                          filename_minus_extension, relative_location):
-    """Match filename to an entry in file_properties and pull out properties.
+    """Match filename to an entry in resource_properties and pull out properties.
     
     The point of this function is to find the match in file_prperties and format 
     all of the information so it can be easily added to metadata without more logic 
     after returning from this function.
     
     Args:
-        file_properties (dict): dictionary where the keys are filenames and values are properties of the file to go in the metadata.
-        file_properties_keys (list): list of the file_properties_keys, it is given as an input so the list isn't created every time the function runs.
+        resource_properties (dict): dictionary where the keys are filenames and values are properties of the file to go in the metadata.
+        resource_properties_keys (list): list of the resource_properties_keys, it is given as an input so the list isn't created every time the function runs.
         exact_matching (bool): if True filename is matched as is, if False the filename is stripped, lowered, and spaces replaced with underscores before matching
         filename_mins_extension (str): the filename to match with the extension removed.
         relative_location (str): location of the file relative to the current directory, input here so it can be added to alternate_locations.
         
     Returns:
-        current_file_properties (dict): the properties of the matched filename from file_properties.
-        geographical_area (str): if geographical_area is in file_properties return it, else return ""
-        alternate_locations (list): if alternate_locations is in file_properties return it, else return an empty list, but always add the relative_location to the list
+        current_resource_properties (dict): the properties of the matched filename from resource_properties.
+        geographical_area (str): if geographical_area is in resource_properties return it, else return ""
+        alternate_locations (list): if alternate_locations is in resource_properties return it, else return an empty list, but always add the relative_location to the list
         matched_filename (str): the filename in file_proeprties that was matched to filename_minus_extension.
     """
     
-    current_file_properties = {}
+    current_resource_properties = {}
     matched_filename = ""
     if not exact_matching:
         fuzzy_match_filename = filename_minus_extension.strip()
         fuzzy_match_filename = fuzzy_match_filename.lower()
         fuzzy_match_filename = fuzzy_match_filename.replace(" ", "_")
         
-        fuzzy_matches = [layer_name for layer_name in file_properties_keys if fuzzywuzzy.fuzz.ratio(layer_name, fuzzy_match_filename) >= 90]
+        fuzzy_matches = [layer_name for layer_name in resource_properties_keys if fuzzywuzzy.fuzz.ratio(layer_name, fuzzy_match_filename) >= 90]
         if len(fuzzy_matches) == 1:
-            current_file_properties = file_properties[fuzzy_matches[0]]
+            current_resource_properties = resource_properties[fuzzy_matches[0]]
             matched_filename = fuzzy_matches[0]
         elif len(fuzzy_matches) > 1:
-            if fuzzy_match_filename in file_properties:
-                current_file_properties = file_properties[fuzzy_match_filename]
+            if fuzzy_match_filename in resource_properties:
+                current_resource_properties = resource_properties[fuzzy_match_filename]
                 matched_filename = fuzzy_match_filename
                 
     else:
-        if filename_minus_extension in file_properties:
-            current_file_properties = file_properties[filename_minus_extension]
+        if filename_minus_extension in resource_properties:
+            current_resource_properties = resource_properties[filename_minus_extension]
             matched_filename = filename_minus_extension
     
-    if "geographical_area" in current_file_properties:
-        geographical_area = current_file_properties["geographical_area"]
+    if "geographical_area" in current_resource_properties:
+        geographical_area = current_resource_properties["geographical_area"]
     else:
         geographical_area = ""
         
-    if "alternate_locations" in current_file_properties:
-        alternate_locations = copy.copy(current_file_properties["alternate_locations"])
+    if "alternate_locations" in current_resource_properties:
+        alternate_locations = copy.copy(current_resource_properties["alternate_locations"])
     else:
         alternate_locations = []
     if not relative_location in alternate_locations:
         alternate_locations.append(relative_location)
         
-    return current_file_properties, geographical_area, alternate_locations, matched_filename
+    return current_resource_properties, geographical_area, alternate_locations, matched_filename
 
 
 
