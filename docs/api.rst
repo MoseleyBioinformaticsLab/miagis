@@ -1,16 +1,16 @@
 API
 ===
 
-.. automodule:: miagis
+.. automodule:: src.miagis
 
-.. automodule:: miagis.user_input_checking
+.. automodule:: src.miagis.user_input_checking
     :members:
 
-.. automodule:: miagis.build
+.. automodule:: src.miagis.build
     :members:
-.. automodule:: miagis.validate
+.. automodule:: src.miagis.validate
     :members:
-.. automodule:: miagis.print_map_layers
+.. automodule:: src.miagis.print_map_layers
     :members:
 
 
