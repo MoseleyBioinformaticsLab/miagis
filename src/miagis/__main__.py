@@ -29,13 +29,18 @@
  Usage:
     miagis build [options]
     miagis validate <metadata_json>
+    miagis print_map_layers <metadata_json> [--save_path=<save_path>]
 
  Options:
     --help                              Show this help documentation.
-    --resource_properties=<file_path>       Filepath to a csv, xlsx, or JSON file with file properties.
-    --json_schemas=<file_path>          Filepath to a JSON file with schemas for different JSON formats.
+    --resource_properties=<file_path>   Filepath to a csv, xlsx, or JSON file with file properties.
     --exact_name_match                  If used then file name matching will be done exactly instead of fuzzy.
+    --add_resources                     If used then add resources from resource_properties directly to the metadata.
+    --overwrite_format                  If used then overwrite the determined format for files with what is in resource_properties.
+    --overwrite_fairness                If used then overwrite the determined fairness for files with what is in resource_properties.
     --remove_optional_fields            If used then delete optional metadata fields that are empty from files.
+    --json_schemas=<file_path>          Filepath to a JSON file with schemas for different JSON formats.
+    
 
  Base Metadata Options:
     --entry_version=<integer>           Set the entry_version field for the metadata. Should be an integer starting from 1. [default: 1]
@@ -44,11 +49,6 @@
     --base_metadata=<file_path>         Filepath to a JSON file with the base metadata fields to use.
 """
 
-## TODO should products only be newly created things?
-## Possibly add an option to add other data files to others section.
-## TODO change it so that base metadata is handled better and just copied into metadata.
-## Make sure "location" is not in "alternate_locations"
-## Add option to match resource name to names in resource_properties, or not.
 
 import warnings
 
@@ -60,8 +60,7 @@ from . import miagis_schema
 from . import build
 from . import validate
 from . import user_input_checking
-
-
+from . import print_map_layers
 
 
 
@@ -69,9 +68,7 @@ def main():
     args = docopt.docopt(__doc__)
     user_input_checking.validate_arbitrary_schema(args, miagis_schema.args_schema)
     user_input_checking.additional_args_checks(args)
-    
-    base_metadata_dict = miagis_schema.base_metadata_dict
-    
+        
     if args["build"]:
         
         if args["--json_schemas"]:
@@ -83,21 +80,19 @@ def main():
         
         if args["--base_metadata"]:
             base_metadata = user_input_checking.load_json(args["--base_metadata"])
-            user_input_checking.validate_arbitrary_schema(base_metadata, miagis_schema.base_schema)
+        else:
+            base_metadata = {}
         
-        for base_key in base_metadata_dict:
-            if args["--base_metadata"] and base_key in base_metadata:
-                base_metadata_dict[base_key] = base_metadata[base_key]
-                
-            args_key = "--" + base_key
-            if args[args_key]:
-                base_metadata_dict[base_key] = args[args_key]
         
-        build.build(args["--resource_properties"], args["--exact_name_match"], args["--remove_optional_fields"], 
-              int(base_metadata_dict["entry_version"]), base_metadata_dict["entry_id"], 
-              base_metadata_dict["description"], base_metadata_dict["products"], schema_list)
+        build.build(args["--resource_properties"], args["--exact_name_match"], 
+                    args["--remove_optional_fields"], args["--add_resources"],
+                    args["--overwrite_format"], args["--overwrite_fairness"],
+                    base_metadata, int(args["--entry_version"]), args["--entry_id"], 
+                    args["--description"], [], schema_list)
     elif args["validate"]:
         validate.validate(user_input_checking.load_json(args["<metadata_json>"]))
+    elif args["print_map_layers"]:
+        print_map_layers.print_map_layers(user_input_checking.load_json(args["<metadata_json>"]), args["--save_path"])
     else:
         print("Unrecognized command")
 

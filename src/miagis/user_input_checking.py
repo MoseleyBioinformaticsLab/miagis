@@ -47,15 +47,15 @@ def read_in_resource_properties(resource_properties_path, exact_matching):
     
     Args:
         resource_properties_path (str): filepath to the resource_properties file.
-        exact_matching (bool): if True file names will not be modified. 
-                               if False file names are stripped, lowered, and spaces replaced with underscores.
+        exact_matching (bool): if True resource names will not be modified. 
+                               if False resource names are stripped, lowered, and spaces replaced with underscores.
     
     Returns:
         resource_properties (dict): the final dictionary of resource_properties.
     """
     
     if resource_properties_path == None:
-        return {}
+        return {}, {}
     
     if not pathlib.Path(resource_properties_path).exists():
         print("No such file: " + resource_properties_path)
@@ -69,46 +69,54 @@ def read_in_resource_properties(resource_properties_path, exact_matching):
     elif extension == "json":
         resource_properties = load_json(resource_properties_path)
         if not exact_matching:
+            resource_original_name_map = {key.strip().lower().replace(" ", "_"):key for key in resource_properties}
             resource_properties = {key.strip().lower().replace(" ", "_"):value for key, value in resource_properties.items()}
-        return resource_properties
+        else:
+            resource_original_name_map = {key:key for key in resource_properties}
+        return resource_properties, resource_original_name_map
     else:
         print("Error: Unknown file type for --resource_properties.")
         sys.exit()
     
-    if not "file_name" in resource_properties_df.columns:
-        print("Error: The file input for --resource_properties does not have a file_name column.")
+    if not "resource_name" in resource_properties_df.columns:
+        print("Error: The file input for --resource_properties does not have a resource_name column.")
         sys.exit()
     
     resource_properties_df = resource_properties_df.fillna("")
-    
-    if not exact_matching:
-        resource_properties_df.loc[:, "file_name"] = resource_properties_df.loc[:, "file_name"].str.strip()
-        resource_properties_df.loc[:, "file_name"] = resource_properties_df.loc[:, "file_name"].str.lower()
-        resource_properties_df.loc[:, "file_name"] = resource_properties_df.loc[:, "file_name"].str.replace(" ", "_")
-    
+        
     if "alternate_locations" in resource_properties_df:
         resource_properties_df.loc[:, "alternate_locations"] = resource_properties_df.loc[:, "alternate_locations"].str.strip()
     
     resource_properties_df = resource_properties_df.drop_duplicates()
-    resource_properties_df = resource_properties_df.set_index("file_name", drop=True)
+    resource_properties_df = resource_properties_df.set_index("resource_name", drop=True)
     
     resource_properties = resource_properties_df.to_dict(orient="index")
-    for file_name, properties in resource_properties.items():
+    
+    if not exact_matching:
+        resource_original_name_map = {key.strip().lower().replace(" ", "_"):key for key in resource_properties}
+        resource_properties = {key.strip().lower().replace(" ", "_"):value for key, value in resource_properties.items()}
+    else:
+        resource_original_name_map = {key:key for key in resource_properties}
+    
+    for resource_name, properties in resource_properties.items():
         if "alternate_locations" in resource_properties_df.columns:
-            resource_properties[file_name]["alternate_locations"] = [location.strip() for location in properties["alternate_locations"].split(",") if location.strip()]
+            resource_properties[resource_name]["alternate_locations"] = [location.strip() for location in properties["alternate_locations"].split(",") if location.strip()]
             
-        if "sources" in resource_properties_df.columns and "source_types" in resource_properties_df.columns:
-            sources = [source.strip() for source in properties["sources"].split(",")]
-            source_types = [source_type.strip() for source_type in properties["source_types"].split(",")]
-            if len(sources) == len(source_types):
-                resource_properties[file_name]["sources"] = [{"source":sources[i], "type":source_types[i]} for i in range(len(sources))]
+        if "sources" in resource_properties_df.columns:
+            resource_properties[resource_name]["sources"] = [source.strip() for source in properties["sources"].split(",") if source.strip()]
+            
+        if "creator" in resource_properties_df.columns and "creator_type" in resource_properties_df.columns:
+            creators = [creator.strip() for creator in properties["creator"].split(",")]
+            creator_types = [creator_type.strip() for creator_type in properties["creator_type"].split(",")]
+            if len(creators) == len(creator_types):
+                resource_properties[resource_name]["creator"] = [{"name":creators[i], "type":creator_types[i]} for i in range(len(creators))]
             else:
-                print("Warning: Not every source in \"sources\" has a \"source_types\" for " + file_name + " in the --resource_properties file.")
+                print("Warning: Not every creator in \"creator\" has a \"creator_type\" for " + resource_name + " in the --resource_properties file.")
             
-            del[resource_properties[file_name]["source_types"]]
+            del[resource_properties[resource_name]["creator_type"]]
     
     
-    return resource_properties
+    return resource_properties, resource_original_name_map
 
 
 

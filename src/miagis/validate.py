@@ -77,36 +77,32 @@ def validate(metadata):
         print(message)
         
         
-    ##Check that all layers in maps exist in layers and all layers have a location in files.
-    for map_name, map_fields in metadata["products"]["maps"].items():
-        for layer in map_fields["layers"]:
-            if not layer in metadata["products"]["layers"]:
-                print("The layer, " + layer + ", for the map, " + map_name + ", is not in the product layers.")
+    
+    ## Check that all products are in resources.
+    if "products" in metadata and "resources" in metadata:
+        for product in metadata["products"]:
+            if product not in metadata["resources"]:
+                print("The product, " + product + ", is not in \"resources\".")
+    
+    ## Check that all sources exist in resources, schema are valid json schema, and field names match ids.
+    if "resources" in metadata:
+        for resource_name, resource_fields in metadata["resources"].items():
+            
+            if "sources" in resource_fields:
+                for source in resource_fields["sources"]:
+                    if not source in metadata["resources"]:
+                        print("The source, " + source + ", for resource, " + resource_name + ", does not exist in resources.")
                 
-    file_locations = {location for file_fields in metadata["files"].values() if "alternate_locations" in file_fields for location in file_fields["alternate_locations"]}
-    file_locations = file_locations | set(metadata["files"].keys())
-    for layer_name, layer_fields in metadata["products"]["layers"].items():
-        if not any([location in file_locations for location in layer_fields["locations"]]):
-            print("The layer, " + layer_name + ", does not have a location in files.")
-            
-    ## Check that maps, layers, and fields ids match.
-    for map_name, map_fields in metadata["products"]["maps"].items():
-        if map_name != map_fields["id"]:
-            print("The \"id\" field for map, " + map_name + ", does not match its key.")
-            
-    for layer_name, layer_fields in metadata["products"]["layers"].items():
-        if layer_name != layer_fields["id"]:
-            print("The \"id\" field for layer, " + layer_name + ", does not match its key.")
-            
-    for file_location, file_fields in metadata["files"].items():
-        if file_location != file_fields["location"]:
-            print("The \"location\" field for file, " + file_location + ", does not match its key.")
-            
-        if "schema" in file_fields and type(file_fields["schema"]) == dict:
-            schema_validator = jsonschema.validators.validator_for(file_fields["schema"])
-            try:
-                schema_validator.check_schema(file_fields["schema"])
-            except jsonschema.SchemaError:
-                print("The \"schema\" field for file, " + file_location + ", is not a valid JSON Schema.")
+            if "schema" in resource_fields and type(resource_fields["schema"]) == dict:
+                schema_validator = jsonschema.validators.validator_for(resource_fields["schema"])
+                try:
+                    schema_validator.check_schema(resource_fields["schema"])
+                except jsonschema.SchemaError:
+                    print("The \"schema\" field for resource, " + resource_name + ", is not a valid JSON Schema.")
+                    
+            if "fields" in resource_fields:
+                for field_name, field_values in resource_fields["fields"].items():
+                    if "name" in field_values and field_name != field_values["name"]:
+                        print("The \"name\" property for field, " + field_name + ", for resource, " + resource_name + ", does not match its key value.")
             
             

@@ -9,7 +9,7 @@ import os
 import copy
 import json
 
-import fuzzywuzzy
+import fuzzywuzzy.fuzz
 import pandas
 import jsonschema
 
@@ -17,7 +17,9 @@ from . import miagis_schema
 from . import user_input_checking
 
 
-def build(resource_properties_path, exact_matching, remove_optional_fields, entry_version, entry_id, base_description, products, schema_list = []):
+def build(resource_properties_path, exact_matching=False, remove_optional_fields=True, 
+          add_resources=True, overwrite_format=False, overwrite_fairness=False,
+          base_metadata={}, entry_version=1, entry_id="", base_description="", products=[], schema_list = []):
     """Build a metadata file from the input settings in the current directory.
     
     Loop over files in the folders of the current directory, ignoring files in 
@@ -30,27 +32,32 @@ def build(resource_properties_path, exact_matching, remove_optional_fields, entr
         resource_properties_path (str): filepath to a file containing file properties.
         exact_matching (bool): if True file names are matched exactly. if False names are modified and matched fuzzy.
         remove_optional_fields (bool): if True optional metadata fields that are empty or null are removed.
+        add_resources (bool): if True add resources that aren't in the metadata after looping over the files to the metadata.
+        overwrite_format (bool): if True overwrite the default format determined from the file extension for files with what is in resource_properties.
+        overwrite_fairness (bool): if True overwrite the default value of "FAIR" for files with what is in resource_properties.
+        base_metadata (dict): update the metadata dict with this input dict.
         entry_version (int): version number of the metadata.
         entry_id (str): unique id for the metadata.
         base_description (str): description of the metadata.
-        products (dict): a dictionary of "maps", "layers", and "others" that indicates which files belong in these categories.
+        products (dict): a list of resource ids.
         schema_list (list): a list of dicitonaries with information about how to detect if a JSON file is using that schema, and how to decode that schema to fill in the metadata.
     """
     directory = pathlib.Path.cwd()
     
+    ## Add gejson and acrgis json to schema's to look for.
     arcgis_type_map = {"esriFieldTypeOID":"int", "esriFieldTypeString":"str", "esriFieldTypeInteger":"int", 
                        "esriFieldTypeSmallInteger":"int", "esriFieldTypeSingle":"float", "esriFieldTypeDouble":"float",
                        "esriFieldTypeSmallInteger":"int", "esriFieldTypeDate":"int", "typeIdField":"string"}
     
-    ## Add gejson and acrgis json to schema's to look for.
-    schema_list.append({"style":"mapping", "schema":miagis_schema.arcgis_schema, 
+    schema_list.append({"name":"In-built ArcGIS", "style":"mapping", "schema":miagis_schema.arcgis_schema, 
                     "field_path":'["layers"][0]["layerDefinition"]["fields"]', 
                     "name_key":"name", "type_key":"type", "type_map":arcgis_type_map})
-    schema_list.append({"style":"testing", "schema":miagis_schema.geojson_feature_schema, 
+    schema_list.append({"name":"In-built GEOJSON Single Feature", "style":"testing", "schema":miagis_schema.geojson_feature_schema, 
                         "features_path":"", "properties_key":"properties", "schema_URL":"https://datatracker.ietf.org/doc/html/rfc7946"})
-    schema_list.append({"style":"testing", "schema":miagis_schema.geojson_collection_schema, 
+    schema_list.append({"name":"In-built GEOJSON Collection", "style":"testing", "schema":miagis_schema.geojson_collection_schema, 
                         "features_path":'["features"]', "properties_key":"properties", "schema_URL":"https://datatracker.ietf.org/doc/html/rfc7946"})
     
+    ## Initially build the metadata, and then update it with base metadata, and then overwrite values with input arguments if not null.
     metadata = {
       "format_version" : "DRAFT_MIAGIS_VERSION_0.1", 
       "entry_version" : entry_version, 
@@ -58,18 +65,24 @@ def build(resource_properties_path, exact_matching, remove_optional_fields, entr
       "date" : str(datetime.datetime.now().date()),
       "description" : base_description,
       "products" : products,
-      "files" : {}
+      "resources" : {}
     }
     
-    required_fields = miagis_schema.metadata_schema["properties"]["files"]["additionalProperties"]["then"]["required"]
+    metadata.update(base_metadata)
+    if base_description:
+        metadata["description"] = base_description
+    if entry_version != 1:
+        metadata["entry_version"] = entry_version
+    if entry_id:
+        metadata["entry_id"] = entry_id
+    if products:
+        metadata["products"] = products
     
     
     ## If --resource_properties was given read in the data.
-    resource_properties = user_input_checking.read_in_resource_properties(resource_properties_path, exact_matching)
+    resource_properties, resource_original_name_map = user_input_checking.read_in_resource_properties(resource_properties_path, exact_matching)
     resource_properties_keys = list(resource_properties.keys())
-    file_matches_found =[]
-        
-    
+    resource_matches = {}
     
     for root, directories, files in os.walk(directory):
         
@@ -86,8 +99,10 @@ def build(resource_properties_path, exact_matching, remove_optional_fields, entr
             
             relative_location = pathlib.Path(relative_path, filename).as_posix()
             
-            if folder_name == "layer_data" or folder_name == "map_data":
-                file_type = "GIS"
+            if folder_name == "layer_data":
+                file_type = "layer"
+            elif folder_name == "map_data":
+                file_type = "map"
             else:
                 file_type = ""
                 
@@ -96,44 +111,33 @@ def build(resource_properties_path, exact_matching, remove_optional_fields, entr
                 file_type = "program"
                 
             
-            metadata["files"][relative_location] = {"location":relative_location,
+            metadata["resources"][relative_location] = {"location":relative_location,
                                                     "type":file_type,
                                                     "description":"",
                                                     "fairness":"FAIR",
-                                                    "format":extension,
-                                                    "sources":[{"source":"", "type":""}]}
+                                                    "format":extension,}
             
             ## Try to find properties for the file.
-            ## TODO look to see if matched_resource has location and add to alternate_locations for file.
-            current_resource_properties, geographical_area, alternate_locations, matched_filename = find_resource_properties(resource_properties, resource_properties_keys, exact_matching, 
-                                                                                                                     filename_minus_extension, relative_location)
-            metadata["files"][relative_location].update(current_resource_properties)
-            if matched_filename:
-                file_matches_found.append(matched_filename)
+            current_resource_properties, alternate_locations, matched_name = find_resource_properties(resource_properties, resource_properties_keys, exact_matching, 
+                                                                                                      filename_minus_extension, relative_location)
             
-            
-            ## Try to add layer and maps to the products based on file structure.
-            if folder_name == "layer_data":
-                if filename_minus_extension in metadata["products"]["layers"]:
-                    for location in alternate_locations:
-                        if not location in metadata["products"]["layers"][filename_minus_extension]["locations"]:
-                            metadata["products"]["layers"][filename_minus_extension]["locations"].append(location)
+            ## Keep track of what files get matched so the alternate locations can all be updated at the end.
+            if matched_name:
+                if matched_name in resource_matches:
+                    resource_matches[matched_name].append(relative_location)
                 else:
-                    metadata["products"]["layers"][filename_minus_extension] = {"id":filename_minus_extension, 
-                                                                                "locations":alternate_locations, 
-                                                                                "geographical_area":geographical_area}
+                    resource_matches[matched_name] = [relative_location]
+                
+                metadata["resources"][relative_location].update(current_resource_properties)
+                metadata["resources"][relative_location]["location"] = relative_location
+                metadata["resources"][relative_location]["alternate_locations"] = alternate_locations
+                
+                if not overwrite_format:
+                    metadata["resources"][relative_location]["format"] = extension
+                if not overwrite_fairness:
+                    metadata["resources"][relative_location]["fairness"] = "FAIR"
             
-            if folder_name == "map_data":
-                if filename_minus_extension in metadata["products"]["maps"]:
-                    for loation in alternate_locations:
-                        if not location in metadata["products"]["maps"][filename_minus_extension]["locations"]:
-                            metadata["products"]["maps"][filename_minus_extension]["locations"].append(location)
-                else:
-                    metadata["products"]["maps"][filename_minus_extension] = {"id":filename_minus_extension,
-                                                                              "layers":[],
-                                                                              "locations":alternate_locations, 
-                                                                              "geographical_area":geographical_area}
-            
+                        
             ## Determine what kind of file it is and attempt to fill in the types of the fields.
             if extension == "json" or extension == "geojson" or extension == "csv" or extension == "xlsx":
                 
@@ -141,36 +145,56 @@ def build(resource_properties_path, exact_matching, remove_optional_fields, entr
                 
                 ## Fill in the fields for tabular file types.
                 if extension == "csv" or extension == "xlsx":                        
-                    metadata["files"][relative_location]["fields"] = determine_table_fields(extension, path_to_read_file)
+                    metadata["resources"][relative_location]["fields"] = determine_table_fields(extension, path_to_read_file)
                 
                 else:
                     input_json = user_input_checking.load_json(path_to_read_file)
                     
-                    json_fields, schema = determine_json_fields(schema_list, input_json, path_to_read_file)
+                    json_fields, schema = determine_json_fields(schema_list, input_json, relative_location)
                     
                     if schema:
-                        metadata["files"][relative_location]["schema"] = schema
+                        metadata["resources"][relative_location]["schema"] = schema
                         
-                    metadata["files"][relative_location]["fields"] = json_fields
+                    metadata["resources"][relative_location]["fields"] = json_fields
             
             else:
                 continue
             
-            
     ## Add all resources to the metadata.
-    for resource_name in resource_properties:
-        metadata["resources"][resource_name] = resource_properties[resource_name]
+    if add_resources:
+        for resource_name in resource_properties:
+            if not resource_name in metadata["resources"] and \
+                "location" in resource_properties[resource_name] and resource_properties[resource_name]["location"]:
+                metadata["resources"][resource_original_name_map[resource_name]] = resource_properties[resource_name]
+        
+    ## Go through all matches and update alternate_locations so they all reference each other.
+    for resource_name in resource_matches:
+        total_list = resource_matches[resource_name]
+        if resource_name in metadata["resources"]:
+            total_list.append(resource_original_name_map[resource_name])
+        
+        all_locations = set()
+        for name in total_list:
+            all_locations.add(metadata["resources"][name]["location"])
+            if "alternate_locations" in metadata["resources"][name]:
+                for location in metadata["resources"][name]["alternate_locations"]:
+                    all_locations.add(location)
+        all_locations = list(all_locations)
+            
+        for name in total_list:
+            metadata["resources"][name]["alternate_locations"] = [location for location in all_locations if location != metadata["resources"][name]["location"]]
                     
                     
     ## Remove empty optional fields if the option was used.
+    required_fields = miagis_schema.metadata_schema["properties"]["resources"]["additionalProperties"]["then"]["required"]
     if remove_optional_fields:
-        for file in metadata["files"]:
+        for resource in metadata["resources"]:
             fields_to_delete = []
-            for field, field_value in metadata["files"][file].items():
+            for field, field_value in metadata["resources"][resource].items():
                 if not field in required_fields and not field_value:
                     fields_to_delete.append(field)
             for field in fields_to_delete:
-                del metadata["files"][file][field]
+                del metadata["resources"][resource][field]
             
         
     
@@ -185,7 +209,7 @@ def find_resource_properties(resource_properties, resource_properties_keys, exac
                          filename_minus_extension, relative_location):
     """Match filename to an entry in resource_properties and pull out properties.
     
-    The point of this function is to find the match in file_prperties and format 
+    The point of this function is to find the match in resource_properties and format 
     all of the information so it can be easily added to metadata without more logic 
     after returning from this function.
     
@@ -198,13 +222,12 @@ def find_resource_properties(resource_properties, resource_properties_keys, exac
         
     Returns:
         current_resource_properties (dict): the properties of the matched filename from resource_properties.
-        geographical_area (str): if geographical_area is in resource_properties return it, else return ""
         alternate_locations (list): if alternate_locations is in resource_properties return it, else return an empty list, but always add the relative_location to the list
-        matched_filename (str): the filename in file_proeprties that was matched to filename_minus_extension.
+        matched_name (str): the resource_name in resource_properties that was matched to filename_minus_extension.
     """
     
     current_resource_properties = {}
-    matched_filename = ""
+    matched_name = ""
     if not exact_matching:
         fuzzy_match_filename = filename_minus_extension.strip()
         fuzzy_match_filename = fuzzy_match_filename.lower()
@@ -213,30 +236,27 @@ def find_resource_properties(resource_properties, resource_properties_keys, exac
         fuzzy_matches = [layer_name for layer_name in resource_properties_keys if fuzzywuzzy.fuzz.ratio(layer_name, fuzzy_match_filename) >= 90]
         if len(fuzzy_matches) == 1:
             current_resource_properties = resource_properties[fuzzy_matches[0]]
-            matched_filename = fuzzy_matches[0]
+            matched_name = fuzzy_matches[0]
         elif len(fuzzy_matches) > 1:
             if fuzzy_match_filename in resource_properties:
                 current_resource_properties = resource_properties[fuzzy_match_filename]
-                matched_filename = fuzzy_match_filename
+                matched_name = fuzzy_match_filename
                 
     else:
         if filename_minus_extension in resource_properties:
             current_resource_properties = resource_properties[filename_minus_extension]
-            matched_filename = filename_minus_extension
-    
-    if "geographical_area" in current_resource_properties:
-        geographical_area = current_resource_properties["geographical_area"]
-    else:
-        geographical_area = ""
-        
+           
     if "alternate_locations" in current_resource_properties:
         alternate_locations = copy.copy(current_resource_properties["alternate_locations"])
     else:
         alternate_locations = []
     if not relative_location in alternate_locations:
         alternate_locations.append(relative_location)
+    if "location" in current_resource_properties and current_resource_properties["location"] and \
+        not current_resource_properties["location"] in alternate_locations:
+        alternate_locations.append(current_resource_properties["location"])
         
-    return current_resource_properties, geographical_area, alternate_locations, matched_filename
+    return current_resource_properties, alternate_locations, matched_name
 
 
 
@@ -289,7 +309,7 @@ def determine_table_fields(extension, path_to_read_file):
         for field_name, field_type in fields_dict.items():
             if not df.loc[:, field_name].isna().all():
                 column_number = df.columns.get_loc(field_name)
-                fields[column_number] = {"name":column_number+1, "type":field_type, "identifier":column_number+1, "identifier%type":"column"}
+                fields[column_number+1] = {"name":column_number+1, "type":field_type, "identifier":column_number+1, "identifier%type":"column"}
         
     return fields
 
@@ -335,7 +355,6 @@ def determine_json_fields(schema_list, input_json, file_path):
     """
     
     schema_properties = {}
-    schema_index = 0
     for format_properties in schema_list:
         
         try:
@@ -360,9 +379,9 @@ def determine_json_fields(schema_list, input_json, file_path):
         try:
             fields = eval("input_json" + field_path)
         except Exception:
-            print("Warning: The \"field_path\" for the json format schema at index " + 
-                  str(schema_index) + " does not work for file " + file_path 
-                  + ". It will have empty \"fields\" in the output.")
+            print("Warning: The \"field_path\", " + field_path + ", for the \"" + schema_properties["name"] + 
+                  "\" json format schema does not work for file " + file_path + 
+                  ". It will have empty \"fields\" in the output.")
             return {}, schema
         
         type_key = schema_properties["type_key"]
@@ -375,16 +394,16 @@ def determine_json_fields(schema_list, input_json, file_path):
         for field in fields:
             if not type_key in field:
                 if not type_already_printed:
-                    print("Warning: The \"type_key\" for the json format schema at index " + 
-                          str(schema_index) + " is not in all of the fields for file " + 
+                    print("Warning: The \"type_key\", " + type_key + " for the \"" + schema_properties["name"] + 
+                          "\" json format is not in all of the fields for file " + 
                           file_path + ". Some fields may be missing in the output.")
                     type_already_printed = True
                 continue
             
             if not name_key in field:
                 if not name_already_printed:
-                    print("Warning: The \"name_key\" for the json format schema at index " + 
-                          str(schema_index) + " is not in all of the fields for file " + 
+                    print("Warning: The \"name_key\", " + name_key + " for the \"" + schema_properties["name"] + 
+                          "\" json format schema is not in all of the fields for file " + 
                           file_path + ". Some fields may be missing in the output.")
                     name_already_printed = True
                 continue
@@ -403,14 +422,14 @@ def determine_json_fields(schema_list, input_json, file_path):
         try:
             features = eval("input_json" + features_path)
         except Exception:
-            print("Warning: The \"features_path\" for the json format schema at index " + 
-                  str(schema_index) + " does not work for file " + file_path 
-                  + ". It will have empty \"fields\" in the output.")
+            print("Warning: The \"features_path\", " + features_path + " for the \"" + schema_properties["name"] + 
+                  "\" json format schema does not work for file " + file_path + 
+                  ". It will have empty \"fields\" in the output.")
             return {}, schema
         
-        if type(features) != list or type(features) != dict:
-            print("Warning: The \"features_path\" for the json format schema at index " + 
-                  str(schema_index) + " does not lead to the appropriate type (list or dict) for file " + file_path 
+        if type(features) != list and type(features) != dict:
+            print("Warning: The \"features_path\", " + features_path + " for the \"" + schema_properties["name"] + 
+                  "\" json format schema does not lead to the appropriate type (list or dict) for file " + file_path 
                   + ". It will have empty \"fields\" in the output.")
             return {}, schema
         
@@ -429,8 +448,8 @@ def determine_json_fields(schema_list, input_json, file_path):
                         
             if not properties_key in feature:
                 if not properties_already_printed:
-                    print("Warning: The \"properties_key\" for the json format schema at index " + 
-                          str(schema_index) + " is not in all of the features for file " + 
+                    print("Warning: The \"properties_key\", " + properties_key + " for the \"" + schema_properties["name"] + 
+                          "\" json format schema is not in all of the features for file " + 
                           file_path + ". Some fields may be missing in the output.")
                     properties_already_printed = True
                 continue
@@ -466,8 +485,8 @@ def determine_json_fields(schema_list, input_json, file_path):
         return json_fields, schema
         
     else:
-        print("Warning: Unknown \"style\" for the json format schema at index " + 
-              str(schema_index) + ". The file at " + file_path 
+        print("Warning: Unknown \"style\", " + schema_properties["style"] + " for the \"" + schema_properties["name"] + 
+              "\" json format. The file at " + file_path 
               + " will have empty \"fields\" in the output.")
         return {}, schema
             

@@ -6,15 +6,12 @@ describes each command and its options.
 Metadata JSON File
 ~~~~~~~~~~~~~~~~~~
 Details about the metadata JSON file created and validated by MIAGIS can be found 
-in the :doc:`jsonschema` section. In short there are 3 sections to the metadata, 
-the base, the products, and the files. The base is a few short entries describing 
-the overall project and deposition. The products are a conceptual view of the maps, 
-layers, and other resources created by the project and included in the deposition. 
-The files are details about each resource used or created during the project and 
-included in the deposition. MIAGIS does the heavy lifting of filling out some of 
-the tedious and repetitive parts in the files and products sections. Although 
-the products section is described as separate from the base here, it is included 
-as part of the base when the --base_metadata option is used.
+in the :doc:`jsonschema` section. In short there are 2 sections to the metadata, 
+the base and the resources. The base is a few short entries describing the overall 
+project, deposition, and products. The resources are details about each resource 
+used or created during the project and included in the deposition. MIAGIS does 
+the heavy lifting of filling out some of the tedious and repetitive parts in the 
+resources section.
 
 Deposition Directory
 ~~~~~~~~~~~~~~~~~~~~
@@ -31,10 +28,10 @@ Getting the initial metadata build to come out as close to finished to as possib
 with a minimum amount of manual entry needed is heavily facilitated by getting 
 everything in order before running the command. First create a directory with 
 the structure as described above, and put all of the files in the appropriate 
-locations. Then create a base metadata JSON file that fills out the base metadata 
-and the products. Then create a file properties file that contains information 
-about each file. The base metadata file and file properties file are detailed 
-below with examples. With all of this done the preparation for running the build 
+locations. Then create a base metadata JSON file that fills out the base metadata. 
+Then create a resource properties file that contains information about each 
+resource. The base metadata file and resource properties file are detailed below 
+with examples. With all of this done the preparation for running the build 
 command is complete.
 
 Input Files
@@ -43,11 +40,9 @@ Input Files
 Base Metadata File
 ------------------
 The base metadata file that can be input to MIAGIS through the --base_metadata 
-option is a JSON file with the base and products sections of the metadata. 
-Unfortunately, much of this information must be filled out by hand because it 
-cannot be determined or inferred programmatically. If the expected directory 
-structure is used MIAGIS will attempt to add layer information to the layers in 
-the product section and map information to the maps. 
+option is a JSON file with the base section of the metadata. Unfortunately, much 
+of this information must be filled out by hand because it cannot be determined 
+or inferred programmatically. 
 
 The reason to create a separate file and deliver it to MIAGIS rather than simply 
 filling them in after MIAGIS creates the metadata is for the case where the 
@@ -63,128 +58,46 @@ Example:
       "format_version": "DRAFT_MIAGIS_VERSION_0.1",
       "entry_version": 1,
       "entry_id": "KY SOP Paper",
-      "description": "Data used for the paper titled  DOI: ",
-      "products": {
-        "maps": {
-          "Combined map": {
-            "id": "Combined map",
-            "locations": [
-              "https://www.arcgis.com/home/item.html?id=06829286d1274d94b0d4d4be911502f1"
-            ],
-            "layers": [
-              "PFAS_sampling_and_purchasing_and_intake_detail",
-              "ohio_river_marinas_wfl1_-_ohio_river",
-              "Ky_Water_Resources_Polygons_DOW_SWAPP_Zone_2",
-              "Ky_Water_Resources_Polygons_DOW_SWAPP_Zone_1",
-              "Ky_Water_Resources_Polygons_DOW_SWAPP_Zone_3",
-              "waterIntake",
-              "WATER_SYSTEMS_IN_KENTUCKY",
-              "water_district",
-              "hot-spot_map",
-              "waste_wtp_outfls",
-              "blank_white_vector_basemap",
-              "kentucky_water_lines1",
-              "New KDEP PFAS Data_Compiled-2020 with latlong",
-              "ky_wastewater_wgs84wm_-_sewer_lines",
-              "ky_wastewater_wgs84wm_-_water_treatment_plants",
-              "ky_waterresources_polygons_wgs84wm_-_sinkhole_drainage_areas",
-              "ky_countylines_wgs84wm_-_county_lines"
-            ],
-            "geographical_area": "Kentucky"
-          },
-          "Water map": {
-            "id": "Water map",
-            "locations": [
-              "https://www.arcgis.com/home/item.html?id=e08526d4873c4b9da024c200cbd3f5e4"
-            ],
-            "layers": [
-              "PFAS_sampling_and_purchasing_and_intake_detail",
-              "ohio_river_marinas_wfl1_-_ohio_river",
-              "waterIntake",
-              "water_district",
-              "blank_white_vector_basemap",
-              "kentucky_water_lines1",
-              "New KDEP PFAS Data_Compiled-2020 with latlong",
-              "kentucky_county_polygons"
-            ],
-            "geographical_area": "Kentucky"
-          },
-          "Map Sewer": {
-            "id": "Map Sewer",
-            "locations": [
-              "https://www.arcgis.com/home/item.html?id=6657836d45f947cf85ba162d41f3f2fb"
-            ],
-            "layers": [
-              "ky_waterresources_polygons_wgs84wm_-_sinkhole_drainage_areas",
-              "ky_wastewater_wgs84wm_-_sewer_lines",
-              "waste_wtp_outfls",
-              "blank_white_vector_basemap",
-              "kentucky_county_polygons"
-            ],
-            "geographical_area": "Kentucky"
-          },
-          "SWAPP map Ky": {
-            "id": "SWAPP map Ky",
-            "locations": [
-              "https://www.arcgis.com/home/item.html?id=bc1091824e734e428ed98b693f2a3625"
-            ],
-            "layers": [
-              "Ky_Water_Resources_Polygons_DOW_SWAPP_Zone_2",
-              "Ky_Water_Resources_Polygons_DOW_SWAPP_Zone_1",
-              "Ky_Water_Resources_Polygons_DOW_SWAPP_Zone_3",
-              "blank_white_vector_basemap",
-              "kentucky_county_polygons"
-            ],
-            "geographical_area": "Kentucky"
-          },
-          "Hotspot Map": {
-            "id": "Hotspot Map",
-            "locations": [
-              "https://www.arcgis.com/home/item.html?id=5a13b6e3564944c2ad190fd4e80e3995"
-            ],
-            "layers": [
-              "hot-spot_map",
-              "blank_white_vector_basemap",
-              "kentucky_county_polygons"
-            ],
-            "geographical_area": "Kentucky"
-          }
-        },
-        "layers": {}
-        }
+      "description": "Data used for the paper titled \"Paper Title\"  DOI: ",
+      "products": [
+          "Combined map",
+          "Water map",
+          "Map Sewer",
+          "SWAPP map Ky"
+          "Hotspot Map"]
     }
 
 
-File Properties File
---------------------
-The file properties file is either a tabular or JSON file that contains information 
-about files in the deposition. It serves a few purposes. One purpose is to give 
-a more condensed view of the files and their properties in the case of the tabular 
-form. It can be much easier to collect and manipulate all of the file information 
+Resource Properties File
+------------------------
+The resource properties file is either a tabular or JSON file that contains information 
+about resources in the deposition. It serves a few purposes. One purpose is to give 
+a more condensed view of the resources and their properties in the case of the tabular 
+form. It can be much easier to collect and manipulate all of the resource information 
 in Excel or Google Sheets rather than trying to manage it in JSON directly. Another 
 purpose is to avoid repetition. Due to a variety of formats the same data may be 
-included multiple times in multiple files. The file properties file allows you 
-to enter information about a file once and MIAGIS will copy it to all files that 
-match the file name. Names do not have to be exact unless the --exact_name_match 
+included multiple times in multiple files. The resource properties file allows you 
+to enter information about a resource once and MIAGIS will copy it to all files that 
+match the resource name. Names do not have to be exact unless the --exact_name_match 
 option is used, by default MIAGIS does fuzzy name matching.
 
 If using the tabular form the file must have a header row on the first row and 
-a column named "file_name". All other columns will be inserted into the metadata 
-files section with the exact column name in the header. "file_name" is not the 
-only special column name. "alternate_locations", "sources", and "source_types" 
+a column named "resource_name". All other columns will be inserted into the metadata 
+files section with the exact column name in the header. "resource_name" is not the 
+only special column name. "alternate_locations", "sources", "creator", and "creator_type" 
 can be single entries or multiple entries separated by commas. There is further 
-logic that looks to see if the "sources" and "source_types" have the same number 
+logic that looks to see if the "creator" and "creator_type" have the same number 
 of entries in a row and prints a warning if they do not.
 
-If using the JSON form of the file each entry should meet the schema of the fields 
+If using the JSON form of the file each entry should meet the schema of the resources 
 section of the metadata. As with the tabular form all properties are simply copied 
 into the metadata for files whose names match the key in the JSON.
 
 Short Example Tabular:
 .. code-block:: console
 
-    file_name	    alternate_locations	     sources	        source_types	    description	           geographical_area
-    example_name	URL_to_file	             source1,source2	organization,URL	example_description	   geographical_area
+    resource_name	    alternate_locations	     creator	           creator_type	        description	            geographical_area
+    example_name	    URL_to_file	             creator1,creator2	   organization,URL	    example_description	    geographical_area
     
 
 Short Example JSON:
@@ -193,8 +106,8 @@ Short Example JSON:
     {
      'example_name': {
       'alternate_locations': ['URL_to_file'],
-      'sources': [{'source': 'source1', 'type': 'organization'},
-                  {'source': 'source2', 'type': 'URL'}],
+      'creator': [{'name': 'creator1', 'type': 'organization'},
+                  {'name': 'creator2', 'type': 'URL'}],
       'description': 'example_description',
       'geographical_area': 'geographical_area'}
     }
@@ -203,7 +116,7 @@ Short Example JSON:
 Long Example Tabular:
 .. code-block:: console
 
-    file_name	                                     alternate_locations	                                                                                                                                                               sources	                                                                                                                        source_types	     description	                                            geographical_area
+    file_name	                                     alternate_locations	                                                                                                                                                               creator	                                                                                                                        creator_type	     description	                                            geographical_area
     PFAS_sampling_and_purchasing_and_intake_detail	 https://services.arcgis.com/vQ8kO5zdqETeirEL/arcgis/rest/services/PFAS_sampling_and_purchasing_data_2019/FeatureServer	Kentucky                                                       Department of Environmental Protection,https://eec.ky.gov/Documents%20for%20URLs/PFAS%20Drinking%20Water%20Report%20Final.pdf    organization,URL     List of all water systems in which PFAS were sampled.	    Kentucky
     Ohio_River_Marinas_WFL1 - Ohio River	         https://services8.arcgis.com/Xcpl3GIMvkCI3oFI/arcgis/rest/services/Ohio_River_Marinas_WFL1/FeatureServer                                                                              ArcGIS Online	                                                                                                                organization	     Publicly available layer findable on ArcGIS Online.	    Kentucky
     Kentucky Water Lines1	                         https://kygisserver.ky.gov/arcgis/rest/services/WGS84WM_Services/Ky_Water_WGS84WM/MapServer/11, https://uky-edu.maps.arcgis.com/home/item.html?id=29713c2b8be14534943b8e2e5fa16daa    https://kygeoportal.ky.gov/                                                                                                      URL	                 Locations of water lines in Kentucky.	                    Kentucky
@@ -215,23 +128,23 @@ Long Example JSON:
     {
      'PFAS_sampling_and_purchasing_and_intake_detail': {
       'alternate_locations': ['https://services.arcgis.com/vQ8kO5zdqETeirEL/arcgis/rest/services/PFAS_sampling_and_purchasing_data_2019/FeatureServer'],
-      'sources': [{'source': 'Kentucky Department of Environmental Protection',
+      'creator': [{'name': 'Kentucky Department of Environmental Protection',
                    'type': 'organization'},
-                  {'source': 'https://eec.ky.gov/Documents%20for%20URLs/PFAS%20Drinking%20Water%20Report%20Final.pdf',
+                  {'name': 'https://eec.ky.gov/Documents%20for%20URLs/PFAS%20Drinking%20Water%20Report%20Final.pdf',
                    'type': 'URL'}],
       'description': 'List of all water systems in which PFAS were sampled.',
       'geographical_area': 'Kentucky'},
      
      'Ohio_River_Marinas_WFL1 - Ohio River': {
       'alternate_locations': ['https://services8.arcgis.com/Xcpl3GIMvkCI3oFI/arcgis/rest/services/Ohio_River_Marinas_WFL1/FeatureServer'],
-      'sources': [{'source': 'ArcGIS Online', 'type': 'organization'}],
+      'creator': [{'name': 'ArcGIS Online', 'type': 'organization'}],
       'description': 'Publicly available layer findable on ArcGIS Online.',
       'geographical_area': 'Kentucky'},
      
      'Kentucky Water Lines1': {
       'alternate_locations': ['https://kygisserver.ky.gov/arcgis/rest/services/WGS84WM_Services/Ky_Water_WGS84WM/MapServer/11',
                                                        'https://uky-edu.maps.arcgis.com/home/item.html?id=29713c2b8be14534943b8e2e5fa16daa'],
-      'sources': [{'source': 'https://kygeoportal.ky.gov/', 'type': 'URL'}],
+      'creator': [{'name': 'https://kygeoportal.ky.gov/', 'type': 'URL'}],
       'description': 'Locations of water lines in Kentucky.',
       'geographical_area': 'Kentucky'}
     }
@@ -372,9 +285,10 @@ Command Line Signature
 
 Description
 -----------
-For each subdirectory in the current directory loops through all of the files and 
-makes a best attempt at adding it to the files section of the metadata, filling 
-in as much information as possible, and also adding what it can to maps and layers.
+For each subdirectory in the current directory loop through all of the files and 
+make a best attempt at adding it to the resources section of the metadata, filling 
+in as much information as possible. Files found in "layer_data" automatically get 
+a "layer" type and those found in "map_data" get a "map" type.
 
 
 Options
