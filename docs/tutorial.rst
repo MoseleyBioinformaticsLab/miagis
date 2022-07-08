@@ -1,7 +1,8 @@
 Tutorial
 ========
 MIAGIS is intended to be used solely as a command line program. This tutorial 
-describes each command and its options.
+describes each command and its options. Some simple examples are given here, but 
+examples of papers actually published are in the examples folder on GitHub_.
 
 Metadata JSON File
 ~~~~~~~~~~~~~~~~~~
@@ -52,6 +53,7 @@ forget things and need to rebuild or modify the metadata file. Depending on the
 specific situation it can be easier to rebuild using MIAGIS than modifying by hand. 
 
 Example:
+
 .. code-block:: console
 
     {
@@ -94,6 +96,7 @@ section of the metadata. As with the tabular form all properties are simply copi
 into the metadata for files whose names match the key in the JSON.
 
 Short Example Tabular:
+
 .. code-block:: console
 
     resource_name	    alternate_locations	     creator	           creator_type	        description	            geographical_area
@@ -101,6 +104,7 @@ Short Example Tabular:
     
 
 Short Example JSON:
+
 .. code-block:: console
 
     {
@@ -114,6 +118,7 @@ Short Example JSON:
 
 
 Long Example Tabular:
+
 .. code-block:: console
 
     file_name	                                     alternate_locations	                                                                                                                                                               creator	                                                                                                                        creator_type	     description	                                            geographical_area
@@ -123,6 +128,7 @@ Long Example Tabular:
 
     
 Long Example JSON:
+
 .. code-block:: console
 
     {
@@ -159,7 +165,7 @@ proprietary or unique JSON formats this file may be used to let MIAGIS process
 them. 
 
 The first thing that is required is a way to test a given JSON file and see if 
-it matches the format. This is accomplished using `JSON Schema https://json-schema.org/`_. 
+it matches the format. This is accomplished using `JSON Schema <https://json-schema.org/>`_ . 
 A valid JSON Schema must be created for the format so that if the file under 
 question is validated by the schema we can be reasonably sure it is of that format. 
 The Schema does not have to be complicated and fully describe the format. It just 
@@ -178,6 +184,7 @@ field must also be given.
 
 
 Mapping Style Generic Example:
+
 .. code-block:: console
 
     {
@@ -204,6 +211,7 @@ in the map will be typed as "UNKNOWN".
 
 
 ESRIJSON Excerpt:
+
 .. code-block:: console
 
     // Shortened for Space
@@ -232,6 +240,7 @@ fields has to be tested to determine its type.
 
 
 Testing Style Generic Example:
+
 .. code-block:: console
 
     {
@@ -251,6 +260,7 @@ property. "properties_key" is the key to the properties in each feature.
 
 
 GEOJSON Excerpt:
+
 .. code-block:: console
 
     // Shortened for Space
@@ -278,6 +288,7 @@ Building
 ~~~~~~~~
 Command Line Signature
 ----------------------
+
 .. code-block:: console
 
     miagis build [options]
@@ -293,23 +304,61 @@ a "layer" type and those found in "map_data" get a "map" type.
 
 Options
 -------
---file_properties: 
+--resource_properties: 
 
 Supply a tabular or JSON file to MIAGIS that it will use to match file names and 
-fill in more information in the files section of the metadata. Any unmatched files 
-in the file properties file are assumed to be layers that are online only and 
-will be added to files and layers.
+fill in more information in the resources section of the metadata. MIAGIS also 
+keeps track of all files matched and updates all matches "alternate_locations", 
+so that every match has alternate_locations to each other.
+
+--exact_name_match: 
+
+If used MIAGIS will match file names in the resource properties file exactly rather 
+than the default of fuzzy matching.
+
+--add_resources: 
+
+If used then add resources from resource_properties directly to the metadata. More 
+specifically, MIAGIS will loop over files and match file names to resource names, 
+using that to fill in more information about the files, but at the end each resource 
+will also be added to the metadata with its resource_name. This option exists so 
+that each layer and map can be added as a resource to condense information. Instead 
+of having to pick a single layer file as a source to a map, or add all of the files 
+you can add the layer as a resource and use that as the source. The layer then 
+has all of its files in its resource entry. 
+
+If your resource_properties file is a mix of resources that you want to add and 
+simple file matching that you don't want to add there is a way to signal this. 
+In the resource_properties file make sure there is a "location" column, and for 
+any resource that you do not want to add directly leave this column blank. There 
+should be a "location" anyway for any resources that you do want to add to the 
+metadata directly.
+
+--overwrite_format: 
+
+If used then overwrite the determined format for files with what is in resource_properties. 
+This option was created in tandem with the --add_resources option. If you use the 
+--add_resources option you will want to give the resource its own format, but if 
+you add a "format" column in the resource_properties file that value will be used 
+for any matched files. To avoid this use this option. Using this option will have 
+MIAGIS ignore the "format" column in resource_properties for any matched files and 
+instead use the format determined by the file extension. 
+
+--overwrite_fairness: 
+
+If used then overwrite the determined fairness for files with what is in resource_properties.
+This option was created in tandem with the --add_resources option. If you use the 
+--add_resources option you will want to give the resource its own fairness, but if 
+you add a "fairness" column in the resource_properties file that value will be used 
+for any matched files. To avoid this use this option. Using this option will have 
+MIAGIS ignore the "fairness" column in resource_properties for any matched files and 
+instead use the default value of "FAIR".
 
 --json_schemas: 
 
 Supply a JSON file to MIAGIS that describes new JSON formats to look for and how 
 to find the metadata fields in them. 
             
---exact_name_match: 
-
-If used MIAGIS will match file names in the file properties file exactly rather 
-than the default of fuzzy matching.
-
 --remove_optional_fields: 
 
 If used all empty optional fields in the metadata will be removed.
@@ -344,14 +393,20 @@ Examples
 --------
 Typical run.
 
-file_properties.csv:
+Console:
+
+.. code-block:: console
+    
+    miagis build --resource_properties file_location --base_metadata file_location --add_resources --remove_optional_fields
+
+resource_properties.csv:
 
 .. code-block:: console
 
-    file_name	                                     alternate_locations	                                                                                                                                                               sources	                                                                                                                        source_types	     description	                                            geographical_area
-    PFAS_sampling_and_purchasing_and_intake_detail	 https://services.arcgis.com/vQ8kO5zdqETeirEL/arcgis/rest/services/PFAS_sampling_and_purchasing_data_2019/FeatureServer	Kentucky                                                       Department of Environmental Protection,https://eec.ky.gov/Documents%20for%20URLs/PFAS%20Drinking%20Water%20Report%20Final.pdf    organization,URL     List of all water systems in which PFAS were sampled.	    Kentucky
-    Ohio_River_Marinas_WFL1 - Ohio River	         https://services8.arcgis.com/Xcpl3GIMvkCI3oFI/arcgis/rest/services/Ohio_River_Marinas_WFL1/FeatureServer                                                                              ArcGIS Online	                                                                                                                organization	     Publicly available layer findable on ArcGIS Online.	    Kentucky
-    Kentucky Water Lines1	                         https://kygisserver.ky.gov/arcgis/rest/services/WGS84WM_Services/Ky_Water_WGS84WM/MapServer/11, https://uky-edu.maps.arcgis.com/home/item.html?id=29713c2b8be14534943b8e2e5fa16daa    https://kygeoportal.ky.gov/                                                                                                      URL	                 Locations of water lines in Kentucky.	                    Kentucky
+    file_name	                                     location	                                                                                                                                                                           creator	                                                                                                                        creator_type         format	     fairness    description	                                            geographical_area
+    PFAS_sampling_and_purchasing_and_intake_detail	 https://services.arcgis.com/vQ8kO5zdqETeirEL/arcgis/rest/services/PFAS_sampling_and_purchasing_data_2019/FeatureServer	Kentucky                                                       Department of Environmental Protection,https://eec.ky.gov/Documents%20for%20URLs/PFAS%20Drinking%20Water%20Report%20Final.pdf    organization,URL     web         Fir         List of all water systems in which PFAS were sampled.	    Kentucky
+    Ohio_River_Marinas_WFL1 - Ohio River	         https://services8.arcgis.com/Xcpl3GIMvkCI3oFI/arcgis/rest/services/Ohio_River_Marinas_WFL1/FeatureServer                                                                              ArcGIS Online	                                                                                                                organization	     web         Fir         Publicly available layer findable on ArcGIS Online.	    Kentucky
+    Kentucky Water Lines1	                         https://kygisserver.ky.gov/arcgis/rest/services/WGS84WM_Services/Ky_Water_WGS84WM/MapServer/11, https://uky-edu.maps.arcgis.com/home/item.html?id=29713c2b8be14534943b8e2e5fa16daa    https://kygeoportal.ky.gov/                                                                                                      URL	                 web         Fir         Locations of water lines in Kentucky.	                    Kentucky
 
 base_metadata.json:
 
@@ -361,24 +416,9 @@ base_metadata.json:
       "format_version": "DRAFT_MIAGIS_VERSION_0.1",
       "entry_version": 1,
       "entry_id": "KY SOP Paper",
-      "description": "Data used for the paper titled  DOI: ",
-      "products": {
-        "maps": {
-          "Map 1": {
-            "id": "Map 1",
-            "locations": [
-              "https://www.fakemapurl.com"
-            ],
-            "layers": [
-              "PFAS_sampling_and_purchasing_and_intake_detail",
-              "ohio_river_marinas_wfl1_-_ohio_river",
-              "kentucky_water_lines1",
-            ],
-            "geographical_area": "Kentucky"
-          }
-        },
-        "layers": {}
-        }
+      "description": "Data used for the paper titled \"Paper Title\"  DOI: ",
+      "products": [
+          "Map 1"]
     }
 
 
@@ -398,64 +438,23 @@ Output Metadata:
       "format_version": "DRAFT_MIAGIS_VERSION_0.1",
       "entry_version": 1,
       "entry_id": "KY SOP Paper",
-      "description": "Data used for the paper titled  DOI: ",
-      "products": {
-        "maps": {
-          "Map 1": {
-            "id": "Map 1",
-            "locations": [
-              "https://www.fakemapurl.com"
-            ],
-            "layers": [
-              "PFAS_sampling_and_purchasing_and_intake_detail",
-              "ohio_river_marinas_wfl1_-_ohio_river",
-              "kentucky_water_lines1",
-            ],
-            "geographical_area": "Kentucky"
-          }
-        },
-        "layers": {
-          "PFAS_sampling_and_purchasing_and_intake_detail": {
-            "id": "PFAS_sampling_and_purchasing_and_intake_detail",
-            "locations": [
-              "https://services.arcgis.com/vQ8kO5zdqETeirEL/arcgis/rest/services/PFAS_sampling_and_purchasing_data_2019/FeatureServer",
-              "layer_data/PFAS sampling and purchasing and intake detail.csv",
-              "layer_data/PFAS sampling and purchasing and intake detail.json",
-              "layer_data/PFAS_sampling_and_purchasing_and_intake_detail.geojson"
-            ],
-            "geographical_area": "Kentucky"
-          },
-          "ohio_river_marinas_wfl1_-_ohio_river": {
-            "id": "ohio_river_marinas_wfl1_-_ohio_river",
-            "locations": [
-              "https://services8.arcgis.com/Xcpl3GIMvkCI3oFI/arcgis/rest/services/Ohio_River_Marinas_WFL1/FeatureServer"
-            ],
-            "geographical_area": "Kentucky"
-          },
-          "kentucky_water_lines1": {
-            "id": "kentucky_water_lines1",
-            "locations": [
-              "https://kygisserver.ky.gov/arcgis/rest/services/WGS84WM_Services/Ky_Water_WGS84WM/MapServer/11",
-              "https://uky-edu.maps.arcgis.com/home/item.html?id=29713c2b8be14534943b8e2e5fa16daa"
-            ],
-            "geographical_area": "Kentucky"
-          }
-        }
-      },
-      "files":{
+      "description": "Data used for the paper titled \"Paper Title\"  DOI: ",
+      "products": [
+          "Map 1"],
+      "resources":{
         "layer_data/PFAS sampling and purchasing and intake detail.csv": {
           "location": "layer_data/PFAS sampling and purchasing and intake detail.csv",
-          "type": "GIS",
+          "type": "layer",
           "description": "List of all water systems in which PFAS were sampled.",
           "fairness": "FAIR",
           "format": "csv",
-          "sources": [
+          "creator": [
             {
-              "source": "Kentucky Department of Environmental Protection",
+              "name": "Kentucky Department of Environmental Protection",
               "type": "organization"
             },
             {
-              "source": "https://eec.ky.gov/Documents%20for%20URLs/PFAS%20Drinking%20Water%20Report%20Final.pdf",
+              "name": "https://eec.ky.gov/Documents%20for%20URLs/PFAS%20Drinking%20Water%20Report%20Final.pdf",
               "type": "URL"
             }
           ],
@@ -633,17 +632,17 @@ Output Metadata:
         },
         "layer_data/PFAS sampling and purchasing and intake detail.json": {
           "location": "layer_data/PFAS sampling and purchasing and intake detail.json",
-          "type": "GIS",
+          "type": "layer",
           "description": "List of all water systems in which PFAS were sampled.",
           "fairness": "FAIR",
           "format": "json",
-          "sources": [
+          "creator": [
             {
-              "source": "Kentucky Department of Environmental Protection",
+              "name": "Kentucky Department of Environmental Protection",
               "type": "organization"
             },
             {
-              "source": "https://eec.ky.gov/Documents%20for%20URLs/PFAS%20Drinking%20Water%20Report%20Final.pdf",
+              "name": "https://eec.ky.gov/Documents%20for%20URLs/PFAS%20Drinking%20Water%20Report%20Final.pdf",
               "type": "URL"
             }
           ],
@@ -759,17 +758,17 @@ Output Metadata:
         },
         "layer_data/PFAS_sampling_and_purchasing_and_intake_detail.geojson": {
           "location": "layer_data/PFAS_sampling_and_purchasing_and_intake_detail.geojson",
-          "type": "GIS",
+          "type": "layer",
           "description": "List of all water systems in which PFAS were sampled.",
           "fairness": "FAIR",
           "format": "geojson",
-          "sources": [
+          "creator": [
             {
-              "source": "Kentucky Department of Environmental Protection",
+              "name": "Kentucky Department of Environmental Protection",
               "type": "organization"
             },
             {
-              "source": "https://eec.ky.gov/Documents%20for%20URLs/PFAS%20Drinking%20Water%20Report%20Final.pdf",
+              "name": "https://eec.ky.gov/Documents%20for%20URLs/PFAS%20Drinking%20Water%20Report%20Final.pdf",
               "type": "URL"
             }
           ],
@@ -886,13 +885,13 @@ Output Metadata:
         },
         "https://services8.arcgis.com/Xcpl3GIMvkCI3oFI/arcgis/rest/services/Ohio_River_Marinas_WFL1/FeatureServer": {
           "location": "https://services8.arcgis.com/Xcpl3GIMvkCI3oFI/arcgis/rest/services/Ohio_River_Marinas_WFL1/FeatureServer",
-          "type": "GIS",
+          "type": "layer",
           "description": "Publicly available layer findable on ArcGIS Online.",
           "fairness": "Fir",
           "format": "web",
-          "sources": [
+          "creator": [
             {
-              "source": "ArcGIS Online",
+              "name": "ArcGIS Online",
               "type": "organization"
             }
           ],
@@ -900,13 +899,13 @@ Output Metadata:
         },
         "https://kygisserver.ky.gov/arcgis/rest/services/WGS84WM_Services/Ky_Water_WGS84WM/MapServer/11": {
           "location": "https://kygisserver.ky.gov/arcgis/rest/services/WGS84WM_Services/Ky_Water_WGS84WM/MapServer/11",
-          "type": "GIS",
+          "type": "layer",
           "description": "Locations of water lines in Kentucky.",
           "fairness": "Fir",
           "format": "web",
-          "sources": [
+          "creator": [
             {
-              "source": "https://kygeoportal.ky.gov/",
+              "name": "https://kygeoportal.ky.gov/",
               "type": "URL"
             }
           ],
@@ -924,6 +923,7 @@ Validating
 ~~~~~~~~~~
 Command Line Signature
 ----------------------
+
 .. code-block:: console
 
     miagis validate <metadata_json_file>
@@ -950,81 +950,186 @@ Examples
 --------
 Typical run.
 
-config_file.json:
+GIS_MEATADATA.json:
 
 .. code-block:: console
 
     {
-      "summary_report": {},
-      "PubMed_search": {
-        "PubMed_email": "email@email.com"
-      },
-      "Crossref_search": {
-        "mailto_email": "email@email.com"
+      "format_version": "DRAFT_MIAGIS_VERSION_0.1",
+      "entry_version": 1,
+      "entry_id": "KY PFAS Paper",
+      "date": "2022-07-07",
+      "description": "Data used for the paper titled \"A geospatial and binomial logistic regression model to prioritize sampling for per- and polyfluorinated alkyl substances in public water systems\". DOI: https://doi.org/10.1002/ieam.4614",
+      "products": [
+        "Map 1 Potential hot-spot map"
+      ],
+      "resources": {
+        "PFAS_detected_sites": {
+          "location": "https://services.arcgis.com/vQ8kO5zdqETeirEL/arcgis/rest/services/PFAS_detected_sites2019/FeatureServer",
+          "creator": [
+            {
+              "name": "Kentucky Department of Environmental Protection",
+              "type": "organization"
+            }
+          ],
+          "sources": [
+            "https://eec.ky.gov/Documents%20for%20URLs/PFAS%20Drinking%20Water%20Report%20Final.pdf"
+          ],
+          "fairness": "FAIR",
+          "format": "web",
+          "type": "layer",
+          "description": "",
+          "geographical_area": "Kentucky",
+          "alternate_locations": []
+        },
+        "layer_data/PFAS_detected_sites.json": {
+          "location": "layer_data/PFAS_detected_sites.json",
+          "type": "layer",
+          "description": "List of the water systems in which PFAS were detected.",
+          "fairness": "FAIR",
+          "format": "json",
+          "creator": [
+            {
+              "name": "Kentucky Department of Environmental Protection",
+              "type": "organization"
+            }
+          ],
+          "sources": [
+            "https://eec.ky.gov/Documents%20for%20URLs/PFAS%20Drinking%20Water%20Report%20Final.pdf"
+          ],
+          "geographical_area": "Kentucky",
+          "alternate_locations": [
+            "https://services.arcgis.com/vQ8kO5zdqETeirEL/arcgis/rest/services/PFAS_detected_sites2019/FeatureServer"
+          ],
+          "schema": {
+            "asdf": "qwer"
+          },
+          "fields": {
+            "__OBJECTID": {
+              "name": "__OBJECTID",
+              "type": "int"
+            },
+            "TYPE": {
+              "name": "TYPE",
+              "type": "str"
+            },
+            "WATER_SYSTEM": {
+              "name": "WATER_SYSTEM",
+              "type": "str"
+            },
+            "LATITUDE": {
+              "name": "LAT",
+              "type": "float"
+            },
+            "LONGITUDE": {
+              "name": "LONGITUDE",
+              "type": "float"
+            },
+            "PFAS": {
+              "name": "PFAS",
+              "type": "float"
+            },
+            "CODE": {
+              "name": "CODE",
+              "type": "str"
+            }
+          }
+        }
       }
     }
     
-.. note::
-
-    A minimal example is shown, but the config can have other sections and run without error.
 
 Console:
 
 .. code-block:: console
     
-    >academic_tracker reference_search config_file.json reference_file.txt
-    Finding publications. This could take a while.
-    Searching PubMed.
-    Searching Crossref.
-    Success. Publications and reports saved in tracker-2202020140
+    >miagis validate metadata_file_path
+    The value for ['resources']['PFAS_detected_sites']['alternate_locations'] cannot be empty.
+    The product, Map 1 Potential hot-spot map, is not in "resources".
+    The source, https://eec.ky.gov/Documents%20for%20URLs/PFAS%20Drinking%20Water%20Report%20Final.pdf, for resource, PFAS_detected_sites, does not exist in resources.
+    The source, https://eec.ky.gov/Documents%20for%20URLs/PFAS%20Drinking%20Water%20Report%20Final.pdf, for resource, layer_data/PFAS_detected_sites.json, does not exist in resources.
+    The "name" property for field, LATITUDE, for resource, layer_data/PFAS_detected_sites.json, does not match its key value.
 
 
-Run in test mode so emails aren't sent.
-
-.. code-block:: console
-    
-    >academic_tracker reference_search config_file.json reference_file.txt --test
-    Finding publications. This could take a while.
-    Searching PubMed.
-    Searching Crossref.
-    Success. Publications and reports saved in tracker-test-2202020140
 
 
-Designating a previous publications filepath.
-
-.. code-block:: console
-    
-    >academic_tracker reference_search config_file.json reference_file.txt --prev_pub prev_pub_file_path.json
-    Finding publications. This could take a while. 
-    Searching PubMed.
-    Searching Crossref.
-    Success. Publications and reports saved in tracker-2202020140
-    
-    
-Specifying that Academic Tracker shouldn't use Crossref.
-
-config_file.json:
+Print Map Layers
+~~~~~~~~~~~~~~~~
+Command Line Signature
+----------------------
 
 .. code-block:: console
 
-    {
-      "summary_report": {},
-      "PubMed_search": {
-        "PubMed_email": "email@email.com"
-      }
-    }
-    
-.. note::
+    miagis print_map_layers <metadata_json> [--save_path=<save_path>]
 
-    A minimal example is shown, but the config can have other sections and run without error.
+
+Description
+-----------
+Go through the metadata file, pull out each map and display its layers. This 
+command was added so that the simple structure of the project can be seen without 
+having to sort through all of the files. With this command, if the metadata is 
+constructed as expected it is easy to see the maps and their layers.
+
+
+Options
+-------
+--save_path:
+
+If provided save the console output to a text file.
+
+
+Outputs
+-------
+Pretty print the maps and layers of the metadata.
+
+
+Examples
+--------
+Typical run.
 
 Console:
 
 .. code-block:: console
     
-    >academic_tracker reference_search config_file.json reference_file.txt --no_Crossref
-    Finding publications. This could take a while. 
-    Searching PubMed.
-    Success. Publications and reports saved in tracker-2202020140
+    >miagis print_map_layers metadata_file_path
+    Maps:
+    	Map 1 Potential hot-spot map
+    		Layers:
+    			PFAS_detected_sites
+    			PFAS_sampling_and_purchasing_and_intake_detail
+    			TRI_DATA_IN_KENTUCKY
+    			Risk map with landfill
+    			Ohio_River_Marinas_WFL1 - Ohio River
+    			Ky_Water_Resources_Polygons_DOW_SWAPP_Zone_2
+    			Ky_Water_Resources_Polygons_DOW_SWAPP_Zone_1
+    			Ky_Water_Resources_Polygons_DOW_SWAPP_Zone_3
+    			waterIntake
+    			Surfacewater_sampled_and_detected
+    			gw_sampled_and_detected
+    			groundwater_not_detected
+    			Surface_water_sampled_and_not_detected
+    			WATER_SYSTEMS_IN_KENTUCKY
+    			water_district
+    			Model_says_NO
+    			hot-spot_map
+    			Model_says_yes
+    			Waste WTP outfls
+    			Kentucky County Polygons
+    			Blank White Vector Basemap
+
+    	US map
+    		Layers:
+    			TRI_only_A
+    			TRI_CA-HI
+    			TRI__IA-LA
+    			TRI__MA-MT
+    			TRI__NC-OH
+    			TRI__TX-WV
+    			TRI__OK-TN
+    			USA States Generalized1
+    			USA_State_Internal_Boundaries
+    			Blank White Vector Basemap
 
 
+
+.. _GitHub: https://github.com/MoseleyBioinformaticsLab/miagis

@@ -49,7 +49,7 @@ def build(resource_properties_path, exact_matching=False, remove_optional_fields
                        "esriFieldTypeSmallInteger":"int", "esriFieldTypeSingle":"float", "esriFieldTypeDouble":"float",
                        "esriFieldTypeSmallInteger":"int", "esriFieldTypeDate":"int", "typeIdField":"string"}
     
-    schema_list.append({"name":"In-built ArcGIS", "style":"mapping", "schema":miagis_schema.arcgis_schema, 
+    schema_list.append({"name":"In-built ESRI", "style":"mapping", "schema":miagis_schema.arcgis_schema, 
                     "field_path":'["layers"][0]["layerDefinition"]["fields"]', 
                     "name_key":"name", "type_key":"type", "type_map":arcgis_type_map})
     schema_list.append({"name":"In-built GEOJSON Single Feature", "style":"testing", "schema":miagis_schema.geojson_feature_schema, 
@@ -170,7 +170,7 @@ def build(resource_properties_path, exact_matching=False, remove_optional_fields
     ## Go through all matches and update alternate_locations so they all reference each other.
     for resource_name in resource_matches:
         total_list = resource_matches[resource_name]
-        if resource_name in metadata["resources"]:
+        if resource_original_name_map[resource_name] in metadata["resources"]:
             total_list.append(resource_original_name_map[resource_name])
         
         all_locations = set()
@@ -324,6 +324,7 @@ def determine_json_fields(schema_list, input_json, file_path):
     properties in the JSON, but the types are not the same as those defined in the 
     MIAGIS schema, so a mapping between the types is necessary. This style's dict 
     entry looks like:
+        
         {"style":"mapping", "schema":valid_jsonschema, "field_path":path_to_fields, 
          "name_key":key_to_name, "type_key":key_to_type, "type_map":type_mapping}
     
@@ -334,6 +335,7 @@ def determine_json_fields(schema_list, input_json, file_path):
     
     The testing style doesn't have types listed directly in the JSON so each field's 
     type must be tested. This style's dict entry looks like:
+        
         {"style":"testing", "schema":valid_jsonschema, 
          "features_path":path_to_features, "properties_key":key_to_properties}
         

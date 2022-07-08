@@ -92,21 +92,21 @@ Upgrade on Windows
 
 Quickstart
 ~~~~~~~~~~
-First create a directory with directories for "layer_data" and "map_data" as necessary. 
-Then run the "build" command.
+First create a directory with directories for "layer_data", "map_data", and "other" 
+as necessary. Then run the "build" command.
 
-MIAGIS has many options. The simplest use case is simply:
+MIAGIS has many options. The simplest use case is:
 
 .. code:: bash
     
     miagis build
 
-Although this will run and generate a metadata file MIAGIS can do a lot more by 
+Although this will run and generate a metadata file, MIAGIS can do a lot more by 
 using some of the simplest options. A more common use case is:
 
 .. code:: bash
     
-    miagis build --remove_optional_fields --file_properties <filepath> --base_metadata <filepath>
+    miagis build --remove_optional_fields --add_resources --resource_properties <filepath> --base_metadata <filepath>
     
 Detailed descriptions of the options and input files are in the `tutorial <https://moseleybioinformaticslab.github.io/miagis/tutorial.html>`_.
 

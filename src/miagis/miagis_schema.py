@@ -62,6 +62,7 @@ geojson_collection_schema = {
 ## This is an abbreviated schema that should be enough to check if the JSON is the format we are looking for.
 arcgis_schema = {
     "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title":"In-built ESRI",
     
     "type":"object",
     "properties":{
@@ -99,12 +100,13 @@ metadata_schema = {
                      "additionalProperties":{"type":"object",
                                              "properties":{
                                                  "location":{"type":"string", "minLength":1},
-                                                 "alternate_locations":{"type":"array", "items":{"type":"string", "minLength":1}},
+                                                 "alternate_locations":{"type":"array", "items":{"type":"string", "minLength":1}, "minItems":1},
                                                  "type":{"type":"string", "minLength":1},
                                                  "fairness":{"type":"string", "pattern":"(?i)^f?a?i?r?$"},
                                                  "format":{"type":"string", "minLength":1},
                                                  "schema":{"type":["string", "object"], "minLength":1},
                                                  "sources":{"type":"array", "items":{"type":"string", "minLength":1}},
+                                                 "description":{"type":"string", "minLength":1},
                                                  "creator":{"type":"array", "minItems":1, "items":{"type":"object",
                                                                                                    "properties":{
                                                                                                        "name":{"type":"string", "minLength":1},
@@ -118,13 +120,19 @@ metadata_schema = {
                                                                                        "type":{"type":"string", "enum":["ontology_term", "int", "float", "str"]},
                                                                                        "identifier":{"type":["string", "integer"], "minLength":1},
                                                                                        "identifier%type":{"type":"string", "minLength":1}},
-                                                                                   "required":["name", "type"]}}},
+                                                                                   "if":{"anyOf":[
+                                                                                       {"properties":{"identifier":{"type":["string", "integer"], "minLength":1}},
+                                                                                        "required":["identifier"]},
+                                                                                       {"properties":{"identifier%type":{"type":"string", "minLength":1}},
+                                                                                        "required":["identifier%type"]}]},
+                                                                                   "then":{"required":["name", "type", "identifier", "identifier%type"]},
+                                                                                   "else":{"required":["name", "type"]}}}},
                                              "if":{"anyOf":[
                                                      {"properties":{"type":{"anyOf":[{"const":"program"},
                                                                                      {"const":"other"}]}}},
                                                      {"properties":{"format":{"const":"web"}}}]},
-                                             "then":{"required":["location", "type", "fairness", "format"]},
-                                             "else":{"required":["location", "type", "fairness", "format", "fields"]}}},
+                                             "then":{"required":["location", "type", "fairness", "format", "description"]},
+                                             "else":{"required":["location", "type", "fairness", "format", "description", "fields"]}}},
         },
     "required":["format_version", "entry_version", "entry_id", "date", "description", "products", "resources"]}
 
@@ -137,6 +145,7 @@ args_schema = {
  "type":"object",
  "properties":{
      "--resource_properties":{"type":["string", "null"], "minLength":1},
+     "--json_schemas":{"type":["string", "null"], "minLength":1},
      "--entry_id":{"type":["string", "null"], "minLength":1},
      "--description":{"type":["string", "null"], "minLength":1},
      "--base_metadata":{"type":["string", "null"], "minLength":1}},

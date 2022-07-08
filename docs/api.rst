@@ -1,32 +1,17 @@
 API
 ===
 
-.. automodule:: academic_tracker
+.. automodule:: miagis
 
-.. automodule:: academic_tracker.user_input_checking
-    :members:
-
-.. automodule:: academic_tracker.athr_srch_modularized
-    :members:
-.. automodule:: academic_tracker.athr_srch_webio
-    :members:
-.. automodule:: academic_tracker.athr_srch_emails_and_reports
+.. automodule:: miagis.user_input_checking
     :members:
 
-.. automodule:: academic_tracker.ref_srch_modularized
+.. automodule:: miagis.build
     :members:
-.. automodule:: academic_tracker.ref_srch_webio
+.. automodule:: miagis.validate
     :members:
-.. automodule:: academic_tracker.ref_srch_emails_and_reports
-    :members:
-.. automodule:: academic_tracker.citation_parsing
+.. automodule:: miagis.print_map_layers
     :members:
 
-.. automodule:: academic_tracker.fileio
-    :members:
-.. automodule:: academic_tracker.helper_functions
-    :members:
-.. automodule:: academic_tracker.webio
-    :members:
 
 

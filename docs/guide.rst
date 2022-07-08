@@ -144,7 +144,7 @@ Basic usage
 
 MIAGIS can run without any inputs for the build command, but the resulting metadata 
 file won't be as filled out as it could be with some simple inputs. Typically, 
-users will want to create and provide a base metadata file and a file properties 
+users will want to create and provide a base metadata file and a resource properties 
 file. Details about the files and other inputs are in the :doc:`tutorial`.
 
 .. code-block:: console  
@@ -152,13 +152,18 @@ file. Details about the files and other inputs are in the :doc:`tutorial`.
  Usage:
     miagis build [options]
     miagis validate <metadata_json>
+    miagis print_map_layers <metadata_json> [--save_path=<save_path>]
 
  Options:
     --help                              Show this help documentation.
-    --file_properties=<file_path>       Filepath to a csv, xlsx, or JSON file with file properties.
-    --json_schemas=<file_path>          Filepath to a JSON file with schemas for different JSON formats.
+    --resource_properties=<file_path>   Filepath to a csv, xlsx, or JSON file with file properties.
     --exact_name_match                  If used then file name matching will be done exactly instead of fuzzy.
+    --add_resources                     If used then add resources from resource_properties directly to the metadata.
+    --overwrite_format                  If used then overwrite the determined format for files with what is in resource_properties.
+    --overwrite_fairness                If used then overwrite the determined fairness for files with what is in resource_properties.
     --remove_optional_fields            If used then delete optional metadata fields that are empty from files.
+    --json_schemas=<file_path>          Filepath to a JSON file with schemas for different JSON formats.
+    
 
  Base Metadata Options:
     --entry_version=<integer>           Set the entry_version field for the metadata. Should be an integer starting from 1. [default: 1]
