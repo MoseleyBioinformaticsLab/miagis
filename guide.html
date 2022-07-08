@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>User Guide &mdash; MIAGIS 1.0.0 documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Tutorial" href="tutorial.html" />
+    <link rel="prev" title="Welcome to MIAGIS’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> MIAGIS
+          </a>
+              <div class="version">
+                1.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">User Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#install-on-linux-mac-os-x">Install on Linux, Mac OS X</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-on-windows">Install on Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#upgrade-on-linux-mac-os-x">Upgrade on Linux, Mac OS X</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#upgrade-on-windows">Upgrade on Windows</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-inside-virtualenv">Install inside virtualenv</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#get-the-source-code">Get the source code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dependencies">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#basic-usage">Basic usage</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jsonschema.html">JSON Schema</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MIAGIS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>User Guide</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/guide.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="user-guide">
+<h1>User Guide<a class="headerlink" href="#user-guide" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="description">
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<p>MIAGIS was created to help automate the process of creating a meatadata file for GIS
+data depositions. It is a command line tool that goes through all files and folders
+in the current directory and makes a best effort to fill in all of the metadata fields
+for the file. The resulting metadata file is saved as GIS_METADATA.json in the current
+directory. It is not expected for this initially generated file to be perfect, therefore
+the “validate” command of MIAGIS should be used to generate a list of problems with the
+metadata that the user needs to address manually.</p>
+<p>The overall expected workflow is for the user to gather all of their files for the deposition
+into a directory with the expected directory structure (explained below), use the “build”
+command of MIAGIS to create an initial metadata file, and then use the “validate” command
+to get a list of problems to fix and fix them until the “validate” command reports nothing.</p>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>The MIAGIS package runs under Python 3.7+. Use <a class="reference external" href="https://pip.pypa.io/">pip</a> to install.
+Starting with Python 3.4, <a class="reference external" href="https://pip.pypa.io/">pip</a> is included by default.</p>
+<div class="section" id="install-on-linux-mac-os-x">
+<h3>Install on Linux, Mac OS X<a class="headerlink" href="#install-on-linux-mac-os-x" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install miagis
+</pre></div>
+</div>
+</div>
+<div class="section" id="install-on-windows">
+<h3>Install on Windows<a class="headerlink" href="#install-on-windows" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>py -3 -m pip install miagis
+</pre></div>
+</div>
+</div>
+<div class="section" id="upgrade-on-linux-mac-os-x">
+<h3>Upgrade on Linux, Mac OS X<a class="headerlink" href="#upgrade-on-linux-mac-os-x" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install miagis --upgrade
+</pre></div>
+</div>
+</div>
+<div class="section" id="upgrade-on-windows">
+<h3>Upgrade on Windows<a class="headerlink" href="#upgrade-on-windows" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>py -3 -m pip install miagis --upgrade
+</pre></div>
+</div>
+</div>
+<div class="section" id="install-inside-virtualenv">
+<h3>Install inside virtualenv<a class="headerlink" href="#install-inside-virtualenv" title="Permalink to this headline">¶</a></h3>
+<p>For an isolated install, you can run the same inside a <a class="reference external" href="https://virtualenv.pypa.io/">virtualenv</a>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ virtualenv -p /usr/bin/python3 venv            <span class="c1"># create virtual environment, use python3 interpreter</span>
+
+$ <span class="nb">source</span> venv/bin/activate                       <span class="c1"># activate virtual environment</span>
+
+$ python3 -m pip install miagis        <span class="c1"># install academic_tracker as usual</span>
+
+$ deactivate                                     <span class="c1"># if you are done working in the virtual environment</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="get-the-source-code">
+<h2>Get the source code<a class="headerlink" href="#get-the-source-code" title="Permalink to this headline">¶</a></h2>
+<p>Code is available on GitHub: <a class="reference external" href="https://github.com/MoseleyBioinformaticsLab/miagis">https://github.com/MoseleyBioinformaticsLab/miagis</a></p>
+<p>You can either clone the public repository:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ https://github.com/MoseleyBioinformaticsLab/miagis.git
+</pre></div>
+</div>
+<p>Or, download the tarball and/or zipball:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ curl -OL https://github.com/MoseleyBioinformaticsLab/miagis/tarball/main
+
+$ curl -OL https://github.com/MoseleyBioinformaticsLab/miagis/zipball/main
+</pre></div>
+</div>
+<p>Once you have a copy of the source, you can embed it in your own Python package,
+or install it into your system site-packages easily:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python3 setup.py install
+</pre></div>
+</div>
+</div>
+<div class="section" id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<p>The MIAGIS package depends on several Python libraries. The <code class="docutils literal notranslate"><span class="pre">pip</span></code> command
+will install all dependencies automatically, but if you wish to install them manually,
+run the following commands:</p>
+<blockquote>
+<div><ul>
+<li><dl>
+<dt><a class="reference external" href="https://pypi.org/project/docopt/">docopt</a> for creating the command-line interface.</dt><dd><ul>
+<li><p>To install <a class="reference external" href="https://pypi.org/project/docopt/">docopt</a> run the following:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install docopt  <span class="c1"># On Linux, Mac OS X</span>
+py -3 -m pip install docopt    <span class="c1"># On Windows</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><a class="reference external" href="https://pypi.org/project/jsonschema/">jsonschema</a> for validating JSON.</dt><dd><ul>
+<li><p>To install the <a class="reference external" href="https://pypi.org/project/jsonschema/">jsonschema</a> Python library run the following:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install jsonschema  <span class="c1"># On Linux, Mac OS X</span>
+py -3 -m pip install jsonschema    <span class="c1"># On Windows</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><a class="reference external" href="https://pypi.org/project/fuzzywuzzy/">fuzzywuzzy</a> for fuzzy matching publication titles.</dt><dd><ul>
+<li><p>To install the <a class="reference external" href="https://pypi.org/project/fuzzywuzzy/">fuzzywuzzy</a> Python library run the following:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install fuzzywuzzy  <span class="c1"># On Linux, Mac OS X</span>
+py -3 -m pip install fuzzywuzzy    <span class="c1"># On Windows</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl>
+<dt><a class="reference external" href="https://pypi.org/project/pandas/">pandas</a> for easy data manipulation.</dt><dd><ul>
+<li><p>To install the <a class="reference external" href="https://pypi.org/project/pandas/">pandas</a> Python library run the following:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install pandas  <span class="c1"># On Linux, Mac OS X</span>
+py -3 -m pip install pandas    <span class="c1"># On Windows</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="basic-usage">
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
+<p>MIAGIS can run without any inputs for the build command, but the resulting metadata
+file won’t be as filled out as it could be with some simple inputs. Typically,
+users will want to create and provide a base metadata file and a resource properties
+file. Details about the files and other inputs are in the <a class="reference internal" href="tutorial.html"><span class="doc">Tutorial</span></a>.</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Usage:</span>
+<span class="go">   miagis build [options]</span>
+<span class="go">   miagis validate &lt;metadata_json&gt;</span>
+<span class="go">   miagis print_map_layers &lt;metadata_json&gt; [--save_path=&lt;save_path&gt;]</span>
+
+<span class="go">Options:</span>
+<span class="go">   --help                              Show this help documentation.</span>
+<span class="go">   --resource_properties=&lt;file_path&gt;   Filepath to a csv, xlsx, or JSON file with file properties.</span>
+<span class="go">   --exact_name_match                  If used then file name matching will be done exactly instead of fuzzy.</span>
+<span class="go">   --add_resources                     If used then add resources from resource_properties directly to the metadata.</span>
+<span class="go">   --overwrite_format                  If used then overwrite the determined format for files with what is in resource_properties.</span>
+<span class="go">   --overwrite_fairness                If used then overwrite the determined fairness for files with what is in resource_properties.</span>
+<span class="go">   --remove_optional_fields            If used then delete optional metadata fields that are empty from files.</span>
+<span class="go">   --json_schemas=&lt;file_path&gt;          Filepath to a JSON file with schemas for different JSON formats.</span>
+
+
+<span class="go">Base Metadata Options:</span>
+<span class="go">   --entry_version=&lt;integer&gt;           Set the entry_version field for the metadata. Should be an integer starting from 1. [default: 1]</span>
+<span class="go">   --entry_id=&lt;id&gt;                     Set the entry_id field for the metadata.</span>
+<span class="go">   --description=&lt;description&gt;         Set the description field for the metadata</span>
+<span class="go">   --base_metadata=&lt;file_path&gt;         Filepath to a JSON file with the base metadata fields to use.</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to MIAGIS’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="tutorial.html" class="btn btn-neutral float-right" title="Tutorial" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Travis Thompson.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

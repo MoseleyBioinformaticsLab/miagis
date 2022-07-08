@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tutorial &mdash; MIAGIS 1.0.0 documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="JSON Schema" href="jsonschema.html" />
+    <link rel="prev" title="User Guide" href="guide.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> MIAGIS
+          </a>
+              <div class="version">
+                1.0.0
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="guide.html">User Guide</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Tutorial</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#metadata-json-file">Metadata JSON File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#deposition-directory">Deposition Directory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#before-running">Before Running</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#input-files">Input Files</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#base-metadata-file">Base Metadata File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#resource-properties-file">Resource Properties File</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#json-schemas-file">JSON Schemas File</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#building">Building</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#command-line-signature">Command Line Signature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#description">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#options">Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#outputs">Outputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#validating">Validating</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Command Line Signature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Outputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#print-map-layers">Print Map Layers</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id6">Command Line Signature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">Outputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id10">Examples</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="jsonschema.html">JSON Schema</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">MIAGIS</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>Tutorial</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/tutorial.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="tutorial">
+<h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this headline">¶</a></h1>
+<p>MIAGIS is intended to be used solely as a command line program. This tutorial
+describes each command and its options. Some simple examples are given here, but
+examples of papers actually published are in the examples folder on <a class="reference external" href="https://github.com/MoseleyBioinformaticsLab/miagis">GitHub</a>.</p>
+<div class="section" id="metadata-json-file">
+<h2>Metadata JSON File<a class="headerlink" href="#metadata-json-file" title="Permalink to this headline">¶</a></h2>
+<p>Details about the metadata JSON file created and validated by MIAGIS can be found
+in the <a class="reference internal" href="jsonschema.html"><span class="doc">JSON Schema</span></a> section. In short there are 2 sections to the metadata,
+the base and the resources. The base is a few short entries describing the overall
+project, deposition, and products. The resources are details about each resource
+used or created during the project and included in the deposition. MIAGIS does
+the heavy lifting of filling out some of the tedious and repetitive parts in the
+resources section.</p>
+</div>
+<div class="section" id="deposition-directory">
+<h2>Deposition Directory<a class="headerlink" href="#deposition-directory" title="Permalink to this headline">¶</a></h2>
+<p>Although MIAGIS will work with any directory structure it has extra functionality
+if a certain structure is used. The expected structure is a directory named “map_data”,
+a directory named “layer_data”, and a directory named “other”. “map_data” contains
+data for whole GIS maps, “layer_data” contains files for individual layers of a
+map, and “other” contains any other data that is not maps or layers. Any directory
+that does not contain files should be deleted.</p>
+</div>
+<div class="section" id="before-running">
+<h2>Before Running<a class="headerlink" href="#before-running" title="Permalink to this headline">¶</a></h2>
+<p>Getting the initial metadata build to come out as close to finished to as possible
+with a minimum amount of manual entry needed is heavily facilitated by getting
+everything in order before running the command. First create a directory with
+the structure as described above, and put all of the files in the appropriate
+locations. Then create a base metadata JSON file that fills out the base metadata.
+Then create a resource properties file that contains information about each
+resource. The base metadata file and resource properties file are detailed below
+with examples. With all of this done the preparation for running the build
+command is complete.</p>
+</div>
+<div class="section" id="input-files">
+<h2>Input Files<a class="headerlink" href="#input-files" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="base-metadata-file">
+<h3>Base Metadata File<a class="headerlink" href="#base-metadata-file" title="Permalink to this headline">¶</a></h3>
+<p>The base metadata file that can be input to MIAGIS through the –base_metadata
+option is a JSON file with the base section of the metadata. Unfortunately, much
+of this information must be filled out by hand because it cannot be determined
+or inferred programmatically.</p>
+<p>The reason to create a separate file and deliver it to MIAGIS rather than simply
+filling them in after MIAGIS creates the metadata is for the case where the
+build command needs to be ran more than once. Although you may think you have
+all of the files prepared for the deposition it is not uncommon to miss or
+forget things and need to rebuild or modify the metadata file. Depending on the
+specific situation it can be easier to rebuild using MIAGIS than modifying by hand.</p>
+<p>Example:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">{</span>
+<span class="go">  &quot;format_version&quot;: &quot;DRAFT_MIAGIS_VERSION_0.1&quot;,</span>
+<span class="go">  &quot;entry_version&quot;: 1,</span>
+<span class="go">  &quot;entry_id&quot;: &quot;KY SOP Paper&quot;,</span>
+<span class="go">  &quot;description&quot;: &quot;Data used for the paper titled \&quot;Paper Title\&quot;  DOI: &quot;,</span>
+<span class="go">  &quot;products&quot;: [</span>
+<span class="go">      &quot;Combined map&quot;,</span>
+<span class="go">      &quot;Water map&quot;,</span>
+<span class="go">      &quot;Map Sewer&quot;,</span>
+<span class="go">      &quot;SWAPP map Ky&quot;</span>
+<span class="go">      &quot;Hotspot Map&quot;]</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="resource-properties-file">
+<h3>Resource Properties File<a class="headerlink" href="#resource-properties-file" title="Permalink to this headline">¶</a></h3>
+<p>The resource properties file is either a tabular or JSON file that contains information
+about resources in the deposition. It serves a few purposes. One purpose is to give
+a more condensed view of the resources and their properties in the case of the tabular
+form. It can be much easier to collect and manipulate all of the resource information
+in Excel or Google Sheets rather than trying to manage it in JSON directly. Another
+purpose is to avoid repetition. Due to a variety of formats the same data may be
+included multiple times in multiple files. The resource properties file allows you
+to enter information about a resource once and MIAGIS will copy it to all files that
+match the resource name. Names do not have to be exact unless the –exact_name_match
+option is used, by default MIAGIS does fuzzy name matching.</p>
+<p>If using the tabular form the file must have a header row on the first row and
+a column named “resource_name”. All other columns will be inserted into the metadata
+files section with the exact column name in the header. “resource_name” is not the
+only special column name. “alternate_locations”, “sources”, “creator”, and “creator_type”
+can be single entries or multiple entries separated by commas. There is further
+logic that looks to see if the “creator” and “creator_type” have the same number
+of entries in a row and prints a warning if they do not.</p>
+<p>If using the JSON form of the file each entry should meet the schema of the resources
+section of the metadata. As with the tabular form all properties are simply copied
+into the metadata for files whose names match the key in the JSON.</p>
+<p>Short Example Tabular:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">resource_name           alternate_locations      creator               creator_type         description                 geographical_area</span>
+<span class="go">example_name            URL_to_file              creator1,creator2     organization,URL         example_description     geographical_area</span>
+</pre></div>
+</div>
+<p>Short Example JSON:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">{</span>
+<span class="go"> &#39;example_name&#39;: {</span>
+<span class="go">  &#39;alternate_locations&#39;: [&#39;URL_to_file&#39;],</span>
+<span class="go">  &#39;creator&#39;: [{&#39;name&#39;: &#39;creator1&#39;, &#39;type&#39;: &#39;organization&#39;},</span>
+<span class="go">              {&#39;name&#39;: &#39;creator2&#39;, &#39;type&#39;: &#39;URL&#39;}],</span>
+<span class="go">  &#39;description&#39;: &#39;example_description&#39;,</span>
+<span class="go">  &#39;geographical_area&#39;: &#39;geographical_area&#39;}</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+<p>Long Example Tabular:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">file_name                                        alternate_locations                                                                                                                                                                       creator                                                                                                                          creator_type         description                                                    geographical_area</span>
+<span class="go">PFAS_sampling_and_purchasing_and_intake_detail       https://services.arcgis.com/vQ8kO5zdqETeirEL/arcgis/rest/services/PFAS_sampling_and_purchasing_data_2019/FeatureServer Kentucky                                                       Department of Environmental Protection,https://eec.ky.gov/Documents%20for%20URLs/PFAS%20Drinking%20Water%20Report%20Final.pdf    organization,URL     List of all water systems in which PFAS were sampled.          Kentucky</span>
+<span class="go">Ohio_River_Marinas_WFL1 - Ohio River                 https://services8.arcgis.com/Xcpl3GIMvkCI3oFI/arcgis/rest/services/Ohio_River_Marinas_WFL1/FeatureServer                                                                              ArcGIS Online                                                                                                                    organization         Publicly available layer findable on ArcGIS Online.            Kentucky</span>
+<span class="go">Kentucky Water Lines1                                https://kygisserver.ky.gov/arcgis/rest/services/WGS84WM_Services/Ky_Water_WGS84WM/MapServer/11, https://uky-edu.maps.arcgis.com/home/item.html?id=29713c2b8be14534943b8e2e5fa16daa    https://kygeoportal.ky.gov/                                                                                                      URL                      Locations of water lines in Kentucky.                      Kentucky</span>
+</pre></div>
+</div>
+<p>Long Example JSON:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">{</span>
+<span class="go"> &#39;PFAS_sampling_and_purchasing_and_intake_detail&#39;: {</span>
+<span class="go">  &#39;alternate_locations&#39;: [&#39;https://services.arcgis.com/vQ8kO5zdqETeirEL/arcgis/rest/services/PFAS_sampling_and_purchasing_data_2019/FeatureServer&#39;],</span>
+<span class="go">  &#39;creator&#39;: [{&#39;name&#39;: &#39;Kentucky Department of Environmental Protection&#39;,</span>
+<span class="go">               &#39;type&#39;: &#39;organization&#39;},</span>
+<span class="go">              {&#39;name&#39;: &#39;https://eec.ky.gov/Documents%20for%20URLs/PFAS%20Drinking%20Water%20Report%20Final.pdf&#39;,</span>
+<span class="go">               &#39;type&#39;: &#39;URL&#39;}],</span>
+<span class="go">  &#39;description&#39;: &#39;List of all water systems in which PFAS were sampled.&#39;,</span>
+<span class="go">  &#39;geographical_area&#39;: &#39;Kentucky&#39;},</span>
+
+<span class="go"> &#39;Ohio_River_Marinas_WFL1 - Ohio River&#39;: {</span>
+<span class="go">  &#39;alternate_locations&#39;: [&#39;https://services8.arcgis.com/Xcpl3GIMvkCI3oFI/arcgis/rest/services/Ohio_River_Marinas_WFL1/FeatureServer&#39;],</span>
+<span class="go">  &#39;creator&#39;: [{&#39;name&#39;: &#39;ArcGIS Online&#39;, &#39;type&#39;: &#39;organization&#39;}],</span>
+<span class="go">  &#39;description&#39;: &#39;Publicly available layer findable on ArcGIS Online.&#39;,</span>
+<span class="go">  &#39;geographical_area&#39;: &#39;Kentucky&#39;},</span>
+
+<span class="go"> &#39;Kentucky Water Lines1&#39;: {</span>
+<span class="go">  &#39;alternate_locations&#39;: [&#39;https://kygisserver.ky.gov/arcgis/rest/services/WGS84WM_Services/Ky_Water_WGS84WM/MapServer/11&#39;,</span>
+<span class="go">                                                   &#39;https://uky-edu.maps.arcgis.com/home/item.html?id=29713c2b8be14534943b8e2e5fa16daa&#39;],</span>
+<span class="go">  &#39;creator&#39;: [{&#39;name&#39;: &#39;https://kygeoportal.ky.gov/&#39;, &#39;type&#39;: &#39;URL&#39;}],</span>
+<span class="go">  &#39;description&#39;: &#39;Locations of water lines in Kentucky.&#39;,</span>
+<span class="go">  &#39;geographical_area&#39;: &#39;Kentucky&#39;}</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="json-schemas-file">
+<h3>JSON Schemas File<a class="headerlink" href="#json-schemas-file" title="Permalink to this headline">¶</a></h3>
+<p>The JSON Schemas file is a JSON file that allows you to specify different styles
+or formats of JSON files so that MIAGIS can accurately describe the fields in the
+file. MIAGIS is inherently aware of GEOJSON and ESRIJSON, but in the case of other
+proprietary or unique JSON formats this file may be used to let MIAGIS process
+them.</p>
+<p>The first thing that is required is a way to test a given JSON file and see if
+it matches the format. This is accomplished using <a class="reference external" href="https://json-schema.org/">JSON Schema</a> .
+A valid JSON Schema must be created for the format so that if the file under
+question is validated by the schema we can be reasonably sure it is of that format.
+The Schema does not have to be complicated and fully describe the format. It just
+needs to be robust enough that if a JSON file is validated by the Schema we are
+sure it is of our format. The Schema used to validate the GEOJSON and ESRIJSON
+formats are in the <a class="reference internal" href="jsonschema.html"><span class="doc">JSON Schema</span></a> section.</p>
+<p>The next pieces that are required depend on the style of the format. The JSON
+Schemas file is based off of the GEOJSON and ESRIJSON formats, so there are 2
+“styles”, “mapping” and “testing”. The ESRIJSON format already has a section inside
+its format that describes each field and gives it a type directly. These types
+are not the same types as those accepted by the MIAGIS Schema, so a mapping between
+the ESRI types and MIAGIS types must be made. The specific path to the list of
+metadata fields, the key to the name of the field, and the key to the type of the
+field must also be given.</p>
+<p>Mapping Style Generic Example:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">{</span>
+<span class="go"> &quot;style&quot;:&quot;mapping&quot;,</span>
+<span class="go"> &quot;schema&quot;:valid_json_schema,</span>
+<span class="go"> &quot;field_path&quot;:&#39;[&quot;path&quot;][&quot;to&quot;][&quot;fields&quot;]&#39;,</span>
+<span class="go"> &quot;name_key&quot;:&quot;name&quot;,</span>
+<span class="go"> &quot;type_key&quot;:&quot;type&quot;,</span>
+<span class="go"> &quot;type_map&quot;:{&quot;unique_type_1&quot;:&quot;str&quot;, &quot;unique_type_2&quot;:&quot;float&quot;}</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+<p>All of the properties in the above example are required for the mapping style.
+“schema” should be a valid JSON Schema that will be used to validate JSON files
+and match it to the format. “field_path” is a string that leads to where the
+fields are in the format. The path is assumed to lead to a list of dictionaries
+where each dictionary describes a field in the data. The string should use the
+familiar subscript notation for accessing dictionaries or objects in many
+programming languages. “name_key” is simply the key value in the field dictionary
+that will access the name of the field. “type _key” is simply the key value in
+the field dictionary that will access the type of the field. “type_map” is a
+dictionary that translates the format’s types into MIAGIS types. Any types not
+in the map will be typed as “UNKNOWN”.</p>
+<p>ESRIJSON Excerpt:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">// Shortened for Space</span>
+<span class="go">{</span>
+<span class="go"> &quot;layers&quot;:</span>
+<span class="go">     [{&quot;layerDefinition&quot;:</span>
+<span class="go">       {&quot;geometryType&quot;:&quot;esriGeometryPoint&quot;,</span>
+<span class="go">        &quot;objectIdField&quot;:&quot;__OBJECTID&quot;,</span>
+<span class="go">        &quot;type&quot;:&quot;Feature Layer&quot;,</span>
+<span class="go">        &quot;fields&quot;:[</span>
+<span class="go">            {&quot;name&quot;:&quot;__OBJECTID&quot;,&quot;alias&quot;:&quot;__OBJECTID&quot;,&quot;type&quot;:&quot;esriFieldTypeOID&quot;,&quot;editable&quot;:false,&quot;nullable&quot;:false,&quot;domain&quot;:null},</span>
+<span class="go">            {&quot;name&quot;:&quot;Sites&quot;,&quot;alias&quot;:&quot;Sites&quot;,&quot;type&quot;:&quot;esriFieldTypeString&quot;,&quot;length&quot;:255,&quot;editable&quot;:true,&quot;nullable&quot;:true,&quot;domain&quot;:null},</span>
+<span class="go">            {&quot;name&quot;:&quot;Latitude&quot;,&quot;alias&quot;:&quot;Latitude&quot;,&quot;type&quot;:&quot;esriFieldTypeDouble&quot;,&quot;editable&quot;:true,&quot;nullable&quot;:true,&quot;domain&quot;:null},</span>
+<span class="go">            {&quot;name&quot;:&quot;Longitude&quot;,&quot;alias&quot;:&quot;Longitude&quot;,&quot;type&quot;:&quot;esriFieldTypeDouble&quot;,&quot;editable&quot;:true,&quot;nullable&quot;:true,&quot;domain&quot;:null},</span>
+<span class="go">            {&quot;name&quot;:&quot;Site_Types&quot;,&quot;alias&quot;:&quot;Site Types&quot;,&quot;type&quot;:&quot;esriFieldTypeString&quot;,&quot;length&quot;:255,&quot;editable&quot;:true,&quot;nullable&quot;:true,&quot;domain&quot;:null},</span>
+<span class="go">            {&quot;name&quot;:&quot;Risk_score&quot;,&quot;alias&quot;:&quot;Risk score&quot;,&quot;type&quot;:&quot;esriFieldTypeInteger&quot;,&quot;editable&quot;:true,&quot;nullable&quot;:true,&quot;domain&quot;:null}</span>
+<span class="go">            ],</span>
+<span class="go">        }</span>
+<span class="go">       }</span>
+<span class="go">      ]</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+<p>The GEOJSON format does not provide field type information, so the type of the
+fields has to be tested to determine its type.</p>
+<p>Testing Style Generic Example:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">{</span>
+<span class="go"> &quot;style&quot;:&quot;testing&quot;,</span>
+<span class="go"> &quot;schema&quot;:valid_json_schema,</span>
+<span class="go"> &quot;features_path&quot;:&#39;[&quot;path&quot;][&quot;to&quot;][&quot;features&quot;]&#39;,</span>
+<span class="go"> &quot;properties_key&quot;:&quot;properties&quot;</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+<p>All of the properties in the above example are required for the testing style.
+“features_path” is similary to “field_path” for the mapping style, but instead
+can lead to a list of dictionaries or a single dictionary. Each dictionary is
+expected to be a feature with a properties attribute that is a dictionary of
+properties. Each property in each feature is tested to determine the type of the
+property. “properties_key” is the key to the properties in each feature.</p>
+<p>GEOJSON Excerpt:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">// Shortened for Space</span>
+<span class="go">{</span>
+<span class="go"> &quot;type&quot;:&quot;FeatureCollection&quot;,</span>
+<span class="go"> &quot;crs&quot;:{</span>
+<span class="go">        &quot;type&quot;:&quot;name&quot;,</span>
+<span class="go">        &quot;properties&quot;:{&quot;name&quot;:&quot;EPSG:4326&quot;}},</span>
+<span class="go"> &quot;features&quot;:[</span>
+<span class="go">             {&quot;type&quot;:&quot;Feature&quot;,</span>
+<span class="go">              &quot;id&quot;:1,</span>
+<span class="go">              &quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-85.0965039679502,38.7155959953824]},</span>
+<span class="go">              &quot;properties&quot;:</span>
+<span class="go">                  {&quot;F__OBJECTID&quot;:1,&quot;Sites&quot;:&quot;Cabot Corporation&quot;,&quot;Latitude&quot;:38.715596,&quot;Longitude&quot;:-85.096504,&quot;Site_Types&quot;:&quot;Chemical manufacturing&quot;,&quot;Risk_score&quot;:100}},</span>
+<span class="go">             {&quot;type&quot;:&quot;Feature&quot;,</span>
+<span class="go">              &quot;id&quot;:2,</span>
+<span class="go">              &quot;geometry&quot;:{&quot;type&quot;:&quot;Point&quot;,&quot;coordinates&quot;:[-84.462112007506,38.0473190082068]},</span>
+<span class="go">              &quot;properties&quot;:</span>
+<span class="go">                  {&quot;F__OBJECTID&quot;:2,&quot;Sites&quot;:&quot;Src Of Lexington&quot;,&quot;Latitude&quot;:38.047319,&quot;Longitude&quot;:-84.462112,&quot;Site_Types&quot;:&quot;Chemical manufacturing&quot;,&quot;Risk_score&quot;:100}}</span>
+<span class="go">            ]</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="building">
+<h2>Building<a class="headerlink" href="#building" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="command-line-signature">
+<h3>Command Line Signature<a class="headerlink" href="#command-line-signature" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">miagis build [options]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="description">
+<h3>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h3>
+<p>For each subdirectory in the current directory loop through all of the files and
+make a best attempt at adding it to the resources section of the metadata, filling
+in as much information as possible. Files found in “layer_data” automatically get
+a “layer” type and those found in “map_data” get a “map” type.</p>
+</div>
+<div class="section" id="options">
+<h3>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h3>
+<p>–resource_properties:</p>
+<p>Supply a tabular or JSON file to MIAGIS that it will use to match file names and
+fill in more information in the resources section of the metadata. MIAGIS also
+keeps track of all files matched and updates all matches “alternate_locations”,
+so that every match has alternate_locations to each other.</p>
+<p>–exact_name_match:</p>
+<p>If used MIAGIS will match file names in the resource properties file exactly rather
+than the default of fuzzy matching.</p>
+<p>–add_resources:</p>
+<p>If used then add resources from resource_properties directly to the metadata. More
+specifically, MIAGIS will loop over files and match file names to resource names,
+using that to fill in more information about the files, but at the end each resource
+will also be added to the metadata with its resource_name. This option exists so
+that each layer and map can be added as a resource to condense information. Instead
+of having to pick a single layer file as a source to a map, or add all of the files
+you can add the layer as a resource and use that as the source. The layer then
+has all of its files in its resource entry.</p>
+<p>If your resource_properties file is a mix of resources that you want to add and
+simple file matching that you don’t want to add there is a way to signal this.
+In the resource_properties file make sure there is a “location” column, and for
+any resource that you do not want to add directly leave this column blank. There
+should be a “location” anyway for any resources that you do want to add to the
+metadata directly.</p>
+<p>–overwrite_format:</p>
+<p>If used then overwrite the determined format for files with what is in resource_properties.
+This option was created in tandem with the –add_resources option. If you use the
+–add_resources option you will want to give the resource its own format, but if
+you add a “format” column in the resource_properties file that value will be used
+for any matched files. To avoid this use this option. Using this option will have
+MIAGIS ignore the “format” column in resource_properties for any matched files and
+instead use the format determined by the file extension.</p>
+<p>–overwrite_fairness:</p>
+<p>If used then overwrite the determined fairness for files with what is in resource_properties.
+This option was created in tandem with the –add_resources option. If you use the
+–add_resources option you will want to give the resource its own fairness, but if
+you add a “fairness” column in the resource_properties file that value will be used
+for any matched files. To avoid this use this option. Using this option will have
+MIAGIS ignore the “fairness” column in resource_properties for any matched files and
+instead use the default value of “FAIR”.</p>
+<p>–json_schemas:</p>
+<p>Supply a JSON file to MIAGIS that describes new JSON formats to look for and how
+to find the metadata fields in them.</p>
+<p>–remove_optional_fields:</p>
+<p>If used all empty optional fields in the metadata will be removed.</p>
+<p>–entry_version:</p>
+<p>Supply an integer starting from 1 to MIAGIS to use in the “entry_version” of the
+metadata.</p>
+<p>–entry_id:</p>
+<p>Supply a string to MIAGIS to use in the “entry_id” of the metadata.</p>
+<p>–description:</p>
+<p>Supply a string to MIAGIS to use in the “description” of the metadata.</p>
+<p>–base_metadata:</p>
+<p>Supply a JSON file to MIAGIS that contains base metadata information. It will be
+copied into the metadata as is. If other options conflict with the data in the
+file (entry_version, entry_id, or description) the command line option will overwrite
+what is in the file.</p>
+</div>
+<div class="section" id="outputs">
+<h3>Outputs<a class="headerlink" href="#outputs" title="Permalink to this headline">¶</a></h3>
+<p>Outputs a file named GIS_METADATA.json in the current directory.</p>
+</div>
+<div class="section" id="examples">
+<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
+<p>Typical run.</p>
+<p>Console:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">miagis build --resource_properties file_location --base_metadata file_location --add_resources --remove_optional_fields</span>
+</pre></div>
+</div>
+<p>resource_properties.csv:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">file_name                                        location                                                                                                                                                                              creator                                                                                                                              creator_type         format          fairness    description                                                geographical_area</span>
+<span class="go">PFAS_sampling_and_purchasing_and_intake_detail       https://services.arcgis.com/vQ8kO5zdqETeirEL/arcgis/rest/services/PFAS_sampling_and_purchasing_data_2019/FeatureServer Kentucky                                                       Department of Environmental Protection,https://eec.ky.gov/Documents%20for%20URLs/PFAS%20Drinking%20Water%20Report%20Final.pdf    organization,URL     web         Fir         List of all water systems in which PFAS were sampled.          Kentucky</span>
+<span class="go">Ohio_River_Marinas_WFL1 - Ohio River                 https://services8.arcgis.com/Xcpl3GIMvkCI3oFI/arcgis/rest/services/Ohio_River_Marinas_WFL1/FeatureServer                                                                              ArcGIS Online                                                                                                                    organization         web         Fir         Publicly available layer findable on ArcGIS Online.            Kentucky</span>
+<span class="go">Kentucky Water Lines1                                https://kygisserver.ky.gov/arcgis/rest/services/WGS84WM_Services/Ky_Water_WGS84WM/MapServer/11, https://uky-edu.maps.arcgis.com/home/item.html?id=29713c2b8be14534943b8e2e5fa16daa    https://kygeoportal.ky.gov/                                                                                                      URL                      web         Fir         Locations of water lines in Kentucky.                      Kentucky</span>
+</pre></div>
+</div>
+<p>base_metadata.json:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">{</span>
+<span class="go">  &quot;format_version&quot;: &quot;DRAFT_MIAGIS_VERSION_0.1&quot;,</span>
+<span class="go">  &quot;entry_version&quot;: 1,</span>
+<span class="go">  &quot;entry_id&quot;: &quot;KY SOP Paper&quot;,</span>
+<span class="go">  &quot;description&quot;: &quot;Data used for the paper titled \&quot;Paper Title\&quot;  DOI: &quot;,</span>
+<span class="go">  &quot;products&quot;: [</span>
+<span class="go">      &quot;Map 1&quot;]</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+<p>Current Directory:</p>
+<p>├─ layer_data/
+│  ├─ PFAS sampling and purchasing and intake detail.json
+│  ├─ PFAS_sampling_and_purchasing_and_intake_detail.geojson
+│  ├─ PFAS sampling and purchasing and intake detail.csv</p>
+<p>Output Metadata:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">{</span>
+<span class="go">  &quot;format_version&quot;: &quot;DRAFT_MIAGIS_VERSION_0.1&quot;,</span>
+<span class="go">  &quot;entry_version&quot;: 1,</span>
+<span class="go">  &quot;entry_id&quot;: &quot;KY SOP Paper&quot;,</span>
+<span class="go">  &quot;description&quot;: &quot;Data used for the paper titled \&quot;Paper Title\&quot;  DOI: &quot;,</span>
+<span class="go">  &quot;products&quot;: [</span>
+<span class="go">      &quot;Map 1&quot;],</span>
+<span class="go">  &quot;resources&quot;:{</span>
+<span class="go">    &quot;layer_data/PFAS sampling and purchasing and intake detail.csv&quot;: {</span>
+<span class="go">      &quot;location&quot;: &quot;layer_data/PFAS sampling and purchasing and intake detail.csv&quot;,</span>
+<span class="go">      &quot;type&quot;: &quot;layer&quot;,</span>
+<span class="go">      &quot;description&quot;: &quot;List of all water systems in which PFAS were sampled.&quot;,</span>
+<span class="go">      &quot;fairness&quot;: &quot;FAIR&quot;,</span>
+<span class="go">      &quot;format&quot;: &quot;csv&quot;,</span>
+<span class="go">      &quot;creator&quot;: [</span>
+<span class="go">        {</span>
+<span class="go">          &quot;name&quot;: &quot;Kentucky Department of Environmental Protection&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;organization&quot;</span>
+<span class="go">        },</span>
+<span class="go">        {</span>
+<span class="go">          &quot;name&quot;: &quot;https://eec.ky.gov/Documents%20for%20URLs/PFAS%20Drinking%20Water%20Report%20Final.pdf&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;URL&quot;</span>
+<span class="go">        }</span>
+<span class="go">      ],</span>
+<span class="go">      &quot;alternate_locations&quot;: [</span>
+<span class="go">        &quot;https://services.arcgis.com/vQ8kO5zdqETeirEL/arcgis/rest/services/PFAS_sampling_and_purchasing_data_2019/FeatureServer&quot;,</span>
+<span class="go">        &quot;layer_data/PFAS sampling and purchasing and intake detail.csv&quot;,</span>
+<span class="go">        &quot;layer_data/PFAS sampling and purchasing and intake detail.json&quot;,</span>
+<span class="go">        &quot;layer_data/PFAS_sampling_and_purchasing_and_intake_detail.geojson&quot;</span>
+<span class="go">      ],</span>
+<span class="go">      &quot;geographical_area&quot;: &quot;Kentucky&quot;,</span>
+<span class="go">      &quot;fields&quot;: {</span>
+<span class="go">        &quot;__OBJECTID&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;__OBJECTID&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;int&quot;,</span>
+<span class="go">          &quot;identifier&quot;: 1,</span>
+<span class="go">          &quot;identifier%type&quot;: &quot;column&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;Sample&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;Sample&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;str&quot;,</span>
+<span class="go">          &quot;identifier&quot;: 2,</span>
+<span class="go">          &quot;identifier%type&quot;: &quot;column&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;Collected&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;Collected&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;str&quot;,</span>
+<span class="go">          &quot;identifier&quot;: 3,</span>
+<span class="go">          &quot;identifier%type&quot;: &quot;column&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;Received&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;Received&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;str&quot;,</span>
+<span class="go">          &quot;identifier&quot;: 4,</span>
+<span class="go">          &quot;identifier%type&quot;: &quot;column&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;PSWID&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;PSWID&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;str&quot;,</span>
+<span class="go">          &quot;identifier&quot;: 5,</span>
+<span class="go">          &quot;identifier%type&quot;: &quot;column&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;Location&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;Location&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;str&quot;,</span>
+<span class="go">          &quot;identifier&quot;: 6,</span>
+<span class="go">          &quot;identifier%type&quot;: &quot;column&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;Intake /purchase&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;Intake /purchase&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;str&quot;,</span>
+<span class="go">          &quot;identifier&quot;: 7,</span>
+<span class="go">          &quot;identifier%type&quot;: &quot;column&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;Type&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;Type&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;str&quot;,</span>
+<span class="go">          &quot;identifier&quot;: 8,</span>
+<span class="go">          &quot;identifier%type&quot;: &quot;column&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;PFBS&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;PFBS&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;float&quot;,</span>
+<span class="go">          &quot;identifier&quot;: 9,</span>
+<span class="go">          &quot;identifier%type&quot;: &quot;column&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;HFPO- DA&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;HFPO- DA&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;float&quot;,</span>
+<span class="go">          &quot;identifier&quot;: 10,</span>
+<span class="go">          &quot;identifier%type&quot;: &quot;column&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;PFHpA&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;PFHpA&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;float&quot;,</span>
+<span class="go">          &quot;identifier&quot;: 11,</span>
+<span class="go">          &quot;identifier%type&quot;: &quot;column&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;PFHxS&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;PFHxS&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;float&quot;,</span>
+<span class="go">          &quot;identifier&quot;: 12,</span>
+<span class="go">          &quot;identifier%type&quot;: &quot;column&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;ADONA&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;ADONA&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;int&quot;,</span>
+<span class="go">          &quot;identifier&quot;: 13,</span>
+<span class="go">          &quot;identifier%type&quot;: &quot;column&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;PFOA&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;PFOA&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;float&quot;,</span>
+<span class="go">          &quot;identifier&quot;: 14,</span>
+<span class="go">          &quot;identifier%type&quot;: &quot;column&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;PFOS&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;PFOS&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;float&quot;,</span>
+<span class="go">          &quot;identifier&quot;: 15,</span>
+<span class="go">          &quot;identifier%type&quot;: &quot;column&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;PFNA&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;PFNA&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;float&quot;,</span>
+<span class="go">          &quot;identifier&quot;: 16,</span>
+<span class="go">          &quot;identifier%type&quot;: &quot;column&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;PFOA+PFOS&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;PFOA+PFOS&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;float&quot;,</span>
+<span class="go">          &quot;identifier&quot;: 17,</span>
+<span class="go">          &quot;identifier%type&quot;: &quot;column&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;Sum of PFAS&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;Sum of PFAS&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;float&quot;,</span>
+<span class="go">          &quot;identifier&quot;: 18,</span>
+<span class="go">          &quot;identifier%type&quot;: &quot;column&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;Units&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;Units&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;str&quot;,</span>
+<span class="go">          &quot;identifier&quot;: 19,</span>
+<span class="go">          &quot;identifier%type&quot;: &quot;column&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;LATITUDE&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;LATITUDE&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;float&quot;,</span>
+<span class="go">          &quot;identifier&quot;: 20,</span>
+<span class="go">          &quot;identifier%type&quot;: &quot;column&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;LONGITUDE&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;LONGITUDE&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;float&quot;,</span>
+<span class="go">          &quot;identifier&quot;: 21,</span>
+<span class="go">          &quot;identifier%type&quot;: &quot;column&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;Aquifer/Source&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;Aquifer/Source&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;str&quot;,</span>
+<span class="go">          &quot;identifier&quot;: 22,</span>
+<span class="go">          &quot;identifier%type&quot;: &quot;column&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;River Basin&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;River Basin&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;str&quot;,</span>
+<span class="go">          &quot;identifier&quot;: 23,</span>
+<span class="go">          &quot;identifier%type&quot;: &quot;column&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;Aquifer General&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;Aquifer General&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;str&quot;,</span>
+<span class="go">          &quot;identifier&quot;: 24,</span>
+<span class="go">          &quot;identifier%type&quot;: &quot;column&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;Land Use&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;Land Use&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;str&quot;,</span>
+<span class="go">          &quot;identifier&quot;: 25,</span>
+<span class="go">          &quot;identifier%type&quot;: &quot;column&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;x&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;x&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;float&quot;,</span>
+<span class="go">          &quot;identifier&quot;: 26,</span>
+<span class="go">          &quot;identifier%type&quot;: &quot;column&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;y&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;y&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;float&quot;,</span>
+<span class="go">          &quot;identifier&quot;: 27,</span>
+<span class="go">          &quot;identifier%type&quot;: &quot;column&quot;</span>
+<span class="go">        }</span>
+<span class="go">      }</span>
+<span class="go">    },</span>
+<span class="go">    &quot;layer_data/PFAS sampling and purchasing and intake detail.json&quot;: {</span>
+<span class="go">      &quot;location&quot;: &quot;layer_data/PFAS sampling and purchasing and intake detail.json&quot;,</span>
+<span class="go">      &quot;type&quot;: &quot;layer&quot;,</span>
+<span class="go">      &quot;description&quot;: &quot;List of all water systems in which PFAS were sampled.&quot;,</span>
+<span class="go">      &quot;fairness&quot;: &quot;FAIR&quot;,</span>
+<span class="go">      &quot;format&quot;: &quot;json&quot;,</span>
+<span class="go">      &quot;creator&quot;: [</span>
+<span class="go">        {</span>
+<span class="go">          &quot;name&quot;: &quot;Kentucky Department of Environmental Protection&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;organization&quot;</span>
+<span class="go">        },</span>
+<span class="go">        {</span>
+<span class="go">          &quot;name&quot;: &quot;https://eec.ky.gov/Documents%20for%20URLs/PFAS%20Drinking%20Water%20Report%20Final.pdf&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;URL&quot;</span>
+<span class="go">        }</span>
+<span class="go">      ],</span>
+<span class="go">      &quot;alternate_locations&quot;: [</span>
+<span class="go">        &quot;https://services.arcgis.com/vQ8kO5zdqETeirEL/arcgis/rest/services/PFAS_sampling_and_purchasing_data_2019/FeatureServer&quot;,</span>
+<span class="go">        &quot;layer_data/PFAS sampling and purchasing and intake detail.csv&quot;,</span>
+<span class="go">        &quot;layer_data/PFAS sampling and purchasing and intake detail.json&quot;,</span>
+<span class="go">        &quot;layer_data/PFAS_sampling_and_purchasing_and_intake_detail.geojson&quot;</span>
+<span class="go">      ],</span>
+<span class="go">      &quot;geographical_area&quot;: &quot;Kentucky&quot;,</span>
+<span class="go">      &quot;fields&quot;: {</span>
+<span class="go">        &quot;__OBJECTID&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;__OBJECTID&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;int&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;Sample&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;Sample&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;str&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;Collected&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;Collected&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;str&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;Received&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;Received&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;str&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;PSWID&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;PSWID&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;str&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;Location&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;Location&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;str&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;Intake_purchase&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;Intake_purchase&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;str&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;Type&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;Type&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;str&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;PFBS&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;PFBS&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;float&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;HFPO_DA&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;HFPO_DA&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;float&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;PFHpA&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;PFHpA&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;float&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;PFHxS&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;PFHxS&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;float&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;ADONA&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;ADONA&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;int&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;PFOA&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;PFOA&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;float&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;PFOS&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;PFOS&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;float&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;PFNA&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;PFNA&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;float&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;PFOA+PFOS&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;PFOA+PFOS&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;float&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;Sum_of_PFAS&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;Sum_of_PFAS&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;float&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;Units&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;Units&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;str&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;LATITUDE&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;LATITUDE&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;float&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;LONGITUDE&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;LONGITUDE&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;float&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;Aquifer_Source&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;Aquifer_Source&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;str&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;River_Basin&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;River_Basin&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;str&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;Aquifer_General&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;Aquifer_General&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;str&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;Land_Use&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;Land_Use&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;str&quot;</span>
+<span class="go">        }</span>
+<span class="go">      }</span>
+<span class="go">    },</span>
+<span class="go">    &quot;layer_data/PFAS_sampling_and_purchasing_and_intake_detail.geojson&quot;: {</span>
+<span class="go">      &quot;location&quot;: &quot;layer_data/PFAS_sampling_and_purchasing_and_intake_detail.geojson&quot;,</span>
+<span class="go">      &quot;type&quot;: &quot;layer&quot;,</span>
+<span class="go">      &quot;description&quot;: &quot;List of all water systems in which PFAS were sampled.&quot;,</span>
+<span class="go">      &quot;fairness&quot;: &quot;FAIR&quot;,</span>
+<span class="go">      &quot;format&quot;: &quot;geojson&quot;,</span>
+<span class="go">      &quot;creator&quot;: [</span>
+<span class="go">        {</span>
+<span class="go">          &quot;name&quot;: &quot;Kentucky Department of Environmental Protection&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;organization&quot;</span>
+<span class="go">        },</span>
+<span class="go">        {</span>
+<span class="go">          &quot;name&quot;: &quot;https://eec.ky.gov/Documents%20for%20URLs/PFAS%20Drinking%20Water%20Report%20Final.pdf&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;URL&quot;</span>
+<span class="go">        }</span>
+<span class="go">      ],</span>
+<span class="go">      &quot;alternate_locations&quot;: [</span>
+<span class="go">        &quot;https://services.arcgis.com/vQ8kO5zdqETeirEL/arcgis/rest/services/PFAS_sampling_and_purchasing_data_2019/FeatureServer&quot;,</span>
+<span class="go">        &quot;layer_data/PFAS sampling and purchasing and intake detail.csv&quot;,</span>
+<span class="go">        &quot;layer_data/PFAS sampling and purchasing and intake detail.json&quot;,</span>
+<span class="go">        &quot;layer_data/PFAS_sampling_and_purchasing_and_intake_detail.geojson&quot;</span>
+<span class="go">      ],</span>
+<span class="go">      &quot;geographical_area&quot;: &quot;Kentucky&quot;,</span>
+<span class="go">      &quot;schema&quot;: &quot;https://datatracker.ietf.org/doc/html/rfc7946&quot;,</span>
+<span class="go">      &quot;fields&quot;: {</span>
+<span class="go">        &quot;F__OBJECTID&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;F__OBJECTID&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;int&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;Sample&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;Sample&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;str&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;Collected&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;Collected&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;str&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;Received&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;Received&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;str&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;PSWID&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;PSWID&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;str&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;Location&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;Location&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;str&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;Intake_purchase&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;Intake_purchase&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;str&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;Type&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;Type&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;str&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;PFBS&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;PFBS&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;float&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;HFPO_DA&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;HFPO_DA&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;int&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;PFHpA&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;PFHpA&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;float&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;PFHxS&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;PFHxS&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;int&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;ADONA&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;ADONA&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;int&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;PFOA&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;PFOA&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;float&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;PFOS&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;PFOS&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;float&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;PFNA&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;PFNA&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;int&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;PFOA_PFOS&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;PFOA_PFOS&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;float&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;Sum_of_PFAS&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;Sum_of_PFAS&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;float&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;Units&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;Units&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;str&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;LATITUDE&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;LATITUDE&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;float&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;LONGITUDE&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;LONGITUDE&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;float&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;Aquifer_Source&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;Aquifer_Source&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;str&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;River_Basin&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;River_Basin&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;str&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;Aquifer_General&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;Aquifer_General&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;str&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;Land_Use&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;Land_Use&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;str&quot;</span>
+<span class="go">        }</span>
+<span class="go">      }</span>
+<span class="go">    },</span>
+<span class="go">    &quot;https://services8.arcgis.com/Xcpl3GIMvkCI3oFI/arcgis/rest/services/Ohio_River_Marinas_WFL1/FeatureServer&quot;: {</span>
+<span class="go">      &quot;location&quot;: &quot;https://services8.arcgis.com/Xcpl3GIMvkCI3oFI/arcgis/rest/services/Ohio_River_Marinas_WFL1/FeatureServer&quot;,</span>
+<span class="go">      &quot;type&quot;: &quot;layer&quot;,</span>
+<span class="go">      &quot;description&quot;: &quot;Publicly available layer findable on ArcGIS Online.&quot;,</span>
+<span class="go">      &quot;fairness&quot;: &quot;Fir&quot;,</span>
+<span class="go">      &quot;format&quot;: &quot;web&quot;,</span>
+<span class="go">      &quot;creator&quot;: [</span>
+<span class="go">        {</span>
+<span class="go">          &quot;name&quot;: &quot;ArcGIS Online&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;organization&quot;</span>
+<span class="go">        }</span>
+<span class="go">      ],</span>
+<span class="go">      &quot;geographical_area&quot;: &quot;Kentucky&quot;</span>
+<span class="go">    },</span>
+<span class="go">    &quot;https://kygisserver.ky.gov/arcgis/rest/services/WGS84WM_Services/Ky_Water_WGS84WM/MapServer/11&quot;: {</span>
+<span class="go">      &quot;location&quot;: &quot;https://kygisserver.ky.gov/arcgis/rest/services/WGS84WM_Services/Ky_Water_WGS84WM/MapServer/11&quot;,</span>
+<span class="go">      &quot;type&quot;: &quot;layer&quot;,</span>
+<span class="go">      &quot;description&quot;: &quot;Locations of water lines in Kentucky.&quot;,</span>
+<span class="go">      &quot;fairness&quot;: &quot;Fir&quot;,</span>
+<span class="go">      &quot;format&quot;: &quot;web&quot;,</span>
+<span class="go">      &quot;creator&quot;: [</span>
+<span class="go">        {</span>
+<span class="go">          &quot;name&quot;: &quot;https://kygeoportal.ky.gov/&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;URL&quot;</span>
+<span class="go">        }</span>
+<span class="go">      ],</span>
+<span class="go">      &quot;alternate_locations&quot;: [</span>
+<span class="go">        &quot;https://uky-edu.maps.arcgis.com/home/item.html?id=29713c2b8be14534943b8e2e5fa16daa&quot;</span>
+<span class="go">      ],</span>
+<span class="go">      &quot;geographical_area&quot;: &quot;Kentucky&quot;</span>
+<span class="go">    }</span>
+<span class="go">   }</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="validating">
+<h2>Validating<a class="headerlink" href="#validating" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id1">
+<h3>Command Line Signature<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">miagis validate &lt;metadata_json_file&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id2">
+<h3>Description<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>Validate the input file against the metadata JSON Schema in the <a class="reference internal" href="jsonschema.html"><span class="doc">JSON Schema</span></a>
+section. Additionally, perform some other logical checks such as making sure all
+references exist, and that keys and id attributes match.</p>
+</div>
+<div class="section" id="id3">
+<h3>Options<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h3>
+<p>No options at this time.</p>
+</div>
+<div class="section" id="id4">
+<h3>Outputs<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<p>Prints messages to the console about errors in the metadata.</p>
+</div>
+<div class="section" id="id5">
+<h3>Examples<a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h3>
+<p>Typical run.</p>
+<p>GIS_MEATADATA.json:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">{</span>
+<span class="go">  &quot;format_version&quot;: &quot;DRAFT_MIAGIS_VERSION_0.1&quot;,</span>
+<span class="go">  &quot;entry_version&quot;: 1,</span>
+<span class="go">  &quot;entry_id&quot;: &quot;KY PFAS Paper&quot;,</span>
+<span class="go">  &quot;date&quot;: &quot;2022-07-07&quot;,</span>
+<span class="go">  &quot;description&quot;: &quot;Data used for the paper titled \&quot;A geospatial and binomial logistic regression model to prioritize sampling for per- and polyfluorinated alkyl substances in public water systems\&quot;. DOI: https://doi.org/10.1002/ieam.4614&quot;,</span>
+<span class="go">  &quot;products&quot;: [</span>
+<span class="go">    &quot;Map 1 Potential hot-spot map&quot;</span>
+<span class="go">  ],</span>
+<span class="go">  &quot;resources&quot;: {</span>
+<span class="go">    &quot;PFAS_detected_sites&quot;: {</span>
+<span class="go">      &quot;location&quot;: &quot;https://services.arcgis.com/vQ8kO5zdqETeirEL/arcgis/rest/services/PFAS_detected_sites2019/FeatureServer&quot;,</span>
+<span class="go">      &quot;creator&quot;: [</span>
+<span class="go">        {</span>
+<span class="go">          &quot;name&quot;: &quot;Kentucky Department of Environmental Protection&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;organization&quot;</span>
+<span class="go">        }</span>
+<span class="go">      ],</span>
+<span class="go">      &quot;sources&quot;: [</span>
+<span class="go">        &quot;https://eec.ky.gov/Documents%20for%20URLs/PFAS%20Drinking%20Water%20Report%20Final.pdf&quot;</span>
+<span class="go">      ],</span>
+<span class="go">      &quot;fairness&quot;: &quot;FAIR&quot;,</span>
+<span class="go">      &quot;format&quot;: &quot;web&quot;,</span>
+<span class="go">      &quot;type&quot;: &quot;layer&quot;,</span>
+<span class="go">      &quot;description&quot;: &quot;&quot;,</span>
+<span class="go">      &quot;geographical_area&quot;: &quot;Kentucky&quot;,</span>
+<span class="go">      &quot;alternate_locations&quot;: []</span>
+<span class="go">    },</span>
+<span class="go">    &quot;layer_data/PFAS_detected_sites.json&quot;: {</span>
+<span class="go">      &quot;location&quot;: &quot;layer_data/PFAS_detected_sites.json&quot;,</span>
+<span class="go">      &quot;type&quot;: &quot;layer&quot;,</span>
+<span class="go">      &quot;description&quot;: &quot;List of the water systems in which PFAS were detected.&quot;,</span>
+<span class="go">      &quot;fairness&quot;: &quot;FAIR&quot;,</span>
+<span class="go">      &quot;format&quot;: &quot;json&quot;,</span>
+<span class="go">      &quot;creator&quot;: [</span>
+<span class="go">        {</span>
+<span class="go">          &quot;name&quot;: &quot;Kentucky Department of Environmental Protection&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;organization&quot;</span>
+<span class="go">        }</span>
+<span class="go">      ],</span>
+<span class="go">      &quot;sources&quot;: [</span>
+<span class="go">        &quot;https://eec.ky.gov/Documents%20for%20URLs/PFAS%20Drinking%20Water%20Report%20Final.pdf&quot;</span>
+<span class="go">      ],</span>
+<span class="go">      &quot;geographical_area&quot;: &quot;Kentucky&quot;,</span>
+<span class="go">      &quot;alternate_locations&quot;: [</span>
+<span class="go">        &quot;https://services.arcgis.com/vQ8kO5zdqETeirEL/arcgis/rest/services/PFAS_detected_sites2019/FeatureServer&quot;</span>
+<span class="go">      ],</span>
+<span class="go">      &quot;schema&quot;: {</span>
+<span class="go">        &quot;asdf&quot;: &quot;qwer&quot;</span>
+<span class="go">      },</span>
+<span class="go">      &quot;fields&quot;: {</span>
+<span class="go">        &quot;__OBJECTID&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;__OBJECTID&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;int&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;TYPE&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;TYPE&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;str&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;WATER_SYSTEM&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;WATER_SYSTEM&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;str&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;LATITUDE&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;LAT&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;float&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;LONGITUDE&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;LONGITUDE&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;float&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;PFAS&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;PFAS&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;float&quot;</span>
+<span class="go">        },</span>
+<span class="go">        &quot;CODE&quot;: {</span>
+<span class="go">          &quot;name&quot;: &quot;CODE&quot;,</span>
+<span class="go">          &quot;type&quot;: &quot;str&quot;</span>
+<span class="go">        }</span>
+<span class="go">      }</span>
+<span class="go">    }</span>
+<span class="go">  }</span>
+<span class="go">}</span>
+</pre></div>
+</div>
+<p>Console:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;</span>miagis validate metadata_file_path
+<span class="go">The value for [&#39;resources&#39;][&#39;PFAS_detected_sites&#39;][&#39;alternate_locations&#39;] cannot be empty.</span>
+<span class="go">The product, Map 1 Potential hot-spot map, is not in &quot;resources&quot;.</span>
+<span class="go">The source, https://eec.ky.gov/Documents%20for%20URLs/PFAS%20Drinking%20Water%20Report%20Final.pdf, for resource, PFAS_detected_sites, does not exist in resources.</span>
+<span class="go">The source, https://eec.ky.gov/Documents%20for%20URLs/PFAS%20Drinking%20Water%20Report%20Final.pdf, for resource, layer_data/PFAS_detected_sites.json, does not exist in resources.</span>
+<span class="go">The &quot;name&quot; property for field, LATITUDE, for resource, layer_data/PFAS_detected_sites.json, does not match its key value.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="print-map-layers">
+<h2>Print Map Layers<a class="headerlink" href="#print-map-layers" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id6">
+<h3>Command Line Signature<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">miagis print_map_layers &lt;metadata_json&gt; [--save_path=&lt;save_path&gt;]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id7">
+<h3>Description<a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h3>
+<p>Go through the metadata file, pull out each map and display its layers. This
+command was added so that the simple structure of the project can be seen without
+having to sort through all of the files. With this command, if the metadata is
+constructed as expected it is easy to see the maps and their layers.</p>
+</div>
+<div class="section" id="id8">
+<h3>Options<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h3>
+<p>–save_path:</p>
+<p>If provided save the console output to a text file.</p>
+</div>
+<div class="section" id="id9">
+<h3>Outputs<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<p>Pretty print the maps and layers of the metadata.</p>
+</div>
+<div class="section" id="id10">
+<h3>Examples<a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h3>
+<p>Typical run.</p>
+<p>Console:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;</span>miagis print_map_layers metadata_file_path
+<span class="go">Maps:</span>
+<span class="go">    Map 1 Potential hot-spot map</span>
+<span class="go">            Layers:</span>
+<span class="go">                    PFAS_detected_sites</span>
+<span class="go">                    PFAS_sampling_and_purchasing_and_intake_detail</span>
+<span class="go">                    TRI_DATA_IN_KENTUCKY</span>
+<span class="go">                    Risk map with landfill</span>
+<span class="go">                    Ohio_River_Marinas_WFL1 - Ohio River</span>
+<span class="go">                    Ky_Water_Resources_Polygons_DOW_SWAPP_Zone_2</span>
+<span class="go">                    Ky_Water_Resources_Polygons_DOW_SWAPP_Zone_1</span>
+<span class="go">                    Ky_Water_Resources_Polygons_DOW_SWAPP_Zone_3</span>
+<span class="go">                    waterIntake</span>
+<span class="go">                    Surfacewater_sampled_and_detected</span>
+<span class="go">                    gw_sampled_and_detected</span>
+<span class="go">                    groundwater_not_detected</span>
+<span class="go">                    Surface_water_sampled_and_not_detected</span>
+<span class="go">                    WATER_SYSTEMS_IN_KENTUCKY</span>
+<span class="go">                    water_district</span>
+<span class="go">                    Model_says_NO</span>
+<span class="go">                    hot-spot_map</span>
+<span class="go">                    Model_says_yes</span>
+<span class="go">                    Waste WTP outfls</span>
+<span class="go">                    Kentucky County Polygons</span>
+<span class="go">                    Blank White Vector Basemap</span>
+
+<span class="go">    US map</span>
+<span class="go">            Layers:</span>
+<span class="go">                    TRI_only_A</span>
+<span class="go">                    TRI_CA-HI</span>
+<span class="go">                    TRI__IA-LA</span>
+<span class="go">                    TRI__MA-MT</span>
+<span class="go">                    TRI__NC-OH</span>
+<span class="go">                    TRI__TX-WV</span>
+<span class="go">                    TRI__OK-TN</span>
+<span class="go">                    USA States Generalized1</span>
+<span class="go">                    USA_State_Internal_Boundaries</span>
+<span class="go">                    Blank White Vector Basemap</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="guide.html" class="btn btn-neutral float-left" title="User Guide" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="jsonschema.html" class="btn btn-neutral float-right" title="JSON Schema" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Travis Thompson.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
