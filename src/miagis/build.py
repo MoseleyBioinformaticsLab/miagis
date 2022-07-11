@@ -7,7 +7,6 @@ import pathlib
 import datetime
 import os
 import copy
-import json
 
 import fuzzywuzzy.fuzz
 import pandas
@@ -17,9 +16,9 @@ from . import miagis_schema
 from . import user_input_checking
 
 
-def build(resource_properties_path, exact_matching=False, remove_optional_fields=True, 
-          add_resources=True, overwrite_format=False, overwrite_fairness=False,
-          base_metadata={}, entry_version=1, entry_id="", base_description="", products=[], schema_list = []):
+def build(resource_properties_path: str, exact_matching: bool =False, remove_optional_fields: bool =True, 
+          add_resources: bool =True, overwrite_format: bool =False, overwrite_fairness: bool =False,
+          base_metadata: dict ={}, entry_version: int =1, entry_id: str ="", base_description: str ="", products: list =[], schema_list: list = []) -> dict:
     """Build a metadata file from the input settings in the current directory.
     
     Loop over files in the folders of the current directory, ignoring files in 
@@ -29,18 +28,21 @@ def build(resource_properties_path, exact_matching=False, remove_optional_fields
     automatically put into the metadata. 
     
     Args:
-        resource_properties_path (str): filepath to a file containing file properties.
-        exact_matching (bool): if True file names are matched exactly. if False names are modified and matched fuzzy.
-        remove_optional_fields (bool): if True optional metadata fields that are empty or null are removed.
-        add_resources (bool): if True add resources that aren't in the metadata after looping over the files to the metadata.
-        overwrite_format (bool): if True overwrite the default format determined from the file extension for files with what is in resource_properties.
-        overwrite_fairness (bool): if True overwrite the default value of "FAIR" for files with what is in resource_properties.
-        base_metadata (dict): update the metadata dict with this input dict.
-        entry_version (int): version number of the metadata.
-        entry_id (str): unique id for the metadata.
-        base_description (str): description of the metadata.
-        products (dict): a list of resource ids.
-        schema_list (list): a list of dicitonaries with information about how to detect if a JSON file is using that schema, and how to decode that schema to fill in the metadata.
+        resource_properties_path: filepath to a file containing file properties.
+        exact_matching: if True file names are matched exactly. if False names are modified and matched fuzzy.
+        remove_optional_fields: if True optional metadata fields that are empty or null are removed.
+        add_resources: if True add resources that aren't in the metadata after looping over the files to the metadata.
+        overwrite_format: if True overwrite the default format determined from the file extension for files with what is in resource_properties.
+        overwrite_fairness: if True overwrite the default value of "FAIR" for files with what is in resource_properties.
+        base_metadata: update the metadata dict with this input dict.
+        entry_version: version number of the metadata.
+        entry_id: unique id for the metadata.
+        base_description: description of the metadata.
+        products: a list of resource ids.
+        schema_list: a list of dicitonaries with information about how to detect if a JSON file is using that schema, and how to decode that schema to fill in the metadata.
+        
+    Returns:
+        The metadata JSON as a python dict.
     """
     directory = pathlib.Path.cwd()
     
@@ -197,16 +199,14 @@ def build(resource_properties_path, exact_matching=False, remove_optional_fields
                 del metadata["resources"][resource][field]
             
         
+    return metadata
     
-    save_path = pathlib.Path(directory, "GIS_METADATA.json")
-    with open(save_path, 'w') as outFile:
-        print(json.dumps(metadata, indent=2, sort_keys=False), file=outFile)
         
 
 
-
-def find_resource_properties(resource_properties, resource_properties_keys, exact_matching, 
-                         filename_minus_extension, relative_location):
+from typing import Tuple
+def find_resource_properties(resource_properties: dict, resource_properties_keys: list, exact_matching: bool, 
+                         filename_minus_extension: str, relative_location: str) -> Tuple[dict, list, str]:
     """Match filename to an entry in resource_properties and pull out properties.
     
     The point of this function is to find the match in resource_properties and format 
@@ -214,16 +214,16 @@ def find_resource_properties(resource_properties, resource_properties_keys, exac
     after returning from this function.
     
     Args:
-        resource_properties (dict): dictionary where the keys are filenames and values are properties of the file to go in the metadata.
-        resource_properties_keys (list): list of the resource_properties_keys, it is given as an input so the list isn't created every time the function runs.
-        exact_matching (bool): if True filename is matched as is, if False the filename is stripped, lowered, and spaces replaced with underscores before matching
-        filename_mins_extension (str): the filename to match with the extension removed.
-        relative_location (str): location of the file relative to the current directory, input here so it can be added to alternate_locations.
+        resource_properties: dictionary where the keys are filenames and values are properties of the file to go in the metadata.
+        resource_properties_keys: list of the resource_properties_keys, it is given as an input so the list isn't created every time the function runs.
+        exact_matching: if True filename is matched as is, if False the filename is stripped, lowered, and spaces replaced with underscores before matching
+        filename_mins_extension: the filename to match with the extension removed.
+        relative_location: location of the file relative to the current directory, input here so it can be added to alternate_locations.
         
     Returns:
-        current_resource_properties (dict): the properties of the matched filename from resource_properties.
-        alternate_locations (list): if alternate_locations is in resource_properties return it, else return an empty list, but always add the relative_location to the list
-        matched_name (str): the resource_name in resource_properties that was matched to filename_minus_extension.
+        The properties of the matched filename from resource_properties.
+        If alternate_locations is in resource_properties return it, else return an empty list, but always add the relative_location to the list
+        The resource_name in resource_properties that was matched to filename_minus_extension.
     """
     
     current_resource_properties = {}
@@ -260,15 +260,15 @@ def find_resource_properties(resource_properties, resource_properties_keys, exac
 
 
 
-def determine_table_fields(extension, path_to_read_file):
+def determine_table_fields(extension: str, path_to_read_file: pathlib.Path) -> dict:
     """Read in the tabular file and determine the names and types of the columns.
     
     Args:
-        extension (str): the extension of the file without the period, used to read in the file correctly.
-        path_to_read_file (pathlib.Path): filepath to read in the file from.
+        extension: the extension of the file without the period, used to read in the file correctly.
+        path_to_read_file: filepath to read in the file from.
         
     Returns:
-        fields (dict): keys are the field name or column number and values are the name, type, and column number for each field. Ex: field_name : {"name":field_name, "type":field_type, "identifier":column_number+1, "identifier%type":"column"}
+        Keys are the field name or column number and values are the name, type, and column number for each field. Ex: field_name : {"name":field_name, "type":field_type, "identifier":column_number+1, "identifier%type":"column"}
     """
     
     if extension == "csv":
@@ -315,8 +315,8 @@ def determine_table_fields(extension, path_to_read_file):
 
 
 
-
-def determine_json_fields(schema_list, input_json, file_path):
+from typing import Union
+def determine_json_fields(schema_list: list, input_json: dict, file_path: str) -> Tuple[dict,Union[dict,str]]:
     """Determine the types of the feature properties in the JSON file.
     
     Based on the ESRIJSON and GEOJSON formats there are 2 types of schema styles, 
@@ -347,13 +347,13 @@ def determine_json_fields(schema_list, input_json, file_path):
     print a warning if does is not.
         
     Args:
-        schema_list (list): list of dictionaries where each dictionary describes a schema to look for and how to determine field types.
-        input_json (dict): the JSON to determine field types for.
-        file_path (str): path to the JSON file, used for printing error messages.
+        schema_list: list of dictionaries where each dictionary describes a schema to look for and how to determine field types.
+        input_json: the JSON to determine field types for.
+        file_path: path to the JSON file, used for printing error messages.
         
     Returns:
-        json_fields (dict): a dictionary of the fields and their types. Ex field_name : {"name":field_name, "type":field_type}
-        schema (dict or str): if "schema_URL" is in the schema dictionary then this is returned, otherwise return the jsonschema.
+        A dictionary of the fields and their types. Ex field_name : {"name":field_name, "type":field_type}
+        If "schema_URL" is in the schema dictionary then this is returned, otherwise return the jsonschema.
     """
     
     schema_properties = {}

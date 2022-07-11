@@ -5,12 +5,12 @@ This module contains the code to print and save map structure.
 
 import pathlib
 
-def print_map_layers(metadata, save_path=""):
+def print_map_layers(metadata: dict, save_path: str =""):
     """Find the maps and layers in metadata and pretty print them.
     
     Args:
-        metadata (dict): A valid metadata to find maps in.
-        save_path (str): path to save the output to a file, doesn't save if it is an empty string.
+        metadata: A valid metadata to find maps in.
+        save_path: path to save the output to a file, doesn't save if it is an empty string.
     """
     
     maps_dict = {}

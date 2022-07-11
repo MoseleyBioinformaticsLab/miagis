@@ -19,7 +19,10 @@ def validate(metadata):
     The specific JSON schema used is the metadata_schema in the miagis_schema module.
     
     Args:
-        metadata (dict): input dictionary of metadata.
+        metadata: input dictionary of metadata.
+        
+    Raises:
+        jsonschema.ValidationError: any validation errors that aren't handled reraise the original.
     """
     validator = jsonschema.Draft202012Validator(miagis_schema.metadata_schema)
     errors_generator = validator.iter_errors(metadata)

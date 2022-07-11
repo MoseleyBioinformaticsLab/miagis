@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
 """
+    GitHub: https://github.com/MoseleyBioinformaticsLab/miagis/tree/main
+    Documentation: https://moseleybioinformaticslab.github.io/miagis/
+
     For the current directory go through all files and folders and build a GIS metadata file.
     The output is saved as GIS_METADATA.json in the current directory and will overwrite without warning.
     
@@ -51,6 +54,8 @@
 
 
 import warnings
+import pathlib
+import json
 
 warnings.filterwarnings("ignore", module="fuzzywuzzy")
 
@@ -84,11 +89,16 @@ def main():
             base_metadata = {}
         
         
-        build.build(args["--resource_properties"], args["--exact_name_match"], 
+        metadata = build.build(args["--resource_properties"], args["--exact_name_match"], 
                     args["--remove_optional_fields"], args["--add_resources"],
                     args["--overwrite_format"], args["--overwrite_fairness"],
                     base_metadata, int(args["--entry_version"]), args["--entry_id"], 
                     args["--description"], [], schema_list)
+        
+        save_path = pathlib.Path(pathlib.Path.cwd(), "GIS_METADATA.json")
+        with open(save_path, 'w') as outFile:
+            print(json.dumps(metadata, indent=2, sort_keys=False), file=outFile)
+    
     elif args["validate"]:
         validate.validate(user_input_checking.load_json(args["<metadata_json>"]))
     elif args["print_map_layers"]:

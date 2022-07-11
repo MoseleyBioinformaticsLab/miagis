@@ -12,14 +12,14 @@ import pandas
 
 
 
-def load_json(filepath):
+def load_json(filepath: str) -> dict:
     """Adds error checking around loading a json file.
     
     Args:
-        filepath (str): filepath to the json file
+        filepath: filepath to the json file
         
     Returns:
-        internal_data (dict): json read from file in a dictionary
+        json read from file in a dictionary
         
     Raises:
         Exception: If file opening has a problem will raise an exception.
@@ -37,21 +37,20 @@ def load_json(filepath):
         sys.exit()
 
 
-
-
-def read_in_resource_properties(resource_properties_path, exact_matching):
+from typing import Tuple
+def read_in_resource_properties(resource_properties_path: str, exact_matching: bool) -> Tuple[dict,dict]:
     """Read in resource_properties and put it in expected dict form.
     
     resource_properties can be csv, xlsx, or JSON, so if it is one of the tabular 
     forms some of the fields have to be read in special.
     
     Args:
-        resource_properties_path (str): filepath to the resource_properties file.
-        exact_matching (bool): if True resource names will not be modified. 
+        resource_properties_path: filepath to the resource_properties file.
+        exact_matching: if True resource names will not be modified. 
                                if False resource names are stripped, lowered, and spaces replaced with underscores.
     
     Returns:
-        resource_properties (dict): the final dictionary of resource_properties.
+        tuple[dict, dict]: The final dictionary of resource_properties, and a mapping of the original resource name and new name
     """
     
     if resource_properties_path == None:
@@ -121,15 +120,15 @@ def read_in_resource_properties(resource_properties_path, exact_matching):
 
 
 
-def validate_arbitrary_schema(dict_to_validate, schema):
+def validate_arbitrary_schema(dict_to_validate: dict, schema: dict):
     """Validate any arbitrary JSON Schema.
     
     Wraps around jsonschema.validate() to give more human readable errors 
     for most validation errors.
     
     Args:
-        dict_to_validate (dict): instance to validate.
-        schema (dict): JSON Schema to validate the instance with.
+        dict_to_validate: instance to validate.
+        schema: JSON Schema to validate the instance with.
         
     Raises:
         jsonschema.ValidationError: any validation errors that aren't handled reraise the original.
@@ -177,7 +176,7 @@ def validate_arbitrary_schema(dict_to_validate, schema):
         sys.exit()
 
 
-def additional_args_checks(args):
+def additional_args_checks(args: dict):
     """Run some checks on args that jsonschema can't do.
     
     This assumes that args has been validated with a JSON schema and does some 
@@ -185,7 +184,7 @@ def additional_args_checks(args):
     Prints a message and exits the program if problems are found.
     
     Args:
-        args (dict): the arguments entered into the program by the user.
+        args: the arguments entered into the program by the user.
     """
     file_path_properties = ["--resource_properties", "--base_metadata", "--json_schemas", "<metadata_json>"]
     for path in file_path_properties:
@@ -205,13 +204,13 @@ def additional_args_checks(args):
         sys.exit()
         
 
-def additional_json_schemas_checks(schema_list):
+def additional_json_schemas_checks(schema_list: list):
     """Check that all input schemas are valid JSON Schema.
     
     If any schema are not valid JSON Schema then print a message and exit.
     
     Args:
-        schema_list (list): list of dictionaries of properties for JSON schemas.
+        schema_list: list of dictionaries of properties for JSON schemas.
     """
     
     ## Check that each schema is valid jsonschema.

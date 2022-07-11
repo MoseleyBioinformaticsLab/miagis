@@ -1,0 +1,4 @@
+docopt >= 0.6.2
+jsonschema >= 4.4.0
+fuzzywuzzy >= 0.18.0
+pandas >= 0.24.2

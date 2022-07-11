@@ -17,7 +17,7 @@ sys.path.insert(0, os.path.abspath('..'))
  
 from src.miagis import __version__
 
-
+autodoc_typehints = "description"
 # -- Project information -----------------------------------------------------
 
 project = 'MIAGIS'
