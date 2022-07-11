@@ -84,14 +84,14 @@
 
 
 
-<div class="viewcode-block" id="load_json"><a class="viewcode-back" href="../../../api.html#src.miagis.user_input_checking.load_json">[docs]</a><span class="k">def</span> <span class="nf">load_json</span><span class="p">(</span><span class="n">filepath</span><span class="p">):</span>
+<div class="viewcode-block" id="load_json"><a class="viewcode-back" href="../../../api.html#src.miagis.user_input_checking.load_json">[docs]</a><span class="k">def</span> <span class="nf">load_json</span><span class="p">(</span><span class="n">filepath</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Adds error checking around loading a json file.</span>
 <span class="sd">    </span>
 <span class="sd">    Args:</span>
-<span class="sd">        filepath (str): filepath to the json file</span>
+<span class="sd">        filepath: filepath to the json file</span>
 <span class="sd">        </span>
 <span class="sd">    Returns:</span>
-<span class="sd">        internal_data (dict): json read from file in a dictionary</span>
+<span class="sd">        json read from file in a dictionary</span>
 <span class="sd">        </span>
 <span class="sd">    Raises:</span>
 <span class="sd">        Exception: If file opening has a problem will raise an exception.</span>
@@ -109,21 +109,20 @@
         <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span></div>
 
 
-
-
-<div class="viewcode-block" id="read_in_resource_properties"><a class="viewcode-back" href="../../../api.html#src.miagis.user_input_checking.read_in_resource_properties">[docs]</a><span class="k">def</span> <span class="nf">read_in_resource_properties</span><span class="p">(</span><span class="n">resource_properties_path</span><span class="p">,</span> <span class="n">exact_matching</span><span class="p">):</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span>
+<div class="viewcode-block" id="read_in_resource_properties"><a class="viewcode-back" href="../../../api.html#src.miagis.user_input_checking.read_in_resource_properties">[docs]</a><span class="k">def</span> <span class="nf">read_in_resource_properties</span><span class="p">(</span><span class="n">resource_properties_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">exact_matching</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">dict</span><span class="p">,</span><span class="nb">dict</span><span class="p">]:</span>
     <span class="sd">&quot;&quot;&quot;Read in resource_properties and put it in expected dict form.</span>
 <span class="sd">    </span>
 <span class="sd">    resource_properties can be csv, xlsx, or JSON, so if it is one of the tabular </span>
 <span class="sd">    forms some of the fields have to be read in special.</span>
 <span class="sd">    </span>
 <span class="sd">    Args:</span>
-<span class="sd">        resource_properties_path (str): filepath to the resource_properties file.</span>
-<span class="sd">        exact_matching (bool): if True resource names will not be modified. </span>
+<span class="sd">        resource_properties_path: filepath to the resource_properties file.</span>
+<span class="sd">        exact_matching: if True resource names will not be modified. </span>
 <span class="sd">                               if False resource names are stripped, lowered, and spaces replaced with underscores.</span>
 <span class="sd">    </span>
 <span class="sd">    Returns:</span>
-<span class="sd">        resource_properties (dict): the final dictionary of resource_properties.</span>
+<span class="sd">        tuple[dict, dict]: The final dictionary of resource_properties, and a mapping of the original resource name and new name</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     
     <span class="k">if</span> <span class="n">resource_properties_path</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
@@ -193,15 +192,15 @@
 
 
 
-<div class="viewcode-block" id="validate_arbitrary_schema"><a class="viewcode-back" href="../../../api.html#src.miagis.user_input_checking.validate_arbitrary_schema">[docs]</a><span class="k">def</span> <span class="nf">validate_arbitrary_schema</span><span class="p">(</span><span class="n">dict_to_validate</span><span class="p">,</span> <span class="n">schema</span><span class="p">):</span>
+<div class="viewcode-block" id="validate_arbitrary_schema"><a class="viewcode-back" href="../../../api.html#src.miagis.user_input_checking.validate_arbitrary_schema">[docs]</a><span class="k">def</span> <span class="nf">validate_arbitrary_schema</span><span class="p">(</span><span class="n">dict_to_validate</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">schema</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Validate any arbitrary JSON Schema.</span>
 <span class="sd">    </span>
 <span class="sd">    Wraps around jsonschema.validate() to give more human readable errors </span>
 <span class="sd">    for most validation errors.</span>
 <span class="sd">    </span>
 <span class="sd">    Args:</span>
-<span class="sd">        dict_to_validate (dict): instance to validate.</span>
-<span class="sd">        schema (dict): JSON Schema to validate the instance with.</span>
+<span class="sd">        dict_to_validate: instance to validate.</span>
+<span class="sd">        schema: JSON Schema to validate the instance with.</span>
 <span class="sd">        </span>
 <span class="sd">    Raises:</span>
 <span class="sd">        jsonschema.ValidationError: any validation errors that aren&#39;t handled reraise the original.</span>
@@ -249,7 +248,7 @@
         <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span></div>
 
 
-<div class="viewcode-block" id="additional_args_checks"><a class="viewcode-back" href="../../../api.html#src.miagis.user_input_checking.additional_args_checks">[docs]</a><span class="k">def</span> <span class="nf">additional_args_checks</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+<div class="viewcode-block" id="additional_args_checks"><a class="viewcode-back" href="../../../api.html#src.miagis.user_input_checking.additional_args_checks">[docs]</a><span class="k">def</span> <span class="nf">additional_args_checks</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Run some checks on args that jsonschema can&#39;t do.</span>
 <span class="sd">    </span>
 <span class="sd">    This assumes that args has been validated with a JSON schema and does some </span>
@@ -257,7 +256,7 @@
 <span class="sd">    Prints a message and exits the program if problems are found.</span>
 <span class="sd">    </span>
 <span class="sd">    Args:</span>
-<span class="sd">        args (dict): the arguments entered into the program by the user.</span>
+<span class="sd">        args: the arguments entered into the program by the user.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">file_path_properties</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;--resource_properties&quot;</span><span class="p">,</span> <span class="s2">&quot;--base_metadata&quot;</span><span class="p">,</span> <span class="s2">&quot;--json_schemas&quot;</span><span class="p">,</span> <span class="s2">&quot;&lt;metadata_json&gt;&quot;</span><span class="p">]</span>
     <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">file_path_properties</span><span class="p">:</span>
@@ -277,13 +276,13 @@
         <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span></div>
         
 
-<div class="viewcode-block" id="additional_json_schemas_checks"><a class="viewcode-back" href="../../../api.html#src.miagis.user_input_checking.additional_json_schemas_checks">[docs]</a><span class="k">def</span> <span class="nf">additional_json_schemas_checks</span><span class="p">(</span><span class="n">schema_list</span><span class="p">):</span>
+<div class="viewcode-block" id="additional_json_schemas_checks"><a class="viewcode-back" href="../../../api.html#src.miagis.user_input_checking.additional_json_schemas_checks">[docs]</a><span class="k">def</span> <span class="nf">additional_json_schemas_checks</span><span class="p">(</span><span class="n">schema_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Check that all input schemas are valid JSON Schema.</span>
 <span class="sd">    </span>
 <span class="sd">    If any schema are not valid JSON Schema then print a message and exit.</span>
 <span class="sd">    </span>
 <span class="sd">    Args:</span>
-<span class="sd">        schema_list (list): list of dictionaries of properties for JSON schemas.</span>
+<span class="sd">        schema_list: list of dictionaries of properties for JSON schemas.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     
     <span class="c1">## Check that each schema is valid jsonschema.</span>

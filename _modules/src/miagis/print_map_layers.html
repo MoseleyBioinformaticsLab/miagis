@@ -77,12 +77,12 @@
 
 <span class="kn">import</span> <span class="nn">pathlib</span>
 
-<div class="viewcode-block" id="print_map_layers"><a class="viewcode-back" href="../../../api.html#src.miagis.print_map_layers.print_map_layers">[docs]</a><span class="k">def</span> <span class="nf">print_map_layers</span><span class="p">(</span><span class="n">metadata</span><span class="p">,</span> <span class="n">save_path</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
+<div class="viewcode-block" id="print_map_layers"><a class="viewcode-back" href="../../../api.html#src.miagis.print_map_layers.print_map_layers">[docs]</a><span class="k">def</span> <span class="nf">print_map_layers</span><span class="p">(</span><span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">save_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Find the maps and layers in metadata and pretty print them.</span>
 <span class="sd">    </span>
 <span class="sd">    Args:</span>
-<span class="sd">        metadata (dict): A valid metadata to find maps in.</span>
-<span class="sd">        save_path (str): path to save the output to a file, doesn&#39;t save if it is an empty string.</span>
+<span class="sd">        metadata: A valid metadata to find maps in.</span>
+<span class="sd">        save_path: path to save the output to a file, doesn&#39;t save if it is an empty string.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     
     <span class="n">maps_dict</span> <span class="o">=</span> <span class="p">{}</span>

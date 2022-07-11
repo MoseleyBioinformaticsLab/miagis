@@ -91,7 +91,10 @@
 <span class="sd">    The specific JSON schema used is the metadata_schema in the miagis_schema module.</span>
 <span class="sd">    </span>
 <span class="sd">    Args:</span>
-<span class="sd">        metadata (dict): input dictionary of metadata.</span>
+<span class="sd">        metadata: input dictionary of metadata.</span>
+<span class="sd">        </span>
+<span class="sd">    Raises:</span>
+<span class="sd">        jsonschema.ValidationError: any validation errors that aren&#39;t handled reraise the original.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">validator</span> <span class="o">=</span> <span class="n">jsonschema</span><span class="o">.</span><span class="n">Draft202012Validator</span><span class="p">(</span><span class="n">miagis_schema</span><span class="o">.</span><span class="n">metadata_schema</span><span class="p">)</span>
     <span class="n">errors_generator</span> <span class="o">=</span> <span class="n">validator</span><span class="o">.</span><span class="n">iter_errors</span><span class="p">(</span><span class="n">metadata</span><span class="p">)</span>

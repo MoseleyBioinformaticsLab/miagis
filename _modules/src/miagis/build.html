@@ -79,7 +79,6 @@
 <span class="kn">import</span> <span class="nn">datetime</span>
 <span class="kn">import</span> <span class="nn">os</span>
 <span class="kn">import</span> <span class="nn">copy</span>
-<span class="kn">import</span> <span class="nn">json</span>
 
 <span class="kn">import</span> <span class="nn">fuzzywuzzy.fuzz</span>
 <span class="kn">import</span> <span class="nn">pandas</span>
@@ -89,9 +88,9 @@
 <span class="kn">from</span> <span class="nn">.</span> <span class="kn">import</span> <span class="n">user_input_checking</span>
 
 
-<div class="viewcode-block" id="build"><a class="viewcode-back" href="../../../api.html#src.miagis.build.build">[docs]</a><span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="n">resource_properties_path</span><span class="p">,</span> <span class="n">exact_matching</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">remove_optional_fields</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
-          <span class="n">add_resources</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">overwrite_format</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">overwrite_fairness</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-          <span class="n">base_metadata</span><span class="o">=</span><span class="p">{},</span> <span class="n">entry_version</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">entry_id</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">base_description</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">products</span><span class="o">=</span><span class="p">[],</span> <span class="n">schema_list</span> <span class="o">=</span> <span class="p">[]):</span>
+<div class="viewcode-block" id="build"><a class="viewcode-back" href="../../../api.html#src.miagis.build.build">[docs]</a><span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="n">resource_properties_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">exact_matching</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">remove_optional_fields</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
+          <span class="n">add_resources</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">overwrite_format</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">overwrite_fairness</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+          <span class="n">base_metadata</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span><span class="p">{},</span> <span class="n">entry_version</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">entry_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">base_description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">products</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span><span class="p">[],</span> <span class="n">schema_list</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="p">[])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Build a metadata file from the input settings in the current directory.</span>
 <span class="sd">    </span>
 <span class="sd">    Loop over files in the folders of the current directory, ignoring files in </span>
@@ -101,18 +100,21 @@
 <span class="sd">    automatically put into the metadata. </span>
 <span class="sd">    </span>
 <span class="sd">    Args:</span>
-<span class="sd">        resource_properties_path (str): filepath to a file containing file properties.</span>
-<span class="sd">        exact_matching (bool): if True file names are matched exactly. if False names are modified and matched fuzzy.</span>
-<span class="sd">        remove_optional_fields (bool): if True optional metadata fields that are empty or null are removed.</span>
-<span class="sd">        add_resources (bool): if True add resources that aren&#39;t in the metadata after looping over the files to the metadata.</span>
-<span class="sd">        overwrite_format (bool): if True overwrite the default format determined from the file extension for files with what is in resource_properties.</span>
-<span class="sd">        overwrite_fairness (bool): if True overwrite the default value of &quot;FAIR&quot; for files with what is in resource_properties.</span>
-<span class="sd">        base_metadata (dict): update the metadata dict with this input dict.</span>
-<span class="sd">        entry_version (int): version number of the metadata.</span>
-<span class="sd">        entry_id (str): unique id for the metadata.</span>
-<span class="sd">        base_description (str): description of the metadata.</span>
-<span class="sd">        products (dict): a list of resource ids.</span>
-<span class="sd">        schema_list (list): a list of dicitonaries with information about how to detect if a JSON file is using that schema, and how to decode that schema to fill in the metadata.</span>
+<span class="sd">        resource_properties_path: filepath to a file containing file properties.</span>
+<span class="sd">        exact_matching: if True file names are matched exactly. if False names are modified and matched fuzzy.</span>
+<span class="sd">        remove_optional_fields: if True optional metadata fields that are empty or null are removed.</span>
+<span class="sd">        add_resources: if True add resources that aren&#39;t in the metadata after looping over the files to the metadata.</span>
+<span class="sd">        overwrite_format: if True overwrite the default format determined from the file extension for files with what is in resource_properties.</span>
+<span class="sd">        overwrite_fairness: if True overwrite the default value of &quot;FAIR&quot; for files with what is in resource_properties.</span>
+<span class="sd">        base_metadata: update the metadata dict with this input dict.</span>
+<span class="sd">        entry_version: version number of the metadata.</span>
+<span class="sd">        entry_id: unique id for the metadata.</span>
+<span class="sd">        base_description: description of the metadata.</span>
+<span class="sd">        products: a list of resource ids.</span>
+<span class="sd">        schema_list: a list of dicitonaries with information about how to detect if a JSON file is using that schema, and how to decode that schema to fill in the metadata.</span>
+<span class="sd">        </span>
+<span class="sd">    Returns:</span>
+<span class="sd">        The metadata JSON as a python dict.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">directory</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span>
     
@@ -269,16 +271,14 @@
                 <span class="k">del</span> <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;resources&quot;</span><span class="p">][</span><span class="n">resource</span><span class="p">][</span><span class="n">field</span><span class="p">]</span>
             
         
+    <span class="k">return</span> <span class="n">metadata</span></div>
     
-    <span class="n">save_path</span> <span class="o">=</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">(</span><span class="n">directory</span><span class="p">,</span> <span class="s2">&quot;GIS_METADATA.json&quot;</span><span class="p">)</span>
-    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">save_path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">outFile</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">metadata</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">sort_keys</span><span class="o">=</span><span class="kc">False</span><span class="p">),</span> <span class="n">file</span><span class="o">=</span><span class="n">outFile</span><span class="p">)</span></div>
         
 
 
-
-<div class="viewcode-block" id="find_resource_properties"><a class="viewcode-back" href="../../../api.html#src.miagis.build.find_resource_properties">[docs]</a><span class="k">def</span> <span class="nf">find_resource_properties</span><span class="p">(</span><span class="n">resource_properties</span><span class="p">,</span> <span class="n">resource_properties_keys</span><span class="p">,</span> <span class="n">exact_matching</span><span class="p">,</span> 
-                         <span class="n">filename_minus_extension</span><span class="p">,</span> <span class="n">relative_location</span><span class="p">):</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span>
+<div class="viewcode-block" id="find_resource_properties"><a class="viewcode-back" href="../../../api.html#src.miagis.build.find_resource_properties">[docs]</a><span class="k">def</span> <span class="nf">find_resource_properties</span><span class="p">(</span><span class="n">resource_properties</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">resource_properties_keys</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">exact_matching</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> 
+                         <span class="n">filename_minus_extension</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">relative_location</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">dict</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
     <span class="sd">&quot;&quot;&quot;Match filename to an entry in resource_properties and pull out properties.</span>
 <span class="sd">    </span>
 <span class="sd">    The point of this function is to find the match in resource_properties and format </span>
@@ -286,16 +286,16 @@
 <span class="sd">    after returning from this function.</span>
 <span class="sd">    </span>
 <span class="sd">    Args:</span>
-<span class="sd">        resource_properties (dict): dictionary where the keys are filenames and values are properties of the file to go in the metadata.</span>
-<span class="sd">        resource_properties_keys (list): list of the resource_properties_keys, it is given as an input so the list isn&#39;t created every time the function runs.</span>
-<span class="sd">        exact_matching (bool): if True filename is matched as is, if False the filename is stripped, lowered, and spaces replaced with underscores before matching</span>
-<span class="sd">        filename_mins_extension (str): the filename to match with the extension removed.</span>
-<span class="sd">        relative_location (str): location of the file relative to the current directory, input here so it can be added to alternate_locations.</span>
+<span class="sd">        resource_properties: dictionary where the keys are filenames and values are properties of the file to go in the metadata.</span>
+<span class="sd">        resource_properties_keys: list of the resource_properties_keys, it is given as an input so the list isn&#39;t created every time the function runs.</span>
+<span class="sd">        exact_matching: if True filename is matched as is, if False the filename is stripped, lowered, and spaces replaced with underscores before matching</span>
+<span class="sd">        filename_mins_extension: the filename to match with the extension removed.</span>
+<span class="sd">        relative_location: location of the file relative to the current directory, input here so it can be added to alternate_locations.</span>
 <span class="sd">        </span>
 <span class="sd">    Returns:</span>
-<span class="sd">        current_resource_properties (dict): the properties of the matched filename from resource_properties.</span>
-<span class="sd">        alternate_locations (list): if alternate_locations is in resource_properties return it, else return an empty list, but always add the relative_location to the list</span>
-<span class="sd">        matched_name (str): the resource_name in resource_properties that was matched to filename_minus_extension.</span>
+<span class="sd">        The properties of the matched filename from resource_properties.</span>
+<span class="sd">        If alternate_locations is in resource_properties return it, else return an empty list, but always add the relative_location to the list</span>
+<span class="sd">        The resource_name in resource_properties that was matched to filename_minus_extension.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     
     <span class="n">current_resource_properties</span> <span class="o">=</span> <span class="p">{}</span>
@@ -332,15 +332,15 @@
 
 
 
-<div class="viewcode-block" id="determine_table_fields"><a class="viewcode-back" href="../../../api.html#src.miagis.build.determine_table_fields">[docs]</a><span class="k">def</span> <span class="nf">determine_table_fields</span><span class="p">(</span><span class="n">extension</span><span class="p">,</span> <span class="n">path_to_read_file</span><span class="p">):</span>
+<div class="viewcode-block" id="determine_table_fields"><a class="viewcode-back" href="../../../api.html#src.miagis.build.determine_table_fields">[docs]</a><span class="k">def</span> <span class="nf">determine_table_fields</span><span class="p">(</span><span class="n">extension</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">path_to_read_file</span><span class="p">:</span> <span class="n">pathlib</span><span class="o">.</span><span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Read in the tabular file and determine the names and types of the columns.</span>
 <span class="sd">    </span>
 <span class="sd">    Args:</span>
-<span class="sd">        extension (str): the extension of the file without the period, used to read in the file correctly.</span>
-<span class="sd">        path_to_read_file (pathlib.Path): filepath to read in the file from.</span>
+<span class="sd">        extension: the extension of the file without the period, used to read in the file correctly.</span>
+<span class="sd">        path_to_read_file: filepath to read in the file from.</span>
 <span class="sd">        </span>
 <span class="sd">    Returns:</span>
-<span class="sd">        fields (dict): keys are the field name or column number and values are the name, type, and column number for each field. Ex: field_name : {&quot;name&quot;:field_name, &quot;type&quot;:field_type, &quot;identifier&quot;:column_number+1, &quot;identifier%type&quot;:&quot;column&quot;}</span>
+<span class="sd">        Keys are the field name or column number and values are the name, type, and column number for each field. Ex: field_name : {&quot;name&quot;:field_name, &quot;type&quot;:field_type, &quot;identifier&quot;:column_number+1, &quot;identifier%type&quot;:&quot;column&quot;}</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     
     <span class="k">if</span> <span class="n">extension</span> <span class="o">==</span> <span class="s2">&quot;csv&quot;</span><span class="p">:</span>
@@ -387,8 +387,8 @@
 
 
 
-
-<div class="viewcode-block" id="determine_json_fields"><a class="viewcode-back" href="../../../api.html#src.miagis.build.determine_json_fields">[docs]</a><span class="k">def</span> <span class="nf">determine_json_fields</span><span class="p">(</span><span class="n">schema_list</span><span class="p">,</span> <span class="n">input_json</span><span class="p">,</span> <span class="n">file_path</span><span class="p">):</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Union</span>
+<div class="viewcode-block" id="determine_json_fields"><a class="viewcode-back" href="../../../api.html#src.miagis.build.determine_json_fields">[docs]</a><span class="k">def</span> <span class="nf">determine_json_fields</span><span class="p">(</span><span class="n">schema_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span> <span class="n">input_json</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">file_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">dict</span><span class="p">,</span><span class="n">Union</span><span class="p">[</span><span class="nb">dict</span><span class="p">,</span><span class="nb">str</span><span class="p">]]:</span>
     <span class="sd">&quot;&quot;&quot;Determine the types of the feature properties in the JSON file.</span>
 <span class="sd">    </span>
 <span class="sd">    Based on the ESRIJSON and GEOJSON formats there are 2 types of schema styles, </span>
@@ -419,13 +419,13 @@
 <span class="sd">    print a warning if does is not.</span>
 <span class="sd">        </span>
 <span class="sd">    Args:</span>
-<span class="sd">        schema_list (list): list of dictionaries where each dictionary describes a schema to look for and how to determine field types.</span>
-<span class="sd">        input_json (dict): the JSON to determine field types for.</span>
-<span class="sd">        file_path (str): path to the JSON file, used for printing error messages.</span>
+<span class="sd">        schema_list: list of dictionaries where each dictionary describes a schema to look for and how to determine field types.</span>
+<span class="sd">        input_json: the JSON to determine field types for.</span>
+<span class="sd">        file_path: path to the JSON file, used for printing error messages.</span>
 <span class="sd">        </span>
 <span class="sd">    Returns:</span>
-<span class="sd">        json_fields (dict): a dictionary of the fields and their types. Ex field_name : {&quot;name&quot;:field_name, &quot;type&quot;:field_type}</span>
-<span class="sd">        schema (dict or str): if &quot;schema_URL&quot; is in the schema dictionary then this is returned, otherwise return the jsonschema.</span>
+<span class="sd">        A dictionary of the fields and their types. Ex field_name : {&quot;name&quot;:field_name, &quot;type&quot;:field_type}</span>
+<span class="sd">        If &quot;schema_URL&quot; is in the schema dictionary then this is returned, otherwise return the jsonschema.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     
     <span class="n">schema_properties</span> <span class="o">=</span> <span class="p">{}</span>
