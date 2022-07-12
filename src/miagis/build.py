@@ -7,6 +7,7 @@ import pathlib
 import datetime
 import os
 import copy
+import typing as t
 
 import fuzzywuzzy.fuzz
 import pandas
@@ -204,9 +205,9 @@ def build(resource_properties_path: str, exact_matching: bool =False, remove_opt
         
 
 
-from typing import Tuple
+
 def find_resource_properties(resource_properties: dict, resource_properties_keys: list, exact_matching: bool, 
-                         filename_minus_extension: str, relative_location: str) -> Tuple[dict, list, str]:
+                         filename_minus_extension: str, relative_location: str) -> t.Tuple[dict, list, str]:
     """Match filename to an entry in resource_properties and pull out properties.
     
     The point of this function is to find the match in resource_properties and format 
@@ -222,7 +223,7 @@ def find_resource_properties(resource_properties: dict, resource_properties_keys
         
     Returns:
         The properties of the matched filename from resource_properties.
-        If alternate_locations is in resource_properties return it, else return an empty list, but always add the relative_location to the list
+        If alternate_locations is in resource_properties return it, else return an empty list, but always add the relative_location to the list.
         The resource_name in resource_properties that was matched to filename_minus_extension.
     """
     
@@ -268,7 +269,7 @@ def determine_table_fields(extension: str, path_to_read_file: pathlib.Path) -> d
         path_to_read_file: filepath to read in the file from.
         
     Returns:
-        Keys are the field name or column number and values are the name, type, and column number for each field. Ex: field_name : {"name":field_name, "type":field_type, "identifier":column_number+1, "identifier%type":"column"}
+        :Keys are the field name or column number and values are the name, type, and column number for each field. Ex: field_name : {"name":field_name, "type":field_type, "identifier":column_number+1, "identifier%type":"column"}.
     """
     
     if extension == "csv":
@@ -315,8 +316,7 @@ def determine_table_fields(extension: str, path_to_read_file: pathlib.Path) -> d
 
 
 
-from typing import Union
-def determine_json_fields(schema_list: list, input_json: dict, file_path: str) -> Tuple[dict,Union[dict,str]]:
+def determine_json_fields(schema_list: list, input_json: dict, file_path: str) -> t.Tuple[dict,t.Union[dict,str]]:
     """Determine the types of the feature properties in the JSON file.
     
     Based on the ESRIJSON and GEOJSON formats there are 2 types of schema styles, 
@@ -352,7 +352,7 @@ def determine_json_fields(schema_list: list, input_json: dict, file_path: str) -
         file_path: path to the JSON file, used for printing error messages.
         
     Returns:
-        A dictionary of the fields and their types. Ex field_name : {"name":field_name, "type":field_type}
+        :A dictionary of the fields and their types. Ex field_name : {"name":field_name, "type":field_type}.
         If "schema_URL" is in the schema dictionary then this is returned, otherwise return the jsonschema.
     """
     

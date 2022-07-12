@@ -6,6 +6,8 @@ This module contains the functions used to read in and validate various inputs.
 import sys
 import pathlib
 import json
+import re
+import typing as t
 
 import jsonschema
 import pandas
@@ -37,8 +39,8 @@ def load_json(filepath: str) -> dict:
         sys.exit()
 
 
-from typing import Tuple
-def read_in_resource_properties(resource_properties_path: str, exact_matching: bool) -> Tuple[dict,dict]:
+
+def read_in_resource_properties(resource_properties_path: str, exact_matching: bool) -> t.Tuple[dict,dict]:
     """Read in resource_properties and put it in expected dict form.
     
     resource_properties can be csv, xlsx, or JSON, so if it is one of the tabular 
@@ -50,7 +52,7 @@ def read_in_resource_properties(resource_properties_path: str, exact_matching: b
                                if False resource names are stripped, lowered, and spaces replaced with underscores.
     
     Returns:
-        tuple[dict, dict]: The final dictionary of resource_properties, and a mapping of the original resource name and new name
+        The final dictionary of resource_properties, and a mapping of the original resource name and new name.
     """
     
     if resource_properties_path == None:
@@ -143,6 +145,12 @@ def validate_arbitrary_schema(dict_to_validate: dict, schema: dict):
         
         if e.validator == "minProperties":
             message += "The entry " + "[%s]" % "][".join(repr(index) for index in e.relative_path) + " cannot be empty."
+        elif e.validator == "required":
+            required_property = re.match(r"(\'.*\')", e.message).group(1)
+            if len(e.relative_path) == 0:
+                message += "The required property " + required_property + " is missing."
+            else:
+                message += "The entry " + "[%s]" % "][".join(repr(index) for index in e.relative_path) + " is missing the required property " + required_property + "."
         elif e.validator == "minLength":
             custom_message = " cannot be an empty string."
         elif e.validator == "maxLength":
@@ -159,13 +167,13 @@ def validate_arbitrary_schema(dict_to_validate: dict, schema: dict):
             else:
                 custom_message = " is not of type \"" + e.validator_value + "\"."
         elif e.validator == "enum":
-            custom_message = " is not one of [" + "%s" % ", ".join(repr(index) for index in e.validator_value) + "]"
+            custom_message = " is not one of [" + "%s" % ", ".join(repr(index) for index in e.validator_value) + "]."
         elif e.validator == "format":
             custom_message = " is not a valid " + e.validator_value + "."
         elif e.validator == "minimum":
-            custom_message = " must be greater than or equal to " + str(e.validator_value)
+            custom_message = " must be greater than or equal to " + str(e.validator_value) + "."
         elif e.validator == "maximum":
-            custom_message = " must be less than or equal to " + str(e.validator_value)
+            custom_message = " must be less than or equal to " + str(e.validator_value) + "."
         else:
             raise e
         

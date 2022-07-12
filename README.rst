@@ -129,7 +129,7 @@ in the /Applications/Python 3.x folder. This should fix the issue.
 
 License
 ~~~~~~~
-This package is distributed under the BSD `license`.
+This package is distributed under the BSD `license <https://moseleybioinformaticslab.github.io/miagis/license.html>`__.
 
 
 .. _GitHub: https://github.com/MoseleyBioinformaticsLab/miagis

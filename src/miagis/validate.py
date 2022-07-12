@@ -9,7 +9,7 @@ import jsonschema
 
 from . import miagis_schema
 
-def validate(metadata):
+def validate(metadata: dict):
     """Validate input metadata against the MIAGIS schema.
     
     Use jsonschema to validate input metadata, and then do some additional checking 
