@@ -78,6 +78,8 @@
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="kn">import</span> <span class="nn">pathlib</span>
 <span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">typing</span> <span class="k">as</span> <span class="nn">t</span>
 
 <span class="kn">import</span> <span class="nn">jsonschema</span>
 <span class="kn">import</span> <span class="nn">pandas</span>
@@ -109,8 +111,8 @@
         <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span></div>
 
 
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Tuple</span>
-<div class="viewcode-block" id="read_in_resource_properties"><a class="viewcode-back" href="../../../api.html#src.miagis.user_input_checking.read_in_resource_properties">[docs]</a><span class="k">def</span> <span class="nf">read_in_resource_properties</span><span class="p">(</span><span class="n">resource_properties_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">exact_matching</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">dict</span><span class="p">,</span><span class="nb">dict</span><span class="p">]:</span>
+
+<div class="viewcode-block" id="read_in_resource_properties"><a class="viewcode-back" href="../../../api.html#src.miagis.user_input_checking.read_in_resource_properties">[docs]</a><span class="k">def</span> <span class="nf">read_in_resource_properties</span><span class="p">(</span><span class="n">resource_properties_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">exact_matching</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">dict</span><span class="p">,</span><span class="nb">dict</span><span class="p">]:</span>
     <span class="sd">&quot;&quot;&quot;Read in resource_properties and put it in expected dict form.</span>
 <span class="sd">    </span>
 <span class="sd">    resource_properties can be csv, xlsx, or JSON, so if it is one of the tabular </span>
@@ -122,7 +124,7 @@
 <span class="sd">                               if False resource names are stripped, lowered, and spaces replaced with underscores.</span>
 <span class="sd">    </span>
 <span class="sd">    Returns:</span>
-<span class="sd">        tuple[dict, dict]: The final dictionary of resource_properties, and a mapping of the original resource name and new name</span>
+<span class="sd">        The final dictionary of resource_properties, and a mapping of the original resource name and new name.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     
     <span class="k">if</span> <span class="n">resource_properties_path</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
@@ -215,6 +217,12 @@
         
         <span class="k">if</span> <span class="n">e</span><span class="o">.</span><span class="n">validator</span> <span class="o">==</span> <span class="s2">&quot;minProperties&quot;</span><span class="p">:</span>
             <span class="n">message</span> <span class="o">+=</span> <span class="s2">&quot;The entry &quot;</span> <span class="o">+</span> <span class="s2">&quot;[</span><span class="si">%s</span><span class="s2">]&quot;</span> <span class="o">%</span> <span class="s2">&quot;][&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">index</span><span class="p">)</span> <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">e</span><span class="o">.</span><span class="n">relative_path</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; cannot be empty.&quot;</span>
+        <span class="k">elif</span> <span class="n">e</span><span class="o">.</span><span class="n">validator</span> <span class="o">==</span> <span class="s2">&quot;required&quot;</span><span class="p">:</span>
+            <span class="n">required_property</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s2">&quot;(\&#39;.*\&#39;)&quot;</span><span class="p">,</span> <span class="n">e</span><span class="o">.</span><span class="n">message</span><span class="p">)</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">relative_path</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">message</span> <span class="o">+=</span> <span class="s2">&quot;The required property &quot;</span> <span class="o">+</span> <span class="n">required_property</span> <span class="o">+</span> <span class="s2">&quot; is missing.&quot;</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">message</span> <span class="o">+=</span> <span class="s2">&quot;The entry &quot;</span> <span class="o">+</span> <span class="s2">&quot;[</span><span class="si">%s</span><span class="s2">]&quot;</span> <span class="o">%</span> <span class="s2">&quot;][&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">index</span><span class="p">)</span> <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">e</span><span class="o">.</span><span class="n">relative_path</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; is missing the required property &quot;</span> <span class="o">+</span> <span class="n">required_property</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span>
         <span class="k">elif</span> <span class="n">e</span><span class="o">.</span><span class="n">validator</span> <span class="o">==</span> <span class="s2">&quot;minLength&quot;</span><span class="p">:</span>
             <span class="n">custom_message</span> <span class="o">=</span> <span class="s2">&quot; cannot be an empty string.&quot;</span>
         <span class="k">elif</span> <span class="n">e</span><span class="o">.</span><span class="n">validator</span> <span class="o">==</span> <span class="s2">&quot;maxLength&quot;</span><span class="p">:</span>
@@ -231,13 +239,13 @@
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">custom_message</span> <span class="o">=</span> <span class="s2">&quot; is not of type </span><span class="se">\&quot;</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">e</span><span class="o">.</span><span class="n">validator_value</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2">.&quot;</span>
         <span class="k">elif</span> <span class="n">e</span><span class="o">.</span><span class="n">validator</span> <span class="o">==</span> <span class="s2">&quot;enum&quot;</span><span class="p">:</span>
-            <span class="n">custom_message</span> <span class="o">=</span> <span class="s2">&quot; is not one of [&quot;</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">index</span><span class="p">)</span> <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">e</span><span class="o">.</span><span class="n">validator_value</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;]&quot;</span>
+            <span class="n">custom_message</span> <span class="o">=</span> <span class="s2">&quot; is not one of [&quot;</span> <span class="o">+</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="s2">&quot;, &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">repr</span><span class="p">(</span><span class="n">index</span><span class="p">)</span> <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="n">e</span><span class="o">.</span><span class="n">validator_value</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;].&quot;</span>
         <span class="k">elif</span> <span class="n">e</span><span class="o">.</span><span class="n">validator</span> <span class="o">==</span> <span class="s2">&quot;format&quot;</span><span class="p">:</span>
             <span class="n">custom_message</span> <span class="o">=</span> <span class="s2">&quot; is not a valid &quot;</span> <span class="o">+</span> <span class="n">e</span><span class="o">.</span><span class="n">validator_value</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span>
         <span class="k">elif</span> <span class="n">e</span><span class="o">.</span><span class="n">validator</span> <span class="o">==</span> <span class="s2">&quot;minimum&quot;</span><span class="p">:</span>
-            <span class="n">custom_message</span> <span class="o">=</span> <span class="s2">&quot; must be greater than or equal to &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">validator_value</span><span class="p">)</span>
+            <span class="n">custom_message</span> <span class="o">=</span> <span class="s2">&quot; must be greater than or equal to &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">validator_value</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span>
         <span class="k">elif</span> <span class="n">e</span><span class="o">.</span><span class="n">validator</span> <span class="o">==</span> <span class="s2">&quot;maximum&quot;</span><span class="p">:</span>
-            <span class="n">custom_message</span> <span class="o">=</span> <span class="s2">&quot; must be less than or equal to &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">validator_value</span><span class="p">)</span>
+            <span class="n">custom_message</span> <span class="o">=</span> <span class="s2">&quot; must be less than or equal to &quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="o">.</span><span class="n">validator_value</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;.&quot;</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="n">e</span>
         

@@ -145,10 +145,7 @@ if False resource names are stripped, lowered, and spaces replaced with undersco
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>The final dictionary of resource_properties, and a mapping of the original resource name and new name</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.10)">tuple</a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)">dict</a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)">dict</a>]</p>
+<dd class="field-even"><p>The final dictionary of resource_properties, and a mapping of the original resource name and new name.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -254,11 +251,8 @@ print a warning if does is not.</p>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>{“name”:field_name, “type”:field_type}
+<dd class="field-even"><p>A dictionary of the fields and their types. Ex field_name : {“name”:field_name, “type”:field_type}.
 If “schema_URL” is in the schema dictionary then this is returned, otherwise return the jsonschema.</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>A dictionary of the fields and their types. Ex field_name</p>
 </dd>
 </dl>
 </dd></dl>
@@ -275,10 +269,7 @@ If “schema_URL” is in the schema dictionary then this is returned, otherwise
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>field_name : {“name”:field_name, “type”:field_type, “identifier”:column_number+1, “identifier%type”:”column”}</p>
-</dd>
-<dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>Keys are the field name or column number and values are the name, <a class="reference external" href="https://docs.python.org/3/library/functions.html#type" title="(in Python v3.10)">type</a>, and column number for each field. Ex</p>
+<dd class="field-even"><p>Keys are the field name or column number and values are the name, type, and column number for each field. Ex: field_name : {“name”:field_name, “type”:field_type, “identifier”:column_number+1, “identifier%type”:”column”}.</p>
 </dd>
 </dl>
 </dd></dl>
@@ -302,7 +293,7 @@ after returning from this function.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>The properties of the matched filename from resource_properties.
-If alternate_locations is in resource_properties return it, else return an empty list, but always add the relative_location to the list
+If alternate_locations is in resource_properties return it, else return an empty list, but always add the relative_location to the list.
 The resource_name in resource_properties that was matched to filename_minus_extension.</p>
 </dd>
 </dl>
@@ -311,7 +302,7 @@ The resource_name in resource_properties that was matched to filename_minus_exte
 <span class="target" id="module-src.miagis.validate"></span><p>This module contains the code to validate the metadata file.</p>
 <dl class="function">
 <dt id="src.miagis.validate.validate">
-<code class="sig-prename descclassname">src.miagis.validate.</code><code class="sig-name descname">validate</code><span class="sig-paren">(</span><em class="sig-param">metadata</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/miagis/validate.html#validate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.miagis.validate.validate" title="Permalink to this definition">¶</a></dt>
+<code class="sig-prename descclassname">src.miagis.validate.</code><code class="sig-name descname">validate</code><span class="sig-paren">(</span><em class="sig-param">metadata: dict</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/miagis/validate.html#validate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.miagis.validate.validate" title="Permalink to this definition">¶</a></dt>
 <dd><p>Validate input metadata against the MIAGIS schema.</p>
 <p>Use jsonschema to validate input metadata, and then do some additional checking
 that jsonschema alone cannot, such as checking that all layers for each map
