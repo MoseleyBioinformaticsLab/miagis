@@ -1,0 +1,7 @@
+{
+  "entry_version" : 1, 
+  "entry_id" : "KY PFAS Paper",
+  "description" : "Data used for the paper titled \"A geospatial and binomial logistic regression model to prioritize sampling for per- and polyfluorinated alkyl substances in public water systems\". DOI: https://doi.org/10.1002/ieam.4614", 
+  "products" : ["Map 1 Potential hot-spot map", "US map", "Model_says_NO", "Model_says_yes", "hot-spot_map", "other/gis_distance_matrix.py"]
+}
+

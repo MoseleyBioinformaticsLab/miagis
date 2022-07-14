@@ -62,15 +62,15 @@ def validate(metadata: dict):
             else:
                 custom_message = " is not of type \"" + error.validator_value + "\"."
         elif error.validator == "enum":
-            custom_message = " is not one of [" + "%s" % ", ".join(repr(index) for index in error.validator_value) + "]"
+            custom_message = " is not one of [" + "%s" % ", ".join(repr(index) for index in error.validator_value) + "]."
         elif error.validator == "format":
             custom_message = " is not a valid " + error.validator_value + "."
         elif error.validator == "pattern":
             custom_message = " must be \"FAIR\", so it can only include the letters F, A, I, and R in that order, case-insensitive."
         elif error.validator == "minimum":
-            custom_message = " must be greater than or equal to " + str(error.validator_value)
+            custom_message = " must be greater than or equal to " + str(error.validator_value) + "."
         elif error.validator == "maximum":
-            custom_message = " must be less than or equal to " + str(error.validator_value)
+            custom_message = " must be less than or equal to " + str(error.validator_value) + "."
         else:
             print(error.message)
         

@@ -183,6 +183,8 @@ def build(resource_properties_path: str, exact_matching: bool =False, remove_opt
                 for location in metadata["resources"][name]["alternate_locations"]:
                     all_locations.add(location)
         all_locations = list(all_locations)
+        ## The sort is so testing is easier.
+        all_locations.sort()
             
         for name in total_list:
             metadata["resources"][name]["alternate_locations"] = [location for location in all_locations if location != metadata["resources"][name]["location"]]
@@ -246,6 +248,7 @@ def find_resource_properties(resource_properties: dict, resource_properties_keys
     else:
         if filename_minus_extension in resource_properties:
             current_resource_properties = resource_properties[filename_minus_extension]
+            matched_name = filename_minus_extension
            
     if "alternate_locations" in current_resource_properties:
         alternate_locations = copy.copy(current_resource_properties["alternate_locations"])
@@ -256,6 +259,9 @@ def find_resource_properties(resource_properties: dict, resource_properties_keys
     if "location" in current_resource_properties and current_resource_properties["location"] and \
         not current_resource_properties["location"] in alternate_locations:
         alternate_locations.append(current_resource_properties["location"])
+    
+    ## Sort so testing is easier.
+    alternate_locations.sort()
         
     return current_resource_properties, alternate_locations, matched_name
 
@@ -383,7 +389,7 @@ def determine_json_fields(schema_list: list, input_json: dict, file_path: str) -
         except Exception:
             print("Warning: The \"field_path\", " + field_path + ", for the \"" + schema_properties["name"] + 
                   "\" json format schema does not work for file " + file_path + 
-                  ". It will have empty \"fields\" in the output.")
+                  ". It will have an empty \"fields\" in the output.")
             return {}, schema
         
         type_key = schema_properties["type_key"]
@@ -396,15 +402,15 @@ def determine_json_fields(schema_list: list, input_json: dict, file_path: str) -
         for field in fields:
             if not type_key in field:
                 if not type_already_printed:
-                    print("Warning: The \"type_key\", " + type_key + " for the \"" + schema_properties["name"] + 
-                          "\" json format is not in all of the fields for file " + 
+                    print("Warning: The \"type_key\", " + type_key + ", for the \"" + schema_properties["name"] + 
+                          "\" json format schema is not in all of the fields for file " + 
                           file_path + ". Some fields may be missing in the output.")
                     type_already_printed = True
                 continue
             
             if not name_key in field:
                 if not name_already_printed:
-                    print("Warning: The \"name_key\", " + name_key + " for the \"" + schema_properties["name"] + 
+                    print("Warning: The \"name_key\", " + name_key + ", for the \"" + schema_properties["name"] + 
                           "\" json format schema is not in all of the fields for file " + 
                           file_path + ". Some fields may be missing in the output.")
                     name_already_printed = True

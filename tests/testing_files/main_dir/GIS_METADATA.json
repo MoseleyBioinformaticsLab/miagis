@@ -1,0 +1,552 @@
+{
+  "format_version": "DRAFT_MIAGIS_VERSION_0.1",
+  "entry_version": 1,
+  "entry_id": "KY SOP Paper",
+  "date": "2022-07-14",
+  "description": "asdf",
+  "products": [
+    "Combined map",
+    "PFAS_sampling_and_purchasing_and_intake_detail"
+  ],
+  "resources": {
+    "layer_data/PFAS sampling and purchasing and intake detail.csv": {
+      "location": "layer_data/PFAS sampling and purchasing and intake detail.csv",
+      "type": "layer",
+      "description": "List of all water systems in which PFAS were sampled.",
+      "fairness": "FAIR",
+      "format": "csv",
+      "alternate_locations": [
+        "https://services.arcgis.com/vQ8kO5zdqETeirEL/arcgis/rest/services/PFAS_sampling_and_purchasing_data_2019/FeatureServer",
+        "layer_data/PFAS sampling and purchasing and intake detail.json",
+        "layer_data/PFAS_sampling_and_purchasing_and_intake_detail.geojson"
+      ],
+      "creator": [
+        {
+          "name": "Kentucky Department of Environmental Protection",
+          "type": "organization"
+        }
+      ],
+      "sources": [
+        "https://eec.ky.gov/Documents%20for%20URLs/PFAS%20Drinking%20Water%20Report%20Final.pdf"
+      ],
+      "geographical_area": "Kentucky",
+      "fields": {
+        "__OBJECTID": {
+          "name": "__OBJECTID",
+          "type": "int",
+          "identifier": 1,
+          "identifier%type": "column"
+        },
+        "Sample": {
+          "name": "Sample",
+          "type": "str",
+          "identifier": 2,
+          "identifier%type": "column"
+        },
+        "Collected": {
+          "name": "Collected",
+          "type": "str",
+          "identifier": 3,
+          "identifier%type": "column"
+        },
+        "Received": {
+          "name": "Received",
+          "type": "str",
+          "identifier": 4,
+          "identifier%type": "column"
+        },
+        "PSWID": {
+          "name": "PSWID",
+          "type": "str",
+          "identifier": 5,
+          "identifier%type": "column"
+        },
+        "Location": {
+          "name": "Location",
+          "type": "str",
+          "identifier": 6,
+          "identifier%type": "column"
+        },
+        "Intake /purchase": {
+          "name": "Intake /purchase",
+          "type": "str",
+          "identifier": 7,
+          "identifier%type": "column"
+        },
+        "Type": {
+          "name": "Type",
+          "type": "str",
+          "identifier": 8,
+          "identifier%type": "column"
+        },
+        "PFBS": {
+          "name": "PFBS",
+          "type": "float",
+          "identifier": 9,
+          "identifier%type": "column"
+        },
+        "HFPO- DA": {
+          "name": "HFPO- DA",
+          "type": "float",
+          "identifier": 10,
+          "identifier%type": "column"
+        },
+        "PFHpA": {
+          "name": "PFHpA",
+          "type": "float",
+          "identifier": 11,
+          "identifier%type": "column"
+        },
+        "PFHxS": {
+          "name": "PFHxS",
+          "type": "float",
+          "identifier": 12,
+          "identifier%type": "column"
+        },
+        "ADONA": {
+          "name": "ADONA",
+          "type": "int",
+          "identifier": 13,
+          "identifier%type": "column"
+        },
+        "PFOA": {
+          "name": "PFOA",
+          "type": "float",
+          "identifier": 14,
+          "identifier%type": "column"
+        },
+        "PFOS": {
+          "name": "PFOS",
+          "type": "float",
+          "identifier": 15,
+          "identifier%type": "column"
+        },
+        "PFNA": {
+          "name": "PFNA",
+          "type": "float",
+          "identifier": 16,
+          "identifier%type": "column"
+        },
+        "PFOA+PFOS": {
+          "name": "PFOA+PFOS",
+          "type": "float",
+          "identifier": 17,
+          "identifier%type": "column"
+        },
+        "Sum of PFAS": {
+          "name": "Sum of PFAS",
+          "type": "float",
+          "identifier": 18,
+          "identifier%type": "column"
+        },
+        "Units": {
+          "name": "Units",
+          "type": "str",
+          "identifier": 19,
+          "identifier%type": "column"
+        },
+        "LATITUDE": {
+          "name": "LATITUDE",
+          "type": "float",
+          "identifier": 20,
+          "identifier%type": "column"
+        },
+        "LONGITUDE": {
+          "name": "LONGITUDE",
+          "type": "float",
+          "identifier": 21,
+          "identifier%type": "column"
+        },
+        "Aquifer/Source": {
+          "name": "Aquifer/Source",
+          "type": "str",
+          "identifier": 22,
+          "identifier%type": "column"
+        },
+        "River Basin": {
+          "name": "River Basin",
+          "type": "str",
+          "identifier": 23,
+          "identifier%type": "column"
+        },
+        "Aquifer General": {
+          "name": "Aquifer General",
+          "type": "str",
+          "identifier": 24,
+          "identifier%type": "column"
+        },
+        "Land Use": {
+          "name": "Land Use",
+          "type": "str",
+          "identifier": 25,
+          "identifier%type": "column"
+        },
+        "x": {
+          "name": "x",
+          "type": "float",
+          "identifier": 26,
+          "identifier%type": "column"
+        },
+        "y": {
+          "name": "y",
+          "type": "float",
+          "identifier": 27,
+          "identifier%type": "column"
+        }
+      }
+    },
+    "layer_data/PFAS sampling and purchasing and intake detail.json": {
+      "location": "layer_data/PFAS sampling and purchasing and intake detail.json",
+      "type": "layer",
+      "description": "List of all water systems in which PFAS were sampled.",
+      "fairness": "FAIR",
+      "format": "json",
+      "alternate_locations": [
+        "https://services.arcgis.com/vQ8kO5zdqETeirEL/arcgis/rest/services/PFAS_sampling_and_purchasing_data_2019/FeatureServer",
+        "layer_data/PFAS sampling and purchasing and intake detail.csv",
+        "layer_data/PFAS_sampling_and_purchasing_and_intake_detail.geojson"
+      ],
+      "creator": [
+        {
+          "name": "Kentucky Department of Environmental Protection",
+          "type": "organization"
+        }
+      ],
+      "sources": [
+        "https://eec.ky.gov/Documents%20for%20URLs/PFAS%20Drinking%20Water%20Report%20Final.pdf"
+      ],
+      "geographical_area": "Kentucky",
+      "schema": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "title": "In-built ESRI",
+        "type": "object",
+        "properties": {
+          "layers": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "layerDefinition": {
+                  "type": "object",
+                  "properties": {
+                    "fields": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string"
+                          },
+                          "type": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "name",
+                          "type"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "fields"
+                  ]
+                }
+              },
+              "required": [
+                "layerDefinition"
+              ]
+            }
+          }
+        },
+        "required": [
+          "layers"
+        ]
+      },
+      "fields": {
+        "__OBJECTID": {
+          "name": "__OBJECTID",
+          "type": "int"
+        },
+        "Sample": {
+          "name": "Sample",
+          "type": "str"
+        },
+        "Collected": {
+          "name": "Collected",
+          "type": "str"
+        },
+        "Received": {
+          "name": "Received",
+          "type": "str"
+        },
+        "PSWID": {
+          "name": "PSWID",
+          "type": "str"
+        },
+        "Location": {
+          "name": "Location",
+          "type": "str"
+        },
+        "Intake_purchase": {
+          "name": "Intake_purchase",
+          "type": "str"
+        },
+        "Type": {
+          "name": "Type",
+          "type": "str"
+        },
+        "PFBS": {
+          "name": "PFBS",
+          "type": "float"
+        },
+        "HFPO_DA": {
+          "name": "HFPO_DA",
+          "type": "float"
+        },
+        "PFHpA": {
+          "name": "PFHpA",
+          "type": "float"
+        },
+        "PFHxS": {
+          "name": "PFHxS",
+          "type": "float"
+        },
+        "ADONA": {
+          "name": "ADONA",
+          "type": "int"
+        },
+        "PFOA": {
+          "name": "PFOA",
+          "type": "float"
+        },
+        "PFOS": {
+          "name": "PFOS",
+          "type": "float"
+        },
+        "PFNA": {
+          "name": "PFNA",
+          "type": "float"
+        },
+        "PFOA+PFOS": {
+          "name": "PFOA+PFOS",
+          "type": "float"
+        },
+        "Sum_of_PFAS": {
+          "name": "Sum_of_PFAS",
+          "type": "float"
+        },
+        "Units": {
+          "name": "Units",
+          "type": "str"
+        },
+        "LATITUDE": {
+          "name": "LATITUDE",
+          "type": "float"
+        },
+        "LONGITUDE": {
+          "name": "LONGITUDE",
+          "type": "float"
+        },
+        "Aquifer_Source": {
+          "name": "Aquifer_Source",
+          "type": "str"
+        },
+        "River_Basin": {
+          "name": "River_Basin",
+          "type": "str"
+        },
+        "Aquifer_General": {
+          "name": "Aquifer_General",
+          "type": "str"
+        },
+        "Land_Use": {
+          "name": "Land_Use",
+          "type": "str"
+        }
+      }
+    },
+    "layer_data/PFAS_sampling_and_purchasing_and_intake_detail.geojson": {
+      "location": "layer_data/PFAS_sampling_and_purchasing_and_intake_detail.geojson",
+      "type": "layer",
+      "description": "List of all water systems in which PFAS were sampled.",
+      "fairness": "FAIR",
+      "format": "geojson",
+      "alternate_locations": [
+        "https://services.arcgis.com/vQ8kO5zdqETeirEL/arcgis/rest/services/PFAS_sampling_and_purchasing_data_2019/FeatureServer",
+        "layer_data/PFAS sampling and purchasing and intake detail.csv",
+        "layer_data/PFAS sampling and purchasing and intake detail.json"
+      ],
+      "creator": [
+        {
+          "name": "Kentucky Department of Environmental Protection",
+          "type": "organization"
+        }
+      ],
+      "sources": [
+        "https://eec.ky.gov/Documents%20for%20URLs/PFAS%20Drinking%20Water%20Report%20Final.pdf"
+      ],
+      "geographical_area": "Kentucky",
+      "schema": "https://datatracker.ietf.org/doc/html/rfc7946",
+      "fields": {
+        "F__OBJECTID": {
+          "name": "F__OBJECTID",
+          "type": "int"
+        },
+        "Sample": {
+          "name": "Sample",
+          "type": "str"
+        },
+        "Collected": {
+          "name": "Collected",
+          "type": "str"
+        },
+        "Received": {
+          "name": "Received",
+          "type": "str"
+        },
+        "PSWID": {
+          "name": "PSWID",
+          "type": "str"
+        },
+        "Location": {
+          "name": "Location",
+          "type": "str"
+        },
+        "Intake_purchase": {
+          "name": "Intake_purchase",
+          "type": "str"
+        },
+        "Type": {
+          "name": "Type",
+          "type": "str"
+        },
+        "PFBS": {
+          "name": "PFBS",
+          "type": "float"
+        },
+        "HFPO_DA": {
+          "name": "HFPO_DA",
+          "type": "int"
+        },
+        "PFHpA": {
+          "name": "PFHpA",
+          "type": "float"
+        },
+        "PFHxS": {
+          "name": "PFHxS",
+          "type": "int"
+        },
+        "ADONA": {
+          "name": "ADONA",
+          "type": "int"
+        },
+        "PFOA": {
+          "name": "PFOA",
+          "type": "float"
+        },
+        "PFOS": {
+          "name": "PFOS",
+          "type": "float"
+        },
+        "PFNA": {
+          "name": "PFNA",
+          "type": "int"
+        },
+        "PFOA_PFOS": {
+          "name": "PFOA_PFOS",
+          "type": "float"
+        },
+        "Sum_of_PFAS": {
+          "name": "Sum_of_PFAS",
+          "type": "float"
+        },
+        "Units": {
+          "name": "Units",
+          "type": "str"
+        },
+        "LATITUDE": {
+          "name": "LATITUDE",
+          "type": "float"
+        },
+        "LONGITUDE": {
+          "name": "LONGITUDE",
+          "type": "float"
+        },
+        "Aquifer_Source": {
+          "name": "Aquifer_Source",
+          "type": "str"
+        },
+        "River_Basin": {
+          "name": "River_Basin",
+          "type": "str"
+        },
+        "Aquifer_General": {
+          "name": "Aquifer_General",
+          "type": "str"
+        },
+        "Land_Use": {
+          "name": "Land_Use",
+          "type": "str"
+        }
+      }
+    },
+    "PFAS_sampling_and_purchasing_and_intake_detail": {
+      "location": "https://services.arcgis.com/vQ8kO5zdqETeirEL/arcgis/rest/services/PFAS_sampling_and_purchasing_data_2019/FeatureServer",
+      "alternate_locations": [
+        "layer_data/PFAS sampling and purchasing and intake detail.csv",
+        "layer_data/PFAS sampling and purchasing and intake detail.json",
+        "layer_data/PFAS_sampling_and_purchasing_and_intake_detail.geojson"
+      ],
+      "creator": [
+        {
+          "name": "Kentucky Department of Environmental Protection",
+          "type": "organization"
+        }
+      ],
+      "sources": [
+        "https://eec.ky.gov/Documents%20for%20URLs/PFAS%20Drinking%20Water%20Report%20Final.pdf"
+      ],
+      "fairness": "FAIR",
+      "format": "web",
+      "type": "layer",
+      "description": "List of all water systems in which PFAS were sampled.",
+      "geographical_area": "Kentucky"
+    },
+    "https://eec.ky.gov/Documents%20for%20URLs/PFAS%20Drinking%20Water%20Report%20Final.pdf": {
+      "location": "https://eec.ky.gov/Documents%20for%20URLs/PFAS%20Drinking%20Water%20Report%20Final.pdf",
+      "creator": [
+        {
+          "name": "Kentucky Department of Environmental Protection",
+          "type": "organization"
+        }
+      ],
+      "fairness": "FAIR",
+      "format": "web",
+      "type": "other",
+      "description": "Report created by KDEP",
+      "geographical_area": "Kentucky"
+    },
+    "Combined map": {
+      "location": "https://www.arcgis.com/home/item.html?id=06829286d1274d94b0d4d4be911502f1",
+      "creator": [
+        {
+          "name": "Sweta Ojha",
+          "type": "author"
+        },
+        {
+          "name": "Kelly Pennell Lab",
+          "type": "organization"
+        }
+      ],
+      "sources": [
+        "PFAS_sampling_and_purchasing_and_intake_detail"
+      ],
+      "fairness": "Fir",
+      "format": "web",
+      "type": "map",
+      "description": "Map showing all data created for the project.",
+      "geographical_area": "Kentucky"
+    }
+  }
+}

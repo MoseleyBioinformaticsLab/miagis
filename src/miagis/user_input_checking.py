@@ -108,7 +108,7 @@ def read_in_resource_properties(resource_properties_path: str, exact_matching: b
             
         if "creator" in resource_properties_df.columns and "creator_type" in resource_properties_df.columns:
             creators = [creator.strip() for creator in properties["creator"].split(",")]
-            creator_types = [creator_type.strip() for creator_type in properties["creator_type"].split(",")]
+            creator_types = [creator_type.strip() for creator_type in properties["creator_type"].split(",") if creator_type]
             if len(creators) == len(creator_types):
                 resource_properties[resource_name]["creator"] = [{"name":creators[i], "type":creator_types[i]} for i in range(len(creators))]
             else:
@@ -227,7 +227,7 @@ def additional_json_schemas_checks(schema_list: list):
         validator = jsonschema.validators.validator_for(schema)
         try:
             validator.check_schema(schema)
-        except jsonschema.ValidationError:
+        except jsonschema.SchemaError:
             print("Error: The schema for index " + str(i) + " in the input JSON schema list is not valid JSON Schema.")
             sys.exit()
     

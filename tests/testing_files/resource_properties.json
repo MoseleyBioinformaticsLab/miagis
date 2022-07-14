@@ -1,0 +1,39 @@
+{
+  "pfas_sampling_and_purchasing_and_intake_detail": {
+    "location": "https://services.arcgis.com/vQ8kO5zdqETeirEL/arcgis/rest/services/PFAS_sampling_and_purchasing_data_2019/FeatureServer",
+    "alternate_locations": [],
+    "creator": [
+      {
+        "name": "Kentucky Department of Environmental Protection",
+        "type": "organization"
+      }
+    ],
+    "sources": [
+      "https://eec.ky.gov/Documents%20for%20URLs/PFAS%20Drinking%20Water%20Report%20Final.pdf"
+    ],
+    "fairness": "FAIR",
+    "format": "web",
+    "type": "layer",
+    "description": "List of all water systems in which PFAS were sampled.",
+    "geographical_area": "Kentucky"
+  },
+  "ohio_river_marinas_wfl1_-_ohio_river": {
+    "location": "https://services8.arcgis.com/Xcpl3GIMvkCI3oFI/arcgis/rest/services/Ohio_River_Marinas_WFL1/FeatureServer",
+    "alternate_locations": [
+      "https://www.arcgis.com/home/item.html?id=bfb75bf75ca441778c4be87e23094527",
+      "https://uky-edu.maps.arcgis.com/home/item.html?id=6913699f89454bcdb86441fa14dd90cc"
+    ],
+    "creator": [
+      {
+        "name": "Ohio River Valley Water Sanitation Commision",
+        "type": "organization"
+      }
+    ],
+    "sources": [],
+    "fairness": "Fir",
+    "format": "web",
+    "type": "layer",
+    "description": "Publicly available layer findable on ArcGIS Online.",
+    "geographical_area": "Kentucky"
+  }
+}

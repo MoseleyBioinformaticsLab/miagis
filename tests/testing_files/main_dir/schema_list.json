@@ -1,0 +1,26 @@
+[
+  {
+    "name": "In-built GEOJSON Collection",
+    "style": "testing",
+    "schema": {
+      "$schema": "https://json-schema.org/draft/2020-12/schema",
+      "title": "In-built GEOJSON Collection",
+      "type": "object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "FeatureCollection"
+          ]
+        }
+      },
+      "required": [
+        "type",
+        "features"
+      ]
+    },
+    "features_path": "[\"asdf\"]",
+    "properties_key": "properties",
+    "schema_URL": "https://datatracker.ietf.org/doc/html/rfc7946"
+  }
+]

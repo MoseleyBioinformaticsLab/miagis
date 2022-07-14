@@ -1,0 +1,965 @@
+﻿__OBJECTID,Sites,Latitude,Longitude,Site Types,Risk score,x,y
+1,Cabot Corporation,38.715596,-85.096504,Chemical manufacturing,100,-85.0965039679502,38.7155959953824
+2,Src Of Lexington,38.047319,-84.462112,Chemical manufacturing,100,-84.462112007506,38.0473190082068
+3,Iofina Chemical Inc Kentucky,39.001881,-84.53398,Chemical manufacturing,100,-84.5339800150129,39.0018809771576
+4,Battery Properties Inc,36.98333,-85.93278,Chlorinated Solvent Sites,25,-85.9327799815809,36.983330008075
+5,Ky Leather Co,36.62639,-83.7125,Chlorinated Solvent Sites,50,-83.7124999727639,36.6263899897878
+6,Braxtons Inc,39.01667,-84.63583,Chlorinated Solvent Sites,25,-84.6358300137796,39.0166700110633
+7,Cincinnati Northern Ky International Airport (Cvg),39.05,-84.6899,Chlorinated Solvent Sites,75,-84.6898999700568,39.0500000259857
+8,Schneider Electric Square D,38.99889,-84.62667,Chlorinated Solvent Sites,25,-84.6266699826589,38.9988900289623
+9,Ashland Tannery,38.47107,-82.62974,Chlorinated Solvent Sites,50,-82.6297399893946,38.4710699914356
+10,Ashland Tannery,38.47107,-82.62974,Chlorinated Solvent Sites,50,-82.6297399893946,38.4710699914356
+11,Boyd Service Inc,38.39235,-82.65271,Chlorinated Solvent Sites,25,-82.652710001041,38.3923499804
+12,Johnson Fork Dump,38.40984,-82.64065,landfill,100,-82.6406500285202,38.4098399859893
+13,Paul Coffey Industrial Park,38.39893,-82.72688,Chlorinated Solvent Sites,25,-82.7268800312951,38.3989299968275
+14,Terrell Dr Dump,37.63386,-84.76598,Chlorinated Solvent Sites,100,-84.765979998268,37.6338599873595
+15,Cloverport Plume Site,37.83667,-86.63278,Chlorinated Solvent Sites,100,-86.6327800394747,37.8366700265704
+16,Smiths Farm,38.04,-85.73,Chlorinated Solvent Sites,25,-85.7300000385616,38.0399999759543
+17,Tri-City Disposal Co,38.04806,-85.76891,landfill,100,-85.7689100261041,38.0480600322563
+18,Mattel Inc,36.64467,-88.29715,Chlorinated Solvent Sites,25,-88.2971500314653,36.6446699764578
+19,Pella Corp Murray Operations,36.64393,-88.30065,Chlorinated Solvent Sites,25,-88.3006499576438,36.643930035127
+20,Atlas Dry Cleaners Co Inc,39.09346,-84.4954,Chlorinated Solvent Sites,50,-84.4953999786743,39.0934599921865
+21,Continental Cleaners,38.98481,-84.3989,Chlorinated Solvent Sites,50,-84.3988999864137,38.9848100075555
+22,Dda Partnership,39.11639,-84.46361,Chlorinated Solvent Sites,25,-84.4636100380738,39.1163899968221
+23,Rohm & Haas Chemicals Llc,38.98587,-84.36536,Chlorinated Solvent Sites,100,-84.3653600378082,38.9858699764368
+24,Deena Products Co,36.80123,-89.01329,Chlorinated Solvent Sites,25,-89.0132900302374,36.801230007015
+25,Genlyte Thomas Group Llc,36.8624,-87.5019,Chlorinated Solvent Sites,25,-87.5018999870288,36.862400019274
+26,Rockwell International Corp,38.025,-84.235,Chlorinated Solvent Sites,25,-84.2350000272064,38.0250000238561
+27,Ecw Clinton Operation Spill,36.68313,-85.13034,Chlorinated Solvent Sites,75,-85.1303400012734,36.6831299970658
+28,Concord Custom Cleaners,37.77417,-87.11361,Chlorinated Solvent Sites,50,-87.1136100326643,37.7741700347368
+29,Green River Disposal Site,37.89,-86.97,Chlorinated Solvent Sites,100,-86.9699999614533,37.8900000346454
+30,Philips Lighting North America Corp,37.78607,-87.14774,Chlorinated Solvent Sites,25,-87.1477399947484,37.7860699782674
+31,Proposed Texas Gas Building,37.77428,-87.11799,Chlorinated Solvent Sites,25,-87.1179900383266,37.7742800224015
+32,W R Grace & Co,37.81222,-87.04843,Chlorinated Solvent Sites,100,-87.0484299824477,37.8122199740355
+33,Carmens Dry Clean-Alterations Center,38.0029,-84.54601,Chlorinated Solvent Sites,50,-84.5460099838032,38.0028999737457
+34,Clem Wrecking,38.04291,-84.48284,Chlorinated Solvent Sites,25,-84.4828400038663,38.0429099899571
+35,Concord Custom Cleaners,37.985,-84.4615,Chlorinated Solvent Sites,50,-84.4614999853029,37.9849999815656
+36,Concord Custom Cleaners,37.99611,-84.49639,Chlorinated Solvent Sites,50,-84.4963900119489,37.9961099935689
+37,Concord Custom Cleaners No 087,37.9796,-84.5512,Chlorinated Solvent Sites,50,-84.5512000003572,37.9796000159545
+38,Crossroads Concord Custom Cleaners,37.99072,-84.52118,Chlorinated Solvent Sites,50,-84.521180010361,37.990719978478
+39,Earley Bird Cleaners,38.06468,-84.47037,Chlorinated Solvent Sites,50,-84.4703700402498,38.064679990974
+40,Emperors Cleaners,38.02005,-84.46606,Chlorinated Solvent Sites,50,-84.4660600133481,38.0200499805911
+41,Hi-Acres Shopping Center,38.06277,-84.45303,Chlorinated Solvent Sites,50,-84.4530300399835,38.0627700176589
+42,Link-Belt Cranes Lp Lllp,38.01074,-84.43605,Chlorinated Solvent Sites,25,-84.4360499946515,38.0107400298393
+43,Zandale Cleaners,38.00701,-84.51679,Chlorinated Solvent Sites,50,-84.516790033399,38.0070100134463
+44,Sam Hall Septic Service,37.44617,-82.712,Chlorinated Solvent Sites,100,-82.7119999776028,37.4461700081057
+45,Schlumberger Technology Corp,37.65155,-82.83261,Chlorinated Solvent Sites,25,-82.8326100334369,37.6515500185312
+46,Concord Custom Cleaners No 053,38.16722,-84.89833,Chlorinated Solvent Sites,50,-84.8983299568871,38.1672200179329
+47,Ky Dept Of Transportation,38.2182,-84.85689,Chlorinated Solvent Sites,75,-84.85689004401,38.2182000159752
+48,Nashville Wire Products Co,38.1744,-84.7966,Chlorinated Solvent Sites,25,-84.7965999730424,38.1743999777282
+49,Washington Penn Plastic Co Inc - Frankfort Plastics,38.17631,-84.8067,Chlorinated Solvent Sites,25,-84.8067000012764,38.1763099993941
+50,Midway Fabricating,36.50944,-88.89194,Chlorinated Solvent Sites,50,-88.8919400321038,36.5094400151221
+51,Ctna Manufacturing Llp,36.79111,-88.63556,Chlorinated Solvent Sites,25,-88.6355600415323,36.7911099710566
+52,Mayfield Printing Co,36.73545,-88.66853,Chlorinated Solvent Sites,50,-88.66853000909,36.7354499961842
+53,Robert Bosch Tool Corporation - Leitchfield,37.49039,-86.28429,Chlorinated Solvent Sites,25,-86.2842900336047,37.4903899909522
+54,Jeff Meade Landfill,38.50158,-82.78464,Chlorinated Solvent Sites,100,-82.7846399972649,38.5015799926767
+55,Veolia North America Regeneration Services Llc,38.55534,-82.78956,Chlorinated Solvent Sites,100,-82.7895599802445,38.5553400187133
+56,Veolia North America Regeneration Services Llc,38.55532,-82.78934,Chlorinated Solvent Sites,100,-82.7893399828314,38.5553199977907
+57,Cooper Industries - Bussman Division,37.68333,-85.88222,Chlorinated Solvent Sites,25,-85.8822200126133,37.6833299721091
+58,Elizabethtown Laundry & Dry Cleaners,37.70469,-85.86987,Chlorinated Solvent Sites,50,-85.8698699740872,37.7046899973999
+59,Kentucky Industrial Haulers Landfill,37.68222,-85.84139,Chlorinated Solvent Sites,100,-85.8413899659825,37.6822199919294
+60,Robert Bosch Tool Corp - Elizabethtown Plant,37.68556,-85.88944,Chlorinated Solvent Sites,25,-85.8894400420463,37.6855599775145
+61,The Gates Corp,37.735,-85.78583,Chlorinated Solvent Sites,25,-85.7858299741435,37.7349999802901
+62,National Electric Coil,36.84394,-83.37121,Chlorinated Solvent Sites,75,-83.371209963896,36.8439399837151
+63,Bundy Corp,38.39233,-84.31556,Chlorinated Solvent Sites,25,-84.315560043571,38.3923299845734
+64,Brenntag Mid-South Inc,37.80389,-87.65167,Chlorinated Solvent Sites,100,-87.6516699858061,37.8038900042719
+65,Sunspring America,37.83967,-87.57653,Chlorinated Solvent Sites,25,-87.5765300445399,37.8396699703569
+66,Glitterwrap Inc,37.34838,-87.48148,Chlorinated Solvent Sites,25,-87.4814800229794,37.3483800280875
+67,York International,37.35278,-87.48472,Chlorinated Solvent Sites,25,-87.4847199767146,37.3527799869401
+68,York International,37.34946,-87.48297,Chlorinated Solvent Sites,25,-87.4829699687096,37.3494599931779
+69,Aaf International Reed Plant,38.20485,-85.76143,Chlorinated Solvent Sites,25,-85.7614300242278,38.2048499845547
+70,American Standard Inc,38.22222,-85.7675,Chlorinated Solvent Sites,25,-85.7675000304341,38.2222199751688
+71,Antec,38.22964,-85.74294,Chlorinated Solvent Sites,25,-85.7429400007347,38.2296400133852
+72,Aramark,38.24056,-85.75,Chlorinated Solvent Sites,100,-85.7500000402157,38.240559984261
+73,Ast - Acme Fisher Tank Linings,38.24649,-85.77393,Chlorinated Solvent Sites,50,-85.7739299915748,38.2464899928284
+74,Beecher Terrace East,38.25334,-85.76723,Chlorinated Solvent Sites,50,-85.7672299968597,38.2533399682663
+75,Beha Cleaners,38.24931,-85.60709,Chlorinated Solvent Sites,50,-85.6070900261056,38.2493100183648
+76,Cissell Manufacturing Co,38.24222,-85.75361,Chlorinated Solvent Sites,50,-85.7536100100165,38.2422199923415
+77,Clark & Riggs,38.25719,-85.77948,Chlorinated Solvent Sites,50,-85.7794799630631,38.2571900314756
+78,Deasy Auto Parts,38.1979,-85.83949,Chlorinated Solvent Sites,25,-85.8394900291566,38.1978999944644
+79,Dupont Performance Elastomers Llc,38.21184,-85.84014,Chlorinated Solvent Sites,25,-85.8401399602647,38.2118399671498
+80,Eckart America Corp,38.21564,-85.83826,Chlorinated Solvent Sites,25,-85.8382599660381,38.2156399992424
+81,Eis Inc,38.21999,-85.77019,Chlorinated Solvent Sites,25,-85.7701900355524,38.2199899697592
+82,Former Trailmobile,38.19954,-85.75104,Chlorinated Solvent Sites,25,-85.7510400198201,38.1995400093705
+83,Henry Vogt Machine Co,38.23369,-85.771,Chlorinated Solvent Sites,25,-85.7709999566126,38.2336900349337
+84,Holiday Cleaners,38.2816,-85.63396,Chlorinated Solvent Sites,50,-85.6339599837265,38.2815999840363
+85,Holiday Inn Express,38.25556,-85.76393,Chlorinated Solvent Sites,50,-85.7639300356635,38.2555599924199
+86,Jaggers Equipment Co Inc,38.15798,-85.73077,Chlorinated Solvent Sites,25,-85.7307699845916,38.1579800034509
+87,Jefferson Self Storage Llc,38.15132,-85.67935,Chlorinated Solvent Sites,25,-85.679349968571,38.1513199773625
+88,John Cope The Cleaner,38.16474,-85.59953,Chlorinated Solvent Sites,50,-85.5995299843375,38.1647399969344
+89,Kentucky Association Of Electric Cooperatives Inc,38.1903,-85.68101,Chlorinated Solvent Sites,25,-85.6810099653845,38.1902999976712
+90,Kims Valley Station Laundry & Dry Cleaners,38.0989,-85.87178,Chlorinated Solvent Sites,50,-85.8717799720443,38.0988999846962
+91,Kings Cleaners,38.25722,-85.77956,Chlorinated Solvent Sites,50,-85.7795600029549,38.2572200106467
+92,Kroger Fuel L-327,38.24809,-85.79738,Chlorinated Solvent Sites,75,-85.7973799730776,38.2480899702108
+93,Ky Plating Co Inc,38.25529,-85.74774,Chlorinated Solvent Sites,25,-85.7477399687924,38.2552900321886
+94,Lees Lane Landfill,38.1857,-85.8694,Chlorinated Solvent Sites,100,-85.8693999755306,38.185699993373
+95,Liquid Transporters Inc,38.15637,-85.66727,Chlorinated Solvent Sites,25,-85.6672699636193,38.1563699919024
+96,Louisville Distilling Company,38.25472,-85.743,Chlorinated Solvent Sites,25,-85.7430000081957,38.2547199874438
+97,Louisville Forge & Gear Works Inc,38.17347,-85.74224,Chlorinated Solvent Sites,25,-85.7422400334654,38.1734699830731
+98,Louisville Forge & Gear Works Inc,38.17234,-85.73952,Chlorinated Solvent Sites,25,-85.7395200246166,38.1723399766346
+99,Louisville Gas & Electric,38.24673,-85.76676,Chlorinated Solvent Sites,25,-85.7667599983031,38.2467300022633
+100,Lubrizol Advanced Materials Inc,38.22222,-85.82722,Chlorinated Solvent Sites,25,-85.8272200305224,38.2222199751688
+101,Marathon Ashland Petroleum Llc,38.12931,-85.90139,Chlorinated Solvent Sites,75,-85.9013899709449,38.1293100106162
+102,Miracle Dry Cleaners,38.24012,-85.72339,Chlorinated Solvent Sites,50,-85.7233899652065,38.2401199995664
+103,Mth Enterprises Inc,38.2688,-85.58017,Chlorinated Solvent Sites,25,-85.5801700323233,38.2688000038416
+104,National Uniform Service,38.24555,-85.77348,Chlorinated Solvent Sites,50,-85.773480025449,38.2455499835196
+105,National Uniform Service,38.24433,-85.77342,Chlorinated Solvent Sites,50,-85.773420017988,38.2443300133554
+106,Park Du Valle,38.22682,-85.80649,Chlorinated Solvent Sites,25,-85.8064899680369,38.2268200010993
+107,Plaza Cleaners,38.25032,-85.63126,Chlorinated Solvent Sites,50,-85.6312600073086,38.2503200311698
+108,River Metals Recycling,38.272,-85.715,Chlorinated Solvent Sites,100,-85.7149999699474,38.2719999988437
+109,Sapa H E Tubing Inc,38.18805,-85.67955,Chlorinated Solvent Sites,25,-85.6795500233847,38.1880500211191
+110,Suburban Cleaners,38.26886,-85.57922,Chlorinated Solvent Sites,50,-85.5792199740788,38.2688600231177
+111,The Meat Store,38.23784,-85.75944,Chlorinated Solvent Sites,25,-85.7594399863789,38.2378400234013
+112,Univar Usa Inc,38.20382,-85.80293,Chlorinated Solvent Sites,25,-85.8029300343974,38.2038199982406
+113,Urban Acupuncture,38.25928,-85.78619,Chlorinated Solvent Sites,50,-85.7861900189094,38.2592800085776
+114,West Point Bank Property,38.06624,-85.88596,Chlorinated Solvent Sites,25,-85.8859599686357,38.0662399718083
+115,Billy Glover Dump,37.84218,-84.67689,Chlorinated Solvent Sites,100,-84.676890029123,37.842180022066
+116,Lick Fork Plant,37.73864,-82.8371,Chlorinated Solvent Sites,75,-82.83709999289,37.7386400047736
+117,Concord Custom Cleaners 6095,38.9975,-84.49639,Chlorinated Solvent Sites,50,-84.4963900119489,38.9975000324132
+118,Crystal Brands Inc,39.02399,-84.58964,Chlorinated Solvent Sites,50,-84.5896399893431,39.0239900206826
+119,Former Sohio Refinery,39.04079,-84.518,Chlorinated Solvent Sites,75,-84.5179999742552,39.0407900319209
+120,Ortner Railyard,39.0629,-84.5075,Chlorinated Solvent Sites,25,-84.5075000160568,39.0629000215175
+121,Wecco Inc,39.08987,-84.50702,Chlorinated Solvent Sites,75,-84.507019956369,39.0898700230987
+122,Jackson Wws Inc,36.92972,-83.93694,Chlorinated Solvent Sites,25,-83.9369400040823,36.9297199731527
+123,Familee Laundry & Drycleaners,37.57318,-85.7368,Chlorinated Solvent Sites,50,-85.7368000157678,37.5731799760136
+124,Burley Belt Cargill Inc,37.13913,-84.0777,Chlorinated Solvent Sites,25,-84.0776999903915,37.139130009
+125,Coyne Textile Services,37.12653,-84.08569,Chlorinated Solvent Sites,50,-84.0856899658545,37.1265299789272
+126,Thallium Drums,37.12959,-84.08442,Chlorinated Solvent Sites,25,-84.0844200175374,37.1295900133767
+127,Emerson Hermetic Motor,36.83889,-86.91333,Chlorinated Solvent Sites,25,-86.9133300112492,36.8388900015179
+128,Keysburg Industrial Dump,36.65729,-87.02168,Chlorinated Solvent Sites,100,-87.0216800397487,36.6572899772752
+129,Rockwell Automation Inc,36.84806,-86.89861,Chlorinated Solvent Sites,25,-86.8986100373405,36.848060011422
+130,Concord Custom Cleaners,37.73111,-84.27545,Chlorinated Solvent Sites,50,-84.2754499966404,37.7311099760763
+131,Hitachi Automotive Systems Americas Inc,37.60008,-84.31115,Chlorinated Solvent Sites,25,-84.3111500341781,37.600080004291
+132,The Okonite Co,37.71263,-84.26887,Chlorinated Solvent Sites,25,-84.2688700168473,37.7126299851308
+133,Joy Global Conveyors Inc,37.74369,-83.06117,Chlorinated Solvent Sites,25,-83.061170008143,37.7436899777008
+134,Allen Chemical Site,37.51044,-85.47975,Chlorinated Solvent Sites,100,-85.4797499718259,37.5104400310695
+135,Arkema Inc,37.04954,-88.35748,Chlorinated Solvent Sites,100,-88.3574799876315,37.0495400303361
+136,Goodrich Corp,37.04934,-88.32184,Chlorinated Solvent Sites,25,-88.3218399575548,37.0493399985736
+137,P&L Railway Spill,37.04667,-88.35278,Chlorinated Solvent Sites,25,-88.352780002065,37.0466699900876
+138,Westlake Vinyls Inc,37.05119,-88.33494,Chlorinated Solvent Sites,25,-88.3349399995115,37.0511900213309
+139,Emerson Power Transmission Corp,38.64194,-83.73889,Chlorinated Solvent Sites,25,-83.7388899605285,38.6419400093681
+140,Nre-Paducah,37.07778,-88.61306,Chlorinated Solvent Sites,25,-88.6130600284425,37.0777800104124
+141,Modine Manufacturing Co,37.78,-84.85111,Chlorinated Solvent Sites,25,-84.8511100139774,37.7800000074886
+142,Mount Sterling City Landfill,38.04311,-83.88188,Chlorinated Solvent Sites,100,-83.8818800145304,38.0431099908052
+143,Bardstown Laundry & Dry Cleaner,37.82167,-85.46333,Chlorinated Solvent Sites,50,-85.4633300260736,37.8216699677894
+144,Victone One Hour Cleaners,37.81249,-85.46532,Chlorinated Solvent Sites,50,-85.465319974091,37.8124900109217
+145,Crestwood Coin Laundry,38.3402,-85.46642,Chlorinated Solvent Sites,50,-85.4664199611564,38.34019996599
+146,Red Penn Landfill,38.28817,-85.46536,Chlorinated Solvent Sites,100,-85.4653600389527,38.2881699718674
+147,Custom Industrial Services Inc,38.21511,-85.21794,Chlorinated Solvent Sites,25,-85.217940024688,38.2151100154036
+148,Mahle Engine Components Usa,36.73681,-86.5625,Chlorinated Solvent Sites,25,-86.5624999838955,36.7368099755924
+149,Sc Johnson & Son,36.73056,-86.57694,Chlorinated Solvent Sites,50,-86.5769400427616,36.7305600336947
+150,Tyco Electronics Corp,36.72497,-86.56005,Chlorinated Solvent Sites,25,-86.5600500086211,36.7249699820448
+151,Parts Cleaning Technologies Llc,36.96828,-86.47466,Chlorinated Solvent Sites,50,-86.4746600204684,36.9682799993679
+152,Sun Products,36.95835,-86.47972,Chlorinated Solvent Sites,75,-86.4797199609693,36.9583499759802
+153,Kctcs Systems Office,38.05861,-84.72778,Chlorinated Solvent Sites,25,-84.727780039126,38.0586099861805
+154,Ruggles Sign Co,38.06441,-84.72565,Chlorinated Solvent Sites,25,-84.7256500437559,38.0644100303579
+155,Vic-Tone Dry Cleaners,38.05235,-84.72863,Chlorinated Solvent Sites,50,-84.7286300250479,38.0523499719504
+156,Csx - Worthville Railyard,38.60972,-85.0675,Chlorinated Solvent Sites,25,-85.0674999725403,38.6097199945545
+157,Southgate Drums,39.07194,-84.47278,Chlorinated Solvent Sites,25,-84.472780040494,39.0719400327436
+158,Fort Knox,37.91635,-85.956215,Military site,100,-85.9562149612185,37.916349974772
+159,Campbell Army Air Field,36.67407,-87.489312,Military site,100,-87.489311984784,36.6740700060121
+160,Fort Campbell Installation,36.644912,-87.449468,Military site,100,-87.4494680188406,36.6449120091045
+161,Kentucky National Guard Recruiting,38.004005,-84.452217,Military site,100,-84.4522169748198,38.0040049964714
+162,Us Army Reserve Center,38.067753,-84.484435,Military site,100,-84.4844349626533,38.0677530302048
+163,Military Adventure Camp,38.365563,-83.648483,Military site,100,-83.6484829713455,38.3655630087462
+164,Us Army Cadet Command,37.898086,-85.948158,Military site,100,-85.9481579714352,37.8980860024745
+165,Mid South Electronics Inc,37.2805,-83.80599,Electroplating Sites,25,-83.8059899800019,37.2804999733988
+166,Mpd Inc,37.76755,-87.10734,Electroplating Sites,25,-87.1073399716442,37.7675500239783
+167,Industrial Plating Of Ky,38.0862,-84.5347,Electroplating Sites,25,-84.5347000147131,38.086200008961
+168,Akebono Brake Corp,37.6826,-85.91809,Electroplating Sites,25,-85.9180900114028,37.6825999876543
+169,Sunspring America,37.84032,-87.57397,Electroplating Sites,25,-87.5739700256432,37.8403200154028
+170,Ky Plating Co Inc,38.25529,-85.74774,Electroplating Sites,25,-85.7477399687924,38.2552900321886
+171,Ni-Chro Plating Inc,38.26795,-85.79893,Electroplating Sites,25,-85.7989300161003,38.2679499957954
+172,Southern Graphic Systems Inc,38.20377,-85.75646,Electroplating Sites,25,-85.7564600050869,38.20377001978
+173,Bilt Rite Products,36.8287,-86.905,Electroplating Sites,25,-86.9050000234511,36.8287000196799
+174,I Brite Corp,37.00505,-88.52988,Electroplating Sites,25,-88.5298799857203,37.0050500322612
+175,A & S Tool & Gage,36.72129,-86.55478,Electroplating Sites,25,-86.5547800420068,36.7212899780035
+176,Huff Integrated Systems Llc,37.69629,-87.85012,Electroplating Sites,25,-87.8501199593245,37.6962899812053
+177,State Fire Rescue Training,38.042486,-84.456595,Fire Rescue,75,-84.4565950041885,38.0424860033316
+178,State Fire Rescue Training - Area 15,38.058181,-84.526236,Fire Rescue,75,-84.5262359982746,38.0581809977752
+179,Bavarian Waste,38.862629,-84.656856,Landfill,100,-84.6568559813197,38.8626289729179
+180,Big Run,38.37238,-82.755546,Landfill,100,-82.7555459906636,38.372379985397
+181,Central Kentucky Hauling,38.067325,-84.552809,Landfill,100,-84.5528089728626,38.0673250148028
+182,Rumke Disposal,39.271363,-84.602233,Landfill,100,-84.6022330221535,39.2713629958661
+183,A O Smith Electric Products Co,36.740191,-86.20019,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-86.2001900262,36.740190994092
+184,General Cable Co,38.0625,-84.927222,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-84.9272220222126,38.0624999792677
+185,Hvc Inc,38.050972,-84.916972,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-84.9169719753262,38.050971989576
+186,Credence Speaker Inc,37.16193,-88.88246,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-88.8824600210789,37.1619299999729
+187,Battery Properties Inc,36.983056,-85.933056,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-85.9330560338677,36.9830560341075
+188,N American Capacitor,37.025,-85.938889,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-85.9388889746706,37.0250000145982
+189,Donotech Electronic Manufacturing Inc,38.117972,-83.766972,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-83.7669720149623,38.1179719952734
+190,Atlas Electric Motor Service & Sales Inc,39.0845,-84.704417,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-84.7044170145428,39.084499997424
+191,Diversified Structural Composites,39.052491,-84.622491,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-84.6224910199572,39.0524910040965
+192,Ellison Surface Technologies,39.04414,-84.69933,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-84.6993300347519,39.044139982663
+193,Former Diversified Structural Composites,39.053745,-84.621426,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-84.6214259773564,39.0537450057013
+194,Pg Lifelink,39.048685,-84.6279,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-84.6278999559459,39.0486849840449
+195,Prestolite Electric Inc,38.973156,-84.633951,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-84.6339510076998,38.9731560069185
+196,Welding Alloys Usa Inc,38.958846,-84.617972,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-84.6179719550889,38.9588460110813
+197,Intermountain Electronics Inc,38.400667,-82.743683,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-82.7436830186845,38.4006669902715
+198,Panasonic Home Appliances Company Of America,37.633889,-84.799167,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-84.7991669987983,37.6338890125497
+199,Philips Lighting North America Corp,37.640278,-84.788056,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-84.7880560065437,37.6402779777587
+200,Delta Faucet,37.215558,-86.708678,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-86.7086779791778,37.2155579650966
+201,Princeton Caldwell Co Industrial Park,37.113333,-87.910833,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-87.9108329571278,37.113332991422
+202,Genlyte Thomas Group Llc,36.8624,-87.5019,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-87.5018999870288,36.862400019274
+203,Raycam Inc,36.806111,-87.498333,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-87.4983329566986,36.8061110054976
+204,Ledvance Llc,37.993056,-84.162222,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-84.1622220263166,37.9930559646128
+205,Tyco Electronics Corp,37.319167,-88.089167,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-88.0891669564889,37.3191670197007
+206,General Electric Co - Owensboro Motor Plant,37.743333,-87.086667,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-87.0866670420108,37.743333026421
+207,Ken-Tron Manufacturing Inc,37.779778,-87.157861,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-87.1578610435601,37.7797779900079
+208,General Electric Co - Lexington Lamp Plant,38.02096,-84.521687,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-84.5216870195074,38.0209599916145
+209,Kaba Mas Corporation,38.05444,-84.504706,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-84.5047059860286,38.0544400274274
+210,Nitto Denko Automotive Kentucky,38.08073,-84.539741,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-84.5397410007615,38.0807300007062
+211,Radio Equipment Co Inc,38.078333,-84.327778,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-84.3277780297502,38.0783330265859
+212,Schneider Electric Usa Inc,38.075833,-84.522222,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-84.5222219662591,38.0758330130029
+213,Dura Automotive Of Fulton,36.511592,-88.882781,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-88.8827809891299,36.5115919922152
+214,Tokai Carbon Ge Llc,36.546944,-89.18,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-89.180000009485,36.5469440052283
+215,Glasco Lamp,36.75925,-88.642917,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-88.6429169742146,36.7592500074844
+216,Brians Battery Llc,36.829199,-83.454969,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-83.4549689708188,36.8291990315302
+217,National Electric Coil,36.844444,-83.371111,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-83.3711109695517,36.8444440002785
+218,Mine Equipment & Mill Supply,37.185,-87.549722,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-87.549721980842,37.1850000118035
+219,Beneke Wire Co,38.150417,-85.761917,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-85.7619170009433,38.1504170270168
+220,Brehob Corp,38.217222,-85.551056,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-85.5510559932911,38.2172220228609
+221,Cameron & Barkley Company,38.1625,-85.648611,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-85.6486109670213,38.162499966968
+222,Cissell Manufacturing Co,38.241781,-85.75367,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-85.7536700174774,38.2417810054517
+223,Derby Welding & Machine Co Inc,38.186758,-85.692561,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-85.6925610422969,38.186757984781
+224,Derby Welding & Machine Co Inc,38.189879,-85.692962,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-85.6929619604082,38.189878984029
+225,General Electric Co,38.196967,-85.750822,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-85.7508219987007,38.1969669816818
+226,Goodrich Corp,38.155773,-85.88659,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-85.8865899571444,38.1557729654675
+227,Greenlee Textron Inc,38.17905,-85.67625,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-85.676249972357,38.1790499848321
+228,Hicks Equipment Inc,38.211389,-85.821944,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-85.8219439553641,38.211389009403
+229,International Systems Of America Inc,38.201583,-85.551194,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-85.5511939745187,38.20158300498
+230,J A Sexaur Inc,38.216667,-85.55,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-85.5500000236746,38.2166669951588
+231,Jaggers Equipment Co Inc,38.157984,-85.730768,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-85.730768008298,38.1579840296713
+232,Kentuckiana Curb Company,38.205,-85.566111,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-85.5661110388007,38.2049999881994
+233,Kinergy Corp,38.134333,-85.733944,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-85.733944001985,38.1343330028206
+234,Ky Associates Of Electric Cooperatives Inc,38.193889,-85.685556,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-85.6855559797113,38.1938889995699
+235,Louisville Lamp Co,38.178232,-85.699133,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-85.699133027084,38.1782319756899
+236,Papercone Corporation,38.156682,-85.706163,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-85.7061629730029,38.156681994899
+237,Schott North America Inc,38.167889,-85.660167,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-85.6601669846678,38.1678889890422
+238,Strong Hold Products,38.163889,-85.756389,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-85.7563890381794,38.1638889843551
+239,The Lyons Companies,38.2025,-85.549167,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-85.5491670159117,38.2025000047556
+240,Topworx,38.156389,-85.703611,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-85.7036110389438,38.1563889932551
+241,Allstates Manufacturing Inc,37.916667,-84.516667,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-84.5166669642051,37.9166669705876
+242,Sector Technology Inc,37.920194,-84.559667,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-84.5596669812362,37.9201940149609
+243,Trim Masters Inc,37.88,-84.573611,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-84.5736109904024,37.8800000039386
+244,O E M Electric Inc,39.076557,-84.514318,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-84.5143179595687,39.0765570262874
+245,Post Glover Resistors Corp,39.017222,-84.584028,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-84.5840280341001,39.0172220235629
+246,Relaken Development Inc Property,37.08574,-84.068,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-84.0679999819535,37.0857400330472
+247,Emerson Hermetic Motor,36.838994,-86.913227,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-86.9132269744861,36.8389940326172
+248,Enersys Inc,37.733028,-84.293944,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-84.2939439727207,37.7330280065806
+249,Hitachi Automotive Systems Americas Inc - Berea Motor,37.614722,-84.306111,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-84.3061110244234,37.6147220230305
+250,Madison County Schools Dept Of Maintenance,37.755258,-84.291824,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-84.2918240384817,37.7552580319557
+251,Phoenix Products Inc,37.57,-84.299167,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-84.2991669574456,37.5699999812031
+252,Sub Zero-Wolf Manufacturing,37.687778,-84.273333,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-84.2733330268419,37.6877779730018
+253,Sharpe Convenience Center,36.966389,-88.446111,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-88.4461110074978,36.9663889840519
+254,Darling Ingredients Inc - Enviroflight,38.638884,-83.815765,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-83.8157649977661,38.6388840154363
+255,Superior Windings Llc,38.642122,-83.734589,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-83.7345890066112,38.6421220149057
+256,Acc Enterprise,36.99118,-88.6209,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-88.6208999852531,36.9911799692236
+257,Paducah Rigging,37.10073,-88.67387,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-88.6738700442965,37.1007300279472
+258,Ewc Inc,37.9875,-86.195,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-86.195000009646,37.987499981853
+259,A2Z Books,37.754167,-84.754167,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-84.7541669726187,37.754167027234
+260,Pentair Technical Solutions,38.100278,-83.904167,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-83.9041670370664,38.1002779833338
+261,Regal Beloit America Inc,38.074444,-83.923056,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-83.9230560023771,38.074444016781
+262,Thomas Industries,37.39,-86.870833,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-86.8708329609457,37.3900000346869
+263,Octa Inc,38.377549,-85.436476,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-85.4364759686332,38.3775490216106
+264,The Nemeth Engineering Group,38.326609,-85.464055,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-85.4640549665079,38.3266089927517
+265,General Electric Co Somerset Glass Plant,37.105278,-84.618611,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-84.618611016582,37.1052780026246
+266,Morehead Electric,38.230853,-83.497181,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-83.4971809856827,38.2308530324343
+267,Regal Beloit America Inc,38.155556,-83.459722,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-83.4597219569871,38.1555559664797
+268,Superior Battery Manufacturing Co,37.068792,-84.989938,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-84.989937993605,37.0687920176909
+269,Superior Battery Manufacturing Co,37.067222,-85.005833,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-85.0058329639052,37.0672219733744
+270,Masonite International Corp,38.2055,-85.275917,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-85.2759170236305,38.2054999745861
+271,Material Recycling Solutions Llc,38.2046,-85.2681,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-85.2680999738597,38.2046000248536
+272,Kentucky Gage,36.722528,-86.559167,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-86.5591669646968,36.7225280181802
+273,South Union Elevator,36.876111,-86.656389,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-86.6563890227828,36.8761110128336
+274,Ambrake Corp,37.342472,-85.331111,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-85.3311110418228,37.3424719734934
+275,Refine Tile,36.812778,-87.163611,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-87.1636109800306,36.8127780358467
+276,Eagle Wire Co Inc,37.001389,-86.440278,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-86.4402779911156,37.0013890164551
+277,Eaton Corp,36.957903,-86.477959,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-86.4779589935178,36.9579029885976
+278,Huntsman Film Products Corp,36.950833,-86.501278,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-86.5012780006522,36.9508330321203
+279,R C Components Inc,36.923889,-86.5,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-86.4999999674975,36.9238890104563
+280,Ledvance Llc - Glass Plant,38.046667,-84.750556,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-84.7505560146711,38.0466669715819
+281,Ledvance Llc - Lamp Plant,38.051389,-84.752778,"MFG- Elec Equip, Appliance, & Component Mfg (335)",25,-84.7527779975264,38.0513889946796
+282,Huhtamaki Inc,36.82666,-87.44277,Sites with Paper in the Name,50,-87.4427700004192,36.8266600052539
+283,International Paper Co,37.98861,-84.47778,Sites with Paper in the Name,50,-84.4777799735339,37.9886099801612
+284,Domtar Paper Co Llc - Hawesville Operations Bleached Pulp Mill,37.89389,-86.68611,Sites with Paper in the Name,50,-86.6861099636209,37.8938899707856
+285,Auburn Hosiery Mills Inc,36.863528,-86.708167,MFG- Textile Mills (313),50,-86.7081670174441,36.8635279744366
+286,American Nonwovens,37.373056,-86.8475,MFG- Textile Mills (313),50,-86.8475000299244,37.3730560255904
+287,Stearns Technical Textiles Co,37.133889,-84.088889,MFG- Textile Mills (313),50,-84.0888889564128,37.1338889647444
+288,Former Sights Denim Systems Property,37.83306,-87.598261,MFG- Textile Mills (313),50,-87.5982610099149,37.8330600143037
+289,Indratech Of Kentucky Llc,38.205375,-85.534986,MFG- Textile Mills (313),50,-85.5349860311735,38.2053750312535
+290,Hickman Mills,36.556667,-89.209361,MFG- Textile Mills (313),50,-89.2093609953888,36.5566670059619
+291,Airguard Inc,38.205164,-85.550459,MFG- Textile Mills (313),50,-85.5504589729533,38.2051639683006
+292,Charles W Smith Business,38.243056,-85.768056,MFG- Textile Mills (313),50,-85.7680559977635,38.2430559791698
+293,Sunrise Turquoise Inc,38.22,-85.55,MFG- Textile Mills (313),50,-85.5500000236746,38.2199999914567
+294,Vitech Manufacturing Lp,36.830827,-87.438892,MFG- Textile Mills (313),50,-87.4388919733376,36.8308269811344
+295,Kapstone Paper And Packaging,36.927778,-86.500278,MFG- Textile Product Mills (314),50,-86.5002779960779,36.9277780201213
+296,Freudenberg Filtration Technologies,36.830833,-87.438889,MFG- Textile Product Mills (314),50,-87.4388890088972,36.8308330208988
+297,Lion Apparel - Hazel Green Distribution Center,37.785833,-83.356111,MFG- Textile Product Mills (314),50,-83.356110990769,37.7858329991932
+298,Us Chita Co Ltd,37.556667,-85.259444,MFG- Textile Product Mills (314),50,-85.2594439874449,37.5566669894987
+299,Stephens Pipe & Steel Llc,37.0143,-85.1225,MFG- Textile Product Mills (314),50,-85.1225000444627,37.0142999977218
+300,Johns Manville International,38.978611,-84.613056,MFG- Paper Manufacturing (322),50,-84.6130560145281,38.9786109666084
+301,Stone Container Corp,38.160833,-85.735,MFG- Paper Manufacturing (322),50,-85.7349999716015,38.1608329840329
+302,Crescent Paper Tube Co Inc,37.915556,-86.906111,MFG- Paper Manufacturing (322),50,-86.9061109699629,37.9155560264283
+303,Weyerhaeuser Co,36.658306,-87.150083,MFG- Paper Manufacturing (322),50,-87.1500829806725,36.6583060112049
+304,Duro Hilex Poly Llc,38.97621,-84.63238,MFG- Paper Manufacturing (322),50,-84.6323800339309,38.9762099869117
+305,Duro Hilex Poly Llc,38.920556,-84.611111,MFG- Paper Manufacturing (322),50,-84.6111109822749,38.9205559899127
+306,Premier Packaging Llc,38.180556,-85.689167,MFG- Paper Manufacturing (322),50,-85.6891670274904,38.1805559760928
+307,Phoenix Paper Wickliffe Llc,36.946111,-89.079167,MFG- Paper Manufacturing (322),50,-89.0791669934515,36.9461110351572
+308,3A Composites Usa,37.003611,-85.944444,MFG- Paper Manufacturing (322),50,-85.9444439767245,37.0036110284422
+309,International Paper Company,37.811699,-87.595429,MFG- Paper Manufacturing (322),50,-87.5954289811502,37.8116989881221
+310,3M Cynthiana,38.38194,-84.296111,MFG- Paper Manufacturing (322),50,-84.2961109786806,38.3819399967042
+311,Domtar Paper Co - Hawesville Operations Corrugated Medium Mills,37.893056,-86.691667,MFG- Paper Manufacturing (322),50,-86.6916670318,37.8930560100596
+312,Essity Operations Wausau Llc,37.78604,-84.86647,MFG- Paper Manufacturing (322),50,-84.866470037526,37.786040018702
+313,Georgia-Pacific Consumer Operations Llc,38.079167,-84.525278,MFG- Paper Manufacturing (322),50,-84.5252780348556,38.0791670054312
+314,International Paper Co,38.01456,-84.44045,MFG- Paper Manufacturing (322),50,-84.4404500327447,38.0145600227781
+315,Westrock Cp Llc,38.063909,-84.524418,MFG- Paper Manufacturing (322),50,-84.5244179878026,38.0639090057101
+316,Fibermark Inc,37.809444,-87.049722,MFG- Paper Manufacturing (322),50,-87.0497220293208,37.809443965972
+317,Kimberly-Clark Corp,37.82083,-87.301667,MFG- Paper Manufacturing (322),50,-87.3016670373346,37.8208300094472
+318,Miami Valley Paper Co,38.787222,-84.602528,MFG- Paper Manufacturing (322),50,-84.6025280288928,38.787222020036
+319,International Paper - Maysville Mill,38.674167,-83.783333,MFG- Paper Manufacturing (322),50,-83.783333031232,38.6741670055066
+320,Crescent Paper Tube Co Inc,38.978667,-84.623222,MFG- Paper Manufacturing (322),50,-84.6232219791039,38.9786669729
+321,Huhtamaki Inc,36.82666,-87.44277,MFG- Paper Manufacturing (322),50,-87.4427700004192,36.8266600052539
+322,International Paper Company,36.930556,-86.488056,MFG- Paper Manufacturing (322),50,-86.4880559674798,36.9305559678742
+323,Georgia-Pacific Consumer Operations Llc,36.928333,-86.506111,MFG- Paper Manufacturing (322),50,-86.5061110267123,36.9283329714785
+324,Duro Paper Bag Manufacturing Co,39.075278,-84.507778,MFG- Paper Manufacturing (322),50,-84.5077780446372,39.0752779755375
+325,International Paper Company,38.185833,-85.653611,MFG- Paper Manufacturing (322),50,-85.6536109898927,38.1858330198324
+326,Westrock Converting Llc,37.8875,-84.581111,MFG- Paper Manufacturing (322),50,-84.5811110247095,37.8874999770382
+327,Bemis Packaging Inc,38.226418,-85.255285,MFG- Paper Manufacturing (322),50,-85.2552849673425,38.2264179700242
+328,Crg Technologies Llc,38.223333,-85.552778,MFG- Paper Manufacturing (322),50,-85.5527779738592,38.2233329762228
+329,Southern Standard Cartons Inc,38.210278,-85.565556,MFG- Paper Manufacturing (322),50,-85.5655559697866,38.2102780137699
+330,Mondi Bags Usa Llc,38.15259,-85.75432,MFG- Paper Manufacturing (322),50,-85.754320038417,38.1525899663712
+331,Tin Inc Dba Temple-Inland,38.18998,-85.65922,MFG- Paper Manufacturing (322),50,-85.6592199806953,38.1899800190525
+332,Jefferson Smurfit Corp,38.304722,-85.521667,MFG- Paper Manufacturing (322),50,-85.5216669799504,38.3047220118282
+333,Glotzbach Hauling & Recycling Llc,38.235911,-85.804592,MFG- Paper Manufacturing (322),50,-85.8045920075046,38.2359110120591
+334,Ahlstrom-Munksjo Filtration Llc,37.34568,-87.50219,MFG- Paper Manufacturing (322),50,-87.5021899632025,37.34568001169
+335,Domtar Paper Co Llc - Hawesville Operations Bleached Pulp Mill,37.893889,-86.686111,MFG- Paper Manufacturing (322),50,-86.6861110415993,37.8938889783184
+336,Ccl Label Corp,39.031389,-84.436389,MFG- Paper Manufacturing (322),50,-84.4363890188398,39.031389032417
+337,Western States Envelope & Label,39.041669,-84.628586,MFG- Paper Manufacturing (322),50,-84.6285859993284,39.0416690134158
+338,Winchester Sun Co,37.99327,-84.1779,MFG- Paper Manufacturing (322),50,-84.1778999636443,37.9932699773218
+339,Fusion Paperboard Us Inc,39.089503,-84.720272,MFG- Paper Manufacturing (322),50,-84.7202720098129,39.0895029979009
+340,Rkw Danafilms Inc,36.790278,-86.558056,MFG- Paper Manufacturing (322),50,-86.558056018185,36.7902779888656
+341,Amcor Flexibles Shelbyville,38.227615,-85.256777,MFG- Paper Manufacturing (322),50,-85.2567769791979,38.2276150238875
+342,C & J Containers Inc,39.067778,-84.510833,MFG- Paper Manufacturing (322),50,-84.5108330352555,39.0677779660744
+343,Philmo Inc,36.710022,-86.569342,MFG- Paper Manufacturing (322),50,-86.569342002257,36.7100219879709
+344,Coating Excellence International,39.080442,-84.675173,MFG- Paper Manufacturing (322),50,-84.675172989289,39.0804420155902
+345,Duro Bag Manufacturing,39.090722,-84.548848,MFG- Paper Manufacturing (322),50,-84.5488480312804,39.0907219687934
+346,Kapstone Containers Corp,37.084639,-84.601578,MFG- Paper Manufacturing (322),50,-84.6015779706483,37.0846390151927
+347,Packaging Unlimited,39.061824,-84.506057,MFG- Paper Manufacturing (322),50,-84.5060569623844,39.0618239784466
+348,Packaging Unlimited,38.2414,-85.771652,MFG- Paper Manufacturing (322),50,-85.7716520436773,38.2414000117883
+349,Tru Tone Finishing Inc,38.076908,-84.516319,Platting SIC,50,-84.5163189568641,38.07690801376
+350,Tri-State Plating Inc,38.237806,-85.773196,Platting SIC,50,-85.7731959781561,38.2378060144269
+351,Central Ky Processing,38.013795,-84.440325,Platting SIC,50,-84.4403249872571,38.0137950209577
+352,Ykk (Usa) Inc,38.034722,-84.883056,Platting SIC,50,-84.8830559919428,38.0347220084181
+353,Modern Plating Coatings & Finishes,37.680833,-85.916111,Platting SIC,50,-85.9161110228319,37.6808330087881
+354,Ken Dec Inc,37.165278,-85.919167,Platting SIC,50,-85.9191670015969,37.1652780269088
+355,Fet Engineering Inc,37.83095,-85.4719,Platting SIC,50,-85.4719000437156,37.8309500302868
+356,Neo Industries Inc,37.385833,-86.868889,Platting SIC,50,-86.8688890066709,37.3858330203269
+357,Browns Plating Service Inc,36.994038,-88.656636,Platting SIC,50,-88.6566359554022,36.9940379719077
+358,Livermore Industrial Plating Inc,37.492917,-87.130944,Platting SIC,50,-87.1309440142182,37.4929170141092
+359,Hausner Hard Chrome Inc,37.786753,-87.154657,Platting SIC,50,-87.1546570224362,37.786753010467
+360,Curtis Maruyasu America Inc,37.555,-85.261944,Platting SIC,50,-85.2619439988806,37.5549999930155
+361,Rane Precision Die Casting,36.845357,-86.899106,Platting SIC,50,-86.8991059972089,36.8453569871628
+362,Huff Integrated Systems Llc,37.696333,-87.850083,Platting SIC,50,-87.8500830385663,37.6963329848205
+363,Siegel-Robert Automotive - Bowling Green,37.029738,-86.335649,Platting SIC,50,-86.335648964186,37.0297379860479
+364,Srg Global Inc,38.209164,-83.480689,Platting SIC,50,-83.4806889950446,38.2091639659866
+365,Electro Shield Plating Inc,38.2125,-84.552222,Platting SIC,50,-84.552222013656,38.212499988077
+366,Bekaert Corp,38.207083,-85.279139,Platting SIC,50,-85.2791390110601,38.2070829950977
+367,Spalding University Athletics Field,38.241291,-85.7664,Platting SIC,50,-85.7664000433687,38.2412910049006
+368,Sunspring America,37.839533,-87.576099,Platting SIC,50,-87.5760990328665,37.8395329798864
+369,Bluegrass Sandblasting,38.14171,-84.62402,Platting SIC,50,-84.6240200424023,38.1417099974559
+370,Pioneer Plating Llc,38.20143,-84.54825,Platting SIC,50,-84.5482500227957,38.2014300293745
+371,Brite Metals Inc,36.77928,-86.56959,Platting SIC,50,-86.569590027107,36.7792800115641
+372,Patriot Gauges Llc,36.707778,-86.569444,Platting SIC,50,-86.5694439610418,36.7077780292292
+373,R C Components Inc,36.923889,-86.5,Platting SIC,50,-86.4999999674975,36.9238890104563
+374,Combs Equipment Group Llc,36.678333,-83.683333,Platting SIC,50,-83.6833330229614,36.6783330284376
+375,Custom Plating & Restoration,38.08158,-84.54245,Platting SIC,50,-84.5424499603323,38.0815800032487
+376,Bluegrass Plating Co,37.737778,-84.287778,Platting SIC,50,-84.287778026442,37.7377780033604
+377,Winston Products,38.20125,-85.55125,Platting SIC,50,-85.5512500293925,38.2012500161367
+378,Bae Systems Land & Armaments Lp,38.170833,-85.756389,Platting SIC,50,-85.7563890381794,38.1708329680963
+379,High Tech Chrome Plating Inc,37.369705,-87.493167,Platting SIC,50,-87.4931670149943,37.3697050163813
+380,Russell Metal Spinning,37.298889,-85.374444,Platting SIC,50,-85.3744439744982,37.2988890040544
+381,Louisville Plating Co,38.155195,-85.759222,Platting SIC,50,-85.7592219652594,38.1551950064467
+382,I Brite Corp,37.00494,-88.530113,Platting SIC,50,-88.5301130087049,37.0049399862686
+383,Acc Enterprise,36.99118,-88.6209,Platting SIC,50,-88.6208999852531,36.9911799692236
+384,Kowa Kentucky Inc,36.909444,-84.061944,Platting SIC,50,-84.0619439894657,36.9094439711435
+385,A & S Tool & Gage,36.721439,-86.554697,Platting SIC,50,-86.5546970376746,36.7214390277496
+386,J R Horn Company Llc,37.770435,-84.857446,Platting SIC,50,-84.8574460113393,37.7704349723838
+387,"Kentucky Utilities Ghent Generating Station
+",38.73212,-85.07068,Coal-fired power plant,75,-85.0706800086461,38.7321200179225
+388,Gallatin Nucor,38.72327,-85.017143,Steel copany,75,-85.0171430228269,38.7232700227258
+389,Nucor Steel Gallatin,38.71225,-85.10546,steel company,75,-85.1054599916698,38.7122500070239
+390,Carman Industries Inc,38.26866,-85.75093,Material handling industries,50,-85.7509299761978,38.2686600056898
+391,Carbide Industries Llc,38.22506,-85.83485,Manufacturer of CAC2 for slag conditioning,50,-85.8348499612196,38.2250599960783
+392,Industrial Machine & Tool,38.29118,-85.80297,Machine service,25,-85.8029700094276,38.2911800157774
+393,Carman Industries Inc,38.268661,-85.750931,material handling equipment industries,50,-85.7509309643446,38.2686609930833
+394,Ohio River Metal Services,38.32102,-85.66207,Metal industries,25,-85.6620699757656,38.3210200114549
+395,Emerald Transformer,38.592312,-85.487846,Industrial equipment,25,-85.487846038324,38.5923120246606
+396,Motion Industries,38.66878,-85.13559,Industrial equipment,25,-85.1355900252884,38.6687799900221
+397,"Air Products & Chemicals, Inc",38.72327,-85.017143,Welding industry,50,-85.0171430228269,38.7232700227258
+398,Orion Engineered Seals,39.09436,-84.64865,Manufacture of sealing system,100,-84.6486499610307,39.0943600006481
+399,Peter Cremer North America,39.08565,-84.56969,Chemical manufacturer,100,-84.5696900238503,39.0856500244692
+400,Tkf Conveyor Production,39.09488,-84.52591,Industrial equipment,25,-84.525909999658,39.0948800328366
+401,Sonoco Products Co,39.1011,-84.50873,packaging manufacturer,50,-84.5087299893438,39.101099973094
+402,Queen City Forging,39.10998,-84.4364,"metal forging solution using steel, aluminium, stainless and copper",25,-84.4363999782863,39.1099799999506
+403,Mesa Industries Inc,39.10768,-84.43201,Manufacture sealing component,50,-84.4320100013243,39.1076800235759
+404,Derrick Company Inc,39.09557,-84.42633,metal heating components,50,-84.4263300436143,39.0955700334281
+405,Dead Low Brewing,39.06363,-84.42323,Brewing company,25,-84.4232299575688,39.0636300223424
+406,Woodcraft Manufacturing Co. Inc,39.11641,-84.46538,manufacture woodcraft,50,-84.4653799886781,39.1164099999229
+407,Valvoline Co,39.07578,-84.61926,"manufacture oil, additives and lubricants",75,-84.6192599595433,39.0757800167046
+408,Marathon Petroleum Co,39.07659,-84.60504,Petroleum refineries,75,-84.6050399879218,39.0765900116961
+409,Grainger Industrial Supply,39.10265,-84.53223,Supply industrial equipemnt,25,-84.5322300070079,39.1026500100934
+410,Marathon Petro,38.73917,-82.83769,Petroleum refineries,75,-82.8376900063686,38.7391699920444
+411,Marathon Petroleum Co,37.97055,-87.6028,Petroleum refineries,75,-87.6028000173825,37.9705499963254
+412,Marathon Petroleum Corporation,37.92707,-87.90677,Petroleum refineries,75,-87.9067699669293,37.9270700249764
+413,"Catlettsburg Refinery
+",38.383492,-82.602562,oil refineries,75,-82.6025619994627,38.3834919920181
+414,Contanda Terminals Llc,38.383492,-82.602562,"liquid storage, transport chemicals ",25,-82.6025619994627,38.3834919920181
+415,Cargill Inc,39.0477778,-84.4010407,manufacture agriculture products,75,-84.4010406717358,39.0477777652427
+416,Chs Inc,35.0846976,-90.1131562,Garden center,0,-90.1131561824045,35.0846975644462
+417,Beckjord Station,38.950577,-84.282127,power genearting industries,50,-84.2821269944842,38.9505769831684
+418,William H. Zimmer Power Station,38.950577,-84.282127,coal power plant,75,-84.2821269944842,38.9505769831684
+419,Carmeuse Lime & Stone,38.8380071,-84.2426767,manufacture steel,50,-84.2426766702984,38.8380070908163
+420,Tmk Ipsco Tubulars Inc,39.06137696,-84.48809356,Steel plant,75,-84.4880935313109,39.0613769417945
+421,Ashland Inc,38.3691346,-82.592475,Chemical manufacturer,100,-82.5924749968004,38.369134623967
+422,Applied Industrial Technologies,38.4354336,-82.5930174,"Bearing , power transmission products",25,-82.593017399569,38.4354336283385
+423,Motion Industries,38.3126963,-81.7170462,Industrial parts manufacturer,75,-81.7170461810059,38.3126963137041
+424,Nexeo Solutions,38.3678014,-82.5938265,Plastic industries,25,-82.5938265121454,38.3678014340829
+425,Dale Hollow Rgnl (Petro Field),36.63785006,-85.16384988,Airport,75,-85.1638498563169,36.637850080498
+426,Ashland Rgnl,38.55450749,-82.73800401,Airport,75,-82.7380040491214,38.5545074948721
+427,Lone Pine Aerodrome,36.91254948,-86.78278286,Airport,75,-86.7827828815737,36.9125494635035
+428,Greene County Parachute Center,37.81534638,-85.53996285,Airport,75,-85.5399628775106,37.8153463800439
+429,Samuels Field,37.81434055,-85.49964367,Airport,75,-85.4996437027819,37.8143405709009
+430,Larkins Farm,36.85111798,-88.92695014,Airport,75,-88.9269501635033,36.8511179705149
+431,Eagle'S Nest,38.10334056,-86.45694952,Airport,75,-86.456949554979,38.1033405493295
+432,Belcher Rgnl,37.36945171,-82.32417048,Airport,75,-82.324170499653,37.3694517160065
+433,Pirates Cove,36.77645023,-88.22226021,Airport,75,-88.2222601811741,36.7764502229103
+434,Cartersville,37.53556277,-84.40722666,Airport,75,-84.4072266504453,37.5355627886761
+435,Bowling Green-Warren County Rgnl,36.96453479,-86.41967165,Airport,75,-86.4196716266447,36.9645348146848
+436,Boyce Wafer Farm,36.81250698,-86.37500496,Airport,75,-86.375004965267,36.8125069729566
+437,Plane-O-Field,36.83472921,-86.45833832,Airport,75,-86.4583383504082,36.8347292166987
+438,Brooks Field,38.0333128,-85.80083822,Airport,75,-85.8008382174268,38.033312773873
+439,Barnes Farm,37.23084031,-88.31861666,Airport,75,-88.3186166226523,37.2308403129722
+440,Boss,36.97258348,-84.62605641,Airport,75,-84.6260564333199,36.9725835043864
+441,Lake Barkley State Park,36.8178083,-87.90752207,Airport,75,-87.9075220364851,36.8178083113569
+442,Lowe,36.86255582,-87.79029843,Airport,75,-87.7902984496091,36.8625558382079
+443,Moseley Field,37.59250709,-87.28111639,Airport,75,-87.2811163684113,37.5925070770535
+444,Woosley Field,37.55222931,-87.27139416,Airport,75,-87.2713941715859,37.5522292979878
+445,Taylor County,37.35828492,-85.30942136,Airport,75,-85.3094213989508,37.3582849459509
+446,Craw Daddy Landing,38.67278518,-85.18278253,Airport,75,-85.1827825695819,38.6727851700833
+447,Duff,37.35259972,-83.34240578,Airport,75,-83.3424057538053,37.3525997518669
+448,Mc Grew,37.50756296,-86.20553246,Airport,75,-86.2055324868577,37.5075629267072
+449,Clinton-Hickman County,36.63611794,-88.99861681,Airport,75,-88.9986167687235,36.6361179083854
+450,Columbia-Adair Co.,37.0853468,-85.34718913,Airport,75,-85.347189088778,37.0853468244582
+451,Cincinnati/Northern Kentucky Intl,39.04884416,-84.66782685,Airport,75,-84.66782683639,39.0488441856504
+452,Woodledge Farm,38.28341064,-85.4819087,Airport,75,-85.4819087132852,38.2834106594125
+453,Terry Field,36.89867355,-88.84672956,Airport,75,-88.8467295306531,36.8986735355398
+454,Cynthiana-Harrison County,38.36617127,-84.28334891,Airport,75,-84.2833488829337,38.3661712733984
+455,Gravity Zero,37.65556278,-84.69028231,Airport,75,-84.6902822930417,37.6555627548313
+456,Stuart Powell Field,37.57758221,-84.76950233,Airport,75,-84.769502292497,37.5775821753678
+457,Tradewater,37.18592366,-87.67500536,Airport,75,-87.6750053422787,37.1859236591029
+458,Samuels Springs,37.89784612,-85.55523841,Airport,75,-85.5552383695909,37.8978461222598
+459,Conrads,38.70646354,-84.59994708,Airport,75,-84.59994707925,38.7064635504728
+460,Addington Field,37.68600717,-85.92503267,Airport,75,-85.9250326410761,37.6860071364301
+461,Oz,37.65500717,-85.81361597,Airport,75,-85.8136159438597,37.6550071679708
+462,Standard Field,36.80278472,-87.17639408,Airport,75,-87.1763940963552,36.8027847531617
+463,Short,37.2723091,-84.55716863,Airport,75,-84.557168586768,37.2723091073664
+464,Rough River State Park,37.60981269,-86.50717172,Airport,75,-86.5071717573998,37.6098127069618
+465,Gene Snyder,38.70408244,-84.39182396,Airport,75,-84.3918239569207,38.7040824629884
+466,Willow Island Airpark,38.12090729,-85.33190392,Airport,75,-85.3319038948926,38.1209073179081
+467,Fleming-Mason,38.54181299,-83.7433932,Airport,75,-83.7433932150478,38.5418129641253
+468,Estes,38.98340165,-84.66611573,Airport,75,-84.6661157254368,38.9834016488553
+469,Campbell Aaf (Fort Campbell),36.67258357,-87.49237833,Airport,75,-87.4923782941748,36.6725835483151
+470,Godman Aaf,37.90721527,-85.97157437,Airport,75,-85.9715743559463,37.9072152594907
+471,Adair,36.75334032,-85.95389373,Airport,75,-85.9538937145243,36.7533403188023
+472,Capital City,38.18173898,-84.90675435,Airport,75,-84.9067543576216,38.1817389556978
+473,Arnemann Farms,36.76556252,-86.61833836,Airport,75,-86.6183383636411,36.7655625240087
+474,Cummings Farms Airfield,36.72806251,-86.72556061,Airport,75,-86.7255606471329,36.7280625208205
+475,Welcome Field,36.71115945,-86.63611197,Airport,75,-86.636111980695,36.7111594618464
+476,Fulton,36.5256432,-88.91784872,Airport,75,-88.9178487025392,36.525643173404
+477,Georgetown Scott County - Marshall Fld,38.23445179,-84.43469894,Airport,75,-84.4346989284642,38.2344518188204
+478,Kentucky Dam State Park,37.00970138,-88.29933886,Airport,75,-88.2993388664866,37.009701374301
+479,Creek Side Landing,36.89500703,-85.77278257,Airport,75,-85.7727825734624,36.8950070441228
+480,Glasgow Muni,37.03178482,-85.95375486,Airport,75,-85.9537548349814,37.0317848359888
+481,Muhlenberg County,37.22623758,-87.15639133,Airport,75,-87.1563913099237,37.2262375866688
+482,J & C Antique Airfield,36.76195133,-88.3766722,Airport,75,-88.3766722241821,36.7619513229506
+483,Breckinridge County,37.78506661,-86.44192699,Airport,75,-86.4419270284827,37.7850666101958
+484,Tucker-Guthrie Memorial,36.85933823,-83.35847825,Airport,75,-83.3584782312057,36.8593381990114
+485,Ohio County,37.45856264,-86.84983848,Airport,75,-86.8498385242721,37.4585626684713
+486,Wendell H Ford,37.38736834,-83.2616152,Airport,75,-83.2616152297388,37.3873683231951
+487,Flying H Farms,37.79171656,-87.54140454,Airport,75,-87.5414045694579,37.7917165715084
+488,Henderson City-County,37.80784045,-87.68569985,Airport,75,-87.6856998755676,37.8078404836721
+489,Alexander Field,36.5230068,-89.05170015,Airport,75,-89.0517001053242,36.5230068311794
+490,Natchez Trace Farm,37.13506068,-85.78942037,Airport,75,-85.7894203606711,37.1350606670209
+491,Hornback,37.62139606,-85.79222707,Airport,75,-85.7922270569448,37.6213960353658
+492,Lincoln Farm,37.53756743,-85.73746538,Airport,75,-85.7374653978987,37.5375674342075
+493,Hopkinsville-Christian County,36.85697917,-87.45508861,Airport,75,-87.4550885979103,36.8569791481434
+494,Caintuckee,38.93553525,-84.56828237,Airport,75,-84.5682823638001,38.935535233511
+495,Julian Carroll,37.59386838,-83.31725412,Airport,75,-83.3172540936598,37.593868377453
+496,Russell County,37.00970152,-85.10275461,Airport,75,-85.1027546253602,37.009701517768
+497,Buzzard'S Roost,38.01480479,-84.84162016,Airport,75,-84.8416201214844,38.0148047593933
+498,Grayson County,37.39978488,-86.26125497,Airport,75,-86.2612549839316,37.3997848486033
+499,Hancock Co-Ron Lewis Field,37.95320163,-86.85717185,Airport,75,-86.8571718312624,37.9532016264694
+500,Blue Grass,38.0367573,-84.60864342,Airport,75,-84.608643400021,38.0367573093021
+501,Coal Field,38.01227675,-84.34647946,Airport,75,-84.3464794268296,38.0122767422408
+502,Liberty-Casey County,37.3085627,-85.05911573,Airport,75,-85.059115726499,37.3085627327578
+503,Chesnut Knolls,37.15111825,-84.25750437,Airport,75,-84.2575043522096,37.151118270907
+504,London-Corbin Arpt-Magee Field,37.08689603,-84.0773932,Airport,75,-84.0773932157219,37.0868959985894
+505,Tec Field,37.02374879,-84.12205988,Airport,75,-84.1220598770996,37.0237487937008
+506,Blue Lick,38.08062976,-85.69329735,Airport,75,-85.6932973913353,38.080629733554
+507,Bowman Field,38.22799118,-85.66375375,Airport,75,-85.6637537779342,38.22799115005
+508,Jeffries Farm,38.36056289,-85.36306033,Airport,75,-85.3630603435548,38.3605628739631
+509,Louisville Intl-Standiford Field,38.17409311,-85.73650376,Airport,75,-85.7365037513871,38.1740931351813
+510,Madisonville Muni,37.3559376,-87.39822752,Airport,75,-87.3982274862137,37.3559376009424
+511,Sky,37.11722938,-83.73611532,Airport,75,-83.7361153341104,37.117229364828
+512,Marion-Crittenden County,37.33627923,-88.1097305,Airport,75,-88.1097304713207,37.3362792580387
+513,Mayfield Graves County,36.76964576,-88.58467226,Airport,75,-88.5846722773175,36.7696457541928
+514,Middlesboro-Bell County,36.61025706,-83.73730974,Airport,75,-83.7373097341122,36.6102570605885
+515,Seldom Scene,38.10556286,-84.85000461,Airport,75,-84.8500046370203,38.1055628863754
+516,Wayne County,36.85528484,-84.85614341,Airport,75,-84.8561434541774,36.8552848359157
+517,Morehead-Rowan County Clyde A. Thomas Rgnl,38.21500738,-83.58761536,Airport,75,-83.5876153734818,38.215007391905
+518,Mount Sterling-Montgomery County,38.05814622,-83.97958768,Airport,75,-83.979587701859,38.0581461976163
+519,One Oak,38.11119707,-83.87353627,Airport,75,-83.8735362825085,38.111197065608
+520,Brandon Airdrome,36.57589574,-88.313378,Airport,75,-88.3133780072414,36.5758957286735
+521,Kyle-Oakley Field,36.6645902,-88.3727833,Airport,75,-88.3727833274857,36.6645902206972
+522,Turner Field,36.73111799,-88.24722771,Airport,75,-88.2472276866864,36.7311180013406
+523,Deer Run Airpark,38.47028514,-85.13861583,Airport,75,-85.1386158206599,38.4702851622635
+524,John M. Foree,38.46035153,-85.16857028,Airport,75,-85.1685703234719,38.4603515067947
+525,Lucas Field,37.87128505,-84.6105323,Airport,75,-84.6105322875689,37.8712850461482
+526,Womstead Field,38.37500743,-83.15472635,Airport,75,-83.154726311049,38.3750074383272
+527,Miles,37.70561018,-87.15611386,Airport,75,-87.1561138203324,37.7056101650454
+528,Owensboro-Daviess County,37.73884129,-87.16683359,Airport,75,-87.1668335962809,37.7388412601277
+529,Owen Air Park,38.62278519,-84.77889352,Airport,75,-84.7788935499718,38.6227851671095
+530,Schroder,38.55007489,-84.76328462,Airport,75,-84.7632846032579,38.5500748859951
+531,Barkley Rgnl,37.06029442,-88.772964,Airport,75,-88.7729640117715,37.060294438586
+532,Paintsville-Prestonsburg-Combs Field,37.74593621,-82.77905286,Airport,75,-82.7790528355238,37.745936209516
+533,Air Castle,38.11814011,-84.30243695,Airport,75,-84.3024369149114,38.1181401289678
+534,Blue Haven Farm,38.17369456,-84.36827281,Airport,75,-84.368272825117,38.1736945557298
+535,Wild Blue,38.11056288,-84.32222668,Airport,75,-84.322226710789,38.1105629152368
+536,Zanzibar Farm,38.12980622,-84.33021585,Airport,75,-84.3302158777683,38.1298062059998
+537,Sunrise Acres,39.03478804,-84.87273274,Airport,75,-84.8727327323607,39.0347880640732
+538,Timmons Field,38.28424398,-85.47260286,Airport,75,-85.4726028855939,38.2842439864593
+539,Pike County-Hatcher Field,37.56181869,-82.56643584,Airport,75,-82.5664358011542,37.5618187186413
+540,Mc Creary County,36.69534038,-84.39144882,Airport,75,-84.3914488204581,36.6953404027094
+541,Big Sandy Rgnl,37.75103511,-82.63669837,Airport,75,-82.6366983395854,37.7510351200605
+542,Princeton-Caldwell County,37.11513892,-87.85708735,Airport,75,-87.8570873824996,37.1151389026526
+543,Providence-Webster Co,37.42411815,-87.73597762,Airport,75,-87.735977593873,37.4241181251532
+544,Jordan Hill Farm,37.83250728,-84.18083773,Airport,75,-84.1808377241179,37.8325072481719
+545,Madison,37.63154001,-84.3324447,Airport,75,-84.3324446878197,37.6315399985377
+546,Woosley,37.50056263,-87.32944973,Airport,75,-87.3294497731157,37.5005626379435
+547,Russellville-Logan County,36.79992363,-86.81017175,Airport,75,-86.8101717061027,36.7999236074322
+548,David Lowe,37.39616289,-87.23555775,Airport,75,-87.235557769788,37.3961629113701
+549,Shannon Field,37.39394067,-87.25889137,Airport,75,-87.2588913296299,37.3939406486276
+550,Harold Reynolds,37.88972948,-84.92778239,Airport,75,-84.9277823912869,37.8897295016546
+551,Flying C Farms,38.32861844,-85.2141714,Airport,75,-85.2141714124081,38.3286184681755
+552,Miles Field,38.1250073,-85.12500469,Airport,75,-85.1250047271379,38.1250072715358
+553,Rooster Field,38.29341038,-85.20496001,Airport,75,-85.2049599976532,38.2934103756015
+554,Shady Acres,37.94584057,-85.69694929,Airport,75,-85.6969493124598,37.9458405382833
+555,Jake'S Field,38.4205629,-85.25778253,Airport,75,-85.2577825533269,38.4205628762827
+556,Lake Cumberland Rgnl,37.05359044,-84.61564336,Airport,75,-84.6156433422094,37.0535904525585
+557,Lee'S Airpark,37.02334043,-84.72972672,Airport,75,-84.7297266883467,37.0233404175911
+558,Arnolds,37.65562915,-85.153853,Airport,75,-85.1538530445091,37.6556291803246
+559,Lebanon-Springfield,37.63348414,-85.24184275,Airport,75,-85.241842757094,37.6334841528062
+560,Robbins Roost,37.40945162,-84.61972671,Airport,75,-84.6197267241649,37.4094516492677
+561,Stanton,37.85008897,-83.84575624,Airport,75,-83.8457562416732,37.8500889426276
+562,Sturgis Muni,37.54178483,-87.95436658,Airport,75,-87.9543665734376,37.5417848352707
+563,Little Mount Intl,38.07611839,-85.23667139,Airport,75,-85.2366714254979,38.076118417981
+564,Mason Valley,38.0383406,-85.3594492,Airport,75,-85.3594492059441,38.0383405964476
+565,Tompkinsville-Monroe County,36.72903478,-85.65239364,Airport,75,-85.6523936828512,36.7290347814455
+566,Bigger (Stol),37.61227739,-87.05694494,Airport,75,-87.0569449333628,37.6122774036061
+567,Goode Airpark,37.6414435,-87.13166857,Airport,75,-87.1316685953264,37.6414434998829
+568,Mueller Farm,38.82334078,-84.68472684,Airport,75,-84.6847268418302,38.8233407572245
+569,Verona Landing,38.81695189,-84.67111572,Airport,75,-84.6711157483082,38.8169519217736
+570,Vine Grove,37.81590775,-85.96469019,Airport,75,-85.964690206598,37.8159077196247
+571,West Liberty,37.91444067,-83.25194718,Airport,75,-83.251947201325,37.9144406715058
+572,Weavers Run,38.02861835,-85.89000491,Airport,75,-85.890004902697,38.0286183845595
+573,Carr,36.7650904,-84.19938377,Airport,75,-84.1993838024847,36.7650903716523
+574,Williamsburg-Whitley County,36.79500707,-84.19953211,Airport,75,-84.1995321143381,36.7950070380845
+575,Hisle Field,37.94417398,-83.99778212,Airport,75,-83.997782089792,37.9441739976292
+576,Lyons East,38.91999,-84.61891,Beverages,50,-84.6189099759086,38.9199900141558
+577,Brenntag Mid-South Inc,37.810556,-87.654833,Chemical Wholesalers,100,-87.6548330437531,37.8105560140475
+578,Frontier Logistical Services Llc,38.20972,-85.82886,Chemical Wholesalers,100,-85.8288599949051,38.2097199685229
+579,Superior Solvents & Chemicals,38.201389,-85.861944,Chemical Wholesalers,100,-85.8619439586724,38.2013890146328
+580,3M Co Hebron,39.07921,-84.67376,Chemicals,100,-84.6737600291786,39.079209966254
+581,A O Smith Corp Protective Coatings Div,38.97251,-84.60932,Chemicals,100,-84.609320011093,38.9725099961047
+582,Allnex Usa Inc,38.180278,-85.753611,Chemicals,100,-85.7536109981633,38.1802779699208
+583,American Synthetic Rubber Co,38.209317,-85.847511,Chemicals,100,-85.847510996497,38.2093169959264
+584,Amfine Chemical Corp,36.790449,-87.378331,Chemicals,100,-87.3783309704804,36.7904489901798
+585,Arkema Inc,37.056699,-88.365727,Chemicals,100,-88.3657269710974,37.0566990279254
+586,Avantor Performance Materials,38.229722,-84.2525,Chemicals,100,-84.2525000174248,38.2297220110056
+587,Basf Corp,38.27227,-85.80322,Chemicals,100,-85.8032200105711,38.2722699675086
+588,Benda-Lutz Corp,38.94722,-84.61511,Chemicals,100,-84.6151100124252,38.9472200152442
+589,Best Sanitizers Inc,38.87988,-84.60318,Chemicals,100,-84.603180026126,38.8798800024813
+590,Calgon Carbon Corp,38.33721,-82.58925,Chemicals,100,-82.5892499550989,38.3372099944405
+591,Camco Chemical Co Inc,38.97441,-84.60954,Chemicals,100,-84.609540008506,38.9744100193048
+592,Carbide Industries Llc,38.2219,-85.835574,Chemicals,100,-85.8355740033386,38.2218999956825
+593,Catalent Pharma Solutions,38.01643,-84.17959,Chemicals,100,-84.1795899641883,38.016429993615
+594,Celanese Engineered Materials,38.97533,-84.61785,Chemicals,100,-84.6178499638733,38.9753299820816
+595,Chemours Louisville Plant,38.21229,-85.83975,Chemicals,100,-85.8397500015999,38.2122900045258
+596,Chromascape Inc,38.37301,-84.29329,Chemicals,100,-84.2932899991938,38.3730100250223
+597,Clariant Corp 12Th Street Facility,38.233611,-85.7755,Chemicals,100,-85.7754999771968,38.2336110053964
+598,Clariant Corp Crittenden Drive Facility,38.17448,-85.74961,Chemicals,100,-85.7496099917193,38.174479989623
+599,Commonwealth Agri-Energy Llc,36.81342,-87.41009,Chemicals,100,-87.4100900090351,36.8134199814368
+600,Creosalus Inc,38.248634,-85.733561,Chemicals,100,-85.7335609603478,38.2486340349221
+601,Cymetech Corp,37.046288,-88.325437,Chemicals,100,-88.3254369916154,37.0462879790451
+602,Cytech Products Inc,37.68327,-85.91353,Chemicals,100,-85.9135299833575,37.6832699697623
+603,Dart Polymers Inc,37.795833,-87.146389,Chemicals,100,-87.1463890183927,37.7958330258712
+604,Dow Silicones Corp,38.7074,-85.1048,Chemicals,100,-85.1047999994306,38.7074000225264
+605,Dupont Louisville Plant,38.211676,-85.840572,Chemicals,100,-85.8405719600848,38.2116760020879
+606,Dyno Nobel Inc,37.239167,-87.295,Chemicals,100,-87.2950000107904,37.2391669930385
+607,Ennis Flint - Paris,38.2161,-84.28348,Chemicals,100,-84.2834800369652,38.2160999647749
+608,Estron Chemicals Inc,37.043639,-88.354639,Chemicals,100,-88.354638975714,37.0436390151308
+609,Eurofins Mwg Operon Llc,38.21128,-85.52346,Chemicals,100,-85.5234600172575,38.2112800281165
+610,Evonik Corp,37.054722,-88.335,Chemicals,100,-88.3350000069725,37.0547220314604
+611,Evonik Corp Calvert City Plant,37.041035,-88.348001,Chemicals,100,-88.3480009647535,37.0410349888487
+612,Flint Cps Inks Na Llc,37.68836,-85.91434,Chemicals,100,-85.9143399942492,37.6883599725623
+613,Greenfield Global Usa Inc,38.20309,-85.27398,Chemicals,100,-85.2739799863834,38.2030900128234
+614,Hexion Inc,38.195278,-85.872222,Chemicals,100,-85.8722220329956,38.1952779835218
+615,Ingevity Virginia Corp-Wickliffe Carbon Plant,36.95,-89.066111,Chemicals,100,-89.0661109689436,36.9499999878461
+616,Interplastic Corp-Fort Wright,39.045,-84.512,Chemicals,100,-84.5120000366411,39.0450000154111
+617,Interpolymer Corp,38.15087,-85.89474,Chemicals,100,-85.8947400123911,38.150869987076
+618,Iofina Chemical Inc,39.00231,-84.534138,Chemicals,100,-84.5341380286714,39.0023100302896
+619,Isp Chemicals Llc,37.047737,-88.35866,Chemicals,100,-88.3586600145887,37.0477370009867
+620,Jlok Corp,37.27715,-87.487822,Chemicals,100,-87.4878220390538,37.2771499805971
+621,Kelley Technical Coatings Inc,38.23123,-85.77925,Chemicals,100,-85.7792499943504,38.2312299886257
+622,Kingsford Manufacturing Co,36.96698,-84.5869,Chemicals,100,-84.586900037895,36.9669799717571
+623,Kustom Group,38.92344,-84.6106,Chemicals,100,-84.6106000205413,38.9234400338465
+624,Louisville Packaging,38.141228,-85.754515,Chemicals,100,-85.7545149728337,38.1412280133378
+625,Lubrizol Advanced Materials Inc,38.221389,-85.828611,Chemicals,100,-85.8286109819083,38.2213889712686
+626,Lubrizol Advanced Materials Inc,37.046288,-88.325437,Chemicals,100,-88.3254369916154,37.0462879790451
+627,Marcus Paint Co,38.25487,-85.7488,Chemicals,100,-85.7487999808277,38.254870029354
+628,Minova Usa Inc,38.19877,-84.54531,Chemicals,100,-84.5453100165338,38.1987700237602
+629,Monument Chemical Kentucky Llc,38.002597,-86.117905,Chemicals,100,-86.1179049749953,38.0025970115605
+630,Nelson Brothers Llc,38.624785,-83.128676,Chemicals,100,-83.1286759762933,38.6247850005496
+631,Owensboro Grain Biodiesel Llc,37.785195,-87.142851,Chemicals,100,-87.1428510036462,37.7851949693703
+632,Owensboro Specialty Polymers Inc,37.78141,-87.197444,Chemicals,100,-87.1974439590819,37.7814099839764
+633,Parallel Products Of Kentucky,38.22096,-85.78699,Chemicals,100,-85.7869899686699,38.2209600213373
+634,Pmc Organometallix Inc,38.685954,-85.146363,Chemicals,100,-85.1463629815016,38.6859539878894
+635,Polyone Corp,38.22196,-85.82975,Chemicals,100,-85.829749955857,38.2219599831217
+636,Ppg Architectural Coatings,38.15463,-85.75304,Chemicals,100,-85.7530400289687,38.1546299697275
+637,Rohm & Haas - Louisville Pl Ant,38.212101,-85.84458,Chemicals,100,-85.844579973388,38.2121009835202
+638,Russtech Admixtures Inc,38.21772,-85.54612,Chemicals,100,-85.5461200202994,38.2177200196983
+639,Sekisui Specialty Chemicals America Llc,37.043889,-88.3525,Chemicals,100,-88.3524999971909,37.0438889659799
+640,Sherwin-Williams Co,36.93227,-86.50068,Chemicals,100,-86.5006799921676,36.9322700084354
+641,Teknor Color Company/Teknor Pe Rformance Elastomers,37.80764,-87.63707,Chemicals,100,-87.6370700268195,37.8076399838345
+642,Vanderbilt Chemicals Llc-Murray Div,36.647333,-88.300444,Chemicals,100,-88.3004439739491,36.6473330144806
+643,Veolia Wurtland Plant,38.555556,-82.789167,Chemicals,100,-82.7891669673077,38.5555560335764
+644,Wacker Chemical Corp Polymers Div,37.044796,-88.349313,Chemicals,100,-88.3493130440575,37.044795980939
+645,Westlake Pvc Corp,37.045833,-88.350556,Chemicals,100,-88.3505560429161,37.045832976147
+646,Westlake Vinyls Inc,37.051111,-88.334167,Chemicals,100,-88.3341669992096,37.0511110141501
+647,Yokohama Industries Americas (Sealant Div),38.06431,-84.72223,Chemicals,100,-84.7222299778062,38.0643100237359
+648,Zeochem Llc,38.23341,-85.774793,Chemicals,100,-85.7747930030682,38.2334099736236
+649,Zeon Chemicals Lp,38.221946,-85.827115,Chemicals,100,-85.8271150174657,38.2219460095815
+650,Kenamerican Resources Inc,37.299999,-87.208344,Coal Mining,75,-87.2083440269078,37.2999989786718
+651,The Muhlenberg County Coal Co - Pride Mine,37.422379,-87.094039,Coal Mining,75,-87.0940389765584,37.4223789660983
+652,The Western Kentucky Coal Co - Genesis Mine,37.401707,-87.067762,Coal Mining,75,-87.0677619968565,37.4017070047921
+653,Ceradyne Inc A 3M Co,38.06301,-84.54303,Computers and Electronic Products,25,-84.5430300025112,38.0630099959375
+654,General Equipment & Manufacturing Co Inc,38.15698,-85.70375,Computers and Electronic Products,25,-85.7037500083182,38.1569800105514
+655,Ronan Engineering Co,38.97576,-84.60296,Computers and Electronic Products,25,-84.6029600287129,38.9757600342171
+656,Sumitomo Electric Wiring Systems Inc,37.00268,-85.60305,Computers and Electronic Products,25,-85.6030500327783,37.0026799908696
+657,Big Rivers Electric Corp Reid/Green/Hmp&L Station Ii,37.646078,-87.502778,Electric Utilities,25,-87.5027780003875,37.6460780210586
+658,Big Rivers Electric Corp Wilson Station,37.449769,-87.080298,Electric Utilities,25,-87.0802979866464,37.4497689882647
+659,Duke Energy Kentucky Inc - East Bend Generating Station,38.904444,-84.848333,Electric Utilities,25,-84.8483329621081,38.9044439749419
+660,John S Cooper Power Station,36.998771,-84.591232,Electric Utilities,25,-84.5912319836896,36.9987709864807
+661,Kentucky Utilities Co - E W Brown Station,37.788963,-84.713823,Electric Utilities,25,-84.7138230043882,37.7889630069511
+662,Kentucky Utilities Co Ghent Station,38.7497,-85.035,Electric Utilities,25,-85.0350000035392,38.7497000020084
+663,Louisville Gas & Electric Co - Mill Creek Station,38.053159,-85.909961,Electric Utilities,25,-85.9099609767337,38.053158993972
+664,Louisville Gas & Electric Co - Trimble County Station,38.584751,-85.411645,Electric Utilities,25,-85.4116450070441,38.5847509828198
+665,Owensboro Municipal Utilities Elmer Smith Station,37.79513,-87.060675,Electric Utilities,25,-87.060675007917,37.7951299887052
+666,Spurlock Power Station,38.700097,-83.817506,Electric Utilities,25,-83.8175060226182,38.7000969819308
+667,Us Tva Paradise Fossil Plant,37.259202,-86.978066,Electric Utilities,25,-86.9780660242209,37.259201996691
+668,Us Tva Shawnee Fossil Plant,37.151972,-88.777324,Electric Utilities,25,-88.777323985003,37.151972022223
+669,Belden Wire & Cable,36.84128,-84.86434,Electrical Equipment,25,-84.8643400421558,36.8412800209915
+670,Denyo Manufacturing Corp,37.63087,-84.80266,Electrical Equipment,25,-84.8026600079491,37.6308699763278
+671,Emerson Electric Co,36.83908,-86.91344,Electrical Equipment,25,-86.91343996504,36.8390800181322
+672,Enersys Delaware Inc,37.737539,-84.276914,Electrical Equipment,25,-84.276913981059,37.7375390224541
+673,Ge Appliances A Haier Co - Appliance Park,38.17804,-85.65013,Electrical Equipment,25,-85.6501300181668,38.1780399710047
+674,General Cable Corp,38.06194,-84.92108,Electrical Equipment,25,-84.9210799711205,38.0619400248235
+675,Okonite Co Inc,37.69457,-84.25938,Electrical Equipment,25,-84.2593800345228,37.694570029392
+676,Schneider Electric Usa Inc,38.07563,-84.52338,Electrical Equipment,25,-84.5233799844918,38.075629990102
+677,Superior Battery Manufacturing Co Inc,37.067819,-85.005416,Electrical Equipment,25,-85.0054159659503,37.067818986842
+678,Tokai Carbon Ge Llc,36.571111,-89.186111,Electrical Equipment,25,-89.1861109788683,36.5711109830461
+679,Aichi Forge Usa Inc,38.28691,-84.55119,Fabricated Metals,50,-84.5511900290576,38.2869100328438
+680,Azz Galvanizing Services-Louisville,38.16603,-85.75981,Fabricated Metals,50,-85.7598100024444,38.1660300223732
+681,Bae Systems,38.17113,-85.759394,Fabricated Metals,50,-85.7593939926363,38.1711300078135
+682,Bodycote - Winchester,38.01697,-84.18115,Fabricated Metals,50,-84.1811499785107,38.016969984642
+683,Caldwell Tanks Inc,38.15222,-85.68767,Fabricated Metals,50,-85.6876699850694,38.152220020248
+684,Central Kentucky Processing Inc,38.01376,-84.43982,Fabricated Metals,50,-84.4398200442359,38.0137599873776
+685,Constellium-Uacj Abs Llc,37.03641,-86.312333,Fabricated Metals,50,-86.3123330113236,37.0364100174201
+686,Contech Engineered Solutions Llc,38.01313,-84.18415,Fabricated Metals,50,-84.1841499922335,38.0131300170516
+687,Emhart Teknologies,36.83893,-87.45494,Fabricated Metals,50,-87.4549400165623,36.8389299747836
+688,Ensign-Bickford Aerospace & Defense Co,37.239167,-87.295,Fabricated Metals,50,-87.2950000107904,37.2391669930385
+689,Ge Alstom Power,39.04434,-84.63138,Fabricated Metals,50,-84.6313800293566,39.0443400090609
+690,Gotec Plus Sun Llc,38.64552,-84.57159,Fabricated Metals,50,-84.5715899606762,38.6455199748195
+691,Greif Packaging Llc,38.97976,-84.63162,Fabricated Metals,50,-84.631619969369,38.9797599945495
+692,Hausner Hard-Chrome Of Kentucky,37.78725,-87.15451,Fabricated Metals,50,-87.1545099682242,37.7872500347108
+693,Hendrick Screen Co,37.7873,-87.15286,Fabricated Metals,50,-87.1528600325418,37.7873000138242
+694,Hines Precision Inc,37.73491,-87.00282,Fabricated Metals,50,-87.0028200001901,37.7349099684395
+695,Insteel Wire Products,36.558472,-89.210306,Fabricated Metals,50,-89.2103060230677,36.5584719652951
+696,International Crankshaft Inc,38.19843,-84.54348,Fabricated Metals,50,-84.543479968637,38.1984300330236
+697,Itw Commercial Construction Na,38.226667,-84.246944,Fabricated Metals,50,-84.246944027224,38.2266670079663
+698,Kentucky Chrome Works,37.170278,-85.918333,Fabricated Metals,50,-85.9183330056871,37.170278028417
+699,Kobe Aluminum Automotive Products Llc,36.93754,-86.5055,Fabricated Metals,50,-86.505499992656,36.9375399929092
+700,Kowa Kentucky  Inc,36.909444,-84.061944,Fabricated Metals,50,-84.0619439894657,36.9094439711435
+701,Modern Welding Co Of Owensboro Inc,37.76539,-87.09421,Fabricated Metals,50,-87.0942100157885,37.7653900203129
+702,Morganfield Adhesive Plant,37.697155,-87.857214,Fabricated Metals,50,-87.8572139551232,37.6971550243378
+703,Mssc-Us,36.82986,-87.43815,Fabricated Metals,50,-87.4381499649129,36.8298599655585
+704,Mubea Inc,38.97561,-84.61768,Fabricated Metals,50,-84.6176800026216,38.9756100260715
+705,Nashville Wire Products,38.174515,-84.800334,Fabricated Metals,50,-84.8003340001839,38.174515016868
+706,Neo Industries (Kentucky) Inc,37.38576,-86.86759,Fabricated Metals,50,-86.86759004277,37.3857600016528
+707,O'Neal Steel Inc,38.17551,-85.75569,Fabricated Metals,50,-85.7556899692253,38.1755099672035
+708,Phoenix Fabricators & Erectors Inc,37.62488,-87.52449,Fabricated Metals,50,-87.5244900113101,37.6248799882762
+709,Portland Forge An Alleghenyte Chnology Co,37.577067,-85.236197,Fabricated Metals,50,-85.2361970251964,37.5770670135883
+710,Precoat Metals,37.933889,-86.775278,Fabricated Metals,50,-86.775277996364,37.9338889938851
+711,Revere Packaging Llc,38.203884,-85.265024,Fabricated Metals,50,-85.2650239626638,38.2038840242693
+712,Sargent & Greenleaf,37.86131,-84.57022,Fabricated Metals,50,-84.5702200298679,37.861309992052
+713,Segepo-Fsm Inc,39.03038,-84.44374,Fabricated Metals,50,-84.4437400226413,39.0303799886571
+714,Sonoco Products,37.806667,-87.634722,Fabricated Metals,50,-87.6347220103298,37.8066670018479
+715,Stanley Black & Decker,38.20098,-85.26196,Fabricated Metals,50,-85.2619599888927,38.2009799954457
+716,Stemco Products Inc,37.58673,-84.29486,Fabricated Metals,50,-84.2948599848159,37.5867299749537
+717,Stupp Bridge Co,36.92467,-86.50745,Fabricated Metals,50,-86.5074499656433,36.924669988061
+718,Thussenkrupp Rothe Erde Usa Inc,38.97405,-84.60372,Fabricated Metals,50,-84.6037200034433,38.9740500063259
+719,Trace Die Cast Inc,37.01438,-86.388782,Fabricated Metals,50,-86.3887819776219,37.0143799756857
+720,Tri-State Plating Inc,38.2379,-85.77332,Fabricated Metals,50,-85.7733200354969,38.237899997695
+721,Wald Llc,38.638889,-83.747222,Fabricated Metals,50,-83.7472220144518,38.6388889973023
+722,Ykk (Usa) Inc Snap & Button Products,38.035467,-84.883382,Fabricated Metals,50,-84.8833819905594,38.0354669806693
+723,Aarhuskarlshamn Aak,38.216202,-85.784844,Food,25,-85.7848439832877,38.2162020221006
+724,Alltech Inc,37.690821,-85.228066,Food,25,-85.2280660142337,37.6908209975297
+725,Biorigin/Ptx Food Corp,38.13506,-85.89858,Food,25,-85.8985800407361,38.1350600029478
+726,Bluegrass Dairy & Food Inc,36.988889,-85.934167,Food,25,-85.9341669803796,36.9888889980041
+727,Borden Dairy,37.141408,-84.106508,Food,25,-84.1065079734064,37.1414079973033
+728,Cti Foods,38.127065,-83.772046,Food,25,-83.7720459691816,38.1270650058698
+729,Darling Ingredients Inc,38.731961,-84.407214,Food,25,-84.4072139841998,38.7319610158499
+730,Darling Ingredients Inc,36.908056,-86.882222,Food,25,-86.8822219817808,36.9080560259991
+731,Equity Group - Kentucky Div Llc Feed Mill,36.67844,-86.56455,Food,25,-86.5645500292054,36.67844001523
+732,Equity Group Kentucky Div Llc Processing Plant,36.760028,-85.178611,Food,25,-85.1786109730655,36.7600279903357
+733,Givaudan Flavors Corp,38.96391,-84.62879,Food,25,-84.6287900067294,38.9639100182238
+734,Keebler Co,38.20626,-85.80334,Food,25,-85.8033400254931,38.2062600066114
+735,Owensboro Grain Co Llc,37.77543,-87.10257,Food,25,-87.1025700073171,37.775430019198
+736,Perdue Cromwell Processing Plant,37.348028,-86.793333,Food,25,-86.793332965765,37.3480280345218
+737,Perdue Farms Inc Livermore Feedmill,37.479167,-87.138889,Food,25,-87.1388889840856,37.4791670337727
+738,Pilgrim'S Pride Corp Mayfield Ky Feed Mill,36.724281,-88.659544,Food,25,-88.6595439816399,36.7242809982457
+739,Prairie Farms Dairy,37.086441,-84.598626,Food,25,-84.5986260167932,37.0864410242363
+740,Ridley Block Operations,38.4471,-83.73918,Food,25,-83.7391800265337,38.4470999784351
+741,Saputo Dairy Foods Usa Llc,36.61739,-88.29822,Food,25,-88.2982200148003,36.6173900148284
+742,Sfc Global Supply Chain Inc Florence Ky,38.973889,-84.634722,Food,25,-84.6347220317081,38.9738890299983
+743,Swift & Co,38.256,-85.726944,Food,25,-85.726943969965,38.2560000247417
+744,T Marzetti Co,37.15926,-85.91726,Food,25,-85.9172599680802,37.1592600197454
+745,The Smithfield Packaged Meats Corp - Grayson,38.348056,-82.938889,Food,25,-82.9388889960489,38.3480560239542
+746,Treehouse Foods,37.108399,-87.91962,Food,25,-87.9196200077425,37.1083990023128
+747,Tyson Chicken Inc Processing & Rendering,37.656628,-87.51415,Food,25,-87.5141500430638,37.6566279736192
+748,Winchester Farms Dairy,38.0125,-84.179722,Food,25,-84.179722016535,38.0124999705353
+749,Masco Cabinetry Llc (Formerly Masco Builder Cabinet Group),38.09259,-83.8995,Furniture,25,-83.8995000196708,38.0925899700184
+750,Mouser Custom Cabinetry,37.7423,-85.8927,Furniture,25,-85.8927000282124,37.7423000245803
+751,Nof - Fordsville,37.631667,-86.723333,Furniture,25,-86.7233330048913,37.6316669876258
+752,Pan Oston Co,37.03666,-86.33781,Furniture,25,-86.337810041265,37.0366599920693
+753,Safety-Kleen Systems Inc,38.43196,-85.23487,Hazardous Waste,25,-85.2348700338587,38.4319600044742
+754,Safety-Kleen Systems Louisville (Lou),38.16171,-85.75165,Hazardous Waste,25,-85.751649975898,38.1617100248039
+755,Briggs & Stratton Corp,36.61061,-88.2974,Machinery,25,-88.2974000326089,36.6106100320211
+756,Donaldson Co Inc,37.88846,-84.58642,Machinery,25,-84.5864199782071,37.8884599825425
+757,Esco Corp,39.01555,-84.52679,Machinery,25,-84.5267899893103,39.0155499896562
+758,Greenheck Fan Corp Kentucky,38.1643,-84.80945,Machinery,25,-84.8094500138556,38.1642999775614
+759,Hydro Gear,37.10897,-87.91076,Machinery,25,-87.9107600139267,37.1089699728677
+760,Hyster Yale Group Inc,37.60125,-84.29989,Machinery,25,-84.2998900114178,37.6012500000337
+761,Ingersoll Rand Campbellsville Operations,37.344444,-85.333889,Machinery,25,-85.3338889920074,37.3444440190803
+762,Intelligrated Systems Llc,37.63182,-84.7942,Machinery,25,-84.7942000339294,37.6318200145243
+763,Jackson Wws Inc,36.930444,-83.937694,Machinery,25,-83.9376939601003,36.9304440189323
+764,Koch Filter Corp,38.12738,-85.71752,Machinery,25,-85.7175200138139,38.1273800314745
+765,Link-Belt Cranes Lp Lllp A Delaware Ltd Liability L,38.01214,-84.43791,Machinery,25,-84.4379099564473,38.0121400021887
+766,M-I Llc Sweco Div,38.979167,-84.619444,Machinery,25,-84.619444024345,38.9791669772306
+767,Misa Metal Fabricating Inc,38.1652,-85.8859,Machinery,25,-85.8858999611747,38.1652000015067
+768,Mtd Consumer Group Inc - Leitchfield Facility,37.516717,-86.289504,Machinery,25,-86.2895040351767,37.5167169712231
+769,Nemak; Glasgow Plant #2,37.00803,-85.94246,Machinery,25,-85.942459957588,37.008029965522
+770,Obara Corp Usa,39.04021,-84.62749,Machinery,25,-84.6274899648503,39.0402100153615
+771,Stoody Co,36.92893,-86.49615,Machinery,25,-86.4961499678528,36.9289299992637
+772,Trane Ingersoll Rand,38.075,-84.515833,Machinery,25,-84.5158329682953,38.0749999861572
+773,Welding Alloys Usa Inc,38.95892,-84.6195,Machinery,25,-84.6194999893872,38.9589199851552
+774,Dana Sealing Manufacturing Llc,37.628479,-84.78959,Miscellaneous Manufacturing,50,-84.7895899697228,37.6284790334392
+775,Ebonite International Inc,36.87909,-87.50969,Miscellaneous Manufacturing,50,-87.5096899975097,36.879090028939
+776,Freudenberg Hopkinsville Ky Site,36.83172,-87.43952,Miscellaneous Manufacturing,50,-87.4395199855527,36.8317199982694
+777,Hammer Strength,38.64653,-84.3161,Miscellaneous Manufacturing,50,-84.3161000208882,38.6465300001428
+778,Agc Automotive Americas,37.668056,-85.920833,Nonmetallic Mineral Product,50,-85.9208330171228,37.6680560315372
+779,Agc Flat Glass N America Inc,37.70035,-84.26846,Nonmetallic Mineral Product,50,-84.2684600257516,37.7003499811268
+780,Byk Usa Inc,38.23244,-85.77572,Nonmetallic Mineral Product,50,-85.7757199746099,38.2324400174997
+781,Carmeuse Lime & Stone Black River Facility,38.836389,-84.242222,Nonmetallic Mineral Product,50,-84.2422220329331,38.8363889753311
+782,Cemex Kosmos Cement Co,38.034696,-85.90601,Nonmetallic Mineral Product,50,-85.9060100064511,38.0346959706907
+783,Certaineed Gypsum,38.71793,-85.092051,Nonmetallic Mineral Product,50,-85.0920510190868,38.7179300197112
+784,Continental Silver Grove Llc,39.03672,-84.39019,Nonmetallic Mineral Product,50,-84.3901900112504,39.0367199776021
+785,Corning Inc,37.75765,-84.82732,Nonmetallic Mineral Product,50,-84.8273200201396,37.7576500040356
+786,Dal-Tile Corp Lewisport Plant,37.9249,-86.90099,Nonmetallic Mineral Product,50,-86.9009900338543,37.9249000207197
+787,Florida Tile Inc,38.07215,-84.92352,Nonmetallic Mineral Product,50,-84.9235199750952,38.072150015004
+788,Forterra Concrete Industries Inc - Elizabethtown,37.681111,-85.839444,Nonmetallic Mineral Product,50,-85.8394440354141,37.6811109904694
+789,Forterra Concrete Industries Inc - Lexington,38.05696,-84.53291,Nonmetallic Mineral Product,50,-84.532910031678,38.0569600115705
+790,Harbisonwalker International Inc,38.733189,-82.927627,Nonmetallic Mineral Product,50,-82.9276269969949,38.7331890156174
+791,Landmark Stone,38.37249,-84.30009,Nonmetallic Mineral Product,50,-84.3000899764,38.372489992711
+792,Ledvance Llc,38.04449,-84.75366,Nonmetallic Mineral Product,50,-84.7536599634724,38.0444900312901
+793,Meridian Brick - Stanton Plant,37.874554,-83.860986,Nonmetallic Mineral Product,50,-83.8609860095056,37.8745540295532
+794,Oldcastle Precast Inc,38.0638,-84.55918,Nonmetallic Mineral Product,50,-84.5591800045207,38.0638000161278
+795,Prestress Services Industries Llc-Lexington Branch,38.07026,-84.32427,Nonmetallic Mineral Product,50,-84.3242700187342,38.0702599676832
+796,Superior Graphite Co,36.839167,-87.462944,Nonmetallic Mineral Product,50,-87.4629440057438,36.8391670100683
+797,Superior Vanceburg Composites Llc,38.601111,-83.274167,Nonmetallic Mineral Product,50,-83.2741670298777,38.6011110321657
+798,Fci Manchester,37.180621,-83.787672,Other,25,-83.7876719838858,37.1806210141389
+799,Federal Bureau Of Prisons Usp Big Sandy,37.76612,-82.65601,Other,25,-82.6560099622373,37.7661199704179
+800,Federal Correctional Institution Ashland Ky,38.435472,-82.704263,Other,25,-82.7042629677237,38.4354719777219
+801,Federal Medical Center Lexington,38.09783,-84.56638,Other,25,-84.5663800015229,38.0978299730641
+802,Mccreary Us Penitentary,36.688089,-84.38854,Other,25,-84.3885399857366,36.6880890356097
+803,Us Army Blue Grass Army Depot,37.6795,-84.25651,Other,25,-84.2565100070216,37.679500033051
+804,Us Army Fort Campbell,36.651306,-87.466933,Other,25,-87.4669329747629,36.6513059939806
+805,Us Army Garrison Fort Knox,37.903266,-85.953442,Other,25,-85.9534420415994,37.9032659909544
+806,Us Army National Guard Wendell Ford Training Center Ranges,37.255,-87.202,Other,25,-87.2020000345399,37.2549999806563
+807,Us Doe Paducah Site,37.120138,-88.811111,Other,25,-88.8111109703116,37.1201379932998
+808,3M Co - Cynthiana,38.374346,-84.29449,Paper,25,-84.2944899687504,38.3743460063911
+809,Ahlstrom-Miunksjo Filtration Llc,37.34735,-87.50195,Paper,25,-87.5019500231901,37.3473499655762
+810,Domtar Paper Co Llc Hawesville Mill,37.894847,-86.685793,Paper,25,-86.6857930379887,37.8948469864986
+811,International Paper,38.69004,-83.80226,Paper,25,-83.8022599952792,38.6900400336091
+812,International Paper - Henderson Mill,37.81658,-87.58802,Paper,25,-87.5880200360129,37.8165799731544
+813,Kimberly-Clark Corp Owensboro Operations,37.82256,-87.30449,Paper,25,-87.3044899931149,37.8225600137481
+814,Catlettsburg Refining Llc,38.377246,-82.597162,Petroleum,75,-82.5971619567953,38.3772459940772
+815,Continental Refining Co Llc,37.0716,-84.6092,Petroleum,75,-84.609199996171,37.0716000107927
+816,Marathon Petroleum Co - Louisville Cane Run Terminal,38.129963,-85.902096,Petroleum,75,-85.9020959569267,38.1299630064314
+817,Valor Llc,37.77271,-87.0808,Petroleum,75,-87.0807999652271,37.7727100022169
+818,Action Petroleum Co Ltd,37.671238,-82.78191,Petroleum Bulk Terminals,75,-82.7819100171165,37.671238021068
+819,Jsc Terminal Llc (Dba Midwest Terminal),37.09278,-88.60444,Petroleum Bulk Terminals,75,-88.6044399746391,37.0927800349293
+820,Key Oil Co Mount Sterling Bulk Plant,38.076547,-83.920267,Petroleum Bulk Terminals,75,-83.9202670029145,38.0765470183596
+821,Key Oil Company-Louisville Bulk Plant,38.15097,-85.89533,Petroleum Bulk Terminals,75,-85.8953300258697,38.1509700165539
+822,Key Oil Supply,36.79259,-86.5636,Petroleum Bulk Terminals,75,-86.5635999709609,36.7925900353296
+823,Mplx Terminals Llc - Covington Ky Terminal,39.052628,-84.499758,Petroleum Bulk Terminals,75,-84.4997579756121,39.052628013366
+824,Reladyne,37.8395,-85.47764,Petroleum Bulk Terminals,75,-85.4776400088866,37.8394999914648
+825,Valero Louisville Terminal,38.22342,-85.83375,Petroleum Bulk Terminals,75,-85.8337499741542,38.2234199915663
+826,3A Composites Usa Inc,36.86642,-88.35834,Plastics and Rubber,50,-88.3583400346845,36.8664200173693
+827,Accent Marble Inc,37.11258,-84.07283,Plastics and Rubber,50,-84.0728300435732,37.1125800261828
+828,American Bluegrass Marble Co Inc,38.22164,-85.78092,Plastics and Rubber,50,-85.7809199624636,38.2216400024919
+829,Arcosa Marine Products Inc Plt 1245,37.018667,-88.494917,Plastics and Rubber,50,-88.4949170158731,37.0186670300114
+830,Aristech Surfaces Llc,38.97469,-84.62103,Plastics and Rubber,50,-84.6210299999791,38.9746899970956
+831,Aristech Surfaces Llc,38.97469,-84.62103,Plastics and Rubber,50,-84.6210299999791,38.9746899970956
+832,Arkema Inc Louisville Plant,38.20939,-85.84296,Plastics and Rubber,50,-85.8429600414361,38.2093899814947
+833,Bando Usa Inc,36.95515,-86.48715,Plastics and Rubber,50,-86.4871500165158,36.955150013926
+834,Boge Rubber & Plastics Usa Llc,39.07849,-84.67155,Plastics and Rubber,50,-84.6715499939166,39.0784900288925
+835,Carpenter Co,36.855556,-86.903889,Plastics and Rubber,50,-86.9038889871077,36.8555560347766
+836,Cooper Standard Automotive,38.09852,-83.89916,Plastics and Rubber,50,-83.8991600073358,38.0985200107686
+837,Covalence Adhesives,36.75588,-86.57649,Plastics and Rubber,50,-86.5764899868043,36.7558799767705
+838,Crane Composites Inc,38.97534,-84.62363,Plastics and Rubber,50,-84.6236299939059,38.9753399687068
+839,Daramic Llc,37.810556,-87.049722,Plastics and Rubber,50,-87.0497220293208,37.8105560140475
+840,Diversified Structural Composites,39.0556,-84.62163,Plastics and Rubber,50,-84.6216299847574,39.0556000166401
+841,Firestone Building Products,38.97133,-84.60903,Plastics and Rubber,50,-84.6090300349193,38.9713299810323
+842,Guardian Automotive - Morehead Plant,38.20968,-83.482457,Plastics and Rubber,50,-83.4824569693553,38.2096800172318
+843,Hunter Douglas,37.76767,-87.07965,Plastics and Rubber,50,-87.0796500318319,37.7676700341674
+844,Inoac Group Na Llc,37.69516,-85.22725,Plastics and Rubber,50,-85.2272499846296,37.6951600078535
+845,Johnson Controls Battery Group Llc,38.96995,-84.63369,Plastics and Rubber,50,-84.6336899572782,38.9699499893662
+846,Louisville Cooler Manufacturing Co,38.141104,-85.754461,Plastics and Rubber,50,-85.7544609840851,38.1411040195471
+847,Mikron Industries Inc,37.70363,-84.27081,Plastics and Rubber,50,-84.2708100185349,37.7036300172053
+848,Pella Corp - Murray Operations,36.645157,-88.300054,Plastics and Rubber,50,-88.3000540152843,36.6451569961101
+849,Pregis Innovative Packaging Inc,38.55323,-82.78818,Plastics and Rubber,50,-82.788179988305,38.5532299935448
+850,Sonoco Protective Solutions Inc,38.224002,-85.196429,Plastics and Rubber,50,-85.1964289668945,38.2240019966251
+851,Sun Pools Inc,36.75196,-85.10431,Plastics and Rubber,50,-85.1043099684431,36.7519599751854
+852,Toyo Automotive Parts (Usa) Inc,36.70667,-86.51995,Plastics and Rubber,50,-86.5199500228218,36.7066700328816
+853,Aisin Automotive Casting Llc,37.019444,-84.12,Primary Metals,50,-84.1200000401531,37.0194440233022
+854,Ak Steel Corp,38.508333,-82.680278,Primary Metals,50,-82.6802780394693,38.5083330341482
+855,Aleris Rolled Products Inc,37.950831,-86.845794,Primary Metals,50,-86.8457940393684,37.9508310081676
+856,Amg Aluminum Na Llc,37.651111,-87.533333,Primary Metals,50,-87.533333026967,37.6511109734293
+857,Audubon Metals Llc,37.808762,-87.632861,Primary Metals,50,-87.6328609705557,37.8087619952165
+858,Bekaert Corp,38.20703,-85.27879,Primary Metals,50,-85.2787900155722,38.2070299835972
+859,Beneke Wire Co,38.150747,-85.762875,Primary Metals,50,-85.7628749643623,38.1507469986669
+860,Cardinal Aluminum Co Plan T 3,38.14825,-85.6842,Primary Metals,50,-85.6841999727899,38.1482500277411
+861,Cardinal Aluminum Co Plant 1,38.15182,-85.69415,Primary Metals,50,-85.6941499823714,38.1518199790119
+862,Cc Metals & Alloys Llc,37.05648,-88.35108,Primary Metals,50,-88.3510800302213,37.0564800173645
+863,Century Aluminum Of Kentucky,37.944999,-86.787778,Primary Metals,50,-86.787777963711,37.9449990196736
+864,Century Aluminum Sebree Llc,37.6569,-87.5006,Primary Metals,50,-87.5006000349812,37.6569000009374
+865,Eastern Alloys Of Kentucky,37.81204,-87.65819,Primary Metals,50,-87.6581899581383,37.8120399962089
+866,Eckart America Corp,38.21345,-85.83762,Primary Metals,50,-85.8376200062297,38.2134500237321
+867,Electro Cycle Inc,37.355813,-87.539943,Primary Metals,50,-87.5399430104906,37.3558129983844
+868,Felker Brothers,37.03061,-85.92469,Primary Metals,50,-85.9246900236267,37.0306100303259
+869,Fritz Winter,36.796305,-86.555775,Primary Metals,50,-86.5557750160155,36.796305033269
+870,Gibbs Die Casting Corp,37.80523,-87.64182,Primary Metals,50,-87.6418199587158,37.805229968677
+871,Huntington Alloys Corp,38.26704,-82.58087,Primary Metals,50,-82.580870020971,38.2670400276007
+872,Hydro Aluminum Metals Usa Llc,37.80272,-87.65869,Primary Metals,50,-87.6586899604254,37.8027200085841
+873,Ipsco Tubulars (Kentucky) Inc,39.062778,-84.493889,Primary Metals,50,-84.4938890123664,39.0627780284784
+874,Kentucky Smelting Technology,38.22018,-84.27096,Primary Metals,50,-84.2709600371873,38.2201800289009
+875,Libertas Copper Llc,38.354916,-85.160992,Primary Metals,50,-85.160991956072,38.354916000101
+876,Logan Aluminum Inc,36.942885,-86.937382,Primary Metals,50,-86.9373820436553,36.9428849993357
+877,Mchenry Brass Inc,37.380278,-86.925556,Primary Metals,50,-86.9255559924345,37.3802779733832
+878,Meritor Heavy Vehicle Systems Llc,36.738872,-86.577345,Primary Metals,50,-86.5773450032917,36.738872035933
+879,Nemak Glasgow Plant #1,36.974,-85.92701,Primary Metals,50,-85.9270100126795,36.9739999862747
+880,North American Stainless,38.727778,-85.072222,Primary Metals,50,-85.0722219668313,38.7277779919837
+881,Novelis Inc,37.601667,-84.308889,Primary Metals,50,-84.308888974608,37.6016669920614
+882,Nucor Steel Gallatin Llc,38.766667,-85.004167,Primary Metals,50,-85.0041670382108,38.7666669968991
+883,Ohio Valley Aluminum Co Inc,38.20904,-85.25669,Primary Metals,50,-85.2566900222784,38.2090400171465
+884,Owl'S Head Alloys Inc,36.93104,-86.50616,Primary Metals,50,-86.5061599848953,36.9310400248765
+885,Plymouth Engineered Shapes,36.82692,-87.44071,Primary Metals,50,-87.4407099838096,36.8269200164615
+886,Real Alloy Recycling Llc,37.195,-86.723611,Primary Metals,50,-86.7236110334718,37.1950000076478
+887,Republic Conduit Manufacturing,38.17198,-85.887544,Primary Metals,50,-85.8875439679761,38.1719800177764
+888,Reynolds Consumer Products Llc Louisville Foil Plant,38.2404,-85.80183,Primary Metals,50,-85.8018299575005,38.2404000350336
+889,Southwire Co Kentucky Plant,37.939971,-86.779117,Primary Metals,50,-86.7791170365622,37.9399710303163
+890,Steel Technologies Llc,38.35844,-85.16553,Primary Metals,50,-85.1655299753928,38.3584400295957
+891,Wyman Gordon Co,37.10729,-87.92247,Primary Metals,50,-87.9224700028129,37.1072900032891
+892,Lsc Communications / Glasgow,37.01067,-85.9504,Printing,25,-85.9503999867213,37.010669985494
+893,Lsc Communications /Danville,37.6235,-84.81278,Printing,25,-84.8127799787824,37.6234999736865
+894,Qg Printing Ii Corp,36.745239,-86.569005,Printing,25,-86.5690050441939,36.7452389923211
+895,Southern Graphic Systems Llc,38.972075,-84.623779,Printing,25,-84.6237790244116,38.9720749656106
+896,U S Smokeless Tobacco Co,36.89478,-87.4803,Tobacco,25,-87.4802999960222,36.8947800243447
+897,U S Smokeless Tobacco Co Eagle One,36.731928,-87.466894,Tobacco,25,-87.4668939878796,36.7319280191549
+898,Accuride Corp,37.80548,-87.56714,Transportation Equipment,25,-87.5671400447065,37.8054800160197
+899,Adient Georgetown,38.19961,-84.54262,Transportation Equipment,25,-84.5426200114156,38.1996099691522
+900,Akebono - Elizabethtown Plant,37.683611,-85.9175,Transportation Equipment,25,-85.9174999979242,37.6836110014123
+901,Akebono Brake Corp-Glasgow,36.989361,-85.932176,Transportation Equipment,25,-85.9321760442154,36.9893609886357
+902,Altec Industries Inc,37.6717,-85.92825,Transportation Equipment,25,-85.9282499572662,37.6716999848319
+903,American Howa Kentucky Inc,37.03688,-86.31821,Transportation Equipment,25,-86.3182099695754,37.0368799920263
+904,American Howa Of Kentucky Georgetown,38.163805,-84.673053,Transportation Equipment,25,-84.6730529652184,38.1638050055647
+905,Andrews Laser Works,39.05274,-84.49133,Transportation Equipment,25,-84.4913299816165,39.0527399784831
+906,Angell-Demmel Na,37.55812,-85.27517,Transportation Equipment,25,-85.2751699846403,37.5581200262459
+907,Arvin Sango Inc,38.51296,-85.22987,Transportation Equipment,25,-85.2298700109873,38.5129599673058
+908,Bowling Green Metalforming,37.029889,-86.324556,Transportation Equipment,25,-86.3245560280685,37.0298890168018
+909,Central Motor Wheel Of America (Dba Cmwa),38.22057,-84.27508,Transportation Equipment,25,-84.2750799805749,38.2205700261643
+910,Cta Acoustics Inc,36.91118,-84.0585,Transportation Equipment,25,-84.0585000283294,36.9111800342416
+911,Curtis-Maruyasu America Inc,37.555,-85.261944,Transportation Equipment,25,-85.2619439988806,37.5549999930155
+912,Daicel Safety Systems America Llc,37.37528,-86.82651,Transportation Equipment,25,-86.8265099949957,37.3752799781828
+913,Eagle Manufacturing Llc,38.97931,-84.61482,Transportation Equipment,25,-84.6148200362515,38.9793099945797
+914,Faurecia Exhaust Systems Inc Louisville Plant,38.177199,-85.67876,Transportation Equipment,25,-85.6787599550924,38.1771990000586
+915,Faurecia Interior Systems,38.26899,-85.51196,Transportation Equipment,25,-85.5119599646533,38.2689900059393
+916,Federal-Mogul Motorparts Corp,36.97506,-85.93368,Transportation Equipment,25,-85.9336800036641,36.9750599800481
+917,Ford Louisville Assembly,38.15498,-85.72715,Transportation Equipment,25,-85.7271500434912,38.1549799836131
+918,Ford Motor Co Kentucky Truck Plant,38.2935,-85.5322,Transportation Equipment,25,-85.5321999961513,38.2934999862111
+919,Franklin Precision Industry,36.76988,-86.57212,Transportation Equipment,25,-86.5721200422732,36.7698799817503
+920,Ge Aviation,37.357,-87.54833,Transportation Equipment,25,-87.5483300413092,37.3570000346389
+921,General Motors Llc Bowling Green Assembly Plant,37.01437,-86.36439,Transportation Equipment,25,-86.3643900227122,37.0143700053432
+922,Green Tokai Co - Maysville,38.64667,-83.83496,Transportation Equipment,25,-83.8349600190941,38.6466699684917
+923,Grupo Antolin Kentucky,36.83108,-87.44682,Transportation Equipment,25,-87.4468199650461,36.8310800037143
+924,Hayashi Telempu Na,38.16236,-84.82428,Transportation Equipment,25,-84.8242800313866,38.1623599760533
+925,Hendrickson Trailer Suspension Systems,37.171618,-84.476625,Transportation Equipment,25,-84.4766250095731,37.1716180252954
+926,Hendrickson Truck Suspension Systems,37.59067,-85.24728,Transportation Equipment,25,-85.2472799900142,37.5906699760341
+927,Hennessy Industries Inc Bada Div,37.00911,-86.37923,Transportation Equipment,25,-86.3792300115428,37.0091100010787
+928,Hitachi Automotive Systems Americas Inc-Berea Ky,37.60295,-84.30992,Transportation Equipment,25,-84.3099199710596,37.6029499805233
+929,Hitachi Automotive Systems Americas Inc-Hk,37.780833,-84.84,Transportation Equipment,25,-84.8400000098695,37.780832975348
+930,Holley Performance Products,36.98155,-86.46586,Transportation Equipment,25,-86.4658600341137,36.9815500207712
+931,Katayama American Co Inc,38.224873,-85.257189,Transportation Equipment,25,-85.2571890364187,38.2248729842208
+932,Kentucky Trailer Paint,38.16668,-85.88573,Transportation Equipment,25,-85.8857299999229,38.1666800057372
+933,Louisville Seating Systems,37.965402,-85.676627,Transportation Equipment,25,-85.6766269952818,37.9654020135054
+934,Mckechnie Vehicle Componets,37.86167,-84.57548,Transportation Equipment,25,-84.5754800251825,37.8616699906153
+935,Meggitt Aircraft Braking Systems Kentucky Corp,37.62867,-84.8235,Transportation Equipment,25,-84.8235000242254,37.628669987279
+936,Metalsa Light Vehilcle Usa - Elizabethtown,37.676037,-85.922168,Transportation Equipment,25,-85.9221680034666,37.6760369853761
+937,Metalsa Sa De Cv,36.82271,-87.43211,Transportation Equipment,25,-87.4321099624371,36.8227099696932
+938,Meyer Tool Inc,39.0406,-84.63796,Transportation Equipment,25,-84.6379600091497,39.0405999728872
+939,Mitsui Kinzoku Catalysts America Inc,38.16442,-84.81143,Transportation Equipment,25,-84.8114299905734,38.1644199766875
+940,Npr Of America Corp,37.84122,-85.4775,Transportation Equipment,25,-85.4774999615338,37.8412199810041
+941,Richmond Auto Parts Technology,37.69897,-84.2735,Transportation Equipment,25,-84.2735000236532,37.6989700183515
+942,Robert Bosch Automotive Steering Llc,39.01753,-84.64234,Transportation Equipment,25,-84.642340014812,39.01753002917
+943,Rocore-Burkesville,36.786622,-85.36174,Transportation Equipment,25,-85.3617399997502,36.7866219801074
+944,Safran Landing Systems Kentucky Llc,38.922778,-84.610556,Transportation Equipment,25,-84.6105560030924,38.9227779846925
+945,Shiloh - Bowling Green,37.03607,-86.31826,Transportation Equipment,25,-86.3182600057367,37.0360699759996
+946,Topy America Inc,38.179444,-84.799722,Transportation Equipment,25,-84.7997219779809,38.1794440156549
+947,Tower Automotive,37.83303,-85.47281,Transportation Equipment,25,-85.4728100370984,37.8330300028488
+948,Tower Automotive Inc,37.83288,-85.46539,Transportation Equipment,25,-85.4653900426831,37.8328800163402
+949,Toyota Motor Manufacturing Kentucky Inc,38.26035,-84.534367,Transportation Equipment,25,-84.5343670092373,38.260349979662
+950,Toyotetsu America Inc,37.174663,-84.483665,Transportation Equipment,25,-84.4836650166232,37.1746629939494
+951,Trad Na Inc,36.82497,-87.43647,Transportation Equipment,25,-87.4364700255001,36.8249699827748
+952,Transcraft Corp,36.88445,-87.74848,Transportation Equipment,25,-87.7484799866712,36.8844499819957
+953,Ugn Inc,37.055278,-84.602778,Transportation Equipment,25,-84.6027780300363,37.0552779929916
+954,Vuteq Usa Inc,38.19833,-84.54318,Transportation Equipment,25,-84.5431800211637,38.1983299980714
+955,Webasto Roof Systems Inc,38.09807,-84.5159,Transportation Equipment,25,-84.5158999826155,38.0980699776969
+956,Yokohama Industries Americas Inc,38.06524,-84.72145,Transportation Equipment,25,-84.721449970645,38.0652399951749
+957,Ahf Products,37.04928,-84.58508,Wood Products,50,-84.5850799612978,37.049279988942
+958,Cell Pak Llc,37.695347,-85.233578,Wood Products,50,-85.2335779869855,37.6953470229377
+959,Escue Wood Preserving Inc,37.450522,-86.392959,Wood Products,50,-86.39295896403,37.4505220107387
+960,Koppers Inc (Guthrie),36.64449,-87.1537,Wood Products,50,-87.1536999573325,36.6444900011231
+961,Olympia Lumber & Post Inc,38.025278,-83.705556,Wood Products,50,-83.7055559956176,38.0252779846034
+962,Stella-Jones Corp,36.585,-88.941389,Wood Products,50,-88.941388964728,36.5850000160277

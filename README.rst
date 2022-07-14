@@ -112,7 +112,7 @@ Detailed descriptions of the options and input files are in the `tutorial <https
 
 MIAGIS's behavior can be quite complex, so it is highly encouraged to read the 
 `guide <https://moseleybioinformaticslab.github.io/miagis/guide.html>`_ and `tutorial <https://moseleybioinformaticslab.github.io/miagis/tutorial.html>`_.
-
+There are also examples available in the examples folder on the GitHub_ repo.
 
           
 Mac OS Note
