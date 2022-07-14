@@ -43,6 +43,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../../../jsonschema.html">JSON Schema</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../api.html">API</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../../license.html">License</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../todo.html">TODO List</a></li>
 </ul>
 
         </div>
@@ -255,6 +256,8 @@
                 <span class="k">for</span> <span class="n">location</span> <span class="ow">in</span> <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;resources&quot;</span><span class="p">][</span><span class="n">name</span><span class="p">][</span><span class="s2">&quot;alternate_locations&quot;</span><span class="p">]:</span>
                     <span class="n">all_locations</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">location</span><span class="p">)</span>
         <span class="n">all_locations</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">all_locations</span><span class="p">)</span>
+        <span class="c1">## The sort is so testing is easier.</span>
+        <span class="n">all_locations</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
             
         <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">total_list</span><span class="p">:</span>
             <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;resources&quot;</span><span class="p">][</span><span class="n">name</span><span class="p">][</span><span class="s2">&quot;alternate_locations&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">location</span> <span class="k">for</span> <span class="n">location</span> <span class="ow">in</span> <span class="n">all_locations</span> <span class="k">if</span> <span class="n">location</span> <span class="o">!=</span> <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;resources&quot;</span><span class="p">][</span><span class="n">name</span><span class="p">][</span><span class="s2">&quot;location&quot;</span><span class="p">]]</span>
@@ -318,6 +321,7 @@
     <span class="k">else</span><span class="p">:</span>
         <span class="k">if</span> <span class="n">filename_minus_extension</span> <span class="ow">in</span> <span class="n">resource_properties</span><span class="p">:</span>
             <span class="n">current_resource_properties</span> <span class="o">=</span> <span class="n">resource_properties</span><span class="p">[</span><span class="n">filename_minus_extension</span><span class="p">]</span>
+            <span class="n">matched_name</span> <span class="o">=</span> <span class="n">filename_minus_extension</span>
            
     <span class="k">if</span> <span class="s2">&quot;alternate_locations&quot;</span> <span class="ow">in</span> <span class="n">current_resource_properties</span><span class="p">:</span>
         <span class="n">alternate_locations</span> <span class="o">=</span> <span class="n">copy</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">current_resource_properties</span><span class="p">[</span><span class="s2">&quot;alternate_locations&quot;</span><span class="p">])</span>
@@ -328,6 +332,9 @@
     <span class="k">if</span> <span class="s2">&quot;location&quot;</span> <span class="ow">in</span> <span class="n">current_resource_properties</span> <span class="ow">and</span> <span class="n">current_resource_properties</span><span class="p">[</span><span class="s2">&quot;location&quot;</span><span class="p">]</span> <span class="ow">and</span> \
         <span class="ow">not</span> <span class="n">current_resource_properties</span><span class="p">[</span><span class="s2">&quot;location&quot;</span><span class="p">]</span> <span class="ow">in</span> <span class="n">alternate_locations</span><span class="p">:</span>
         <span class="n">alternate_locations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current_resource_properties</span><span class="p">[</span><span class="s2">&quot;location&quot;</span><span class="p">])</span>
+    
+    <span class="c1">## Sort so testing is easier.</span>
+    <span class="n">alternate_locations</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
         
     <span class="k">return</span> <span class="n">current_resource_properties</span><span class="p">,</span> <span class="n">alternate_locations</span><span class="p">,</span> <span class="n">matched_name</span></div>
 
@@ -455,7 +462,7 @@
         <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
             <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Warning: The </span><span class="se">\&quot;</span><span class="s2">field_path</span><span class="se">\&quot;</span><span class="s2">, &quot;</span> <span class="o">+</span> <span class="n">field_path</span> <span class="o">+</span> <span class="s2">&quot;, for the </span><span class="se">\&quot;</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">schema_properties</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">+</span> 
                   <span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2"> json format schema does not work for file &quot;</span> <span class="o">+</span> <span class="n">file_path</span> <span class="o">+</span> 
-                  <span class="s2">&quot;. It will have empty </span><span class="se">\&quot;</span><span class="s2">fields</span><span class="se">\&quot;</span><span class="s2"> in the output.&quot;</span><span class="p">)</span>
+                  <span class="s2">&quot;. It will have an empty </span><span class="se">\&quot;</span><span class="s2">fields</span><span class="se">\&quot;</span><span class="s2"> in the output.&quot;</span><span class="p">)</span>
             <span class="k">return</span> <span class="p">{},</span> <span class="n">schema</span>
         
         <span class="n">type_key</span> <span class="o">=</span> <span class="n">schema_properties</span><span class="p">[</span><span class="s2">&quot;type_key&quot;</span><span class="p">]</span>
@@ -468,15 +475,15 @@
         <span class="k">for</span> <span class="n">field</span> <span class="ow">in</span> <span class="n">fields</span><span class="p">:</span>
             <span class="k">if</span> <span class="ow">not</span> <span class="n">type_key</span> <span class="ow">in</span> <span class="n">field</span><span class="p">:</span>
                 <span class="k">if</span> <span class="ow">not</span> <span class="n">type_already_printed</span><span class="p">:</span>
-                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Warning: The </span><span class="se">\&quot;</span><span class="s2">type_key</span><span class="se">\&quot;</span><span class="s2">, &quot;</span> <span class="o">+</span> <span class="n">type_key</span> <span class="o">+</span> <span class="s2">&quot; for the </span><span class="se">\&quot;</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">schema_properties</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">+</span> 
-                          <span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2"> json format is not in all of the fields for file &quot;</span> <span class="o">+</span> 
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Warning: The </span><span class="se">\&quot;</span><span class="s2">type_key</span><span class="se">\&quot;</span><span class="s2">, &quot;</span> <span class="o">+</span> <span class="n">type_key</span> <span class="o">+</span> <span class="s2">&quot;, for the </span><span class="se">\&quot;</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">schema_properties</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">+</span> 
+                          <span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2"> json format schema is not in all of the fields for file &quot;</span> <span class="o">+</span> 
                           <span class="n">file_path</span> <span class="o">+</span> <span class="s2">&quot;. Some fields may be missing in the output.&quot;</span><span class="p">)</span>
                     <span class="n">type_already_printed</span> <span class="o">=</span> <span class="kc">True</span>
                 <span class="k">continue</span>
             
             <span class="k">if</span> <span class="ow">not</span> <span class="n">name_key</span> <span class="ow">in</span> <span class="n">field</span><span class="p">:</span>
                 <span class="k">if</span> <span class="ow">not</span> <span class="n">name_already_printed</span><span class="p">:</span>
-                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Warning: The </span><span class="se">\&quot;</span><span class="s2">name_key</span><span class="se">\&quot;</span><span class="s2">, &quot;</span> <span class="o">+</span> <span class="n">name_key</span> <span class="o">+</span> <span class="s2">&quot; for the </span><span class="se">\&quot;</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">schema_properties</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">+</span> 
+                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Warning: The </span><span class="se">\&quot;</span><span class="s2">name_key</span><span class="se">\&quot;</span><span class="s2">, &quot;</span> <span class="o">+</span> <span class="n">name_key</span> <span class="o">+</span> <span class="s2">&quot;, for the </span><span class="se">\&quot;</span><span class="s2">&quot;</span> <span class="o">+</span> <span class="n">schema_properties</span><span class="p">[</span><span class="s2">&quot;name&quot;</span><span class="p">]</span> <span class="o">+</span> 
                           <span class="s2">&quot;</span><span class="se">\&quot;</span><span class="s2"> json format schema is not in all of the fields for file &quot;</span> <span class="o">+</span> 
                           <span class="n">file_path</span> <span class="o">+</span> <span class="s2">&quot;. Some fields may be missing in the output.&quot;</span><span class="p">)</span>
                     <span class="n">name_already_printed</span> <span class="o">=</span> <span class="kc">True</span>
