@@ -18,7 +18,7 @@ MIAGIS
    :alt: Code coverage information
 
 .. image:: https://img.shields.io/badge/DOI-10.3390%2Fmetabo11030163-blue.svg
-   :target: https://doi.org/10.3390/metabo11030163
+   :target: https://doi.org/10.6084/m9.figshare.15218958
    :alt: Citation link
 
 .. image:: https://img.shields.io/github/stars/MoseleyBioinformaticsLab/miagis.svg?style=social&label=Star
@@ -28,7 +28,7 @@ MIAGIS
 |
 
 
-MIAGIS was created to help automate the process of creating a meatadata file for GIS 
+MIAGIS was created to help automate the process of creating a metadata file for GIS 
 data depositions. It is a command line tool that goes through all files and folders 
 in the current directory and makes a best effort to fill in all of the metadata fields 
 for the file. The resulting metadata file is saved as GIS_METADATA.json in the current 
