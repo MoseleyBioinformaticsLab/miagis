@@ -13,11 +13,12 @@
 import os
 import sys
 # sys.path.insert(0, os.path.abspath('.'))
-sys.path.insert(0, os.path.abspath('..'))
+sys.path.insert(0, os.path.abspath('../src'))
  
-from src.miagis import __version__
+from miagis import __version__
 
-autodoc_typehints = "description"
+autodoc_typehints = "both"
+#add_module_names = False
 # -- Project information -----------------------------------------------------
 
 project = 'MIAGIS'
