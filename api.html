@@ -3,16 +3,18 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>API &mdash; MIAGIS 1.0.1 documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <title>API &mdash; MIAGIS 1.0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
-  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -38,7 +40,7 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="guide.html">User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
@@ -73,7 +75,7 @@
            <div itemprop="articleBody">
              
   <div class="section" id="module-src.miagis">
-<span id="api"></span><h1>API<a class="headerlink" href="#module-src.miagis" title="Permalink to this headline">¶</a></h1>
+<span id="api"></span><h1>API<a class="headerlink" href="#module-src.miagis" title="Permalink to this heading"></a></h1>
 <p>This package has the following modules:</p>
 <dl class="simple">
 <dt><code class="docutils literal notranslate"><span class="pre">build</span></code></dt><dd><p>This module contains functions for building the metadata file.</p>
@@ -88,39 +90,39 @@
 </dd>
 </dl>
 <span class="target" id="module-src.miagis.user_input_checking"></span><p>This module contains the functions used to read in and validate various inputs.</p>
-<dl class="function">
-<dt id="src.miagis.user_input_checking.additional_args_checks">
-<code class="sig-prename descclassname">src.miagis.user_input_checking.</code><code class="sig-name descname">additional_args_checks</code><span class="sig-paren">(</span><em class="sig-param">args: dict</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/miagis/user_input_checking.html#additional_args_checks"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.miagis.user_input_checking.additional_args_checks" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.miagis.user_input_checking.additional_args_checks">
+<span class="sig-prename descclassname"><span class="pre">src.miagis.user_input_checking.</span></span><span class="sig-name descname"><span class="pre">additional_args_checks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/miagis/user_input_checking.html#additional_args_checks"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.miagis.user_input_checking.additional_args_checks" title="Permalink to this definition"></a></dt>
 <dd><p>Run some checks on args that jsonschema can’t do.</p>
 <p>This assumes that args has been validated with a JSON schema and does some
 further checking to make sure the values entered by the user make sense.
 Prints a message and exits the program if problems are found.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>args</strong> – the arguments entered into the program by the user.</p>
+<dd class="field-odd"><p><strong>args</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) – the arguments entered into the program by the user.</p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="src.miagis.user_input_checking.additional_json_schemas_checks">
-<code class="sig-prename descclassname">src.miagis.user_input_checking.</code><code class="sig-name descname">additional_json_schemas_checks</code><span class="sig-paren">(</span><em class="sig-param">schema_list: list</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/miagis/user_input_checking.html#additional_json_schemas_checks"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.miagis.user_input_checking.additional_json_schemas_checks" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.miagis.user_input_checking.additional_json_schemas_checks">
+<span class="sig-prename descclassname"><span class="pre">src.miagis.user_input_checking.</span></span><span class="sig-name descname"><span class="pre">additional_json_schemas_checks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">schema_list</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/miagis/user_input_checking.html#additional_json_schemas_checks"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.miagis.user_input_checking.additional_json_schemas_checks" title="Permalink to this definition"></a></dt>
 <dd><p>Check that all input schemas are valid JSON Schema.</p>
 <p>If any schema are not valid JSON Schema then print a message and exit.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>schema_list</strong> – list of dictionaries of properties for JSON schemas.</p>
+<dd class="field-odd"><p><strong>schema_list</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a>) – list of dictionaries of properties for JSON schemas.</p>
 </dd>
 </dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="src.miagis.user_input_checking.load_json">
-<code class="sig-prename descclassname">src.miagis.user_input_checking.</code><code class="sig-name descname">load_json</code><span class="sig-paren">(</span><em class="sig-param">filepath: str</em><span class="sig-paren">)</span> &#x2192; dict<a class="reference internal" href="_modules/src/miagis/user_input_checking.html#load_json"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.miagis.user_input_checking.load_json" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.miagis.user_input_checking.load_json">
+<span class="sig-prename descclassname"><span class="pre">src.miagis.user_input_checking.</span></span><span class="sig-name descname"><span class="pre">load_json</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filepath</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/miagis/user_input_checking.html#load_json"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.miagis.user_input_checking.load_json" title="Permalink to this definition"></a></dt>
 <dd><p>Adds error checking around loading a json file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>filepath</strong> – filepath to the json file</p>
+<dd class="field-odd"><p><strong>filepath</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – filepath to the json file</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>json read from file in a dictionary</p>
@@ -128,40 +130,46 @@ Prints a message and exits the program if problems are found.</p>
 <dt class="field-odd">Raises</dt>
 <dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/exceptions.html#Exception" title="(in Python v3.10)"><strong>Exception</strong></a> – If file opening has a problem will raise an exception.</p>
 </dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)">dict</a></p>
+</dd>
 </dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="src.miagis.user_input_checking.read_in_resource_properties">
-<code class="sig-prename descclassname">src.miagis.user_input_checking.</code><code class="sig-name descname">read_in_resource_properties</code><span class="sig-paren">(</span><em class="sig-param">resource_properties_path: str</em>, <em class="sig-param">exact_matching: bool</em><span class="sig-paren">)</span> &#x2192; Tuple[dict, dict]<a class="reference internal" href="_modules/src/miagis/user_input_checking.html#read_in_resource_properties"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.miagis.user_input_checking.read_in_resource_properties" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.miagis.user_input_checking.read_in_resource_properties">
+<span class="sig-prename descclassname"><span class="pre">src.miagis.user_input_checking.</span></span><span class="sig-name descname"><span class="pre">read_in_resource_properties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">resource_properties_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exact_matching</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/miagis/user_input_checking.html#read_in_resource_properties"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.miagis.user_input_checking.read_in_resource_properties" title="Permalink to this definition"></a></dt>
 <dd><p>Read in resource_properties and put it in expected dict form.</p>
 <p>resource_properties can be csv, xlsx, or JSON, so if it is one of the tabular
 forms some of the fields have to be read in special.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>resource_properties_path</strong> – filepath to the resource_properties file.</p></li>
-<li><p><strong>exact_matching</strong> – if True resource names will not be modified.
+<li><p><strong>resource_properties_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – filepath to the resource_properties file.</p></li>
+<li><p><strong>exact_matching</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – if True resource names will not be modified.
 if False resource names are stripped, lowered, and spaces replaced with underscores.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>The final dictionary of resource_properties, and a mapping of the original resource name and new name.</p>
 </dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.10)"><em>Tuple</em></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)">dict</a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)">dict</a>]</p>
+</dd>
 </dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="src.miagis.user_input_checking.validate_arbitrary_schema">
-<code class="sig-prename descclassname">src.miagis.user_input_checking.</code><code class="sig-name descname">validate_arbitrary_schema</code><span class="sig-paren">(</span><em class="sig-param">dict_to_validate: dict</em>, <em class="sig-param">schema: dict</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/miagis/user_input_checking.html#validate_arbitrary_schema"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.miagis.user_input_checking.validate_arbitrary_schema" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.miagis.user_input_checking.validate_arbitrary_schema">
+<span class="sig-prename descclassname"><span class="pre">src.miagis.user_input_checking.</span></span><span class="sig-name descname"><span class="pre">validate_arbitrary_schema</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dict_to_validate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schema</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/miagis/user_input_checking.html#validate_arbitrary_schema"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.miagis.user_input_checking.validate_arbitrary_schema" title="Permalink to this definition"></a></dt>
 <dd><p>Validate any arbitrary JSON Schema.</p>
 <p>Wraps around jsonschema.validate() to give more human readable errors
 for most validation errors.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>dict_to_validate</strong> – instance to validate.</p></li>
-<li><p><strong>schema</strong> – JSON Schema to validate the instance with.</p></li>
+<li><p><strong>dict_to_validate</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) – instance to validate.</p></li>
+<li><p><strong>schema</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) – JSON Schema to validate the instance with.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Raises</dt>
@@ -171,9 +179,9 @@ for most validation errors.</p>
 </dd></dl>
 
 <span class="target" id="module-src.miagis.build"></span><p>This module contains the code to build the metadata file.</p>
-<dl class="function">
-<dt id="src.miagis.build.build">
-<code class="sig-prename descclassname">src.miagis.build.</code><code class="sig-name descname">build</code><span class="sig-paren">(</span><em class="sig-param">resource_properties_path: str</em>, <em class="sig-param">exact_matching: bool = False</em>, <em class="sig-param">remove_optional_fields: bool = True</em>, <em class="sig-param">add_resources: bool = True</em>, <em class="sig-param">overwrite_format: bool = False</em>, <em class="sig-param">overwrite_fairness: bool = False</em>, <em class="sig-param">base_metadata: dict = {}</em>, <em class="sig-param">entry_version: int = 1</em>, <em class="sig-param">entry_id: str = ''</em>, <em class="sig-param">base_description: str = ''</em>, <em class="sig-param">products: list = []</em>, <em class="sig-param">schema_list: list = []</em><span class="sig-paren">)</span> &#x2192; dict<a class="reference internal" href="_modules/src/miagis/build.html#build"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.miagis.build.build" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.miagis.build.build">
+<span class="sig-prename descclassname"><span class="pre">src.miagis.build.</span></span><span class="sig-name descname"><span class="pre">build</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">resource_properties_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exact_matching</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">remove_optional_fields</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">add_resources</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite_fairness</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_metadata</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">{}</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry_version</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entry_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">base_description</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">products</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">schema_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/miagis/build.html#build"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.miagis.build.build" title="Permalink to this definition"></a></dt>
 <dd><p>Build a metadata file from the input settings in the current directory.</p>
 <p>Loop over files in the folders of the current directory, ignoring files in
 the top level of the current directory, and fill in what information can be
@@ -183,29 +191,32 @@ automatically put into the metadata.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>resource_properties_path</strong> – filepath to a file containing file properties.</p></li>
-<li><p><strong>exact_matching</strong> – if True file names are matched exactly. if False names are modified and matched fuzzy.</p></li>
-<li><p><strong>remove_optional_fields</strong> – if True optional metadata fields that are empty or null are removed.</p></li>
-<li><p><strong>add_resources</strong> – if True add resources that aren’t in the metadata after looping over the files to the metadata.</p></li>
-<li><p><strong>overwrite_format</strong> – if True overwrite the default format determined from the file extension for files with what is in resource_properties.</p></li>
-<li><p><strong>overwrite_fairness</strong> – if True overwrite the default value of “FAIR” for files with what is in resource_properties.</p></li>
-<li><p><strong>base_metadata</strong> – update the metadata dict with this input dict.</p></li>
-<li><p><strong>entry_version</strong> – version number of the metadata.</p></li>
-<li><p><strong>entry_id</strong> – unique id for the metadata.</p></li>
-<li><p><strong>base_description</strong> – description of the metadata.</p></li>
-<li><p><strong>products</strong> – a list of resource ids.</p></li>
-<li><p><strong>schema_list</strong> – a list of dicitonaries with information about how to detect if a JSON file is using that schema, and how to decode that schema to fill in the metadata.</p></li>
+<li><p><strong>resource_properties_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – filepath to a file containing file properties.</p></li>
+<li><p><strong>exact_matching</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – if True file names are matched exactly. if False names are modified and matched fuzzy.</p></li>
+<li><p><strong>remove_optional_fields</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – if True optional metadata fields that are empty or null are removed.</p></li>
+<li><p><strong>add_resources</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – if True add resources that aren’t in the metadata after looping over the files to the metadata.</p></li>
+<li><p><strong>overwrite_format</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – if True overwrite the default format determined from the file extension for files with what is in resource_properties.</p></li>
+<li><p><strong>overwrite_fairness</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – if True overwrite the default value of “FAIR” for files with what is in resource_properties.</p></li>
+<li><p><strong>base_metadata</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) – update the metadata dict with this input dict.</p></li>
+<li><p><strong>entry_version</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.10)"><em>int</em></a>) – version number of the metadata.</p></li>
+<li><p><strong>entry_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – unique id for the metadata.</p></li>
+<li><p><strong>base_description</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – description of the metadata.</p></li>
+<li><p><strong>products</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a>) – a list of resource ids.</p></li>
+<li><p><strong>schema_list</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a>) – a list of dicitonaries with information about how to detect if a JSON file is using that schema, and how to decode that schema to fill in the metadata.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>The metadata JSON as a python dict.</p>
 </dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)">dict</a></p>
+</dd>
 </dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="src.miagis.build.determine_json_fields">
-<code class="sig-prename descclassname">src.miagis.build.</code><code class="sig-name descname">determine_json_fields</code><span class="sig-paren">(</span><em class="sig-param">schema_list: list</em>, <em class="sig-param">input_json: dict</em>, <em class="sig-param">file_path: str</em><span class="sig-paren">)</span> &#x2192; Tuple[dict, Union[dict, str]]<a class="reference internal" href="_modules/src/miagis/build.html#determine_json_fields"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.miagis.build.determine_json_fields" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.miagis.build.determine_json_fields">
+<span class="sig-prename descclassname"><span class="pre">src.miagis.build.</span></span><span class="sig-name descname"><span class="pre">determine_json_fields</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">schema_list</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">input_json</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">file_path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/miagis/build.html#determine_json_fields"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.miagis.build.determine_json_fields" title="Permalink to this definition"></a></dt>
 <dd><p>Determine the types of the feature properties in the JSON file.</p>
 <p>Based on the ESRIJSON and GEOJSON formats there are 2 types of schema styles,
 mapping and testing. The mapping style has types already identified with the
@@ -246,38 +257,44 @@ print a warning if does is not.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>schema_list</strong> – list of dictionaries where each dictionary describes a schema to look for and how to determine field types.</p></li>
-<li><p><strong>input_json</strong> – the JSON to determine field types for.</p></li>
-<li><p><strong>file_path</strong> – path to the JSON file, used for printing error messages.</p></li>
+<li><p><strong>schema_list</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a>) – list of dictionaries where each dictionary describes a schema to look for and how to determine field types.</p></li>
+<li><p><strong>input_json</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) – the JSON to determine field types for.</p></li>
+<li><p><strong>file_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – path to the JSON file, used for printing error messages.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>A dictionary of the fields and their types. Ex field_name : {“name”:field_name, “type”:field_type}.
 If “schema_URL” is in the schema dictionary then this is returned, otherwise return the jsonschema.</p>
 </dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.10)"><em>Tuple</em></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)">dict</a>, <a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Union" title="(in Python v3.10)"><em>Union</em></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)">dict</a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)">str</a>]]</p>
+</dd>
 </dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="src.miagis.build.determine_table_fields">
-<code class="sig-prename descclassname">src.miagis.build.</code><code class="sig-name descname">determine_table_fields</code><span class="sig-paren">(</span><em class="sig-param">extension: str</em>, <em class="sig-param">path_to_read_file: pathlib.Path</em><span class="sig-paren">)</span> &#x2192; dict<a class="reference internal" href="_modules/src/miagis/build.html#determine_table_fields"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.miagis.build.determine_table_fields" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.miagis.build.determine_table_fields">
+<span class="sig-prename descclassname"><span class="pre">src.miagis.build.</span></span><span class="sig-name descname"><span class="pre">determine_table_fields</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">extension</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_to_read_file</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/miagis/build.html#determine_table_fields"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.miagis.build.determine_table_fields" title="Permalink to this definition"></a></dt>
 <dd><p>Read in the tabular file and determine the names and types of the columns.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>extension</strong> – the extension of the file without the period, used to read in the file correctly.</p></li>
-<li><p><strong>path_to_read_file</strong> – filepath to read in the file from.</p></li>
+<li><p><strong>extension</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – the extension of the file without the period, used to read in the file correctly.</p></li>
+<li><p><strong>path_to_read_file</strong> (<a class="reference external" href="https://docs.python.org/3/library/pathlib.html#pathlib.Path" title="(in Python v3.10)"><em>Path</em></a>) – filepath to read in the file from.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>Keys are the field name or column number and values are the name, type, and column number for each field. Ex: field_name : {“name”:field_name, “type”:field_type, “identifier”:column_number+1, “identifier%type”:”column”}.</p>
 </dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)">dict</a></p>
+</dd>
 </dl>
 </dd></dl>
 
-<dl class="function">
-<dt id="src.miagis.build.find_resource_properties">
-<code class="sig-prename descclassname">src.miagis.build.</code><code class="sig-name descname">find_resource_properties</code><span class="sig-paren">(</span><em class="sig-param">resource_properties: dict</em>, <em class="sig-param">resource_properties_keys: list</em>, <em class="sig-param">exact_matching: bool</em>, <em class="sig-param">filename_minus_extension: str</em>, <em class="sig-param">relative_location: str</em><span class="sig-paren">)</span> &#x2192; Tuple[dict, list, str]<a class="reference internal" href="_modules/src/miagis/build.html#find_resource_properties"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.miagis.build.find_resource_properties" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.miagis.build.find_resource_properties">
+<span class="sig-prename descclassname"><span class="pre">src.miagis.build.</span></span><span class="sig-name descname"><span class="pre">find_resource_properties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">resource_properties</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">resource_properties_keys</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exact_matching</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename_minus_extension</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relative_location</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/miagis/build.html#find_resource_properties"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.miagis.build.find_resource_properties" title="Permalink to this definition"></a></dt>
 <dd><p>Match filename to an entry in resource_properties and pull out properties.</p>
 <p>The point of this function is to find the match in resource_properties and format
 all of the information so it can be easily added to metadata without more logic
@@ -285,11 +302,12 @@ after returning from this function.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>resource_properties</strong> – dictionary where the keys are filenames and values are properties of the file to go in the metadata.</p></li>
-<li><p><strong>resource_properties_keys</strong> – list of the resource_properties_keys, it is given as an input so the list isn’t created every time the function runs.</p></li>
-<li><p><strong>exact_matching</strong> – if True filename is matched as is, if False the filename is stripped, lowered, and spaces replaced with underscores before matching</p></li>
+<li><p><strong>resource_properties</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) – dictionary where the keys are filenames and values are properties of the file to go in the metadata.</p></li>
+<li><p><strong>resource_properties_keys</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)"><em>list</em></a>) – list of the resource_properties_keys, it is given as an input so the list isn’t created every time the function runs.</p></li>
+<li><p><strong>exact_matching</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.10)"><em>bool</em></a>) – if True filename is matched as is, if False the filename is stripped, lowered, and spaces replaced with underscores before matching</p></li>
 <li><p><strong>filename_mins_extension</strong> – the filename to match with the extension removed.</p></li>
-<li><p><strong>relative_location</strong> – location of the file relative to the current directory, input here so it can be added to alternate_locations.</p></li>
+<li><p><strong>relative_location</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – location of the file relative to the current directory, input here so it can be added to alternate_locations.</p></li>
+<li><p><strong>filename_minus_extension</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – </p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
@@ -297,13 +315,16 @@ after returning from this function.</p>
 If alternate_locations is in resource_properties return it, else return an empty list, but always add the relative_location to the list.
 The resource_name in resource_properties that was matched to filename_minus_extension.</p>
 </dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Tuple" title="(in Python v3.10)"><em>Tuple</em></a>[<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)">dict</a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.10)">list</a>, <a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)">str</a>]</p>
+</dd>
 </dl>
 </dd></dl>
 
 <span class="target" id="module-src.miagis.validate"></span><p>This module contains the code to validate the metadata file.</p>
-<dl class="function">
-<dt id="src.miagis.validate.validate">
-<code class="sig-prename descclassname">src.miagis.validate.</code><code class="sig-name descname">validate</code><span class="sig-paren">(</span><em class="sig-param">metadata: dict</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/miagis/validate.html#validate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.miagis.validate.validate" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.miagis.validate.validate">
+<span class="sig-prename descclassname"><span class="pre">src.miagis.validate.</span></span><span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metadata</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/miagis/validate.html#validate"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.miagis.validate.validate" title="Permalink to this definition"></a></dt>
 <dd><p>Validate input metadata against the MIAGIS schema.</p>
 <p>Use jsonschema to validate input metadata, and then do some additional checking
 that jsonschema alone cannot, such as checking that all layers for each map
@@ -311,7 +332,7 @@ exist in the layers section.</p>
 <p>The specific JSON schema used is the metadata_schema in the miagis_schema module.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>metadata</strong> – input dictionary of metadata.</p>
+<dd class="field-odd"><p><strong>metadata</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) – input dictionary of metadata.</p>
 </dd>
 <dt class="field-even">Raises</dt>
 <dd class="field-even"><p><strong>jsonschema.ValidationError</strong> – any validation errors that aren’t handled reraise the original.</p>
@@ -320,15 +341,15 @@ exist in the layers section.</p>
 </dd></dl>
 
 <span class="target" id="module-src.miagis.print_map_layers"></span><p>This module contains the code to print and save map structure.</p>
-<dl class="function">
-<dt id="src.miagis.print_map_layers.print_map_layers">
-<code class="sig-prename descclassname">src.miagis.print_map_layers.</code><code class="sig-name descname">print_map_layers</code><span class="sig-paren">(</span><em class="sig-param">metadata: dict</em>, <em class="sig-param">save_path: str = ''</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/miagis/print_map_layers.html#print_map_layers"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.miagis.print_map_layers.print_map_layers" title="Permalink to this definition">¶</a></dt>
+<dl class="py function">
+<dt class="sig sig-object py" id="src.miagis.print_map_layers.print_map_layers">
+<span class="sig-prename descclassname"><span class="pre">src.miagis.print_map_layers.</span></span><span class="sig-name descname"><span class="pre">print_map_layers</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metadata</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">save_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/src/miagis/print_map_layers.html#print_map_layers"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#src.miagis.print_map_layers.print_map_layers" title="Permalink to this definition"></a></dt>
 <dd><p>Find the maps and layers in metadata and pretty print them.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>metadata</strong> – A valid metadata to find maps in.</p></li>
-<li><p><strong>save_path</strong> – path to save the output to a file, doesn’t save if it is an empty string.</p></li>
+<li><p><strong>metadata</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.10)"><em>dict</em></a>) – A valid metadata to find maps in.</p></li>
+<li><p><strong>save_path</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.10)"><em>str</em></a>) – path to save the output to a file, doesn’t save if it is an empty string.</p></li>
 </ul>
 </dd>
 </dl>

@@ -3,16 +3,18 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JSON Schema &mdash; MIAGIS 1.0.1 documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <title>JSON Schema &mdash; MIAGIS 1.0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
-  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -38,7 +40,7 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="guide.html">User Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tutorial.html">Tutorial</a></li>
@@ -92,12 +94,12 @@
            <div itemprop="articleBody">
              
   <div class="section" id="json-schema">
-<h1>JSON Schema<a class="headerlink" href="#json-schema" title="Permalink to this headline">¶</a></h1>
+<h1>JSON Schema<a class="headerlink" href="#json-schema" title="Permalink to this heading"></a></h1>
 <p>MIAGIS uses and produces JSON files in its execution. This document describes
 their structure and gives examples. <a class="reference external" href="https://json-schema.org/">JSON Schema</a> is used
 here to describe the structure and used in the program to validate inputs.</p>
 <div class="section" id="metadata-json">
-<h2>Metadata JSON<a class="headerlink" href="#metadata-json" title="Permalink to this headline">¶</a></h2>
+<h2>Metadata JSON<a class="headerlink" href="#metadata-json" title="Permalink to this heading"></a></h2>
 <p>The main JSON file is of course the metadata that is generated and validated by
 MIAGIS. The metadata schema was generated out of a need to publish GIS data in
 the FAIRest way possible that is not too burdensome. MIAGIS was then born out of
@@ -108,7 +110,7 @@ deposition. While the “resources” property details all of the resources of t
 project, such as files, layers, and maps. “resources” is a JSON object where the
 keys are a unique id for the resource, which could be a name, filepath, or URL.</p>
 <div class="section" id="simple-schema">
-<h3>Simple Schema<a class="headerlink" href="#simple-schema" title="Permalink to this headline">¶</a></h3>
+<h3>Simple Schema<a class="headerlink" href="#simple-schema" title="Permalink to this heading"></a></h3>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">{</span>
 <span class="go">  &quot;format_version&quot; : &quot;DRAFT_MIAGIS_VERSION_0.1&quot;, # MIAGIS - Minimum Information About GIS</span>
 <span class="go">  &quot;entry_version&quot; : &lt;version&gt;, # starting with &quot;1&quot;</span>
@@ -141,7 +143,7 @@ keys are a unique id for the resource, which could be a name, filepath, or URL.<
 </div>
 </div>
 <div class="section" id="validating-json-schema">
-<h3>Validating JSON Schema<a class="headerlink" href="#validating-json-schema" title="Permalink to this headline">¶</a></h3>
+<h3>Validating JSON Schema<a class="headerlink" href="#validating-json-schema" title="Permalink to this heading"></a></h3>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">{</span>
 <span class="go">&quot;$schema&quot;: &quot;https://json-schema.org/draft/2020-12/schema&quot;,</span>
 
@@ -197,9 +199,9 @@ keys are a unique id for the resource, which could be a name, filepath, or URL.<
 </div>
 </div>
 <div class="section" id="sections">
-<h3>Sections<a class="headerlink" href="#sections" title="Permalink to this headline">¶</a></h3>
+<h3>Sections<a class="headerlink" href="#sections" title="Permalink to this heading"></a></h3>
 <div class="section" id="base-properties">
-<h4>Base Properties<a class="headerlink" href="#base-properties" title="Permalink to this headline">¶</a></h4>
+<h4>Base Properties<a class="headerlink" href="#base-properties" title="Permalink to this heading"></a></h4>
 <p>format_version: Required</p>
 <p>String that describes the version of the metadata schema being used. The current
 latest version is “DRAFT_MIAGIS_VERSION_0.1”. MIAGIS sets this to the version it
@@ -219,7 +221,7 @@ MIAGIS fills this in by default with the date it is ran with the format “YYYY-
 <p>A list of resource id’s that are the new resources created during the project.</p>
 </div>
 <div class="section" id="resources-properties">
-<h4>Resources Properties<a class="headerlink" href="#resources-properties" title="Permalink to this headline">¶</a></h4>
+<h4>Resources Properties<a class="headerlink" href="#resources-properties" title="Permalink to this heading"></a></h4>
 <p>location: Required</p>
 <p>A string that is the location of the resource. This can be a file path within the
 deposition directory, a URL, or a DOI for example. MIAGIS sets file id’s and locations
@@ -272,11 +274,11 @@ should put the layer resources as sources.</p>
 </div>
 </div>
 <div class="section" id="gis-format-schemas">
-<h2>GIS Format Schemas<a class="headerlink" href="#gis-format-schemas" title="Permalink to this headline">¶</a></h2>
+<h2>GIS Format Schemas<a class="headerlink" href="#gis-format-schemas" title="Permalink to this heading"></a></h2>
 <p>MIAGIS is aware of the ESRIJSON format and the GEOJSON format. These are the JSON
 Schemas used to identify if an arbitrary JSON file is of that format.</p>
 <div class="section" id="esrijson">
-<h3>ESRIJSON<a class="headerlink" href="#esrijson" title="Permalink to this headline">¶</a></h3>
+<h3>ESRIJSON<a class="headerlink" href="#esrijson" title="Permalink to this heading"></a></h3>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">{</span>
 <span class="go">&quot;$schema&quot;: &quot;https://json-schema.org/draft/2020-12/schema&quot;,</span>
 <span class="go">&quot;title&quot;:&quot;In-built ESRI&quot;,</span>
@@ -301,7 +303,7 @@ Schemas used to identify if an arbitrary JSON file is of that format.</p>
 </div>
 </div>
 <div class="section" id="single-feature-geojson">
-<h3>Single Feature GEOJSON<a class="headerlink" href="#single-feature-geojson" title="Permalink to this headline">¶</a></h3>
+<h3>Single Feature GEOJSON<a class="headerlink" href="#single-feature-geojson" title="Permalink to this heading"></a></h3>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">{</span>
 <span class="go">&quot;$schema&quot;: &quot;https://json-schema.org/draft/2020-12/schema&quot;,</span>
 <span class="go">&quot;title&quot;:&quot;In-built GEOJSON Single Feature&quot;,</span>
@@ -317,7 +319,7 @@ Schemas used to identify if an arbitrary JSON file is of that format.</p>
 </div>
 </div>
 <div class="section" id="collection-geojson">
-<h3>Collection GEOJSON<a class="headerlink" href="#collection-geojson" title="Permalink to this headline">¶</a></h3>
+<h3>Collection GEOJSON<a class="headerlink" href="#collection-geojson" title="Permalink to this heading"></a></h3>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">{</span>
 <span class="go">&quot;$schema&quot;: &quot;https://json-schema.org/draft/2020-12/schema&quot;,</span>
 <span class="go">&quot;title&quot;:&quot;In-built GEOJSON Collection&quot;,</span>
@@ -339,7 +341,7 @@ Schemas used to identify if an arbitrary JSON file is of that format.</p>
 </div>
 </div>
 <div class="section" id="schema-list">
-<h2>Schema List<a class="headerlink" href="#schema-list" title="Permalink to this headline">¶</a></h2>
+<h2>Schema List<a class="headerlink" href="#schema-list" title="Permalink to this heading"></a></h2>
 <p>The JSON Schema used to validate the –json_schemas option is given below.</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">{</span>
 <span class="go">&quot;$schema&quot;: &quot;https://json-schema.org/draft/2020-12/schema&quot;,</span>

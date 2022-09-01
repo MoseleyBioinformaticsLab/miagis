@@ -3,16 +3,18 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>User Guide &mdash; MIAGIS 1.0.1 documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <title>User Guide &mdash; MIAGIS 1.0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
-  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
-        <script src="_static/language_data.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -38,7 +40,7 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">User Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#description">Description</a></li>
@@ -88,9 +90,9 @@
            <div itemprop="articleBody">
              
   <div class="section" id="user-guide">
-<h1>User Guide<a class="headerlink" href="#user-guide" title="Permalink to this headline">¶</a></h1>
+<h1>User Guide<a class="headerlink" href="#user-guide" title="Permalink to this heading"></a></h1>
 <div class="section" id="description">
-<h2>Description<a class="headerlink" href="#description" title="Permalink to this headline">¶</a></h2>
+<h2>Description<a class="headerlink" href="#description" title="Permalink to this heading"></a></h2>
 <p>MIAGIS was created to help automate the process of creating a meatadata file for GIS
 data depositions. It is a command line tool that goes through all files and folders
 in the current directory and makes a best effort to fill in all of the metadata fields
@@ -104,35 +106,35 @@ command of MIAGIS to create an initial metadata file, and then use the “valida
 to get a list of problems to fix and fix them until the “validate” command reports nothing.</p>
 </div>
 <div class="section" id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
 <p>The MIAGIS package runs under Python 3.7+. Use <a class="reference external" href="https://pip.pypa.io/">pip</a> to install.
 Starting with Python 3.4, <a class="reference external" href="https://pip.pypa.io/">pip</a> is included by default.</p>
 <div class="section" id="install-on-linux-mac-os-x">
-<h3>Install on Linux, Mac OS X<a class="headerlink" href="#install-on-linux-mac-os-x" title="Permalink to this headline">¶</a></h3>
+<h3>Install on Linux, Mac OS X<a class="headerlink" href="#install-on-linux-mac-os-x" title="Permalink to this heading"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install miagis
 </pre></div>
 </div>
 </div>
 <div class="section" id="install-on-windows">
-<h3>Install on Windows<a class="headerlink" href="#install-on-windows" title="Permalink to this headline">¶</a></h3>
+<h3>Install on Windows<a class="headerlink" href="#install-on-windows" title="Permalink to this heading"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>py -3 -m pip install miagis
 </pre></div>
 </div>
 </div>
 <div class="section" id="upgrade-on-linux-mac-os-x">
-<h3>Upgrade on Linux, Mac OS X<a class="headerlink" href="#upgrade-on-linux-mac-os-x" title="Permalink to this headline">¶</a></h3>
+<h3>Upgrade on Linux, Mac OS X<a class="headerlink" href="#upgrade-on-linux-mac-os-x" title="Permalink to this heading"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install miagis --upgrade
 </pre></div>
 </div>
 </div>
 <div class="section" id="upgrade-on-windows">
-<h3>Upgrade on Windows<a class="headerlink" href="#upgrade-on-windows" title="Permalink to this headline">¶</a></h3>
+<h3>Upgrade on Windows<a class="headerlink" href="#upgrade-on-windows" title="Permalink to this heading"></a></h3>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>py -3 -m pip install miagis --upgrade
 </pre></div>
 </div>
 </div>
 <div class="section" id="install-inside-virtualenv">
-<h3>Install inside virtualenv<a class="headerlink" href="#install-inside-virtualenv" title="Permalink to this headline">¶</a></h3>
+<h3>Install inside virtualenv<a class="headerlink" href="#install-inside-virtualenv" title="Permalink to this heading"></a></h3>
 <p>For an isolated install, you can run the same inside a <a class="reference external" href="https://virtualenv.pypa.io/">virtualenv</a>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ virtualenv -p /usr/bin/python3 venv            <span class="c1"># create virtual environment, use python3 interpreter</span>
 
@@ -146,7 +148,7 @@ $ deactivate                                     <span class="c1"># if you are d
 </div>
 </div>
 <div class="section" id="get-the-source-code">
-<h2>Get the source code<a class="headerlink" href="#get-the-source-code" title="Permalink to this headline">¶</a></h2>
+<h2>Get the source code<a class="headerlink" href="#get-the-source-code" title="Permalink to this heading"></a></h2>
 <p>Code is available on GitHub: <a class="reference external" href="https://github.com/MoseleyBioinformaticsLab/miagis">https://github.com/MoseleyBioinformaticsLab/miagis</a></p>
 <p>You can either clone the public repository:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ https://github.com/MoseleyBioinformaticsLab/miagis.git
@@ -165,7 +167,7 @@ or install it into your system site-packages easily:</p>
 </div>
 </div>
 <div class="section" id="dependencies">
-<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this heading"></a></h2>
 <p>The MIAGIS package depends on several Python libraries. The <code class="docutils literal notranslate"><span class="pre">pip</span></code> command
 will install all dependencies automatically, but if you wish to install them manually,
 run the following commands:</p>
@@ -223,7 +225,7 @@ py -3 -m pip install pandas    <span class="c1"># On Windows</span>
 </div></blockquote>
 </div>
 <div class="section" id="basic-usage">
-<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this headline">¶</a></h2>
+<h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading"></a></h2>
 <p>MIAGIS can run without any inputs for the build command, but the resulting metadata
 file won’t be as filled out as it could be with some simple inputs. Typically,
 users will want to create and provide a base metadata file and a resource properties
@@ -253,7 +255,7 @@ file. Details about the files and other inputs are in the <a class="reference in
 </div>
 </div>
 <div class="section" id="examples">
-<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<h2>Examples<a class="headerlink" href="#examples" title="Permalink to this heading"></a></h2>
 <p>Examples are available in the examples folder of the <a class="reference external" href="https://github.com/MoseleyBioinformaticsLab/miagis">GitHub</a> repo.</p>
 </div>
 </div>
