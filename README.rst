@@ -28,7 +28,7 @@ MIAGIS
 |
 
 
-MIAGIS was created to help automate the process of creating a metadata file for GIS 
+MIAGIS (Minimum Information About Geospatial Information System) was created to help automate the process of creating a metadata file for GIS 
 data depositions. It is a command line tool that goes through all files and folders 
 in the current directory and makes a best effort to fill in all of the metadata fields 
 for the file. The resulting metadata file is saved as GIS_METADATA.json in the current 
