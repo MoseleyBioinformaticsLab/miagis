@@ -83,7 +83,7 @@ def build(resource_properties_path: str, exact_matching: bool =False, remove_opt
         metadata["entry_id"] = entry_id
     if products:
         metadata["products"] = products
-    else:
+    elif not metadata["products"]:
         metadata["products"] = []
     
     
