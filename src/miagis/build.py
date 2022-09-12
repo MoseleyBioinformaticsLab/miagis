@@ -19,7 +19,7 @@ from . import user_input_checking
 
 def build(resource_properties_path: str, exact_matching: bool =False, remove_optional_fields: bool =True, 
           add_resources: bool =True, overwrite_format: bool =False, overwrite_fairness: bool =False,
-          base_metadata: dict|None = None, entry_version: int = 1, entry_id: str = "", base_description: str = "", products: list|None = None, schema_list: list|None = None) -> dict:
+          base_metadata: t.Union[dict,None] = None, entry_version: int = 1, entry_id: str = "", base_description: str = "", products: t.Union[list,None] = None, schema_list: t.Union[list,None] = None) -> dict:
     """Build a metadata file from the input settings in the current directory.
     
     Loop over files in the folders of the current directory, ignoring files in 
