@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>miagis.build &mdash; MIAGIS 1.0.1 documentation</title>
+  <title>miagis.build &mdash; MIAGIS 1.0.2 documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -28,7 +28,7 @@
             <a href="../../index.html" class="icon icon-home"> MIAGIS
           </a>
               <div class="version">
-                1.0.1
+                1.0.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
@@ -94,7 +94,7 @@
 
 <div class="viewcode-block" id="build"><a class="viewcode-back" href="../../api.html#miagis.build.build">[docs]</a><span class="k">def</span> <span class="nf">build</span><span class="p">(</span><span class="n">resource_properties_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">exact_matching</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">remove_optional_fields</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span><span class="kc">True</span><span class="p">,</span> 
           <span class="n">add_resources</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">overwrite_format</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">overwrite_fairness</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-          <span class="n">base_metadata</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span><span class="p">{},</span> <span class="n">entry_version</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">entry_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">base_description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">products</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span><span class="p">[],</span> <span class="n">schema_list</span><span class="p">:</span> <span class="nb">list</span> <span class="o">=</span> <span class="p">[])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+          <span class="n">base_metadata</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="nb">dict</span><span class="p">,</span><span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">entry_version</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">entry_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">base_description</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">products</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">,</span><span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">schema_list</span><span class="p">:</span> <span class="n">t</span><span class="o">.</span><span class="n">Union</span><span class="p">[</span><span class="nb">list</span><span class="p">,</span><span class="kc">None</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
     <span class="sd">&quot;&quot;&quot;Build a metadata file from the input settings in the current directory.</span>
 <span class="sd">    </span>
 <span class="sd">    Loop over files in the folders of the current directory, ignoring files in </span>
@@ -127,6 +127,8 @@
                        <span class="s2">&quot;esriFieldTypeSmallInteger&quot;</span><span class="p">:</span><span class="s2">&quot;int&quot;</span><span class="p">,</span> <span class="s2">&quot;esriFieldTypeSingle&quot;</span><span class="p">:</span><span class="s2">&quot;float&quot;</span><span class="p">,</span> <span class="s2">&quot;esriFieldTypeDouble&quot;</span><span class="p">:</span><span class="s2">&quot;float&quot;</span><span class="p">,</span>
                        <span class="s2">&quot;esriFieldTypeSmallInteger&quot;</span><span class="p">:</span><span class="s2">&quot;int&quot;</span><span class="p">,</span> <span class="s2">&quot;esriFieldTypeDate&quot;</span><span class="p">:</span><span class="s2">&quot;int&quot;</span><span class="p">,</span> <span class="s2">&quot;typeIdField&quot;</span><span class="p">:</span><span class="s2">&quot;string&quot;</span><span class="p">}</span>
     
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">schema_list</span><span class="p">:</span>
+        <span class="n">schema_list</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">schema_list</span><span class="o">.</span><span class="n">append</span><span class="p">({</span><span class="s2">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;In-built ESRI&quot;</span><span class="p">,</span> <span class="s2">&quot;style&quot;</span><span class="p">:</span><span class="s2">&quot;mapping&quot;</span><span class="p">,</span> <span class="s2">&quot;schema&quot;</span><span class="p">:</span><span class="n">miagis_schema</span><span class="o">.</span><span class="n">arcgis_schema</span><span class="p">,</span> 
                     <span class="s2">&quot;field_path&quot;</span><span class="p">:</span><span class="s1">&#39;[&quot;layers&quot;][0][&quot;layerDefinition&quot;][&quot;fields&quot;]&#39;</span><span class="p">,</span> 
                     <span class="s2">&quot;name_key&quot;</span><span class="p">:</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;type_key&quot;</span><span class="p">:</span><span class="s2">&quot;type&quot;</span><span class="p">,</span> <span class="s2">&quot;type_map&quot;</span><span class="p">:</span><span class="n">arcgis_type_map</span><span class="p">})</span>
@@ -146,7 +148,8 @@
       <span class="s2">&quot;resources&quot;</span> <span class="p">:</span> <span class="p">{}</span>
     <span class="p">}</span>
     
-    <span class="n">metadata</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">base_metadata</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">base_metadata</span><span class="p">:</span>
+        <span class="n">metadata</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">base_metadata</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">base_description</span><span class="p">:</span>
         <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;description&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">base_description</span>
     <span class="k">if</span> <span class="n">entry_version</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
@@ -155,6 +158,8 @@
         <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;entry_id&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">entry_id</span>
     <span class="k">if</span> <span class="n">products</span><span class="p">:</span>
         <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;products&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">products</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">metadata</span><span class="p">[</span><span class="s2">&quot;products&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
     
     
     <span class="c1">## If --resource_properties was given read in the data.</span>
