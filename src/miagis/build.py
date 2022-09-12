@@ -19,7 +19,7 @@ from . import user_input_checking
 
 def build(resource_properties_path: str, exact_matching: bool =False, remove_optional_fields: bool =True, 
           add_resources: bool =True, overwrite_format: bool =False, overwrite_fairness: bool =False,
-          base_metadata: dict ={}, entry_version: int =1, entry_id: str ="", base_description: str ="", products: list =[], schema_list: list = []) -> dict:
+          base_metadata: dict|None = None, entry_version: int = 1, entry_id: str = "", base_description: str = "", products: list|None = None, schema_list: list|None = None) -> dict:
     """Build a metadata file from the input settings in the current directory.
     
     Loop over files in the folders of the current directory, ignoring files in 
@@ -52,6 +52,8 @@ def build(resource_properties_path: str, exact_matching: bool =False, remove_opt
                        "esriFieldTypeSmallInteger":"int", "esriFieldTypeSingle":"float", "esriFieldTypeDouble":"float",
                        "esriFieldTypeSmallInteger":"int", "esriFieldTypeDate":"int", "typeIdField":"string"}
     
+    if not schema_list:
+        schema_list = []
     schema_list.append({"name":"In-built ESRI", "style":"mapping", "schema":miagis_schema.arcgis_schema, 
                     "field_path":'["layers"][0]["layerDefinition"]["fields"]', 
                     "name_key":"name", "type_key":"type", "type_map":arcgis_type_map})
@@ -71,7 +73,8 @@ def build(resource_properties_path: str, exact_matching: bool =False, remove_opt
       "resources" : {}
     }
     
-    metadata.update(base_metadata)
+    if base_metadata:
+        metadata.update(base_metadata)
     if base_description:
         metadata["description"] = base_description
     if entry_version != 1:
@@ -80,6 +83,8 @@ def build(resource_properties_path: str, exact_matching: bool =False, remove_opt
         metadata["entry_id"] = entry_id
     if products:
         metadata["products"] = products
+    else:
+        metadata["products"] = []
     
     
     ## If --resource_properties was given read in the data.
