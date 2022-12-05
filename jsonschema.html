@@ -15,6 +15,7 @@
         <script src="_static/underscore.js"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -82,8 +83,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>JSON Schema</li>
+      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">JSON Schema</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/jsonschema.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -131,7 +132,7 @@ keys are a unique id for the resource, which could be a name, filepath, or URL.<
 <span class="go">      &quot;fields&quot; : { &lt;fieldname&gt; : {  # optional for &quot;program&quot; and &quot;other&quot; type, or when the file is not Accessible.</span>
 <span class="go">          &quot;name&quot; :  &lt;fieldname&gt;,</span>
 <span class="go">          &quot;type&quot;: &lt;ontology_term | int | float | str&gt;,</span>
-<span class="go">          &quot;identifier&quot; : &lt;id&gt;, # optional, when identifier is different from &lt;fieldname&gt; or nested in a data structure; use colons to separate nested identifiers.</span>
+<span class="go">          &quot;identifier&quot; : &lt;id&gt;, # optional, but should be specified when the identifier is different from the &lt;fieldname&gt; or is nested in a data structure. Colons should be used to separate nested identifiers.</span>
 <span class="go">          &quot;identifier%type&quot; : &lt;column_name | column_index | key_name | nested&gt;, # optional</span>
 <span class="go">          ... },</span>
 <span class="go">        ... },</span>
@@ -266,7 +267,9 @@ of the valid <a class="reference external" href="https://json-schema.org/">JSON 
 “identifier”, and “identifier%type”. “name” is simply the key or fieldname repeated.
 “type” is one of “int”, “float”, “str”, or “ontology_term”. “identifier” is an
 optional way to identify the field. For instance, you can specify a column number.
-“identifier_type” would then need to be “column”.</p>
+“identifier_type” would then need to be “column”. If the identifier is different
+from the fieldname it is highly encouraged to use this field to specify how to
+get to the field. If it is a nested type use colons to seperate identifiers.</p>
 <p>sources: Optional, but should be provided if possible</p>
 <p>A list of resource ids that are sources to the resource. For instance, every map
 should put the layer resources as sources.</p>

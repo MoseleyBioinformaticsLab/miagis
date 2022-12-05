@@ -15,6 +15,7 @@
         <script src="_static/underscore.js"></script>
         <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
@@ -98,8 +99,8 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-      <li>Tutorial</li>
+      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Tutorial</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/tutorial.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -198,18 +199,18 @@ of entries in a row and prints a warning if they do not.</p>
 section of the metadata. As with the tabular form all properties are simply copied
 into the metadata for files whose names match the key in the JSON.</p>
 <p>Short Example Tabular:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">resource_name           alternate_locations      creator               creator_type         description                 geographical_area</span>
-<span class="go">example_name            URL_to_file              creator1,creator2     organization,URL         example_description     geographical_area</span>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">resource_name           alternate_locations    creator                   creator_type                   description         geographical_area</span>
+<span class="go">&lt;resource_name&gt;         &lt;URL_to_file&gt;,...      &lt;creator_name&gt;,...    &lt;organization|URL&gt;,...     &lt;description&gt;           &lt;geographical_area&gt;</span>
 </pre></div>
 </div>
 <p>Short Example JSON:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">{</span>
-<span class="go"> &#39;example_name&#39;: {</span>
-<span class="go">  &#39;alternate_locations&#39;: [&#39;URL_to_file&#39;],</span>
-<span class="go">  &#39;creator&#39;: [{&#39;name&#39;: &#39;creator1&#39;, &#39;type&#39;: &#39;organization&#39;},</span>
-<span class="go">              {&#39;name&#39;: &#39;creator2&#39;, &#39;type&#39;: &#39;URL&#39;}],</span>
-<span class="go">  &#39;description&#39;: &#39;example_description&#39;,</span>
-<span class="go">  &#39;geographical_area&#39;: &#39;geographical_area&#39;}</span>
+<span class="go"> &lt;resource_name&gt;: {</span>
+<span class="go">  &#39;alternate_locations&#39;: [&lt;URL_to_file&gt;],</span>
+<span class="go">  &#39;creator&#39;: [{&#39;name&#39;: &lt;creator_name&gt;, &#39;type&#39;: &#39;organization&#39;},</span>
+<span class="go">              {&#39;name&#39;: &lt;creator_name&gt;, &#39;type&#39;: &#39;URL&#39;}],</span>
+<span class="go">  &#39;description&#39;: &lt;description&gt;,</span>
+<span class="go">  &#39;geographical_area&#39;: &lt;geographical_area&gt;}</span>
 <span class="go">}</span>
 </pre></div>
 </div>
@@ -1062,7 +1063,7 @@ references exist, and that keys and id attributes match.</p>
 </pre></div>
 </div>
 <p>Console:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;</span>miagis validate metadata_file_path
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&gt;miagis validate metadata_file_path</span>
 <span class="go">The value for [&#39;resources&#39;][&#39;PFAS_detected_sites&#39;][&#39;alternate_locations&#39;] cannot be empty.</span>
 <span class="go">The product, Map 1 Potential hot-spot map, is not in &quot;resources&quot;.</span>
 <span class="go">The source, https://eec.ky.gov/Documents%20for%20URLs/PFAS%20Drinking%20Water%20Report%20Final.pdf, for resource, PFAS_detected_sites, does not exist in resources.</span>
@@ -1100,7 +1101,7 @@ constructed as expected it is easy to see the maps and their layers.</p>
 <h3>Examples<a class="headerlink" href="#id10" title="Permalink to this heading"></a></h3>
 <p>Typical run.</p>
 <p>Console:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;</span>miagis print_map_layers metadata_file_path
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&gt;miagis print_map_layers metadata_file_path</span>
 <span class="go">Maps:</span>
 <span class="go">    Map 1 Potential hot-spot map</span>
 <span class="go">            Layers:</span>
