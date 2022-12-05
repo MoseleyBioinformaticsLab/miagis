@@ -99,8 +99,8 @@ Short Example Tabular:
 
 .. code-block:: console
 
-    resource_name	    alternate_locations	     creator	           creator_type	        description	            geographical_area
-    example_name	    URL_to_file	             creator1,creator2	   organization,URL	    example_description	    geographical_area
+    resource_name	    alternate_locations	   creator	             creator_type	            description	        geographical_area
+    <resource_name>	    <URL_to_file>,...	   <creator_name>,...	 <organization|URL>,...	    <description>	    <geographical_area>
     
 
 Short Example JSON:
@@ -108,12 +108,12 @@ Short Example JSON:
 .. code-block:: console
 
     {
-     'example_name': {
-      'alternate_locations': ['URL_to_file'],
-      'creator': [{'name': 'creator1', 'type': 'organization'},
-                  {'name': 'creator2', 'type': 'URL'}],
-      'description': 'example_description',
-      'geographical_area': 'geographical_area'}
+     <resource_name>: {
+      'alternate_locations': [<URL_to_file>],
+      'creator': [{'name': <creator_name>, 'type': 'organization'},
+                  {'name': <creator_name>, 'type': 'URL'}],
+      'description': <description>,
+      'geographical_area': <geographical_area>}
     }
 
 

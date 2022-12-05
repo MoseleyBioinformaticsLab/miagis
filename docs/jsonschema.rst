@@ -43,7 +43,7 @@ Simple Schema
           "fields" : { <fieldname> : {  # optional for "program" and "other" type, or when the file is not Accessible.
               "name" :  <fieldname>, 
               "type": <ontology_term | int | float | str>, 
-              "identifier" : <id>, # optional, when identifier is different from <fieldname> or nested in a data structure; use colons to separate nested identifiers.
+              "identifier" : <id>, # optional, but should be specified when the identifier is different from the <fieldname> or is nested in a data structure. Colons should be used to separate nested identifiers.
               "identifier%type" : <column_name | column_index | key_name | nested>, # optional 
               ... }, 
             ... },
@@ -207,7 +207,9 @@ A JSON object where the keys are fieldnames and the values are "name", "type",
 "identifier", and "identifier%type". "name" is simply the key or fieldname repeated. 
 "type" is one of "int", "float", "str", or "ontology_term". "identifier" is an 
 optional way to identify the field. For instance, you can specify a column number. 
-"identifier_type" would then need to be "column".
+"identifier_type" would then need to be "column". If the identifier is different 
+from the fieldname it is highly encouraged to use this field to specify how to 
+get to the field. If it is a nested type use colons to seperate identifiers.
       
 sources: Optional, but should be provided if possible
 
