@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>User Guide &mdash; MIAGIS 1.0.2 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -11,9 +12,6 @@
   <![endif]-->
   
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
@@ -90,9 +88,9 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="user-guide">
+  <section id="user-guide">
 <h1>User Guide<a class="headerlink" href="#user-guide" title="Permalink to this heading"></a></h1>
-<div class="section" id="description">
+<section id="description">
 <h2>Description<a class="headerlink" href="#description" title="Permalink to this heading"></a></h2>
 <p>MIAGIS was created to help automate the process of creating a meatadata file for GIS
 data depositions. It is a command line tool that goes through all files and folders
@@ -105,69 +103,69 @@ metadata that the user needs to address manually.</p>
 into a directory with the expected directory structure (explained below), use the “build”
 command of MIAGIS to create an initial metadata file, and then use the “validate” command
 to get a list of problems to fix and fix them until the “validate” command reports nothing.</p>
-</div>
-<div class="section" id="installation">
+</section>
+<section id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
 <p>The MIAGIS package runs under Python 3.7+. Use <a class="reference external" href="https://pip.pypa.io/">pip</a> to install.
 Starting with Python 3.4, <a class="reference external" href="https://pip.pypa.io/">pip</a> is included by default.</p>
-<div class="section" id="install-on-linux-mac-os-x">
+<section id="install-on-linux-mac-os-x">
 <h3>Install on Linux, Mac OS X<a class="headerlink" href="#install-on-linux-mac-os-x" title="Permalink to this heading"></a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install miagis
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>miagis
 </pre></div>
 </div>
-</div>
-<div class="section" id="install-on-windows">
+</section>
+<section id="install-on-windows">
 <h3>Install on Windows<a class="headerlink" href="#install-on-windows" title="Permalink to this heading"></a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>py -3 -m pip install miagis
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>py<span class="w"> </span>-3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>miagis
 </pre></div>
 </div>
-</div>
-<div class="section" id="upgrade-on-linux-mac-os-x">
+</section>
+<section id="upgrade-on-linux-mac-os-x">
 <h3>Upgrade on Linux, Mac OS X<a class="headerlink" href="#upgrade-on-linux-mac-os-x" title="Permalink to this heading"></a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install miagis --upgrade
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>miagis<span class="w"> </span>--upgrade
 </pre></div>
 </div>
-</div>
-<div class="section" id="upgrade-on-windows">
+</section>
+<section id="upgrade-on-windows">
 <h3>Upgrade on Windows<a class="headerlink" href="#upgrade-on-windows" title="Permalink to this heading"></a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>py -3 -m pip install miagis --upgrade
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>py<span class="w"> </span>-3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>miagis<span class="w"> </span>--upgrade
 </pre></div>
 </div>
-</div>
-<div class="section" id="install-inside-virtualenv">
+</section>
+<section id="install-inside-virtualenv">
 <h3>Install inside virtualenv<a class="headerlink" href="#install-inside-virtualenv" title="Permalink to this heading"></a></h3>
 <p>For an isolated install, you can run the same inside a <a class="reference external" href="https://virtualenv.pypa.io/">virtualenv</a>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ virtualenv -p /usr/bin/python3 venv            <span class="c1"># create virtual environment, use python3 interpreter</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>virtualenv<span class="w"> </span>-p<span class="w"> </span>/usr/bin/python3<span class="w"> </span>venv<span class="w">            </span><span class="c1"># create virtual environment, use python3 interpreter</span>
 
-$ <span class="nb">source</span> venv/bin/activate                       <span class="c1"># activate virtual environment</span>
+$<span class="w"> </span><span class="nb">source</span><span class="w"> </span>venv/bin/activate<span class="w">                       </span><span class="c1"># activate virtual environment</span>
 
-$ python3 -m pip install miagis        <span class="c1"># install academic_tracker as usual</span>
+$<span class="w"> </span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>miagis<span class="w">        </span><span class="c1"># install academic_tracker as usual</span>
 
-$ deactivate                                     <span class="c1"># if you are done working in the virtual environment</span>
+$<span class="w"> </span>deactivate<span class="w">                                     </span><span class="c1"># if you are done working in the virtual environment</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="get-the-source-code">
+</section>
+</section>
+<section id="get-the-source-code">
 <h2>Get the source code<a class="headerlink" href="#get-the-source-code" title="Permalink to this heading"></a></h2>
 <p>Code is available on GitHub: <a class="reference external" href="https://github.com/MoseleyBioinformaticsLab/miagis">https://github.com/MoseleyBioinformaticsLab/miagis</a></p>
 <p>You can either clone the public repository:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ https://github.com/MoseleyBioinformaticsLab/miagis.git
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>https://github.com/MoseleyBioinformaticsLab/miagis.git
 </pre></div>
 </div>
 <p>Or, download the tarball and/or zipball:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ curl -OL https://github.com/MoseleyBioinformaticsLab/miagis/tarball/main
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>curl<span class="w"> </span>-OL<span class="w"> </span>https://github.com/MoseleyBioinformaticsLab/miagis/tarball/main
 
-$ curl -OL https://github.com/MoseleyBioinformaticsLab/miagis/zipball/main
+$<span class="w"> </span>curl<span class="w"> </span>-OL<span class="w"> </span>https://github.com/MoseleyBioinformaticsLab/miagis/zipball/main
 </pre></div>
 </div>
 <p>Once you have a copy of the source, you can embed it in your own Python package,
 or install it into your system site-packages easily:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$ python3 setup.py install
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>python3<span class="w"> </span>setup.py<span class="w"> </span>install
 </pre></div>
 </div>
-</div>
-<div class="section" id="dependencies">
+</section>
+<section id="dependencies">
 <h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this heading"></a></h2>
 <p>The MIAGIS package depends on several Python libraries. The <code class="docutils literal notranslate"><span class="pre">pip</span></code> command
 will install all dependencies automatically, but if you wish to install them manually,
@@ -177,8 +175,8 @@ run the following commands:</p>
 <li><dl>
 <dt><a class="reference external" href="https://pypi.org/project/docopt/">docopt</a> for creating the command-line interface.</dt><dd><ul>
 <li><p>To install <a class="reference external" href="https://pypi.org/project/docopt/">docopt</a> run the following:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install docopt  <span class="c1"># On Linux, Mac OS X</span>
-py -3 -m pip install docopt    <span class="c1"># On Windows</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>docopt<span class="w">  </span><span class="c1"># On Linux, Mac OS X</span>
+py<span class="w"> </span>-3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>docopt<span class="w">    </span><span class="c1"># On Windows</span>
 </pre></div>
 </div>
 </li>
@@ -189,8 +187,8 @@ py -3 -m pip install docopt    <span class="c1"># On Windows</span>
 <li><dl>
 <dt><a class="reference external" href="https://pypi.org/project/jsonschema/">jsonschema</a> for validating JSON.</dt><dd><ul>
 <li><p>To install the <a class="reference external" href="https://pypi.org/project/jsonschema/">jsonschema</a> Python library run the following:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install jsonschema  <span class="c1"># On Linux, Mac OS X</span>
-py -3 -m pip install jsonschema    <span class="c1"># On Windows</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>jsonschema<span class="w">  </span><span class="c1"># On Linux, Mac OS X</span>
+py<span class="w"> </span>-3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>jsonschema<span class="w">    </span><span class="c1"># On Windows</span>
 </pre></div>
 </div>
 </li>
@@ -201,8 +199,8 @@ py -3 -m pip install jsonschema    <span class="c1"># On Windows</span>
 <li><dl>
 <dt><a class="reference external" href="https://pypi.org/project/fuzzywuzzy/">fuzzywuzzy</a> for fuzzy matching publication titles.</dt><dd><ul>
 <li><p>To install the <a class="reference external" href="https://pypi.org/project/fuzzywuzzy/">fuzzywuzzy</a> Python library run the following:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install fuzzywuzzy  <span class="c1"># On Linux, Mac OS X</span>
-py -3 -m pip install fuzzywuzzy    <span class="c1"># On Windows</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>fuzzywuzzy<span class="w">  </span><span class="c1"># On Linux, Mac OS X</span>
+py<span class="w"> </span>-3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>fuzzywuzzy<span class="w">    </span><span class="c1"># On Windows</span>
 </pre></div>
 </div>
 </li>
@@ -213,8 +211,8 @@ py -3 -m pip install fuzzywuzzy    <span class="c1"># On Windows</span>
 <li><dl>
 <dt><a class="reference external" href="https://pypi.org/project/pandas/">pandas</a> for easy data manipulation.</dt><dd><ul>
 <li><p>To install the <a class="reference external" href="https://pypi.org/project/pandas/">pandas</a> Python library run the following:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install pandas  <span class="c1"># On Linux, Mac OS X</span>
-py -3 -m pip install pandas    <span class="c1"># On Windows</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>pandas<span class="w">  </span><span class="c1"># On Linux, Mac OS X</span>
+py<span class="w"> </span>-3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>pandas<span class="w">    </span><span class="c1"># On Windows</span>
 </pre></div>
 </div>
 </li>
@@ -224,8 +222,8 @@ py -3 -m pip install pandas    <span class="c1"># On Windows</span>
 </li>
 </ul>
 </div></blockquote>
-</div>
-<div class="section" id="basic-usage">
+</section>
+<section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Permalink to this heading"></a></h2>
 <p>MIAGIS can run without any inputs for the build command, but the resulting metadata
 file won’t be as filled out as it could be with some simple inputs. Typically,
@@ -254,12 +252,12 @@ file. Details about the files and other inputs are in the <a class="reference in
 <span class="go">   --base_metadata=&lt;file_path&gt;         Filepath to a JSON file with the base metadata fields to use.</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="examples">
+</section>
+<section id="examples">
 <h2>Examples<a class="headerlink" href="#examples" title="Permalink to this heading"></a></h2>
 <p>Examples are available in the examples folder of the <a class="reference external" href="https://github.com/MoseleyBioinformaticsLab/miagis">GitHub</a> repo.</p>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

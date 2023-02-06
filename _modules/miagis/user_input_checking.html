@@ -11,9 +11,6 @@
   <![endif]-->
   
         <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
-        <script src="../../_static/jquery.js"></script>
-        <script src="../../_static/underscore.js"></script>
-        <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../../_static/doctools.js"></script>
         <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/js/theme.js"></script>
@@ -91,7 +88,7 @@
 
 
 <div class="viewcode-block" id="load_json"><a class="viewcode-back" href="../../api.html#miagis.user_input_checking.load_json">[docs]</a><span class="k">def</span> <span class="nf">load_json</span><span class="p">(</span><span class="n">filepath</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-    <span class="sd">&quot;&quot;&quot;Adds error checking around loading a json file.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Adds error checking around loading a json file.</span>
 <span class="sd">    </span>
 <span class="sd">    Args:</span>
 <span class="sd">        filepath: filepath to the json file</span>
@@ -117,7 +114,7 @@
 
 
 <div class="viewcode-block" id="read_in_resource_properties"><a class="viewcode-back" href="../../api.html#miagis.user_input_checking.read_in_resource_properties">[docs]</a><span class="k">def</span> <span class="nf">read_in_resource_properties</span><span class="p">(</span><span class="n">resource_properties_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">exact_matching</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">t</span><span class="o">.</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">dict</span><span class="p">,</span><span class="nb">dict</span><span class="p">]:</span>
-    <span class="sd">&quot;&quot;&quot;Read in resource_properties and put it in expected dict form.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Read in resource_properties and put it in expected dict form.</span>
 <span class="sd">    </span>
 <span class="sd">    resource_properties can be csv, xlsx, or JSON, so if it is one of the tabular </span>
 <span class="sd">    forms some of the fields have to be read in special.</span>
@@ -199,7 +196,7 @@
 
 
 <div class="viewcode-block" id="validate_arbitrary_schema"><a class="viewcode-back" href="../../api.html#miagis.user_input_checking.validate_arbitrary_schema">[docs]</a><span class="k">def</span> <span class="nf">validate_arbitrary_schema</span><span class="p">(</span><span class="n">dict_to_validate</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">schema</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Validate any arbitrary JSON Schema.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Validate any arbitrary JSON Schema.</span>
 <span class="sd">    </span>
 <span class="sd">    Wraps around jsonschema.validate() to give more human readable errors </span>
 <span class="sd">    for most validation errors.</span>
@@ -261,7 +258,7 @@
 
 
 <div class="viewcode-block" id="additional_args_checks"><a class="viewcode-back" href="../../api.html#miagis.user_input_checking.additional_args_checks">[docs]</a><span class="k">def</span> <span class="nf">additional_args_checks</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Run some checks on args that jsonschema can&#39;t do.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Run some checks on args that jsonschema can&#39;t do.</span>
 <span class="sd">    </span>
 <span class="sd">    This assumes that args has been validated with a JSON schema and does some </span>
 <span class="sd">    further checking to make sure the values entered by the user make sense. </span>
@@ -289,7 +286,7 @@
         
 
 <div class="viewcode-block" id="additional_json_schemas_checks"><a class="viewcode-back" href="../../api.html#miagis.user_input_checking.additional_json_schemas_checks">[docs]</a><span class="k">def</span> <span class="nf">additional_json_schemas_checks</span><span class="p">(</span><span class="n">schema_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Check that all input schemas are valid JSON Schema.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Check that all input schemas are valid JSON Schema.</span>
 <span class="sd">    </span>
 <span class="sd">    If any schema are not valid JSON Schema then print a message and exit.</span>
 <span class="sd">    </span>

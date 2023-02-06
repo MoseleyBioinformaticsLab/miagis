@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Welcome to MIAGIS’s documentation! &mdash; MIAGIS 1.0.2 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -11,9 +12,6 @@
   <![endif]-->
   
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
@@ -74,10 +72,10 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="welcome-to-miagis-s-documentation">
+  <section id="welcome-to-miagis-s-documentation">
 <h1>Welcome to MIAGIS’s documentation!<a class="headerlink" href="#welcome-to-miagis-s-documentation" title="Permalink to this heading"></a></h1>
-</div>
-<div class="section" id="miagis">
+</section>
+<section id="miagis">
 <h1>MIAGIS<a class="headerlink" href="#miagis" title="Permalink to this heading"></a></h1>
 <a class="reference external image-reference" href="https://pypi.org/project/miagis"><img alt="Current library version" src="https://img.shields.io/pypi/v/miagis.svg" /></a>
 <a class="reference external image-reference" href="https://pypi.org/project/miagis"><img alt="Supported Python versions" src="https://img.shields.io/pypi/pyversions/miagis.svg" /></a>
@@ -99,7 +97,7 @@ metadata that the user needs to address manually.</p>
 into a directory with the expected directory structure (explained below), use the “build”
 command of MIAGIS to create an initial metadata file, and then use the “validate” command
 to get a list of problems to fix and fix them until the “validate” command reports nothing.</p>
-<div class="section" id="links">
+<section id="links">
 <h2>Links<a class="headerlink" href="#links" title="Permalink to this heading"></a></h2>
 <blockquote>
 <div><ul class="simple">
@@ -108,56 +106,56 @@ to get a list of problems to fix and fix them until the “validate” command r
 <li><p>Documentation &#64; <a class="reference external" href="https://moseleybioinformaticslab.github.io/miagis/">Pages</a></p></li>
 </ul>
 </div></blockquote>
-</div>
-<div class="section" id="installation">
+</section>
+<section id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this heading"></a></h2>
 <p>The MIAGIS package runs under Python 3.7+. Use <a class="reference external" href="https://pip.pypa.io">pip</a> to install.
 Starting with Python 3.4, <a class="reference external" href="https://pip.pypa.io">pip</a> is included by default. Be sure to use the latest
 version of pip as older versions are known to have issues grabbing all dependencies.</p>
-<div class="section" id="install-on-linux-mac-os-x">
+<section id="install-on-linux-mac-os-x">
 <h3>Install on Linux, Mac OS X<a class="headerlink" href="#install-on-linux-mac-os-x" title="Permalink to this heading"></a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install miagis
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>miagis
 </pre></div>
 </div>
-</div>
-<div class="section" id="install-on-windows">
+</section>
+<section id="install-on-windows">
 <h3>Install on Windows<a class="headerlink" href="#install-on-windows" title="Permalink to this heading"></a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>py -3 -m pip install miagis
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>py<span class="w"> </span>-3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>miagis
 </pre></div>
 </div>
-</div>
-<div class="section" id="upgrade-on-linux-mac-os-x">
+</section>
+<section id="upgrade-on-linux-mac-os-x">
 <h3>Upgrade on Linux, Mac OS X<a class="headerlink" href="#upgrade-on-linux-mac-os-x" title="Permalink to this heading"></a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 -m pip install miagis --upgrade
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>miagis<span class="w"> </span>--upgrade
 </pre></div>
 </div>
-</div>
-<div class="section" id="upgrade-on-windows">
+</section>
+<section id="upgrade-on-windows">
 <h3>Upgrade on Windows<a class="headerlink" href="#upgrade-on-windows" title="Permalink to this heading"></a></h3>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>py -3 -m pip install miagis --upgrade
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>py<span class="w"> </span>-3<span class="w"> </span>-m<span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>miagis<span class="w"> </span>--upgrade
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="quickstart">
+</section>
+</section>
+<section id="quickstart">
 <h2>Quickstart<a class="headerlink" href="#quickstart" title="Permalink to this heading"></a></h2>
 <p>First create a directory with directories for “layer_data”, “map_data”, and “other”
 as necessary. Then run the “build” command.</p>
 <p>MIAGIS has many options. The simplest use case is:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>miagis build
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>miagis<span class="w"> </span>build
 </pre></div>
 </div>
 <p>Although this will run and generate a metadata file, MIAGIS can do a lot more by
 using some of the simplest options. A more common use case is:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>miagis build --remove_optional_fields --add_resources --resource_properties &lt;filepath&gt; --base_metadata &lt;filepath&gt;
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>miagis<span class="w"> </span>build<span class="w"> </span>--remove_optional_fields<span class="w"> </span>--add_resources<span class="w"> </span>--resource_properties<span class="w"> </span>&lt;filepath&gt;<span class="w"> </span>--base_metadata<span class="w"> </span>&lt;filepath&gt;
 </pre></div>
 </div>
 <p>Detailed descriptions of the options and input files are in the <a class="reference external" href="https://moseleybioinformaticslab.github.io/miagis/tutorial.html">tutorial</a>.</p>
 <p>MIAGIS’s behavior can be quite complex, so it is highly encouraged to read the
 <a class="reference external" href="https://moseleybioinformaticslab.github.io/miagis/guide.html">guide</a> and <a class="reference external" href="https://moseleybioinformaticslab.github.io/miagis/tutorial.html">tutorial</a>.
 There are also examples available in the examples folder on the <a class="reference external" href="https://github.com/MoseleyBioinformaticsLab/miagis">GitHub</a> repo.</p>
-</div>
-<div class="section" id="mac-os-note">
+</section>
+<section id="mac-os-note">
 <h2>Mac OS Note<a class="headerlink" href="#mac-os-note" title="Permalink to this heading"></a></h2>
 <p>When you try to run the program on Mac OS you may get an SSL error.</p>
 <blockquote>
@@ -166,13 +164,13 @@ There are also examples available in the examples folder on the <a class="refere
 <p>This is due to a change in Mac OS and Python. To fix it go to to your Python
 folder in Applications and run the Install Certificates.command shell command
 in the /Applications/Python 3.x folder. This should fix the issue.</p>
-</div>
-<div class="section" id="license">
+</section>
+<section id="license">
 <h2>License<a class="headerlink" href="#license" title="Permalink to this heading"></a></h2>
 <p>This package is distributed under the BSD <a class="reference external" href="https://moseleybioinformaticslab.github.io/miagis/license.html">license</a>.</p>
-</div>
-</div>
-<div class="section" id="documentation-index">
+</section>
+</section>
+<section id="documentation-index">
 <h1>Documentation index:<a class="headerlink" href="#documentation-index" title="Permalink to this heading"></a></h1>
 <div class="toctree-wrapper compound">
 <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
@@ -213,15 +211,15 @@ in the /Applications/Python 3.x folder. This should fix the issue.</p>
 <li class="toctree-l1"><a class="reference internal" href="todo.html">TODO List</a></li>
 </ul>
 </div>
-</div>
-<div class="section" id="indices-and-tables">
+</section>
+<section id="indices-and-tables">
 <h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this heading"></a></h1>
 <ul class="simple">
 <li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
 <li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
 <li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
 </ul>
-</div>
+</section>
 
 
            </div>

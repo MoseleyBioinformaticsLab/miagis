@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tutorial &mdash; MIAGIS 1.0.2 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
@@ -11,9 +12,6 @@
   <![endif]-->
   
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
     <script src="_static/js/theme.js"></script>
@@ -110,12 +108,12 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <div class="section" id="tutorial">
+  <section id="tutorial">
 <h1>Tutorial<a class="headerlink" href="#tutorial" title="Permalink to this heading"></a></h1>
 <p>MIAGIS is intended to be used solely as a command line program. This tutorial
 describes each command and its options. Some simple examples are given here, but
 examples of papers actually published are in the examples folder on <a class="reference external" href="https://github.com/MoseleyBioinformaticsLab/miagis">GitHub</a>.</p>
-<div class="section" id="metadata-json-file">
+<section id="metadata-json-file">
 <h2>Metadata JSON File<a class="headerlink" href="#metadata-json-file" title="Permalink to this heading"></a></h2>
 <p>Details about the metadata JSON file created and validated by MIAGIS can be found
 in the <a class="reference internal" href="jsonschema.html"><span class="doc">JSON Schema</span></a> section. In short there are 2 sections to the metadata,
@@ -124,8 +122,8 @@ project, deposition, and products. The resources are details about each resource
 used or created during the project and included in the deposition. MIAGIS does
 the heavy lifting of filling out some of the tedious and repetitive parts in the
 resources section.</p>
-</div>
-<div class="section" id="deposition-directory">
+</section>
+<section id="deposition-directory">
 <h2>Deposition Directory<a class="headerlink" href="#deposition-directory" title="Permalink to this heading"></a></h2>
 <p>Although MIAGIS will work with any directory structure it has extra functionality
 if a certain structure is used. The expected structure is a directory named “map_data”,
@@ -133,8 +131,8 @@ a directory named “layer_data”, and a directory named “other”. “map_da
 data for whole GIS maps, “layer_data” contains files for individual layers of a
 map, and “other” contains any other data that is not maps or layers. Any directory
 that does not contain files should be deleted.</p>
-</div>
-<div class="section" id="before-running">
+</section>
+<section id="before-running">
 <h2>Before Running<a class="headerlink" href="#before-running" title="Permalink to this heading"></a></h2>
 <p>Getting the initial metadata build to come out as close to finished to as possible
 with a minimum amount of manual entry needed is heavily facilitated by getting
@@ -145,10 +143,10 @@ Then create a resource properties file that contains information about each
 resource. The base metadata file and resource properties file are detailed below
 with examples. With all of this done the preparation for running the build
 command is complete.</p>
-</div>
-<div class="section" id="input-files">
+</section>
+<section id="input-files">
 <h2>Input Files<a class="headerlink" href="#input-files" title="Permalink to this heading"></a></h2>
-<div class="section" id="base-metadata-file">
+<section id="base-metadata-file">
 <h3>Base Metadata File<a class="headerlink" href="#base-metadata-file" title="Permalink to this heading"></a></h3>
 <p>The base metadata file that can be input to MIAGIS through the –base_metadata
 option is a JSON file with the base section of the metadata. Unfortunately, much
@@ -175,8 +173,8 @@ specific situation it can be easier to rebuild using MIAGIS than modifying by ha
 <span class="go">}</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="resource-properties-file">
+</section>
+<section id="resource-properties-file">
 <h3>Resource Properties File<a class="headerlink" href="#resource-properties-file" title="Permalink to this heading"></a></h3>
 <p>The resource properties file is either a tabular or JSON file that contains information
 about resources in the deposition. It serves a few purposes. One purpose is to give
@@ -247,8 +245,8 @@ into the metadata for files whose names match the key in the JSON.</p>
 <span class="go">}</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="json-schemas-file">
+</section>
+<section id="json-schemas-file">
 <h3>JSON Schemas File<a class="headerlink" href="#json-schemas-file" title="Permalink to this heading"></a></h3>
 <p>The JSON Schemas file is a JSON file that allows you to specify different styles
 or formats of JSON files so that MIAGIS can accurately describe the fields in the
@@ -354,24 +352,24 @@ property. “properties_key” is the key to the properties in each feature.</p>
 <span class="go">}</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="building">
+</section>
+</section>
+<section id="building">
 <h2>Building<a class="headerlink" href="#building" title="Permalink to this heading"></a></h2>
-<div class="section" id="command-line-signature">
+<section id="command-line-signature">
 <h3>Command Line Signature<a class="headerlink" href="#command-line-signature" title="Permalink to this heading"></a></h3>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">miagis build [options]</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="description">
+</section>
+<section id="description">
 <h3>Description<a class="headerlink" href="#description" title="Permalink to this heading"></a></h3>
 <p>For each subdirectory in the current directory loop through all of the files and
 make a best attempt at adding it to the resources section of the metadata, filling
 in as much information as possible. Files found in “layer_data” automatically get
 a “layer” type and those found in “map_data” get a “map” type.</p>
-</div>
-<div class="section" id="options">
+</section>
+<section id="options">
 <h3>Options<a class="headerlink" href="#options" title="Permalink to this heading"></a></h3>
 <p>–resource_properties:</p>
 <p>Supply a tabular or JSON file to MIAGIS that it will use to match file names and
@@ -429,12 +427,12 @@ metadata.</p>
 copied into the metadata as is. If other options conflict with the data in the
 file (entry_version, entry_id, or description) the command line option will overwrite
 what is in the file.</p>
-</div>
-<div class="section" id="outputs">
+</section>
+<section id="outputs">
 <h3>Outputs<a class="headerlink" href="#outputs" title="Permalink to this heading"></a></h3>
 <p>Outputs a file named GIS_METADATA.json in the current directory.</p>
-</div>
-<div class="section" id="examples">
+</section>
+<section id="examples">
 <h3>Examples<a class="headerlink" href="#examples" title="Permalink to this heading"></a></h3>
 <p>Typical run.</p>
 <p>Console:</p>
@@ -949,31 +947,31 @@ what is in the file.</p>
 <span class="go">}</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="validating">
+</section>
+</section>
+<section id="validating">
 <h2>Validating<a class="headerlink" href="#validating" title="Permalink to this heading"></a></h2>
-<div class="section" id="id1">
+<section id="id1">
 <h3>Command Line Signature<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">miagis validate &lt;metadata_json_file&gt;</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="id2">
+</section>
+<section id="id2">
 <h3>Description<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h3>
 <p>Validate the input file against the metadata JSON Schema in the <a class="reference internal" href="jsonschema.html"><span class="doc">JSON Schema</span></a>
 section. Additionally, perform some other logical checks such as making sure all
 references exist, and that keys and id attributes match.</p>
-</div>
-<div class="section" id="id3">
+</section>
+<section id="id3">
 <h3>Options<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h3>
 <p>No options at this time.</p>
-</div>
-<div class="section" id="id4">
+</section>
+<section id="id4">
 <h3>Outputs<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h3>
 <p>Prints messages to the console about errors in the metadata.</p>
-</div>
-<div class="section" id="id5">
+</section>
+<section id="id5">
 <h3>Examples<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h3>
 <p>Typical run.</p>
 <p>GIS_MEATADATA.json:</p>
@@ -1071,33 +1069,33 @@ references exist, and that keys and id attributes match.</p>
 <span class="go">The &quot;name&quot; property for field, LATITUDE, for resource, layer_data/PFAS_detected_sites.json, does not match its key value.</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="print-map-layers">
+</section>
+</section>
+<section id="print-map-layers">
 <h2>Print Map Layers<a class="headerlink" href="#print-map-layers" title="Permalink to this heading"></a></h2>
-<div class="section" id="id6">
+<section id="id6">
 <h3>Command Line Signature<a class="headerlink" href="#id6" title="Permalink to this heading"></a></h3>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">miagis print_map_layers &lt;metadata_json&gt; [--save_path=&lt;save_path&gt;]</span>
 </pre></div>
 </div>
-</div>
-<div class="section" id="id7">
+</section>
+<section id="id7">
 <h3>Description<a class="headerlink" href="#id7" title="Permalink to this heading"></a></h3>
 <p>Go through the metadata file, pull out each map and display its layers. This
 command was added so that the simple structure of the project can be seen without
 having to sort through all of the files. With this command, if the metadata is
 constructed as expected it is easy to see the maps and their layers.</p>
-</div>
-<div class="section" id="id8">
+</section>
+<section id="id8">
 <h3>Options<a class="headerlink" href="#id8" title="Permalink to this heading"></a></h3>
 <p>–save_path:</p>
 <p>If provided save the console output to a text file.</p>
-</div>
-<div class="section" id="id9">
+</section>
+<section id="id9">
 <h3>Outputs<a class="headerlink" href="#id9" title="Permalink to this heading"></a></h3>
 <p>Pretty print the maps and layers of the metadata.</p>
-</div>
-<div class="section" id="id10">
+</section>
+<section id="id10">
 <h3>Examples<a class="headerlink" href="#id10" title="Permalink to this heading"></a></h3>
 <p>Typical run.</p>
 <p>Console:</p>
@@ -1141,9 +1139,9 @@ constructed as expected it is easy to see the maps and their layers.</p>
 <span class="go">                    Blank White Vector Basemap</span>
 </pre></div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>
