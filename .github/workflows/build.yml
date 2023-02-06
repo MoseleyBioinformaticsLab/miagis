@@ -36,21 +36,13 @@ jobs:
 
       # Install dependencies
       - name: Install dependencies
-      - if: ${{matrix.os}} == 'windows-latest'
-        run: |
-          python -m pip install --upgrade pip
-          pip install pytest-cov
-          pip install pytest-mock
-          if ( Test-Path requirements.txt ) {pip install -r requirements.txt}
-          python setup.py install
-          
-      - if: ${{matrix.os}} == 'ubuntu-latest'
         run: |
           python -m pip install --upgrade pip
           pip install pytest-cov
           pip install pytest-mock
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
           python setup.py install
+        shell: bash
 
       # Run pytest
       - name: Test with pytest
