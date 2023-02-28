@@ -6,11 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tutorial &mdash; MIAGIS 1.0.2 documentation</title>
       <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/custom_css.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/sphinx_highlight.js"></script>
@@ -26,14 +27,18 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="index.html" class="icon icon-home"> MIAGIS
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            MIAGIS
           </a>
               <div class="version">
                 1.0.2
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -57,23 +62,41 @@
 <li class="toctree-l3"><a class="reference internal" href="#description">Description</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#options">Options</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#outputs">Outputs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#examples">Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#examples">Examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#command">Command:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#output">Output:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Input Files:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#output-files">Output Files:</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#validating">Validating</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">Command Line Signature</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id2">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id3">Options</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id4">Outputs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id5">Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Command Line Signature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">Outputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">Examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id7">Command:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">Output:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">Input Files:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">Output Files:</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#print-map-layers">Print Map Layers</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id6">Command Line Signature</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id7">Description</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id8">Options</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id9">Outputs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id10">Examples</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">Command Line Signature</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">Description</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id13">Options</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id14">Outputs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id15">Examples</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id16">Command:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id17">Output:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id18">Input Files:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id19">Output Files:</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -97,7 +120,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">Tutorial</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/tutorial.rst.txt" rel="nofollow"> View page source</a>
@@ -435,10 +458,18 @@ what is in the file.</p>
 <section id="examples">
 <h3>Examples<a class="headerlink" href="#examples" title="Permalink to this heading"></a></h3>
 <p>Typical run.</p>
-<p>Console:</p>
+<section id="command">
+<h4>Command:<a class="headerlink" href="#command" title="Permalink to this heading"></a></h4>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">miagis build --resource_properties file_location --base_metadata file_location --add_resources --remove_optional_fields</span>
 </pre></div>
 </div>
+</section>
+<section id="output">
+<h4>Output:<a class="headerlink" href="#output" title="Permalink to this heading"></a></h4>
+<p>Any errors or warnings will be output, but there are none for this example.</p>
+</section>
+<section id="id1">
+<h4>Input Files:<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h4>
 <p>resource_properties.csv:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">file_name                                        location                                                                                                                                                                              creator                                                                                                                              creator_type         format          fairness    description                                                geographical_area</span>
 <span class="go">PFAS_sampling_and_purchasing_and_intake_detail       https://services.arcgis.com/vQ8kO5zdqETeirEL/arcgis/rest/services/PFAS_sampling_and_purchasing_data_2019/FeatureServer Kentucky                                                       Department of Environmental Protection,https://eec.ky.gov/Documents%20for%20URLs/PFAS%20Drinking%20Water%20Report%20Final.pdf    organization,URL     web         Fir         List of all water systems in which PFAS were sampled.          Kentucky</span>
@@ -458,11 +489,15 @@ what is in the file.</p>
 </pre></div>
 </div>
 <p>Current Directory:</p>
-<p>├─ layer_data/
-│  ├─ PFAS sampling and purchasing and intake detail.json
-│  ├─ PFAS_sampling_and_purchasing_and_intake_detail.geojson
-│  ├─ PFAS sampling and purchasing and intake detail.csv</p>
-<p>Output Metadata:</p>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">├─ layer_data/</span>
+<span class="go">│  ├─ PFAS sampling and purchasing and intake detail.json</span>
+<span class="go">│  ├─ PFAS_sampling_and_purchasing_and_intake_detail.geojson</span>
+<span class="go">│  ├─ PFAS sampling and purchasing and intake detail.csv</span>
+</pre></div>
+</div>
+</section>
+<section id="output-files">
+<h4>Output Files:<a class="headerlink" href="#output-files" title="Permalink to this heading"></a></h4>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">{</span>
 <span class="go">  &quot;format_version&quot;: &quot;DRAFT_MIAGIS_VERSION_0.1&quot;,</span>
 <span class="go">  &quot;entry_version&quot;: 1,</span>
@@ -949,31 +984,50 @@ what is in the file.</p>
 </div>
 </section>
 </section>
+</section>
 <section id="validating">
 <h2>Validating<a class="headerlink" href="#validating" title="Permalink to this heading"></a></h2>
-<section id="id1">
-<h3>Command Line Signature<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h3>
+<section id="id2">
+<h3>Command Line Signature<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h3>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">miagis validate &lt;metadata_json_file&gt;</span>
 </pre></div>
 </div>
 </section>
-<section id="id2">
-<h3>Description<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h3>
+<section id="id3">
+<h3>Description<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h3>
 <p>Validate the input file against the metadata JSON Schema in the <a class="reference internal" href="jsonschema.html"><span class="doc">JSON Schema</span></a>
 section. Additionally, perform some other logical checks such as making sure all
 references exist, and that keys and id attributes match.</p>
 </section>
-<section id="id3">
-<h3>Options<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h3>
+<section id="id4">
+<h3>Options<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h3>
 <p>No options at this time.</p>
 </section>
-<section id="id4">
-<h3>Outputs<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h3>
+<section id="id5">
+<h3>Outputs<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h3>
 <p>Prints messages to the console about errors in the metadata.</p>
 </section>
-<section id="id5">
-<h3>Examples<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h3>
+<section id="id6">
+<h3>Examples<a class="headerlink" href="#id6" title="Permalink to this heading"></a></h3>
 <p>Typical run.</p>
+<section id="id7">
+<h4>Command:<a class="headerlink" href="#id7" title="Permalink to this heading"></a></h4>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">miagis validate metadata_file_path</span>
+</pre></div>
+</div>
+</section>
+<section id="id8">
+<h4>Output:<a class="headerlink" href="#id8" title="Permalink to this heading"></a></h4>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">The value for [&#39;resources&#39;][&#39;PFAS_detected_sites&#39;][&#39;alternate_locations&#39;] cannot be empty.</span>
+<span class="go">The product, Map 1 Potential hot-spot map, is not in &quot;resources&quot;.</span>
+<span class="go">The source, https://eec.ky.gov/Documents%20for%20URLs/PFAS%20Drinking%20Water%20Report%20Final.pdf, for resource, PFAS_detected_sites, does not exist in resources.</span>
+<span class="go">The source, https://eec.ky.gov/Documents%20for%20URLs/PFAS%20Drinking%20Water%20Report%20Final.pdf, for resource, layer_data/PFAS_detected_sites.json, does not exist in resources.</span>
+<span class="go">The &quot;name&quot; property for field, LATITUDE, for resource, layer_data/PFAS_detected_sites.json, does not match its key value.</span>
+</pre></div>
+</div>
+</section>
+<section id="id9">
+<h4>Input Files:<a class="headerlink" href="#id9" title="Permalink to this heading"></a></h4>
 <p>GIS_MEATADATA.json:</p>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">{</span>
 <span class="go">  &quot;format_version&quot;: &quot;DRAFT_MIAGIS_VERSION_0.1&quot;,</span>
@@ -1060,47 +1114,49 @@ references exist, and that keys and id attributes match.</p>
 <span class="go">}</span>
 </pre></div>
 </div>
-<p>Console:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&gt;miagis validate metadata_file_path</span>
-<span class="go">The value for [&#39;resources&#39;][&#39;PFAS_detected_sites&#39;][&#39;alternate_locations&#39;] cannot be empty.</span>
-<span class="go">The product, Map 1 Potential hot-spot map, is not in &quot;resources&quot;.</span>
-<span class="go">The source, https://eec.ky.gov/Documents%20for%20URLs/PFAS%20Drinking%20Water%20Report%20Final.pdf, for resource, PFAS_detected_sites, does not exist in resources.</span>
-<span class="go">The source, https://eec.ky.gov/Documents%20for%20URLs/PFAS%20Drinking%20Water%20Report%20Final.pdf, for resource, layer_data/PFAS_detected_sites.json, does not exist in resources.</span>
-<span class="go">The &quot;name&quot; property for field, LATITUDE, for resource, layer_data/PFAS_detected_sites.json, does not match its key value.</span>
-</pre></div>
-</div>
+</section>
+<section id="id10">
+<h4>Output Files:<a class="headerlink" href="#id10" title="Permalink to this heading"></a></h4>
+<p>This command produces no output files.</p>
+</section>
 </section>
 </section>
 <section id="print-map-layers">
 <h2>Print Map Layers<a class="headerlink" href="#print-map-layers" title="Permalink to this heading"></a></h2>
-<section id="id6">
-<h3>Command Line Signature<a class="headerlink" href="#id6" title="Permalink to this heading"></a></h3>
+<section id="id11">
+<h3>Command Line Signature<a class="headerlink" href="#id11" title="Permalink to this heading"></a></h3>
 <div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">miagis print_map_layers &lt;metadata_json&gt; [--save_path=&lt;save_path&gt;]</span>
 </pre></div>
 </div>
 </section>
-<section id="id7">
-<h3>Description<a class="headerlink" href="#id7" title="Permalink to this heading"></a></h3>
+<section id="id12">
+<h3>Description<a class="headerlink" href="#id12" title="Permalink to this heading"></a></h3>
 <p>Go through the metadata file, pull out each map and display its layers. This
 command was added so that the simple structure of the project can be seen without
 having to sort through all of the files. With this command, if the metadata is
 constructed as expected it is easy to see the maps and their layers.</p>
 </section>
-<section id="id8">
-<h3>Options<a class="headerlink" href="#id8" title="Permalink to this heading"></a></h3>
+<section id="id13">
+<h3>Options<a class="headerlink" href="#id13" title="Permalink to this heading"></a></h3>
 <p>–save_path:</p>
 <p>If provided save the console output to a text file.</p>
 </section>
-<section id="id9">
-<h3>Outputs<a class="headerlink" href="#id9" title="Permalink to this heading"></a></h3>
+<section id="id14">
+<h3>Outputs<a class="headerlink" href="#id14" title="Permalink to this heading"></a></h3>
 <p>Pretty print the maps and layers of the metadata.</p>
 </section>
-<section id="id10">
-<h3>Examples<a class="headerlink" href="#id10" title="Permalink to this heading"></a></h3>
+<section id="id15">
+<h3>Examples<a class="headerlink" href="#id15" title="Permalink to this heading"></a></h3>
 <p>Typical run.</p>
-<p>Console:</p>
-<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">&gt;miagis print_map_layers metadata_file_path</span>
-<span class="go">Maps:</span>
+<section id="id16">
+<h4>Command:<a class="headerlink" href="#id16" title="Permalink to this heading"></a></h4>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">miagis print_map_layers GIS_METADATA.json</span>
+</pre></div>
+</div>
+</section>
+<section id="id17">
+<h4>Output:<a class="headerlink" href="#id17" title="Permalink to this heading"></a></h4>
+<div class="highlight-console notranslate"><div class="highlight"><pre><span></span><span class="go">Maps:</span>
 <span class="go">    Map 1 Potential hot-spot map</span>
 <span class="go">            Layers:</span>
 <span class="go">                    PFAS_detected_sites</span>
@@ -1139,6 +1195,15 @@ constructed as expected it is easy to see the maps and their layers.</p>
 <span class="go">                    Blank White Vector Basemap</span>
 </pre></div>
 </div>
+</section>
+<section id="id18">
+<h4>Input Files:<a class="headerlink" href="#id18" title="Permalink to this heading"></a></h4>
+<p>Omitted for length, but can be found in the examples folder of <a class="reference external" href="https://github.com/MoseleyBioinformaticsLab/miagis">GitHub</a> repo.</p>
+</section>
+<section id="id19">
+<h4>Output Files:<a class="headerlink" href="#id19" title="Permalink to this heading"></a></h4>
+<p>This command produces no output files.</p>
+</section>
 </section>
 </section>
 </section>
