@@ -393,11 +393,19 @@ Examples
 --------
 Typical run.
 
-Console:
+Command:
+++++++++
 
 .. code-block:: console
     
     miagis build --resource_properties file_location --base_metadata file_location --add_resources --remove_optional_fields
+
+Output:
++++++++
+Any errors or warnings will be output, but there are none for this example.
+
+Input Files:
+++++++++++++
 
 resource_properties.csv:
 
@@ -424,13 +432,16 @@ base_metadata.json:
 
 Current Directory:
 
-├─ layer_data/
-│  ├─ PFAS sampling and purchasing and intake detail.json
-│  ├─ PFAS_sampling_and_purchasing_and_intake_detail.geojson
-│  ├─ PFAS sampling and purchasing and intake detail.csv
+.. code-block:: console
+
+    ├─ layer_data/
+    │  ├─ PFAS sampling and purchasing and intake detail.json
+    │  ├─ PFAS_sampling_and_purchasing_and_intake_detail.geojson
+    │  ├─ PFAS sampling and purchasing and intake detail.csv
 
 
-Output Metadata:
+Output Files:
++++++++++++++
 
 .. code-block:: console
     
@@ -950,6 +961,27 @@ Examples
 --------
 Typical run.
 
+Command:
+++++++++
+
+.. code-block:: console
+    
+    miagis validate metadata_file_path
+
+Output:
++++++++
+
+.. code-block:: console
+
+    The value for ['resources']['PFAS_detected_sites']['alternate_locations'] cannot be empty.
+    The product, Map 1 Potential hot-spot map, is not in "resources".
+    The source, https://eec.ky.gov/Documents%20for%20URLs/PFAS%20Drinking%20Water%20Report%20Final.pdf, for resource, PFAS_detected_sites, does not exist in resources.
+    The source, https://eec.ky.gov/Documents%20for%20URLs/PFAS%20Drinking%20Water%20Report%20Final.pdf, for resource, layer_data/PFAS_detected_sites.json, does not exist in resources.
+    The "name" property for field, LATITUDE, for resource, layer_data/PFAS_detected_sites.json, does not match its key value.
+
+Input Files:
+++++++++++++
+
 GIS_MEATADATA.json:
 
 .. code-block:: console
@@ -1038,18 +1070,9 @@ GIS_MEATADATA.json:
       }
     }
     
-
-Console:
-
-.. code-block:: console
-    
-    >miagis validate metadata_file_path
-    The value for ['resources']['PFAS_detected_sites']['alternate_locations'] cannot be empty.
-    The product, Map 1 Potential hot-spot map, is not in "resources".
-    The source, https://eec.ky.gov/Documents%20for%20URLs/PFAS%20Drinking%20Water%20Report%20Final.pdf, for resource, PFAS_detected_sites, does not exist in resources.
-    The source, https://eec.ky.gov/Documents%20for%20URLs/PFAS%20Drinking%20Water%20Report%20Final.pdf, for resource, layer_data/PFAS_detected_sites.json, does not exist in resources.
-    The "name" property for field, LATITUDE, for resource, layer_data/PFAS_detected_sites.json, does not match its key value.
-
+Output Files:
++++++++++++++
+This command produces no output files.
 
 
 
@@ -1087,11 +1110,18 @@ Examples
 --------
 Typical run.
 
-Console:
+Command:
+++++++++
 
 .. code-block:: console
     
-    >miagis print_map_layers metadata_file_path
+    miagis print_map_layers GIS_METADATA.json
+    			
+Output:
++++++++
+
+.. code-block:: console
+
     Maps:
     	Map 1 Potential hot-spot map
     		Layers:
@@ -1130,6 +1160,13 @@ Console:
     			USA_State_Internal_Boundaries
     			Blank White Vector Basemap
 
+Input Files:
+++++++++++++
+Omitted for length, but can be found in the examples folder of GitHub_ repo.
+
+Output Files:
++++++++++++++
+This command produces no output files.
 
 
 .. _GitHub: https://github.com/MoseleyBioinformaticsLab/miagis

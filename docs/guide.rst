@@ -172,8 +172,8 @@ file. Details about the files and other inputs are in the :doc:`tutorial`.
     --base_metadata=<file_path>         Filepath to a JSON file with the base metadata fields to use.
 
 
-Examples
-~~~~~~~~
+Deposition Examples
+~~~~~~~~~~~~~~~~~~~
 Examples are available in the examples folder of the GitHub_ repo.
 
 
